@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChapeauDAL;
+using ChapeauModel;
 
 namespace ChapeauLogic
 {
-    class ManagerServices
+    public class ManagerServices
     {
-        Manager_DAO manager = new Manager_DAO();
+        Manager_DAO manager_db = new Manager_DAO();
 
-        public public List<Employee> GetEmployees()
+        public List<Employee> GetEmployees()
         {
             try
             {
                 List<Employee> employees = new List<Employee>();
-                employees = manager.GetAllEmployees();
+                employees = manager_db.GetAllEmployees();
                 return employees;
             }
             catch (Exception)
@@ -39,19 +41,19 @@ namespace ChapeauLogic
 
         }
 
-        public List<Menu> GetArticles()
+        public List<MenuItem> GetArticles()
         {
             try
             {
-                List<Menu> articles = new List<Menu>();
-                articles = manager.GetMenu();
+                List<MenuItem> articles = new List<MenuItem>();
+                articles = manager_db.GetMenu();
                 return articles;
             }
             catch (Exception)
             {
-                List<Menu> articles = new List<Menu>();
-                Menu article1 = new Menu();
-                article1.ArticleID = 00000;
+                List<MenuItem> articles = new List<MenuItem>();
+                MenuItem article1 = new MenuItem();
+                article1.MenuItemID = 00000;
                 article1.Name = "Empty";
                 article1.Price = 00000;
                 article1.Stock = 00000;

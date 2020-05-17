@@ -18,12 +18,10 @@ namespace ChapeauUI
         public Chapeau()
         {
             InitializeComponent();
-
         }
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
         {
-
             bool status = int.TryParse(lblloginbox.Text, out LoginPassword);
         }
         private void lbllogin_Click(object sender, EventArgs e)

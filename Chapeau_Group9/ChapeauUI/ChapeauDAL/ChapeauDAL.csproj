@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="EmployeeDAO.cs" />
-    <Compile Include="ManagerDAO.cs" />
+    <Compile Include="Manager_DAO.cs" />
     <Compile Include="OrderDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,17 +52,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChapeauLogic\ChapeauLogic.csproj">
-      <Project>{02443bc9-9b2c-465c-99d5-ba0afe220681}</Project>
-      <Name>ChapeauLogic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ChapeauModel\ChapeauModel.csproj">
       <Project>{e27b3406-07ef-4e73-943a-b9cd25d48295}</Project>
       <Name>ChapeauModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChapeauUI\ChapeauUI.csproj">
-      <Project>{12cd132c-9823-4c0f-afde-bcf7e4e38594}</Project>
-      <Name>ChapeauUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

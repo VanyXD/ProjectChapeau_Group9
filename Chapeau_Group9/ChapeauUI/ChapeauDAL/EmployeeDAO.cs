@@ -34,7 +34,7 @@ namespace ChapeauDAL
             emp.EmployeeID = (int)reader["employee_id"];
             emp.FirstName = (string)reader["first_name"];
             emp.LastName = (string)reader["last_name"];
-            emp.PhoneNR = (int)reader["phone"];
+            emp.PhoneNumber = (int)reader["phone"];
             int pos = (int)reader["position_id"];
             switch (pos)
             {
@@ -58,3 +58,4 @@ namespace ChapeauDAL
 
         }
     }
+}

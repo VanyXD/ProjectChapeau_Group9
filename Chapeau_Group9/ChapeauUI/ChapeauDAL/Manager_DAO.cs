@@ -11,13 +11,13 @@ using System.Configuration;
 
 namespace ChapeauDAL
 {
-    public class ManagerDAO : Base
+    public class Manager_DAO : Base
     {
         //employee dao
         //separte menu dao
         private SqlDataAdapter adapter;
         private SqlConnection conn;
-        public ManagerDAO()
+        public Manager_DAO()
         {
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString);
             adapter = new SqlDataAdapter();
