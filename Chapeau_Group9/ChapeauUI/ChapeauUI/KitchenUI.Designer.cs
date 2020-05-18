@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
             this.btn_Kitchen_Notes = new System.Windows.Forms.Button();
             this.btn_Kitchen_Ready = new System.Windows.Forms.Button();
             this.btn_Kitchen_View = new System.Windows.Forms.Button();
@@ -46,7 +46,7 @@
             this.col_table3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_table4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_table5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
             this.btn_Kitchen_Modify = new System.Windows.Forms.Button();
             this.Lbl_Stock = new System.Windows.Forms.Label();
             this.lbl_Kitchen_Catergory = new System.Windows.Forms.Label();
@@ -57,40 +57,40 @@
             this.col_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabs_Kitchen.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tab_Kitchen_Orders.SuspendLayout();
+            this.tab_Kitchen_Stock.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs_Kitchen
             // 
-            this.tabs_Kitchen.Controls.Add(this.tabPage1);
-            this.tabs_Kitchen.Controls.Add(this.tabPage2);
+            this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Orders);
+            this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Stock);
             this.tabs_Kitchen.Location = new System.Drawing.Point(12, 12);
             this.tabs_Kitchen.Name = "tabs_Kitchen";
             this.tabs_Kitchen.SelectedIndex = 0;
             this.tabs_Kitchen.Size = new System.Drawing.Size(918, 484);
             this.tabs_Kitchen.TabIndex = 0;
             // 
-            // tabPage1
+            // tab_Kitchen_Orders
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tabPage1.Controls.Add(this.btn_Kitchen_Notes);
-            this.tabPage1.Controls.Add(this.btn_Kitchen_Ready);
-            this.tabPage1.Controls.Add(this.btn_Kitchen_View);
-            this.tabPage1.Controls.Add(this.listView3);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.listView2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(910, 455);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Orders";
+            this.tab_Kitchen_Orders.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tab_Kitchen_Orders.Controls.Add(this.btn_Kitchen_Notes);
+            this.tab_Kitchen_Orders.Controls.Add(this.btn_Kitchen_Ready);
+            this.tab_Kitchen_Orders.Controls.Add(this.btn_Kitchen_View);
+            this.tab_Kitchen_Orders.Controls.Add(this.listView3);
+            this.tab_Kitchen_Orders.Controls.Add(this.label1);
+            this.tab_Kitchen_Orders.Controls.Add(this.listView2);
+            this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 25);
+            this.tab_Kitchen_Orders.Name = "tab_Kitchen_Orders";
+            this.tab_Kitchen_Orders.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(910, 455);
+            this.tab_Kitchen_Orders.TabIndex = 0;
+            this.tab_Kitchen_Orders.Text = "Orders";
             // 
             // btn_Kitchen_Notes
             // 
             this.btn_Kitchen_Notes.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Kitchen_Notes.Location = new System.Drawing.Point(574, 0);
+            this.btn_Kitchen_Notes.Location = new System.Drawing.Point(533, 0);
             this.btn_Kitchen_Notes.Name = "btn_Kitchen_Notes";
             this.btn_Kitchen_Notes.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_Notes.TabIndex = 37;
@@ -100,7 +100,7 @@
             // btn_Kitchen_Ready
             // 
             this.btn_Kitchen_Ready.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Kitchen_Ready.Location = new System.Drawing.Point(739, 0);
+            this.btn_Kitchen_Ready.Location = new System.Drawing.Point(698, 0);
             this.btn_Kitchen_Ready.Name = "btn_Kitchen_Ready";
             this.btn_Kitchen_Ready.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_Ready.TabIndex = 36;
@@ -110,7 +110,7 @@
             // btn_Kitchen_View
             // 
             this.btn_Kitchen_View.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Kitchen_View.Location = new System.Drawing.Point(409, 0);
+            this.btn_Kitchen_View.Location = new System.Drawing.Point(368, 0);
             this.btn_Kitchen_View.Name = "btn_Kitchen_View";
             this.btn_Kitchen_View.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_View.TabIndex = 35;
@@ -216,22 +216,22 @@
             this.col_table5.Text = "Table 5";
             this.col_table5.Width = 175;
             // 
-            // tabPage2
+            // tab_Kitchen_Stock
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tabPage2.Controls.Add(this.btn_Kitchen_Modify);
-            this.tabPage2.Controls.Add(this.Lbl_Stock);
-            this.tabPage2.Controls.Add(this.lbl_Kitchen_Catergory);
-            this.tabPage2.Controls.Add(this.lbl_Kitche_Menu);
-            this.tabPage2.Controls.Add(this.cbox_Kitchen_Category);
-            this.tabPage2.Controls.Add(this.cbox_Kitchen_Menu);
-            this.tabPage2.Controls.Add(this.listView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(910, 455);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Stock";
+            this.tab_Kitchen_Stock.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Modify);
+            this.tab_Kitchen_Stock.Controls.Add(this.Lbl_Stock);
+            this.tab_Kitchen_Stock.Controls.Add(this.lbl_Kitchen_Catergory);
+            this.tab_Kitchen_Stock.Controls.Add(this.lbl_Kitche_Menu);
+            this.tab_Kitchen_Stock.Controls.Add(this.cbox_Kitchen_Category);
+            this.tab_Kitchen_Stock.Controls.Add(this.cbox_Kitchen_Menu);
+            this.tab_Kitchen_Stock.Controls.Add(this.listView1);
+            this.tab_Kitchen_Stock.Location = new System.Drawing.Point(4, 25);
+            this.tab_Kitchen_Stock.Name = "tab_Kitchen_Stock";
+            this.tab_Kitchen_Stock.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(910, 455);
+            this.tab_Kitchen_Stock.TabIndex = 1;
+            this.tab_Kitchen_Stock.Text = "Stock";
             // 
             // btn_Kitchen_Modify
             // 
@@ -323,10 +323,10 @@
             this.Name = "KitchenUI";
             this.Text = "Kitchen";
             this.tabs_Kitchen.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tab_Kitchen_Orders.ResumeLayout(false);
+            this.tab_Kitchen_Orders.PerformLayout();
+            this.tab_Kitchen_Stock.ResumeLayout(false);
+            this.tab_Kitchen_Stock.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -334,8 +334,8 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabs_Kitchen;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tab_Kitchen_Orders;
+        private System.Windows.Forms.TabPage tab_Kitchen_Stock;
         private System.Windows.Forms.Label lbl_Kitche_Menu;
         private System.Windows.Forms.ComboBox cbox_Kitchen_Category;
         private System.Windows.Forms.ComboBox cbox_Kitchen_Menu;
