@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChapeauModel
 {
-    public class Position
+    public enum Position
     {
-        // change this to an enum 
-        public int PositionId { get; set; }
-        public string PositionName { get; set; }
+        Manager =1 , Cook , Waiter , Bartender
     }
 }

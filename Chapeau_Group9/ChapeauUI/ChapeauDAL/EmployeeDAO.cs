@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauModel;
 using System.Data.SqlClient;
+using System.Data;
+
 
 namespace ChapeauDAL
 {
     public class EmployeeDAO : Base
     {
+        private SqlConnection dbConnection;
         public List<Employee> GetAll()
         {
             List<Employee> employees = new List<Employee>();
