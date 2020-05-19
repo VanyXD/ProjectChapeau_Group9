@@ -60,5 +60,10 @@ namespace ChapeauDAL
             return emp;
 
         }
+        public bool Login(int password)
+        {
+            
+
+        }
     }
 }
