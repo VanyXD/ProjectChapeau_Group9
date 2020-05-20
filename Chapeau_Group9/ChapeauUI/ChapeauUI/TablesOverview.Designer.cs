@@ -289,7 +289,6 @@
             this.MinimizeBox = false;
             this.Name = "TablesOverview";
             this.Text = "Tables overview";
-            this.Load += new System.EventHandler(this.Layout_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

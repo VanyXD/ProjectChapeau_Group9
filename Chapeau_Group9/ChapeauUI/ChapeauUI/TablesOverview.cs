@@ -24,15 +24,6 @@ namespace ChapeauUI
             Hide();
             new Chapeau().ShowDialog();
         }
-        private void Layout_Load(object sender, EventArgs e)
-        {
 
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=den1.mssql7.gear.host;Persist Security Info=True;User ID=dbchapeau09;Password=Jm2K-w?9ez1C");
-            string query1 = "select first_name From employees WHERE password = '" + lblloginbox.Text + "'";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query1, sqlConnection);
-            DataTable data = new DataTable();
-            sqlDataAdapter.Fill(data);
-            lblCurrentUser.Text = data.Rows[1]["first_name"].ToString();
-        }
     }
 }
