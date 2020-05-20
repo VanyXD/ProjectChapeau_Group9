@@ -11,7 +11,7 @@ namespace ChapeauModel
         public int EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Position Position { get; set; }
+        public Position position { get; set; }
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
         public int Password { get; set; }

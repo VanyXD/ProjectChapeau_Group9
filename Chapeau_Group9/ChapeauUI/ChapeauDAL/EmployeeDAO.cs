@@ -28,7 +28,7 @@ namespace ChapeauDAL
         public void InsertEmployee(Employee employee)
         {
             string query = $"insert into Employee(employee_ID,first_Name,last_Name,position_ID,email,phone_NR,password) values({employee.EmployeeID}, '{employee.FirstName}', '{employee.LastName}', " +
-                $"{employee.Position}, '{employee.Email}', {employee.PhoneNumber}, {employee.Password}";
+                $"{employee.position}, '{employee.Email}', {employee.PhoneNumber}, {employee.Password}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -41,7 +41,7 @@ namespace ChapeauDAL
         }
         public void UpdateEmployee(Employee employee)
         {
-            string query = $"update Employee Set employee_ID = {employee.EmployeeID},first_Name = '{employee.FirstName}', last_Name = '{employee.LastName}',position_ID = {employee.Position}," +
+            string query = $"update Employee Set employee_ID = {employee.EmployeeID},first_Name = '{employee.FirstName}', last_Name = '{employee.LastName}',position_ID = {employee.position}," +
                 $"email = '{employee.Email}', phone_NR = {employee.PhoneNumber}, password = {employee.PhoneNumber}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
@@ -109,7 +109,7 @@ namespace ChapeauDAL
                     EmployeeID = (int)dr["employee_ID"],
                     FirstName = (String)dr["first_Name"],
                     LastName = (string)dr["last_Name"],
-                    Position = (Position)dr["position_ID"],
+                    position = (Position)dr["position_ID"],
                     Email = (string)dr["email"],
                     PhoneNumber = (int)dr["phone_NR"],
                     Password = (int)dr["password"]
