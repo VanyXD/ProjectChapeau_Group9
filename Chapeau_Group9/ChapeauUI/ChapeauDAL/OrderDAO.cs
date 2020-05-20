@@ -10,48 +10,33 @@ using ChapeauModel;
 namespace ChapeauDAL
 {
     public class OrderDAO : Base
-    {
-        private SqlConnection conn;
+    { 
         public List<Order> GetAll()
         {
-            List<Order> orders = new List<Order>();
-            SqlCommand cmd = new SqlCommand("SELECT O.order_id, O.quantity, O.order_time, O.total, " +
-                "E.employee_id, E.first_name, E .last_name, E.phone, E.[password], E.position_id, " +
-                "M.article_id, M.[name], M.stock, M.VAT, M.lunch, M.price, M.category_ID FROM orders " +
-                "AS O JOIN employees AS E ON E.employee_id = O.employees_id JOIN menu AS M ON " +
-                "M.article_ID = O.article_id", conn);
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-
-
-            while (reader.Read())
             {
-                Order order = ReadOrder(reader);
-                orders.Add(order);
-
+                string query = "SELECT EmployeeID, OrderID, TotalPrice, Items, Time, TableID, OrderStatus FROM [Order]";
+                SqlParameter[] sqlParameters = new SqlParameter[0];
+                return ReadOrder(ExecuteSelectQuery(query, sqlParameters));
             }
-            reader.Close();
-            dbConnection.Close();
-            return orders;
         }
-        private Order ReadOrder(SqlDataReader reader)
+        private List<Order> ReadOrder(DataTable datatable)
         {
-            Order order = new Order();
-
-            Employee employee = new Employee();
-
-            MenuItem item = new MenuItem();
-
-            employee.FirstName = (string)reader["first_name"];
-            employee.LastName = (string)reader["last_name"];
-            employee.EmployeeID = (int)reader["employee_id"];
-
-            order.Employee = employee;
-
-            item.MenuItemID = (int)reader["article_id"];
-            item.Name = (string)reader["name"];
-            item.Price = (decimal)reader["price"];
-            return order;
-        }
+            List<Order> orderList = new List<Order>();
+            foreach (DataRow dr in datatable.Rows)
+            {
+                Order order = new Order()
+                {
+                    EmployeeID = (int)dr["EmployeeID"],
+                    OrderID = (int)dr["OrderID"],
+                    TotalPrice = (decimal)dr["TotalPrice"],
+                    Items = (MenuItem)dr["Name"],
+                    Time = (DateTime)dr["Time"],
+                    TableID = (int)dr["TableID"],
+                    OrderStatus = (OrderStatus)dr["OrderStatus"]
+                };
+                orderList.Add(order);
+            }
+            return orderList;
+        }     
     }
 }

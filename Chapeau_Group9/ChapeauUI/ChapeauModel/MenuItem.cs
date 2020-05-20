@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ChapeauModel
 {
-    public class MenuItem
+    public class MenuItem 
     {
         public int MenuItemID { get; set; }
         public string Name { get; set; }
@@ -14,6 +15,7 @@ namespace ChapeauModel
         public int Stock { get; set; }
         public bool VAT { get; set; }
         public bool Lunch { get; set; }
-        public Category Category { get; set; }
+        public CategoryID Category { get; set; }
+
     }
 }

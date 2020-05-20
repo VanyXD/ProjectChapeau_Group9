@@ -8,9 +8,9 @@ using ChapeauModel;
 
 namespace ChapeauLogic
 {
-    public class ManagerServices
+    public class EmployeeServices
     {
-        Manager_DAO manager_db = new Manager_DAO();
+        EmployeeDAO manager_db = new EmployeeDAO();
 
         public List<Employee> GetEmployees()
         {
@@ -27,7 +27,7 @@ namespace ChapeauLogic
                 employee1.EmployeeID = 0000;
                 employee1.FirstName = "Test";
                 employee1.LastName = "Again";
-                employee1.Position = null;
+                employee1.Position = Position.Empty;
                 employee1.Email = "No Email";
                 employee1.PhoneNumber = 00000;
                 employee1.Password = 00000;
@@ -59,7 +59,7 @@ namespace ChapeauLogic
                 article1.Stock = 00000;
                 article1.VAT = false;
                 article1.Lunch = false;
-                article1.Category = null;
+                article1.Category = CategoryID.empty;
 
                 articles.Add(article1);
                 return articles;

@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="EmployeeDAO.cs" />
-    <Compile Include="Manager_DAO.cs" />
     <Compile Include="OrderDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -56,6 +55,9 @@
       <Project>{e27b3406-07ef-4e73-943a-b9cd25d48295}</Project>
       <Name>ChapeauModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChapeauDAL.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChapeauModel
 {
-    public class KitchenStaff : Employee
+    public enum OrderStatus
     {
-
+        Pending = 1 , Ready , Served , empty
     }
 }

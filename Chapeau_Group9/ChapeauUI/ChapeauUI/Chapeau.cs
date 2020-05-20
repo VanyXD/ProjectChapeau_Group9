@@ -9,15 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapeauModel;
 using System.Data.SqlClient;
+using ChapeauDAL;
+using ChapeauLogic;
 
 namespace ChapeauUI
 {
     public partial class Chapeau : Form
     {
         private int LoginPassword;
+        private List<Employee> employees;
         public Chapeau()
         {
             InitializeComponent();
+            EmployeeServices employeeServices = new EmployeeServices();
+            employees = employeeServices.GetEmployees();        
+            
         }
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
@@ -26,26 +32,35 @@ namespace ChapeauUI
         }
         private void lbllogin_Click(object sender, EventArgs e)
         {
-            Chapeau.ActiveForm.Hide();
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=den1.mssql7.gear.host;Persist Security Info=True;User ID=dbchapeau09;Password=Jm2K-w?9ez1C");
-            string query1 = "select Password From employees WHERE password = '" + lblloginbox.Text.Trim() + "'";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query1, sqlConnection);
-            DataTable data = new DataTable();
-            sqlDataAdapter.Fill(data);
-            if (data.Rows.Count == 1)
+           
+            foreach(Employee employee in employees)
             {
-                TablesOverview layout = new TablesOverview();
-                layout.ShowDialog();
+                if(employee.Password.ToString() == lblloginbox.Text)
+                {
+                   switch ((int)employee.Position)
+                    {
+                        case 1:
+                            // mangerFORM
+                            break;
+                        case 2:
+                            // Waiter 
+                            break;
+                        case 3:
+                            KitchenUI kitchenUI = new KitchenUI();
+                            kitchenUI.Show();
+                            break;
+                        case 4 :
+                            // BAR FORM
+                            break;                          
+                   }
+                    Chapeau.ActiveForm.Hide();
+                }
             }
 
-            else
-            {
-                MessageBox.Show("wrong password");
-            }
 
-
-
-
+         
+           
         }
+      
     }
 }
