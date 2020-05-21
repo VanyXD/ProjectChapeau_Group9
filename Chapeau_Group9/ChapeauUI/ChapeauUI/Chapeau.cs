@@ -37,7 +37,7 @@ namespace ChapeauUI
             {
                 if(employee.Password.ToString() == lblloginbox.Text)
                 {
-                   switch ((int)employee.Position)
+                   switch ((int)employee.position)
                     {
                         case 1:
                             // mangerFORM

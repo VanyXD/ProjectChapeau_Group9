@@ -10,13 +10,6 @@ namespace ChapeauModel
     {
         public int CustomerContact;
         public string CustomerName;
-        private DateTime DateTime;
-
-        public Reservations(int customercontact, string customername, DateTime dateTime)
-        {
-            this.CustomerContact= customercontact;
-            this.CustomerName = customername;
-            this.DateTime = dateTime; 
-        }
+        public DateTime DateTime;
     }
 }

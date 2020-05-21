@@ -10,14 +10,14 @@ namespace ChapeauLogic
 {
     public class EmployeeServices
     {
-        EmployeeDAO manager_db = new EmployeeDAO();
+        EmployeeDAO employee_db = new EmployeeDAO();
 
         public List<Employee> GetEmployees()
         {
             try
             {
                 List<Employee> employees = new List<Employee>();
-                employees = manager_db.GetAllEmployees();
+                employees = employee_db.GetAllEmployees();
                 return employees;
             }
             catch (Exception)
@@ -27,7 +27,7 @@ namespace ChapeauLogic
                 employee1.EmployeeID = 0000;
                 employee1.FirstName = "Test";
                 employee1.LastName = "Again";
-                employee1.Position = Position.Empty;
+                employee1.position = Position.Empty;
                 employee1.Email = "No Email";
                 employee1.PhoneNumber = 00000;
                 employee1.Password = 00000;
@@ -46,7 +46,7 @@ namespace ChapeauLogic
             try
             {
                 List<MenuItem> articles = new List<MenuItem>();
-                articles = manager_db.GetMenu();
+                articles = employee_db.GetMenu();
                 return articles;
             }
             catch (Exception)
