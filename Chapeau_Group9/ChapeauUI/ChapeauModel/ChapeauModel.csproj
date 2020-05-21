@@ -53,7 +53,7 @@
     <Compile Include="TableStatus.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChapeauModel.cd" />
+    <None Include="ChapeauModelDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
