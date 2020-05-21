@@ -113,6 +113,7 @@ namespace ChapeauDAL
                     Email = (string)dr["email"],
                     PhoneNumber = (int)dr["phone_NR"],
                     Password = (int)dr["password"]
+
                 };
                 employeeList.Add(employee);
             }
