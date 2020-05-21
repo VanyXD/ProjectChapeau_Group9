@@ -41,6 +41,7 @@ namespace ChapeauLogic
 
         }
 
+<<<<<<< HEAD
         public List<MenuItem> GetArticles()
         {
             try
@@ -60,12 +61,33 @@ namespace ChapeauLogic
                 article1.VAT = false;
                 article1.Lunch = false;
                 article1.Category = CategoryID.empty;
+=======
+        //public List<MenuItem> GetArticles()
+        //{
+        //    try
+        //    {
+        //        List<MenuItem> articles = new List<MenuItem>();
+        //        articles = manager_db.GetMenu();
+        //        return articles;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        List<MenuItem> articles = new List<MenuItem>();
+        //        MenuItem article1 = new MenuItem();
+        //        article1.MenuItemID = 00000;
+        //        article1.Name = "Empty";
+        //        article1.Price = 00000;
+        //        article1.Stock = 00000;
+        //        article1.VAT = false;
+        //        article1.Lunch = false;
+        //        article1.Category = CategoryID.empty;
+>>>>>>> c40c94fe2521a6495ec7da281a794e91ec41c3fc
 
-                articles.Add(article1);
-                return articles;
-                throw new Exception("Couldn't connect to the database");
+        //        articles.Add(article1);
+        //        return articles;
+        //        throw new Exception("Couldn't connect to the database");
 
-            }
-        }
+        //    }
+        //}
     }
 }

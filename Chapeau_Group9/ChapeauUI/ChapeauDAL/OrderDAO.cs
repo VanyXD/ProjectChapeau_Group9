@@ -11,7 +11,7 @@ namespace ChapeauDAL
 {
     public class OrderDAO : Base
     { 
-        public List<Order> GetAll()
+        public List<Order> GetAllOrders()
         {
             {
                 string query = "SELECT EmployeeID, OrderID, TotalPrice, Items, Time, TableID, OrderStatus FROM [Order]";
@@ -37,6 +37,20 @@ namespace ChapeauDAL
                 orderList.Add(order);
             }
             return orderList;
-        }     
+        }
+
+        public void AddOrder(Order order)
+        {
+            string query = $"insert into Orders(order_id,quantity,order_time,total,employees_id,article_id,table_id) values({order.OrderID}, {order.Quantity}, {order.Time}, " +
+                $"{order.TotalPrice}, {order.EmployeeID}, {order.Items.MenuItemID}, {order.TableID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void RemoveOrder(Order order)
+        {
+            string query = $"Delete from orders where order_id = {order.OrderID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
