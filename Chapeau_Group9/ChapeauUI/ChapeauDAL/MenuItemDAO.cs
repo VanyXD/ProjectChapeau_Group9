@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 using ChapeauModel;
+using System.Data.SqlClient;
+using System.Data;
+using System.Collections.ObjectModel;
+using System.Configuration;
+
 
 namespace ChapeauDAL
 {

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ChapeauDALDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
