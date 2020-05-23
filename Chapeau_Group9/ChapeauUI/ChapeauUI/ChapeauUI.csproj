@@ -52,6 +52,7 @@
     <Compile Include="Chapeau.Designer.cs">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </Compile>
+    <Compile Include="library.cs" />
     <Compile Include="KitchenViewItem.cs">
       <SubType>Form</SubType>
     </Compile>

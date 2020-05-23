@@ -22,17 +22,9 @@ namespace ChapeauUI
             GetStock();
         }
 
-        void Logout()
-        {
-            Close();
-            Chapeau loginWindow = new Chapeau();
-            loginWindow.Show();
-        }
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
         {
-            Close();
-            Chapeau loginWindow = new Chapeau();
-            loginWindow.Show();
+            Logout();
         }
 
         private void AddStockItem(ChapeauModel.MenuItem item)
@@ -40,6 +32,12 @@ namespace ChapeauUI
             var row = new string[] { item.Stock.ToString(), item.Name };
             var lvi = new ListViewItem(row);
             lv_stock.Items.Add(lvi);
+        }
+        private void Logout()
+        {
+            Close();
+            Chapeau loginWindow = new Chapeau();
+            loginWindow.Show();
         }
 
         private void GetStock()
@@ -75,9 +73,12 @@ namespace ChapeauUI
 
         private void btn_Kitchen_Logout2_Click(object sender, EventArgs e)
         {
-            Close();
-            Chapeau loginWindow = new Chapeau();
-            loginWindow.Show();
+            Logout();
+        }
+
+        private void btn_kitchen_table1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -79,6 +79,8 @@
             this.col_quantity3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_menuItem3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
+            this.btn_Kitchen_Logout2 = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Kitchen_Modify = new System.Windows.Forms.Button();
             this.Lbl_Stock = new System.Windows.Forms.Label();
             this.lbl_Kitchen_Catergory = new System.Windows.Forms.Label();
@@ -88,8 +90,6 @@
             this.lv_stock = new System.Windows.Forms.ListView();
             this.col_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_Refresh = new System.Windows.Forms.Button();
-            this.btn_Kitchen_Logout2 = new System.Windows.Forms.Button();
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -299,6 +299,7 @@
             this.btn_kitchen_table1.TabIndex = 38;
             this.btn_kitchen_table1.Text = "Table 1";
             this.btn_kitchen_table1.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table1.Click += new System.EventHandler(this.btn_kitchen_table1_Click);
             // 
             // label1
             // 
@@ -570,6 +571,27 @@
             this.tab_Kitchen_Stock.TabIndex = 1;
             this.tab_Kitchen_Stock.Text = "Stock";
             // 
+            // btn_Kitchen_Logout2
+            // 
+            this.btn_Kitchen_Logout2.Location = new System.Drawing.Point(789, 0);
+            this.btn_Kitchen_Logout2.Name = "btn_Kitchen_Logout2";
+            this.btn_Kitchen_Logout2.Size = new System.Drawing.Size(101, 42);
+            this.btn_Kitchen_Logout2.TabIndex = 65;
+            this.btn_Kitchen_Logout2.Text = "Logout";
+            this.btn_Kitchen_Logout2.UseVisualStyleBackColor = true;
+            this.btn_Kitchen_Logout2.Click += new System.EventHandler(this.btn_Kitchen_Logout2_Click);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_Refresh.Location = new System.Drawing.Point(720, 390);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(159, 45);
+            this.btn_Refresh.TabIndex = 33;
+            this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // btn_Kitchen_Modify
             // 
             this.btn_Kitchen_Modify.BackColor = System.Drawing.SystemColors.ControlDark;
@@ -653,27 +675,6 @@
             // 
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 399;
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Refresh.Location = new System.Drawing.Point(720, 390);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(159, 45);
-            this.btn_Refresh.TabIndex = 33;
-            this.btn_Refresh.Text = "Refresh";
-            this.btn_Refresh.UseVisualStyleBackColor = false;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
-            // 
-            // btn_Kitchen_Logout2
-            // 
-            this.btn_Kitchen_Logout2.Location = new System.Drawing.Point(789, 0);
-            this.btn_Kitchen_Logout2.Name = "btn_Kitchen_Logout2";
-            this.btn_Kitchen_Logout2.Size = new System.Drawing.Size(101, 42);
-            this.btn_Kitchen_Logout2.TabIndex = 65;
-            this.btn_Kitchen_Logout2.Text = "Logout";
-            this.btn_Kitchen_Logout2.UseVisualStyleBackColor = true;
-            this.btn_Kitchen_Logout2.Click += new System.EventHandler(this.btn_Kitchen_Logout2_Click);
             // 
             // KitchenUI
             // 
