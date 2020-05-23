@@ -22,6 +22,12 @@ namespace ChapeauUI
             GetStock();
         }
 
+        void Logout()
+        {
+            Close();
+            Chapeau loginWindow = new Chapeau();
+            loginWindow.Show();
+        }
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
         {
             Close();
@@ -60,6 +66,18 @@ namespace ChapeauUI
         {
             MenuItemServices service = new MenuItemServices();
             menuItems = service.GetMenuItems();
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            RefreshMenu();
+        }
+
+        private void btn_Kitchen_Logout2_Click(object sender, EventArgs e)
+        {
+            Close();
+            Chapeau loginWindow = new Chapeau();
+            loginWindow.Show();
         }
     }
 }

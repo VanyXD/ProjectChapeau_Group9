@@ -51,9 +51,9 @@ namespace ChapeauUI
                         case 4 :
                             // Kitchen
                             KitchenUI kitchenUI = new KitchenUI();
-                            Chapeau chap = new Chapeau();
+                            //Chapeau chap = new Chapeau();
                             Chapeau.ActiveForm.Hide();
-                            chap.Hide();
+                            //chap.Hide();
                             kitchenUI.Show();
                             return;
                     }
