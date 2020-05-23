@@ -27,7 +27,7 @@ namespace ChapeauLogic
                 item1.Name = "Empty";
                 item1.Price = 00000;
                 item1.Stock = 11111;
-                item1.VAT = false;
+                item1.HighVAT = false;
                 item1.Lunch = false;
                 item1.Category = CategoryID.empty;
 

@@ -52,6 +52,12 @@
     <Compile Include="Chapeau.Designer.cs">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </Compile>
+    <Compile Include="KitchenViewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KitchenViewItem.Designer.cs">
+      <DependentUpon>KitchenViewItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="KitchenUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Chapeau.resx">
       <DependentUpon>Chapeau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KitchenViewItem.resx">
+      <DependentUpon>KitchenViewItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenUI.resx">
       <DependentUpon>KitchenUI.cs</DependentUpon>

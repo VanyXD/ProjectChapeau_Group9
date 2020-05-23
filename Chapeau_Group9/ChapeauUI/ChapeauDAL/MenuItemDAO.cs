@@ -16,7 +16,7 @@ namespace ChapeauDAL
     {
         public void UpdateItem(MenuItem menu)
         {
-            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.VAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
+            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -33,7 +33,7 @@ namespace ChapeauDAL
         public void AddItem(MenuItem menu)
         {
             string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,Lunch,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {menu.VAT}, {menu.Lunch}, {menu.Category}";
+                $"{menu.Stock}, {menu.HighVAT}, {menu.Lunch}, {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -61,7 +61,7 @@ namespace ChapeauDAL
                     Name = (String)dr["Name"],
                     Price = (decimal)dr["Price"],
                     Stock = (int)dr["Stock"],
-                    VAT = (bool)dr["VAT"],
+                    HighVAT = (bool)dr["VAT"],
                     Lunch = (bool)dr["Lunch"],
                     Category = (CategoryID)dr["Category_ID"]
                 };
