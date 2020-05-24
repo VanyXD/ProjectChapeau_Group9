@@ -28,26 +28,30 @@ namespace ChapeauUI
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
         {
-            bool status = int.TryParse(lblloginbox.Text, out LoginPassword);
+            bool status = int.TryParse(logintextbox.Text, out LoginPassword);
         }
         private void lbllogin_Click(object sender, EventArgs e)
         {
            
             foreach(Employee employee in employees)
             {
-                if(employee.Password.ToString() == lblloginbox.Text)
+                if(employee.Password.ToString() == logintextbox.Text)
                 {
                    switch ((int)employee.position)
-                    {
+                   {
                         case 1:
-                            // mangerFORM
-                            break;
+                            TablesOverview MangerOverview = new TablesOverview();
+                            Chapeau.ActiveForm.Hide();
+                            MangerOverview.Show();
+                            return;
                         case 2:
-                            // Waiter 
-                            break;
+                            TablesOverview WaiterOverview = new TablesOverview();
+                            Chapeau.ActiveForm.Hide();
+                            WaiterOverview.Show();
+                            return;
                         case 3:
                             //Bar
-                            break;
+                            return;
                         case 4 :
                             // Kitchen
                             KitchenUI kitchenUI = new KitchenUI();
@@ -56,17 +60,11 @@ namespace ChapeauUI
                             chap.Hide();
                             kitchenUI.Show();
                             return;
-                    }
+                   }
                 }
 
             }
-            MessageBox.Show("You fucked up!!!!");
-
-
-
-
-
-
+            MessageBox.Show("Unregistered User");
         }
 
         private void Chapeau_Load(object sender, EventArgs e)
