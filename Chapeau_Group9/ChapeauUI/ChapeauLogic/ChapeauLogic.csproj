@@ -45,6 +45,7 @@
     <Compile Include="MenuItemServices.cs" />
     <Compile Include="OrderServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TablesServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChapeauDAL\ChapeauDAL.csproj">
