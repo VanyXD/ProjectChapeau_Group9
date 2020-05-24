@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChapeauModel;
 
 namespace ChapeauUI
 {
     public partial class KitchenViewItem : Form
     {
-        public KitchenViewItem()
+        public KitchenViewItem(Order order)
         {
             InitializeComponent();
         }
@@ -20,6 +21,13 @@ namespace ChapeauUI
         private void btn_ViewItem_Close_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void AddOrderItem(Order order)
+        {
+            var row = new string[] { order.Quantity.ToString(), order.Items.ToString() };
+            var lvi = new ListViewItem(row);
+            lv_ViewTable.Items.Add(lvi);
         }
     }
 }
