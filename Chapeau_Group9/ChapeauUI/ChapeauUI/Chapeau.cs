@@ -16,14 +16,17 @@ namespace ChapeauUI
 {
     public partial class Chapeau : Form
     {
+        Employee user;
         private int LoginPassword;
         private List<Employee> employees;
+        EmployeeServices employeeServices = new EmployeeServices();
         public Chapeau()
         {
             InitializeComponent();
-            EmployeeServices employeeServices = new EmployeeServices();
-            employees = employeeServices.GetEmployees();        
-            
+
+            employees = new List<Employee>();
+            user = new Employee();
+
         }
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
@@ -32,39 +35,49 @@ namespace ChapeauUI
         }
         private void lbllogin_Click(object sender, EventArgs e)
         {
-           
-            foreach(Employee employee in employees)
-            {
-                if(employee.Password.ToString() == logintextbox.Text)
-                {
-                   switch ((int)employee.position)
-                   {
-                        case 1:
-                            TablesOverview MangerOverview = new TablesOverview();
-                            Chapeau.ActiveForm.Hide();
-                            MangerOverview.Show();
-                            return;
-                        case 2:
-                            TablesOverview WaiterOverview = new TablesOverview();
-                            Chapeau.ActiveForm.Hide();
-                            WaiterOverview.Show();
-                            return;
-                        case 3:
-                            //Bar
-                            return;
-                        case 4 :
-                            // Kitchen
-                            KitchenUI kitchenUI = new KitchenUI();
-                            Chapeau chap = new Chapeau();
-                            Chapeau.ActiveForm.Hide();
-                            chap.Hide();
-                            kitchenUI.Show();
-                            return;
-                   }
-                }
+            employees = employeeServices.GetEmployees();
 
+            foreach (Employee emp in employees)
+            {
+                if (emp.Password == LoginPassword)
+                {
+                    user = emp;
+                    break;
+                }
             }
-            MessageBox.Show("Unregistered User");
+
+            if (user == null)
+            {
+                MessageBox.Show("User Does not Exist");
+            }
+            else
+            {
+                if (user.position == Position.Manager)
+                {
+                    TablesOverview tablesOverview = new TablesOverview(user);
+                    Chapeau.ActiveForm.Hide();
+                    tablesOverview.ShowDialog();
+                }
+                else if (user.position == Position.waiter)
+                {
+                    TablesOverview tablesOverview = new TablesOverview(user);
+                    Chapeau.ActiveForm.Hide();
+                    tablesOverview.ShowDialog();
+                }
+                else if (user.position == Position.cook)
+                {
+                    KitchenUI kitchenUI = new KitchenUI();
+                    Chapeau.ActiveForm.Hide();
+                    kitchenUI.Show();
+                }
+                else if (user.position == Position.Bartender)
+                {
+                    //BAR overview
+                }
+                else
+                    MessageBox.Show("User Does not Exist");
+            }
+
         }
 
         private void Chapeau_Load(object sender, EventArgs e)
