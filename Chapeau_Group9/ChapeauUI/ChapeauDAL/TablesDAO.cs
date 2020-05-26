@@ -2,31 +2,39 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ChapeauDAL
 {
     public class TablesDAO : Base
     {
+        private SqlConnection dbConnection;
+        public TablesDAO()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString;
+            dbConnection = new SqlConnection(connString);
+        }
         public List<Tables> GetAllTabels()
         {
-            string query = "SELECT table_id,TableStatus,table_number FROM [tables]";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTabels(ExecuteSelectQuery(query, sqlParameters));
-        }
-        private List<Tables> ReadTabels(DataTable datatable)
-        {
-            List<Tables> TabelsList = new List<Tables>();
-            foreach (DataRow dr in datatable.Rows)
+            dbConnection.Open();
+            SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM [tables]", dbConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Tables> tables = new List<Tables>();
+            while (reader.Read())
             {
-                Tables Table = new Tables()
-                {
-                    TableID = (int)dr["table_id"],
-                    Status = (TableStatus)dr["TableStatus"],
-                    TableNumber = (int)dr["table_number"]
-                };
-                TabelsList.Add(Table);
+                Tables table = ReadTabels(reader);
+                tables.Add(table);
             }
-            return TabelsList;
+            reader.Close();
+            dbConnection.Close();
+            return tables;
+        }
+        private Tables ReadTabels(SqlDataReader reader)
+        {
+            int TableID = (int)reader["table_id"];
+            TableStatus  Status = (TableStatus)reader["TableStatus"];
+            int TableNumber = (int)reader["table_number"];
+            return new Tables(TableID, Status, TableNumber);
         }
     }
 }
