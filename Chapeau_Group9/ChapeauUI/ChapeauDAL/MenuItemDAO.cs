@@ -46,7 +46,7 @@ namespace ChapeauDAL
         }
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT articleID,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
+            string query = "SELECT article_id,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
         }

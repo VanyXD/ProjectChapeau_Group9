@@ -52,18 +52,29 @@
     <Compile Include="Chapeau.Designer.cs">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </Compile>
-    <Compile Include="library.cs" />
-    <Compile Include="KitchenViewItem.cs">
+    <Compile Include="ModifyUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KitchenViewItem.Designer.cs">
-      <DependentUpon>KitchenViewItem.cs</DependentUpon>
+    <Compile Include="ModifyUI.Designer.cs">
+      <DependentUpon>ModifyUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KitchenUI.Designer.cs">
       <DependentUpon>KitchenUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenViewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KitchenViewItem.Designer.cs">
+      <DependentUpon>KitchenViewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenBarUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KitchenBarUI.Designer.cs">
+      <DependentUpon>KitchenBarUI.cs</DependentUpon>
     </Compile>
     <Compile Include="TablesOverview.cs">
       <SubType>Form</SubType>
@@ -76,11 +87,14 @@
     <EmbeddedResource Include="Chapeau.resx">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModifyUI.resx">
+      <DependentUpon>ModifyUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KitchenViewItem.resx">
       <DependentUpon>KitchenViewItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KitchenUI.resx">
-      <DependentUpon>KitchenUI.cs</DependentUpon>
+    <EmbeddedResource Include="KitchenBarUI.resx">
+      <DependentUpon>KitchenBarUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablesOverview.resx">
       <DependentUpon>TablesOverview.cs</DependentUpon>
