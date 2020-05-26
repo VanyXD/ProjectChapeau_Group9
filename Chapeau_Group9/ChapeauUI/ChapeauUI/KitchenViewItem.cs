@@ -23,7 +23,7 @@ namespace ChapeauUI
             Close();
         }
 
-        public void AddOrderItem(Order order)
+        public void PrintItem(Order order)
         {
             var row = new string[] { order.Quantity.ToString(), order.Items.ToString() };
             var lvi = new ListViewItem(row);

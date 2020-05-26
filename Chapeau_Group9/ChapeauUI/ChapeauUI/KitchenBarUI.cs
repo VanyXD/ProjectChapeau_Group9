@@ -31,13 +31,13 @@ namespace ChapeauUI
 
         private void GetStock()
         {
-            RefreshMenu();
+            GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
-                AddStockItem(item, lv_stock);
+                PrintItem(item, lv_stock);
             }
         }
-        private void AddStockItem(ChapeauModel.MenuItem item, ListView lv)
+        private void PrintItem(ChapeauModel.MenuItem item, ListView lv)
         {
             var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString()};
             var lvi = new ListViewItem(row);
@@ -47,14 +47,14 @@ namespace ChapeauUI
         private void GetStock(CategoryID category)
         {
             lv_stock.Clear();
-            RefreshMenu();
+            GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 if (item.Category == category)
-                    AddStockItem(item, lv_stock);
+                    PrintItem(item, lv_stock);
             }
         }
-        void RefreshMenu()
+        void GetMenuItems()
         {
             MenuItemServices service = new MenuItemServices();
             menuItems = service.GetMenuItems();
@@ -62,7 +62,7 @@ namespace ChapeauUI
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            RefreshMenu();
+            GetMenuItems();
         }
         private void Logout()
         {
