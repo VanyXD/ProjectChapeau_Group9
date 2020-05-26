@@ -22,6 +22,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
+                //unnessary code 
                 List<Employee> employees = new List<Employee>();
                 Employee employee1 = new Employee();
                 employee1.EmployeeID = 0000;

@@ -59,39 +59,6 @@ namespace ChapeauDAL
                 employeeList.Add(employee);
             }
             return employeeList;
-        }
-        
-        //public void UpdatePassword(int newPassword)
-        //{
-        //    Employee employee = new Employee();
-        //    string query = $"update Employee Set password = {newPassword} Where employee_ID = {employee.EmployeeID}";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
-        //public void UpdateArticle(MenuItem menu)
-        //{
-        //    string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.VAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
-        //public void InsertArticle(MenuItem menu)
-        //{
-        //    string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,Lunch,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-        //        $"{menu.Stock}, {menu.VAT}, {menu.Lunch}, {menu.Category}";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
-        //public void DeleteArticle(MenuItem menu)
-        //{
-        //    string query = $"Delete from Menu where articleID = {menu.MenuItemID}";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-        //    ExecuteEditQuery(query, sqlParameters);
-        //}
-
-      
-
-        
-
-
+        }       
     }
 }

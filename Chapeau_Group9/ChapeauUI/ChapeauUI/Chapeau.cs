@@ -23,10 +23,8 @@ namespace ChapeauUI
         public Chapeau()
         {
             InitializeComponent();
-
             employees = new List<Employee>();
             user = new Employee();
-
         }
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
