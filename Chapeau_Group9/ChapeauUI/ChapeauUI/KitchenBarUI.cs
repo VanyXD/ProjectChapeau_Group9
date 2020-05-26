@@ -57,7 +57,7 @@ namespace ChapeauUI
         void RefreshMenu()
         {
             MenuItemServices service = new MenuItemServices();
-            menuItems = service.GetMenuItems();
+            menuItems = service.GetMenuItems();// depends on the user login get drink or food
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)

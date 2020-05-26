@@ -18,25 +18,31 @@ namespace ChapeauUI
     {
         private List<Employee> employees;
         private List<Tables> tables;
-        EmployeeServices employeeServices = new EmployeeServices();
+        EmployeeServices employeeServices = new EmployeeServices(); // 
         TablesServices tablesServices = new TablesServices();
         Employee employee;
         public TablesOverview(Employee employee)
         {
             InitializeComponent();
-            employees = employeeServices.GetEmployees();
+            employees = employeeServices.GetEmployees();//
             this.employee = employee;
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             Hide();
+            // close().
+           // get off the hiden from 
             new Chapeau().ShowDialog();
         }
 
+
+        // create a method display tables and call it in the event 
         private void TablesOverview_Load_1(object sender, EventArgs e)
         {
             lblCurrentUser.Text = employee.FirstName;
             tables = tablesServices.GetALLTables();
+
+          // arraybuttons.
 
             foreach (Tables table in tables)
             {

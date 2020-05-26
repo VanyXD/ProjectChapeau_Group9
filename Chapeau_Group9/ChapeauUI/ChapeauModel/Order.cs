@@ -14,7 +14,7 @@ namespace ChapeauModel
         public int Quantity { get; set; }
 
         public decimal TotalPrice { get; set; }
-        public MenuItem Items { get; set; }
+        public MenuItem Items { get; set; }// no menu item or change the name to orderitem?
 
         public DateTime Time { get; set; }
         public int TableID { get; set; }

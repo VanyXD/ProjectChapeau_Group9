@@ -11,5 +11,6 @@ namespace ChapeauModel
         public int CustomerContact;
         public string CustomerName;
         public DateTime DateTime;
+        // add a member of table 
     }
 }
