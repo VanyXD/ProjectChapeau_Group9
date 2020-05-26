@@ -22,22 +22,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                //unnessary code 
-                List<Employee> employees = new List<Employee>();
-                Employee employee1 = new Employee();
-                employee1.EmployeeID = 0000;
-                employee1.FirstName = "Test";
-                employee1.LastName = "Again";
-                employee1.position = Position.Empty;
-                employee1.Email = "No Email";
-                employee1.PhoneNumber = 00000;
-                employee1.Password = 00000;
-
-                employees.Add(employee1);
-                return employees;
                 throw new Exception("Couldn't connect to the database");
-
-
             }
 
         }

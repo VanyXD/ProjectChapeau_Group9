@@ -19,20 +19,12 @@ namespace ChapeauLogic
             {
                 List<Tables> tables = new List<Tables>();
                 tables = table.GetAllTabels();
+                //return table.GetAllTabels();
                 return tables;
             }
             catch (Exception)
             {
-                List<Tables> Tables = new List<Tables>();
-                Tables table = new Tables();
-                table.TableID = 1111;
-                table.TableNumber = 1111;
-                table.Status = TableStatus.Empty;
-
-                Tables.Add(table);
-                return Tables;
                 throw new Exception("Couldn't connect to the database");
-
             }
         }
     }

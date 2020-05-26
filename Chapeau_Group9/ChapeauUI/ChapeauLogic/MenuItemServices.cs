@@ -21,20 +21,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                List<MenuItem> menuItems = new List<MenuItem>();
-                MenuItem item1 = new MenuItem();
-                item1.MenuItemID = 00000;
-                item1.Name = "Empty";
-                item1.Price = 00000;
-                item1.Stock = 11111;
-                item1.HighVAT = false;
-                item1.Lunch = false;
-                item1.Category = CategoryID.empty;
-
-                menuItems.Add(item1);
-                return menuItems;
                 throw new Exception("Couldn't connect to the database");
-
             }
         }
     }

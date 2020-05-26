@@ -19,9 +19,9 @@ namespace ChapeauDAL
             foreach (DataRow dr in datatable.Rows)
             {
                 Tables Table = new Tables()
-                {        
+                {
                     TableID = (int)dr["table_id"],
-                    Status  =  (TableStatus)dr["TableStatus"],
+                    Status = (TableStatus)dr["TableStatus"],
                     TableNumber = (int)dr["table_number"]
                 };
                 TabelsList.Add(Table);
@@ -30,3 +30,7 @@ namespace ChapeauDAL
         }
     }
 }
+
+
+        
+
