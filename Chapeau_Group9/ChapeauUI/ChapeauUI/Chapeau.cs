@@ -37,7 +37,7 @@ namespace ChapeauUI
             {
                 if(employee.Password.ToString() == lblloginbox.Text)
                 {
-                   switch ((int)employee.Position)
+                   switch ((int)employee.position)
                     {
                         case 1:
                             // mangerFORM
@@ -46,21 +46,32 @@ namespace ChapeauUI
                             // Waiter 
                             break;
                         case 3:
-                            KitchenUI kitchenUI = new KitchenUI();
-                            kitchenUI.Show();
+                            //Bar
                             break;
                         case 4 :
-                            // BAR FORM
-                            break;                          
-                   }
-                    Chapeau.ActiveForm.Hide();
+                            // Kitchen
+                            KitchenUI kitchenUI = new KitchenUI();
+                            Chapeau chap = new Chapeau();
+                            Chapeau.ActiveForm.Hide();
+                            chap.Hide();
+                            kitchenUI.Show();
+                            return;
+                    }
                 }
+
             }
+            MessageBox.Show("You fucked up!!!!");
 
 
-         
-           
+
+
+
+
         }
-      
+
+        private void Chapeau_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

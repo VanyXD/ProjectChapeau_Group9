@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ChapeauModel
 {
-    public enum Position
+    public class Reservations
     {
-        Manager =1 , waiter , Bartender ,cook, Empty
+        public int CustomerContact;
+        public string CustomerName;
+        public DateTime DateTime;
     }
 }
