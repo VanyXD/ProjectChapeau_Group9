@@ -6,28 +6,23 @@ using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
 
+
 namespace ChapeauLogic
 {
-    public class EmployeeServices
+    public class TablesServices
     {
-        EmployeeDAO employee_db = new EmployeeDAO();
+        TablesDAO table = new TablesDAO();
 
-        public List<Employee> GetEmployees()
+        public List<Tables> GetALLTables()
         {
             try
             {
-                List<Employee> employees = new List<Employee>();
-                employees = employee_db.GetAllEmployees();
-                return employees;
+                return table.GetAllTabels();
             }
             catch (Exception)
             {
                 throw new Exception("Couldn't connect to the database");
             }
-
         }
-
     }
 }
-    
-

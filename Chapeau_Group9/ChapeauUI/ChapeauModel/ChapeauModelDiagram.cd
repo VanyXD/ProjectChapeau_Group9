@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ChapeauModel.Employee">
-    <Position X="0.5" Y="0.75" Width="1.5" />
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAEAAACAAAAAAAAAAYAAAAAAAAAACAAAAAAAAAAg=</HashCode>
       <FileName>Employee.cs</FileName>
@@ -11,7 +11,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChapeauModel.MenuItem">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAQAAAAAAAAABAAQAgAAAAAAAAAAAAAAACEA=</HashCode>
       <FileName>MenuItem.cs</FileName>
@@ -21,41 +21,58 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChapeauModel.Order">
-    <Position X="7.25" Y="2.5" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAABAAAAACCAAAAAAAAAAAAAAEQAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAIAABAAAAACCAAAAAAAAAAAAAAEQAAAAAAAgAAAAQA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="OrderStatus" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="ChapeauModel.Reservations">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAI=</HashCode>
+      <FileName>Reservations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChapeauModel.Tables">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tables.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
   <Enum Name="ChapeauModel.CategoryID">
-    <Position X="2.75" Y="0.75" Width="1.5" />
+    <Position X="4.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAIAAAAEAABABAAAAAAAAACAAEAEAAABEAEAAAAAAA=</HashCode>
       <FileName>CategoryID.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="ChapeauModel.Position">
-    <Position X="4.75" Y="4.25" Width="1.5" />
+  <Enum Name="ChapeauModel.OrderStatus">
+    <Position X="7" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAgAAAAAAADCAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAIgAAAAA=</HashCode>
+      <FileName>OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ChapeauModel.Position">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAIIAADAAAAAAAAAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ChapeauModel.TableStatus">
-    <Position X="7" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>TableStatus.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="ChapeauModel.OrderStatus">
-    <Position X="4.75" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAIgAAAAA=</HashCode>
-      <FileName>OrderStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

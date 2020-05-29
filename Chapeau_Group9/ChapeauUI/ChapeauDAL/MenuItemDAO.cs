@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 using ChapeauModel;
+using System.Data.SqlClient;
+using System.Data;
+using System.Collections.ObjectModel;
+using System.Configuration;
+
 
 namespace ChapeauDAL
 {
@@ -13,7 +16,7 @@ namespace ChapeauDAL
     {
         public void UpdateItem(MenuItem menu)
         {
-            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.VAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
+            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -30,7 +33,7 @@ namespace ChapeauDAL
         public void AddItem(MenuItem menu)
         {
             string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,Lunch,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {menu.VAT}, {menu.Lunch}, {menu.Category}";
+                $"{menu.Stock}, {menu.HighVAT}, {menu.Lunch}, {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -43,7 +46,7 @@ namespace ChapeauDAL
         }
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT articleID,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
+            string query = "SELECT article_id,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -58,7 +61,7 @@ namespace ChapeauDAL
                     Name = (String)dr["Name"],
                     Price = (decimal)dr["Price"],
                     Stock = (int)dr["Stock"],
-                    VAT = (bool)dr["VAT"],
+                    HighVAT = (bool)dr["VAT"],
                     Lunch = (bool)dr["Lunch"],
                     Category = (CategoryID)dr["Category_ID"]
                 };

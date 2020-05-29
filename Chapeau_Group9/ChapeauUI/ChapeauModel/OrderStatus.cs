@@ -8,6 +8,6 @@ namespace ChapeauModel
 {
     public enum OrderStatus
     {
-        Pending = 1 , Ready , Served , empty
+        Pending = 1 , Ready , Served 
     }
 }

@@ -29,125 +29,121 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TablesOverview));
-            this.Table1lbl = new System.Windows.Forms.Button();
-            this.Table2lbl = new System.Windows.Forms.Button();
-            this.Table3lbl = new System.Windows.Forms.Button();
-            this.Table4lbl = new System.Windows.Forms.Button();
-            this.Table5lbl = new System.Windows.Forms.Button();
-            this.Table6lbl = new System.Windows.Forms.Button();
-            this.Table7lbl = new System.Windows.Forms.Button();
-            this.Table8lbl = new System.Windows.Forms.Button();
-            this.Table9lbl = new System.Windows.Forms.Button();
-            this.Table10lbl = new System.Windows.Forms.Button();
+            this.btnTable1 = new System.Windows.Forms.Button();
+            this.btnTable2 = new System.Windows.Forms.Button();
+            this.btnTable3 = new System.Windows.Forms.Button();
+            this.btnTable4 = new System.Windows.Forms.Button();
+            this.btnTable5 = new System.Windows.Forms.Button();
+            this.btnTable6 = new System.Windows.Forms.Button();
+            this.btnTable7 = new System.Windows.Forms.Button();
+            this.btnTable8 = new System.Windows.Forms.Button();
+            this.btnTable9 = new System.Windows.Forms.Button();
+            this.btnTable10 = new System.Windows.Forms.Button();
             this.Currentuser = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUnpay = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblinfo = new System.Windows.Forms.Button();
-            this.lbllistPaidTables = new System.Windows.Forms.ListView();
-            this.Table_Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCurrentUser = new System.Windows.Forms.Label();
-            this.lbllogoutbtn = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Table1lbl
+            // btnTable1
             // 
-            this.Table1lbl.Location = new System.Drawing.Point(78, 122);
-            this.Table1lbl.Name = "Table1lbl";
-            this.Table1lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table1lbl.TabIndex = 0;
-            this.Table1lbl.Text = "Table 1";
-            this.Table1lbl.UseVisualStyleBackColor = true;
+            this.btnTable1.Location = new System.Drawing.Point(283, 122);
+            this.btnTable1.Name = "btnTable1";
+            this.btnTable1.Size = new System.Drawing.Size(75, 23);
+            this.btnTable1.TabIndex = 0;
+            this.btnTable1.Text = "Table 1";
+            this.btnTable1.UseVisualStyleBackColor = true;
             // 
-            // Table2lbl
+            // btnTable2
             // 
-            this.Table2lbl.Location = new System.Drawing.Point(229, 122);
-            this.Table2lbl.Name = "Table2lbl";
-            this.Table2lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table2lbl.TabIndex = 1;
-            this.Table2lbl.Text = "Table 2";
-            this.Table2lbl.UseVisualStyleBackColor = true;
+            this.btnTable2.Location = new System.Drawing.Point(494, 122);
+            this.btnTable2.Name = "btnTable2";
+            this.btnTable2.Size = new System.Drawing.Size(75, 23);
+            this.btnTable2.TabIndex = 1;
+            this.btnTable2.Text = "Table 2";
+            this.btnTable2.UseVisualStyleBackColor = true;
             // 
-            // Table3lbl
+            // btnTable3
             // 
-            this.Table3lbl.Location = new System.Drawing.Point(78, 177);
-            this.Table3lbl.Name = "Table3lbl";
-            this.Table3lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table3lbl.TabIndex = 2;
-            this.Table3lbl.Text = "Table 3";
-            this.Table3lbl.UseVisualStyleBackColor = true;
+            this.btnTable3.Location = new System.Drawing.Point(283, 177);
+            this.btnTable3.Name = "btnTable3";
+            this.btnTable3.Size = new System.Drawing.Size(75, 23);
+            this.btnTable3.TabIndex = 2;
+            this.btnTable3.Text = "Table 3";
+            this.btnTable3.UseVisualStyleBackColor = true;
             // 
-            // Table4lbl
+            // btnTable4
             // 
-            this.Table4lbl.Location = new System.Drawing.Point(229, 177);
-            this.Table4lbl.Name = "Table4lbl";
-            this.Table4lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table4lbl.TabIndex = 3;
-            this.Table4lbl.Text = "Table 4";
-            this.Table4lbl.UseVisualStyleBackColor = true;
+            this.btnTable4.Location = new System.Drawing.Point(494, 177);
+            this.btnTable4.Name = "btnTable4";
+            this.btnTable4.Size = new System.Drawing.Size(75, 23);
+            this.btnTable4.TabIndex = 3;
+            this.btnTable4.Text = "Table 4";
+            this.btnTable4.UseVisualStyleBackColor = true;
             // 
-            // Table5lbl
+            // btnTable5
             // 
-            this.Table5lbl.Location = new System.Drawing.Point(78, 232);
-            this.Table5lbl.Name = "Table5lbl";
-            this.Table5lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table5lbl.TabIndex = 4;
-            this.Table5lbl.Text = "Table 5";
-            this.Table5lbl.UseVisualStyleBackColor = true;
+            this.btnTable5.Location = new System.Drawing.Point(283, 232);
+            this.btnTable5.Name = "btnTable5";
+            this.btnTable5.Size = new System.Drawing.Size(75, 23);
+            this.btnTable5.TabIndex = 4;
+            this.btnTable5.Text = "Table 5";
+            this.btnTable5.UseVisualStyleBackColor = true;
             // 
-            // Table6lbl
+            // btnTable6
             // 
-            this.Table6lbl.Location = new System.Drawing.Point(229, 232);
-            this.Table6lbl.Name = "Table6lbl";
-            this.Table6lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table6lbl.TabIndex = 5;
-            this.Table6lbl.Text = "Table 6";
-            this.Table6lbl.UseVisualStyleBackColor = true;
+            this.btnTable6.Location = new System.Drawing.Point(494, 232);
+            this.btnTable6.Name = "btnTable6";
+            this.btnTable6.Size = new System.Drawing.Size(75, 23);
+            this.btnTable6.TabIndex = 5;
+            this.btnTable6.Text = "Table 6";
+            this.btnTable6.UseVisualStyleBackColor = true;
             // 
-            // Table7lbl
+            // btnTable7
             // 
-            this.Table7lbl.Location = new System.Drawing.Point(78, 286);
-            this.Table7lbl.Name = "Table7lbl";
-            this.Table7lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table7lbl.TabIndex = 6;
-            this.Table7lbl.Text = "Table 7";
-            this.Table7lbl.UseVisualStyleBackColor = true;
+            this.btnTable7.Location = new System.Drawing.Point(283, 286);
+            this.btnTable7.Name = "btnTable7";
+            this.btnTable7.Size = new System.Drawing.Size(75, 23);
+            this.btnTable7.TabIndex = 6;
+            this.btnTable7.Text = "Table 7";
+            this.btnTable7.UseVisualStyleBackColor = true;
             // 
-            // Table8lbl
+            // btnTable8
             // 
-            this.Table8lbl.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Table8lbl.Location = new System.Drawing.Point(229, 286);
-            this.Table8lbl.Name = "Table8lbl";
-            this.Table8lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table8lbl.TabIndex = 7;
-            this.Table8lbl.Text = "Table 8";
-            this.Table8lbl.UseVisualStyleBackColor = true;
+            this.btnTable8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnTable8.Location = new System.Drawing.Point(494, 286);
+            this.btnTable8.Name = "btnTable8";
+            this.btnTable8.Size = new System.Drawing.Size(75, 23);
+            this.btnTable8.TabIndex = 7;
+            this.btnTable8.Text = "Table 8";
+            this.btnTable8.UseVisualStyleBackColor = true;
             // 
-            // Table9lbl
+            // btnTable9
             // 
-            this.Table9lbl.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Table9lbl.Location = new System.Drawing.Point(78, 336);
-            this.Table9lbl.Name = "Table9lbl";
-            this.Table9lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table9lbl.TabIndex = 8;
-            this.Table9lbl.Text = "Table 9";
-            this.Table9lbl.UseVisualStyleBackColor = true;
+            this.btnTable9.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnTable9.Location = new System.Drawing.Point(283, 336);
+            this.btnTable9.Name = "btnTable9";
+            this.btnTable9.Size = new System.Drawing.Size(75, 23);
+            this.btnTable9.TabIndex = 8;
+            this.btnTable9.Text = "Table 9";
+            this.btnTable9.UseVisualStyleBackColor = true;
             // 
-            // Table10lbl
+            // btnTable10
             // 
-            this.Table10lbl.Location = new System.Drawing.Point(229, 336);
-            this.Table10lbl.Name = "Table10lbl";
-            this.Table10lbl.Size = new System.Drawing.Size(75, 23);
-            this.Table10lbl.TabIndex = 9;
-            this.Table10lbl.Text = "Table 10";
-            this.Table10lbl.UseVisualStyleBackColor = true;
+            this.btnTable10.Location = new System.Drawing.Point(494, 336);
+            this.btnTable10.Name = "btnTable10";
+            this.btnTable10.Size = new System.Drawing.Size(75, 23);
+            this.btnTable10.TabIndex = 9;
+            this.btnTable10.Text = "Table 10";
+            this.btnTable10.UseVisualStyleBackColor = true;
             // 
             // Currentuser
             // 
@@ -157,84 +153,6 @@
             this.Currentuser.Size = new System.Drawing.Size(75, 13);
             this.Currentuser.TabIndex = 10;
             this.Currentuser.Text = "Current User : ";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Controls.Add(this.lblUnpay);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblinfo);
-            this.panel1.Controls.Add(this.lbllistPaidTables);
-            this.panel1.Location = new System.Drawing.Point(435, 122);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 290);
-            this.panel1.TabIndex = 11;
-            // 
-            // lblUnpay
-            // 
-            this.lblUnpay.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblUnpay.Location = new System.Drawing.Point(153, 241);
-            this.lblUnpay.Name = "lblUnpay";
-            this.lblUnpay.Size = new System.Drawing.Size(75, 23);
-            this.lblUnpay.TabIndex = 13;
-            this.lblUnpay.Text = "Unpay";
-            this.lblUnpay.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(26, 9);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(202, 34);
-            this.panel2.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Paid Table";
-            // 
-            // lblinfo
-            // 
-            this.lblinfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblinfo.Location = new System.Drawing.Point(26, 241);
-            this.lblinfo.Name = "lblinfo";
-            this.lblinfo.Size = new System.Drawing.Size(75, 23);
-            this.lblinfo.TabIndex = 12;
-            this.lblinfo.Text = "Info";
-            this.lblinfo.UseVisualStyleBackColor = false;
-            // 
-            // lbllistPaidTables
-            // 
-            this.lbllistPaidTables.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Table_Nr,
-            this.Total,
-            this.Time});
-            this.lbllistPaidTables.HideSelection = false;
-            this.lbllistPaidTables.Location = new System.Drawing.Point(26, 42);
-            this.lbllistPaidTables.Name = "lbllistPaidTables";
-            this.lbllistPaidTables.Size = new System.Drawing.Size(202, 185);
-            this.lbllistPaidTables.TabIndex = 0;
-            this.lbllistPaidTables.UseCompatibleStateImageBehavior = false;
-            this.lbllistPaidTables.View = System.Windows.Forms.View.Details;
-            // 
-            // Table_Nr
-            // 
-            this.Table_Nr.Text = "   Table_Nr";
-            this.Table_Nr.Width = 73;
-            // 
-            // Total
-            // 
-            this.Total.Text = "   Total";
-            this.Total.Width = 63;
-            // 
-            // Time
-            // 
-            this.Time.Text = "   Time";
             // 
             // pictureBox1
             // 
@@ -255,43 +173,107 @@
             this.lblCurrentUser.TabIndex = 13;
             this.lblCurrentUser.Text = "......";
             // 
-            // lbllogoutbtn
+            // btnLogout
             // 
-            this.lbllogoutbtn.Location = new System.Drawing.Point(718, 22);
-            this.lbllogoutbtn.Name = "lbllogoutbtn";
-            this.lbllogoutbtn.Size = new System.Drawing.Size(75, 23);
-            this.lbllogoutbtn.TabIndex = 14;
-            this.lbllogoutbtn.Text = "Log Out";
-            this.lbllogoutbtn.UseVisualStyleBackColor = true;
-            this.lbllogoutbtn.Click += new System.EventHandler(this.lbllogoutbtn_Click);
+            this.btnLogout.Location = new System.Drawing.Point(718, 22);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 14;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Free : ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 187);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Occupied :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Reserved :";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Location = new System.Drawing.Point(100, 187);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(16, 13);
+            this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel2.Location = new System.Drawing.Point(100, 132);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(16, 13);
+            this.panel2.TabIndex = 19;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Orange;
+            this.panel3.Location = new System.Drawing.Point(100, 242);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(16, 13);
+            this.panel3.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Table Status : ";
             // 
             // TablesOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbllogoutbtn);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Currentuser);
-            this.Controls.Add(this.Table10lbl);
-            this.Controls.Add(this.Table9lbl);
-            this.Controls.Add(this.Table8lbl);
-            this.Controls.Add(this.Table7lbl);
-            this.Controls.Add(this.Table6lbl);
-            this.Controls.Add(this.Table5lbl);
-            this.Controls.Add(this.Table4lbl);
-            this.Controls.Add(this.Table3lbl);
-            this.Controls.Add(this.Table2lbl);
-            this.Controls.Add(this.Table1lbl);
+            this.Controls.Add(this.btnTable10);
+            this.Controls.Add(this.btnTable9);
+            this.Controls.Add(this.btnTable8);
+            this.Controls.Add(this.btnTable7);
+            this.Controls.Add(this.btnTable6);
+            this.Controls.Add(this.btnTable5);
+            this.Controls.Add(this.btnTable4);
+            this.Controls.Add(this.btnTable3);
+            this.Controls.Add(this.btnTable2);
+            this.Controls.Add(this.btnTable1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TablesOverview";
             this.Text = "Tables overview";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Load += new System.EventHandler(this.TablesOverview_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -300,28 +282,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Table1lbl;
-        private System.Windows.Forms.Button Table2lbl;
-        private System.Windows.Forms.Button Table3lbl;
-        private System.Windows.Forms.Button Table4lbl;
-        private System.Windows.Forms.Button Table5lbl;
-        private System.Windows.Forms.Button Table6lbl;
-        private System.Windows.Forms.Button Table7lbl;
-        private System.Windows.Forms.Button Table8lbl;
-        private System.Windows.Forms.Button Table9lbl;
-        private System.Windows.Forms.Button Table10lbl;
+        private System.Windows.Forms.Button btnTable1;
+        private System.Windows.Forms.Button btnTable2;
+        private System.Windows.Forms.Button btnTable3;
+        private System.Windows.Forms.Button btnTable4;
+        private System.Windows.Forms.Button btnTable5;
+        private System.Windows.Forms.Button btnTable6;
+        private System.Windows.Forms.Button btnTable7;
+        private System.Windows.Forms.Button btnTable8;
+        private System.Windows.Forms.Button btnTable9;
+        private System.Windows.Forms.Button btnTable10;
         private System.Windows.Forms.Label Currentuser;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button lblUnpay;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button lblinfo;
-        private System.Windows.Forms.ListView lbllistPaidTables;
-        private System.Windows.Forms.ColumnHeader Table_Nr;
-        private System.Windows.Forms.ColumnHeader Total;
-        private System.Windows.Forms.ColumnHeader Time;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCurrentUser;
-        private System.Windows.Forms.Button lbllogoutbtn;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
     }
 }

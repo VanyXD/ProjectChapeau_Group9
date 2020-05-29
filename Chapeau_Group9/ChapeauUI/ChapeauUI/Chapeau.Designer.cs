@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Chapeau));
             this.loginbtn = new System.Windows.Forms.Button();
-            this.lblloginbox = new System.Windows.Forms.TextBox();
+            this.logintextbox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +49,13 @@
             this.loginbtn.UseVisualStyleBackColor = false;
             this.loginbtn.Click += new System.EventHandler(this.lbllogin_Click);
             // 
-            // lblloginbox
+            // logintextbox
             // 
-            this.lblloginbox.Location = new System.Drawing.Point(161, 191);
-            this.lblloginbox.Name = "lblloginbox";
-            this.lblloginbox.Size = new System.Drawing.Size(162, 20);
-            this.lblloginbox.TabIndex = 1;
-            this.lblloginbox.TextChanged += new System.EventHandler(this.lblloginbox_TextChanged);
+            this.logintextbox.Location = new System.Drawing.Point(161, 191);
+            this.logintextbox.Name = "logintextbox";
+            this.logintextbox.Size = new System.Drawing.Size(162, 20);
+            this.logintextbox.TabIndex = 1;
+            this.logintextbox.TextChanged += new System.EventHandler(this.lblloginbox_TextChanged);
             // 
             // pictureBox1
             // 
@@ -70,12 +70,13 @@
             // 
             // Chapeau
             // 
+            this.AcceptButton = this.loginbtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(468, 380);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblloginbox);
+            this.Controls.Add(this.logintextbox);
             this.Controls.Add(this.loginbtn);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -92,7 +93,7 @@
 
         private System.Windows.Forms.Button loginbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.TextBox lblloginbox;
+        public System.Windows.Forms.TextBox logintextbox;
     }
 }
 
