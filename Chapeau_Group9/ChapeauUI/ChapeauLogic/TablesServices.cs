@@ -15,16 +15,16 @@ namespace ChapeauLogic
 
         public List<Tables> GetALLTables()
         {
-            //try
-            //{
+            try
+            {
                 List<Tables> tablesservices = new List<Tables>();
                 tablesservices = table.GetALLTables();
                 return tablesservices;
-            //}
-            //catch (Exception)
-            //{
-            //    throw new Exception("Couldn't connect to the database");
-            //}
+            }
+            catch (Exception)
+            {
+                throw new Exception("Couldn't connect to the database");
+            }
         }
     }
 }
