@@ -52,15 +52,11 @@ namespace ChapeauDAL
                     FirstName = (String)dr["first_name"],
                     LastName = (string)dr["last_name"],
                     Email = (string)dr["email"],
-<<<<<<< HEAD
-                    PhoneNumber = (int)dr["phone_NR"],
-                    Password = (int)dr["password"]
 
-=======
                     PhoneNumber = (int)dr["phone"],
                     Password = (int)dr["password"],
                     position = (Position)dr["position_id"]
->>>>>>> 123c8647e1db0a47414d3af96ee2db340149e939
+
                 };
                 employeeList.Add(employee);
             }

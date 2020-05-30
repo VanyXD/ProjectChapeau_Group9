@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace ChapeauDAL
 {
-    public class TablesDAO : Base
+    public class TablesDAO 
     {
         private SqlConnection dbConnection;
         public TablesDAO()
@@ -14,22 +14,22 @@ namespace ChapeauDAL
             string connString = ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString;
             dbConnection = new SqlConnection(connString);
         }
-        public List<Tables> GetAllTabels()
+        public List<Tables> GetALLTables()
         {
             dbConnection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM [tables]", dbConnection);
+            SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM tables", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Tables> tables = new List<Tables>();
             while (reader.Read())
             {
-                Tables table = ReadTabels(reader);
+                Tables table = ReadTables(reader);
                 tables.Add(table);
             }
             reader.Close();
             dbConnection.Close();
             return tables;
         }
-        private Tables ReadTabels(SqlDataReader reader)
+        private Tables ReadTables(SqlDataReader reader)
         {
             int TableID = (int)reader["table_id"];
             TableStatus  Status = (TableStatus)reader["TableStatus"];
