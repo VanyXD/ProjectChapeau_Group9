@@ -101,5 +101,19 @@ namespace ChapeauUI
             };
             employeeServices.InsertEmployee(employee);
         }
+
+        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        {
+            List<Employee> employees = employeeServices.GetEmployees();
+
+            if (employeeList.Items.Count > 0)
+            {
+                ListViewItem items = employeeList.SelectedItems[0];
+                int EmployeeID = int.Parse(items.SubItems[0].Text);
+                employeeServices.RemoveEmployee(EmployeeID);
+                
+            }
+
+        }
     }
 }

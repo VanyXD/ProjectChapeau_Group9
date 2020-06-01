@@ -54,6 +54,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EmployeePNL = new System.Windows.Forms.Panel();
             this.AddEmployeePNL = new System.Windows.Forms.Panel();
+            this.Add = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Add = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.EmployeePNL.SuspendLayout();
@@ -339,6 +339,16 @@
             this.AddEmployeePNL.Size = new System.Drawing.Size(562, 430);
             this.AddEmployeePNL.TabIndex = 10;
             // 
+            // Add
+            // 
+            this.Add.Location = new System.Drawing.Point(231, 374);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(75, 38);
+            this.Add.TabIndex = 15;
+            this.Add.Text = "ADD";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(139, 317);
@@ -459,6 +469,7 @@
             this.btnRemoveEmployee.TabIndex = 9;
             this.btnRemoveEmployee.Text = "Remove Employee";
             this.btnRemoveEmployee.UseVisualStyleBackColor = true;
+            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
             // 
             // btnAddEmployee
             // 
@@ -500,16 +511,6 @@
             // 
             this.Position.Text = "Position";
             this.Position.Width = 397;
-            // 
-            // Add
-            // 
-            this.Add.Location = new System.Drawing.Point(231, 374);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(75, 38);
-            this.Add.TabIndex = 15;
-            this.Add.Text = "ADD";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // ManagerUI
             // 
