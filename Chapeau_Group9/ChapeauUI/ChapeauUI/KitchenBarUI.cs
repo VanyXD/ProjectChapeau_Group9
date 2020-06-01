@@ -20,7 +20,7 @@ namespace ChapeauUI
         public KitchenBarUI()
         {
             InitializeComponent();
-            GetStock();
+            DisplayStock();
         }
 
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace ChapeauUI
         }
 
 
-        private void GetStock()
+        private void DisplayStock()
         {
             GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
@@ -44,7 +44,7 @@ namespace ChapeauUI
             lv.Items.Add(lvi);
         }
 
-        private void GetStock(CategoryID category)
+        private void DisplayStock(CategoryID category)
         {
             lv_stock.Clear();
             GetMenuItems();
