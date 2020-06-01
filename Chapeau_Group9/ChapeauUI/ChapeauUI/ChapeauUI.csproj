@@ -52,6 +52,12 @@
     <Compile Include="Chapeau.Designer.cs">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI.Designer.cs">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Chapeau.resx">
       <DependentUpon>Chapeau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI.resx">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUI.resx">
       <DependentUpon>ModifyUI.cs</DependentUpon>

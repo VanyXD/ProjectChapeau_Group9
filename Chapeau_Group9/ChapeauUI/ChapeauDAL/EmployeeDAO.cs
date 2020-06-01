@@ -23,7 +23,7 @@ namespace ChapeauDAL
         public void InsertEmployee(Employee employee)
         {
             string query = $"insert into employees(employee_id,first_name,last_name,email,phone,password,position_id) values({employee.EmployeeID}, '{employee.FirstName}', '{employee.LastName}', " +
-                $"{employee.position}, '{employee.Email}', {employee.PhoneNumber}, {employee.Password}";
+                $"'{employee.Email}', {employee.PhoneNumber}, {employee.Password},{employee.position}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

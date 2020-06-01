@@ -52,9 +52,9 @@ namespace ChapeauUI
             else
             {
                 if (user.position == Position.Manager)
-                {          
-                    TablesOverview Manageroverview = new TablesOverview(user);
-                    Manageroverview.Show();
+                {
+                    ManagerUI ManagerUI = new ManagerUI(user);
+                    ManagerUI.Show();
                 }
                 else if (user.position == Position.waiter)
                 {
