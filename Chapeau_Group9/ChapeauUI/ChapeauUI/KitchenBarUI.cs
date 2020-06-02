@@ -16,11 +16,12 @@ namespace ChapeauUI
     public partial class KitchenBarUI : Form
     {
         List<ChapeauModel.MenuItem> menuItems;
-
-        public KitchenBarUI()
+        Form loginForm;
+        public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
             DisplayStock();
+            this.loginForm = loginForm;
         }
 
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
@@ -67,8 +68,7 @@ namespace ChapeauUI
         private void Logout()
         {
             Close();
-            Chapeau loginWindow = new Chapeau();
-            loginWindow.Show();
+            loginForm.Show();
         }
         private void btn_Kitchen_Logout2_Click(object sender, EventArgs e)
         {

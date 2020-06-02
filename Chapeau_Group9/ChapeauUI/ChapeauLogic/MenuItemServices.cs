@@ -19,9 +19,9 @@ namespace ChapeauLogic
                 items = menuItem.GetAllMenuItems();
                 return items;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Couldn't connect to the database");
+                throw ex;
             }
         }
     }

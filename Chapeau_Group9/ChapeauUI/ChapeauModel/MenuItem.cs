@@ -14,7 +14,7 @@ namespace ChapeauModel
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public bool HighVAT { get; set; }
-        public bool Lunch { get; set; }
+        public int Type { get; set; }
         public CategoryID Category { get; set; }
 
     }

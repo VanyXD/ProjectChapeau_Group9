@@ -16,7 +16,7 @@ namespace ChapeauDAL
     {
         public void UpdateItem(MenuItem menu)
         {
-            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
+            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Type}, Category_ID = {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -32,8 +32,8 @@ namespace ChapeauDAL
         //I added this method from the Employee class
         public void AddItem(MenuItem menu)
         {
-            string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,Lunch,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {menu.HighVAT}, {menu.Lunch}, {menu.Category}";
+            string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,item_type_id,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
+                $"{menu.Stock}, {menu.HighVAT}, {menu.Type}, {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -46,7 +46,7 @@ namespace ChapeauDAL
         }
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT article_id,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
+            string query = "SELECT article_id,Name,Price,Stock,VAT,item_type_id,catergory_name FROM [Menu] JOIN categories as cat ON cat.category_id = menu.category_id";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -57,13 +57,13 @@ namespace ChapeauDAL
             {
                 MenuItem article = new MenuItem()
                 {
-                    MenuItemID = (int)dr["articleID"],
-                    Name = (String)dr["Name"],
+                    MenuItemID = (int)dr["article_id"],
+                    Name = (string)dr["Name"],
                     Price = (decimal)dr["Price"],
                     Stock = (int)dr["Stock"],
                     HighVAT = (bool)dr["VAT"],
-                    Lunch = (bool)dr["Lunch"],
-                    Category = (CategoryID)dr["Category_ID"]
+                    Type = (int)dr["item_type_id"],
+                    //Category = (CategoryID)Enum.Parse(typeof(CategoryID), dr["category_name"].ToString())
                 };
                 articleList.Add(article);
             }

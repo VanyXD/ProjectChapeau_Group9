@@ -63,7 +63,8 @@ namespace ChapeauUI
                 }
                 else if (user.position == Position.cook)
                 {
-                    KitchenUI kitchenUI = new KitchenUI();
+                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                    Hide();
                     kitchenUI.Show();
                 }
                 else if (user.position == Position.Bartender)

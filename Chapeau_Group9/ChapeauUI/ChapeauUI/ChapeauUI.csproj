@@ -64,12 +64,6 @@
     <Compile Include="ModifyUI.Designer.cs">
       <DependentUpon>ModifyUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="KitchenUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KitchenUI.Designer.cs">
-      <DependentUpon>KitchenUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="KitchenViewItem.cs">
       <SubType>Form</SubType>
     </Compile>
