@@ -29,10 +29,10 @@ namespace ChapeauUI
             lbl_modify_Nr.Text = (Convert.ToInt32(lbl_modify_Nr.Text) - 1).ToString();
         }
 
-        private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
-        {
-            item.
-            Close();
-        }
+        //private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
+        //{
+        //    item.
+        //    Close();
+        //}
     }
 }

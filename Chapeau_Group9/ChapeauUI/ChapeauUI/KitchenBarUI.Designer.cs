@@ -601,7 +601,7 @@
             this.btn_Kitchen_Modify.TabIndex = 32;
             this.btn_Kitchen_Modify.Text = "Modify";
             this.btn_Kitchen_Modify.UseVisualStyleBackColor = false;
-            this.btn_Kitchen_Modify.Click += new System.EventHandler(this.btn_Kitchen_Modify_Click);
+            //this.btn_Kitchen_Modify.Click += new System.EventHandler(this.btn_Kitchen_Modify_Click);
             // 
             // Lbl_Stock
             // 

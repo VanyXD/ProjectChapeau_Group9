@@ -75,10 +75,10 @@ namespace ChapeauUI
             Logout();
         }
 
-        private void btn_Kitchen_Modify_Click(object sender, EventArgs e)
-        {
-            ModifyUI modUI = new ModifyUI();
-            modUI.Show();
-        }
+        //private void btn_Kitchen_Modify_Click(object sender, EventArgs e)
+        //{
+        //    ModifyUI modUI = new ModifyUI();
+        //    modUI.Show();
+        //}
     }
 }
