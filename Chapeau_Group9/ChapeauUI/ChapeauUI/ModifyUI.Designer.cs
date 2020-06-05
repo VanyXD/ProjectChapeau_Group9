@@ -32,6 +32,7 @@
             System.Windows.Forms.Button btn_minus;
             this.lbl_modify_Title = new System.Windows.Forms.Label();
             this.lbl_modify_Nr = new System.Windows.Forms.Label();
+            this.btn_Kitchen_Modify_Done = new System.Windows.Forms.Button();
             btn_plus = new System.Windows.Forms.Button();
             btn_minus = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -82,11 +83,22 @@
             this.lbl_modify_Nr.Text = "00";
             this.lbl_modify_Nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_Kitchen_Modify_Done
+            // 
+            this.btn_Kitchen_Modify_Done.Location = new System.Drawing.Point(158, 215);
+            this.btn_Kitchen_Modify_Done.Name = "btn_Kitchen_Modify_Done";
+            this.btn_Kitchen_Modify_Done.Size = new System.Drawing.Size(150, 70);
+            this.btn_Kitchen_Modify_Done.TabIndex = 6;
+            this.btn_Kitchen_Modify_Done.Text = "Done";
+            this.btn_Kitchen_Modify_Done.UseVisualStyleBackColor = true;
+            this.btn_Kitchen_Modify_Done.Click += new System.EventHandler(this.btn_Kitchen_Modify_Done_Click);
+            // 
             // ModifyUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 260);
+            this.ClientSize = new System.Drawing.Size(468, 297);
+            this.Controls.Add(this.btn_Kitchen_Modify_Done);
             this.Controls.Add(this.lbl_modify_Nr);
             this.Controls.Add(this.lbl_modify_Title);
             this.Controls.Add(btn_minus);
@@ -102,5 +114,6 @@
 
         private System.Windows.Forms.Label lbl_modify_Title;
         private System.Windows.Forms.Label lbl_modify_Nr;
+        private System.Windows.Forms.Button btn_Kitchen_Modify_Done;
     }
 }

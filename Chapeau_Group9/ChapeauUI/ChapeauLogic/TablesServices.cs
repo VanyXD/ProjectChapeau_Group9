@@ -17,7 +17,9 @@ namespace ChapeauLogic
         {
             try
             {
-                return table.GetAllTabels();
+                List<Tables> tablesservices = new List<Tables>();
+                tablesservices = table.GetALLTables();
+                return tablesservices;
             }
             catch (Exception)
             {

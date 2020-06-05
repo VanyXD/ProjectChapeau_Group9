@@ -26,8 +26,20 @@ namespace ChapeauLogic
             }
 
         }
+        public void InsertEmployee(Employee employee)
+        {
+            employee_db.InsertEmployee(employee);
+        }
+        public void RemoveEmployee(int employeeID)
+        {
+            employee_db.DeleteEmployee(employeeID);
+        }
+        public void EditEmployee(Employee employee)
+        {
+            employee_db.UpdateEmployee(employee);
+        }
 
     }
 }
-    
+
 

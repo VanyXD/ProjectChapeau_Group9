@@ -23,15 +23,18 @@ namespace ChapeauDAL
         public void InsertEmployee(Employee employee)
         {
             string query = $"insert into employees(employee_id,first_name,last_name,email,phone,password,position_id) values({employee.EmployeeID}, '{employee.FirstName}', '{employee.LastName}', " +
-                $"{employee.position}, '{employee.Email}', {employee.PhoneNumber}, {employee.Password}";
+                $"'{employee.Email}', {employee.PhoneNumber}, {employee.Password},{employee.position}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void DeleteEmployee(Employee employee)
+        public void DeleteEmployee(int employeeID)
         {
-            string query = $"Delete from Employees where employee_id = {employee.EmployeeID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+            //string query = $"Delete from Employees where employee_id = {employee.EmployeeID}";
+            //SqlParameter[] sqlParameters = new SqlParameter[0];
+            //ExecuteEditQuery(query, sqlParameters);
+            string query = $"DELETE FROM employees WHERE employees.employee_id='" + employeeID + "'";
+
+
 
         }
         public void UpdateEmployee(Employee employee)
@@ -52,15 +55,11 @@ namespace ChapeauDAL
                     FirstName = (String)dr["first_name"],
                     LastName = (string)dr["last_name"],
                     Email = (string)dr["email"],
-<<<<<<< HEAD
-                    PhoneNumber = (int)dr["phone_NR"],
-                    Password = (int)dr["password"]
 
-=======
                     PhoneNumber = (int)dr["phone"],
                     Password = (int)dr["password"],
                     position = (Position)dr["position_id"]
->>>>>>> 123c8647e1db0a47414d3af96ee2db340149e939
+
                 };
                 employeeList.Add(employee);
             }

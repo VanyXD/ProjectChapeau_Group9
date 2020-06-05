@@ -42,9 +42,10 @@ namespace ChapeauUI
                     user = emp;
                     break;
                 }
+
             }
 
-            if (user == null)
+            if ( user  == null )
             {
                 MessageBox.Show("User Does not Exist");
             }
@@ -52,20 +53,18 @@ namespace ChapeauUI
             {
                 if (user.position == Position.Manager)
                 {
-                    TablesOverview tablesOverview = new TablesOverview(user);
-                    Chapeau.ActiveForm.Hide();
-                    tablesOverview.ShowDialog();
+                    ManagerUI ManagerUI = new ManagerUI(user);
+                    ManagerUI.Show();
                 }
                 else if (user.position == Position.waiter)
                 {
-                    TablesOverview tablesOverview = new TablesOverview(user);
-                    Chapeau.ActiveForm.Hide();
-                    tablesOverview.ShowDialog();
+                    TablesOverview WaiterOverview = new TablesOverview(user);
+                    WaiterOverview.Show();
                 }
                 else if (user.position == Position.cook)
                 {
-                    KitchenUI kitchenUI = new KitchenUI();
-                    Chapeau.ActiveForm.Hide();
+                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                    Hide();
                     kitchenUI.Show();
                 }
                 else if (user.position == Position.Bartender)
@@ -73,13 +72,8 @@ namespace ChapeauUI
                     //BAR overview
                 }
                 else
-                    MessageBox.Show("User Does not Exist");
+                   MessageBox.Show("User Does not Exist");
             }
-
-        }
-
-        private void Chapeau_Load(object sender, EventArgs e)
-        {
 
         }
     }
