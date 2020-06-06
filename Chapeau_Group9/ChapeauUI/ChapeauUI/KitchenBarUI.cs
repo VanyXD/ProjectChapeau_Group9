@@ -55,6 +55,16 @@ namespace ChapeauUI
                     PrintItem(item, lv_stock);
             }
         }
+        private void DisplayStock(MenuItemType type)
+        {
+            lv_stock.Clear();
+            GetMenuItems();
+            foreach (ChapeauModel.MenuItem item in menuItems)
+            {
+                if (item.Type == type)
+                    PrintItem(item, lv_stock);
+            }
+        }
         void GetMenuItems()
         {
             MenuItemServices service = new MenuItemServices();

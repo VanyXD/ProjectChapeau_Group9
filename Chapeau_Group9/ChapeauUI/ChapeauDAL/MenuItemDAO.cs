@@ -46,7 +46,7 @@ namespace ChapeauDAL
         }
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT article_id,Name,Price,Stock,VAT,item_type_id,catergory_name FROM [Menu] JOIN categories as cat ON cat.category_id = menu.category_id";
+            string query = "SELECT article_id, name, stock, VAT, price, category_id,item_type_id from menu";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -58,12 +58,12 @@ namespace ChapeauDAL
                 MenuItem article = new MenuItem()
                 {
                     MenuItemID = (int)dr["article_id"],
-                    Name = (string)dr["Name"],
-                    Price = (decimal)dr["Price"],
-                    Stock = (int)dr["Stock"],
+                    Name = (string)dr["name"],
+                    Price = (decimal)dr["price"],
+                    Stock = (int)dr["stock"],
                     HighVAT = (bool)dr["VAT"],
-                    Type = (int)dr["item_type_id"],
-                    //Category = (CategoryID)Enum.Parse(typeof(CategoryID), dr["category_name"].ToString())
+                    Type = (MenuItemType)dr["item_type_id"],
+                    Category = (CategoryID)dr["category_id"]
                 };
                 articleList.Add(article);
             }
