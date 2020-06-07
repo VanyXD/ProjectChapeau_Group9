@@ -23,16 +23,13 @@ namespace ChapeauDAL
         public void InsertEmployee(Employee employee)
         {
             int posID = (int)employee.position;
-            string query = $"insert into employees(employee_id,first_name,last_name,email,phone,password,position_id) " +
-                $"values({employee.EmployeeID}, '{employee.FirstName}', '{employee.LastName}', '{employee.Email}', {employee.PhoneNumber}, {employee.Password},{posID}";
+            string query = $"insert into employees(first_name,last_name,email,phone,password,position_id) " +
+                $"values('{employee.FirstName}', '{employee.LastName}', '{employee.Email}', {employee.PhoneNumber}, {employee.Password},{posID})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
         public void DeleteEmployee(int employeeCode)
         {
-            //string query = $"Delete from Employees where employee_id = {employee.EmployeeID}";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //ExecuteEditQuery(query, sqlParameters);
             string query = $"DELETE FROM employees WHERE password={employeeCode}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
@@ -40,8 +37,9 @@ namespace ChapeauDAL
         }
         public void UpdateEmployee(Employee employee)
         {
-            string query = $"update Employees Set employee_id = {employee.EmployeeID},first_name = '{employee.FirstName}', last_name = {employee.LastName}," +
-                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.PhoneNumber},position_id = {employee.position}";
+            int posID = (int)employee.position;
+            string query = $"update employees Set first_name = '{employee.FirstName}', last_name = '{employee.LastName}'," +
+                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.PhoneNumber},position_id = {posID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }

@@ -24,7 +24,10 @@ namespace ChapeauUI
             InitializeComponent();
             this.employee = employee;
             AddEmployeePNL.Hide();
-
+            UpDate();
+        }
+        public void UpDate()
+        {
             List<Employee> employees = employeeServices.GetEmployees();
 
             employeeList.Items.Clear();
@@ -57,28 +60,56 @@ namespace ChapeauUI
                 int EmployeeCode = int.Parse(items.SubItems[0].Text);
                 employeeServices.RemoveEmployee(EmployeeCode);
             }
-            employeeList.Refresh();
+            UpDate();
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee()
             {
-                EmployeeID = int.Parse(txtEmployeeID.Text),
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 Email = txtEmail.Text,
                 PhoneNumber = int.Parse(txtPhoneNumber.Text),
                 Password = int.Parse(txtPassword.Text),
-                position = (Position)int.Parse(txtPositionID.Text)
-                //position = (Position)Enum.Parse(typeof(Position), txtPositionID.Text)
+                position = (Position)(int.Parse(txtPositionID.Text))
             };
             employeeServices.InsertEmployee(employee);
+            UpDate();
+            
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             AddEmployeePNL.Show();
+        }
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            List<Employee> employees = employeeServices.GetEmployees();
+            if (employeeList.SelectedItems.Count > 0)
+            {
+                ListViewItem item = employeeList.SelectedItems[0];
+                int password = int.Parse(item.SubItems[0].Text);
+                foreach (Employee employe in employees)
+                {
+                    if (password == employe.Password)
+                    {
+                        employe.FirstName = txtFirstName.Text;
+                        employe.LastName = txtLastName.Text;
+                        employe.Email = txtEmail.Text;
+                        employe.PhoneNumber = int.Parse(txtPhoneNumber.Text);
+                        employe.Password = int.Parse(txtPassword.Text);
+                        employe.position = (Position)(int.Parse(txtPositionID.Text));
+                        employeeServices.EditEmployee(employe);
+                    }
+                }
+                UpDate();
+            }
+        }
+
+        private void EditEmployee_Click(object sender, EventArgs e)
+        {
         }
     }
 }
