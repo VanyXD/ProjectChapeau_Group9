@@ -55,6 +55,11 @@ namespace ChapeauUI
             lblCurrentUser.Text = employee.FirstName;
             DisplayTables();
         }
+
+        private void btnTable1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
