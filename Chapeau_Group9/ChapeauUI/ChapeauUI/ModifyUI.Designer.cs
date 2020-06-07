@@ -31,8 +31,8 @@
             System.Windows.Forms.Button btn_plus;
             System.Windows.Forms.Button btn_minus;
             this.lbl_modify_Title = new System.Windows.Forms.Label();
-            this.lbl_modify_Nr = new System.Windows.Forms.Label();
             this.btn_Kitchen_Modify_Done = new System.Windows.Forms.Button();
+            this.richTxtBox_Modify = new System.Windows.Forms.RichTextBox();
             btn_plus = new System.Windows.Forms.Button();
             btn_minus = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -63,25 +63,12 @@
             // 
             this.lbl_modify_Title.AutoSize = true;
             this.lbl_modify_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_modify_Title.Location = new System.Drawing.Point(117, 33);
+            this.lbl_modify_Title.Location = new System.Drawing.Point(33, 32);
             this.lbl_modify_Title.Name = "lbl_modify_Title";
-            this.lbl_modify_Title.Size = new System.Drawing.Size(246, 25);
+            this.lbl_modify_Title.Size = new System.Drawing.Size(49, 25);
             this.lbl_modify_Title.TabIndex = 4;
-            this.lbl_modify_Title.Text = "ITEM_NAMEITEM_NAME";
+            this.lbl_modify_Title.Text = "Title";
             this.lbl_modify_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_modify_Nr
-            // 
-            this.lbl_modify_Nr.AutoSize = true;
-            this.lbl_modify_Nr.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_modify_Nr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_modify_Nr.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            this.lbl_modify_Nr.Location = new System.Drawing.Point(187, 123);
-            this.lbl_modify_Nr.Name = "lbl_modify_Nr";
-            this.lbl_modify_Nr.Size = new System.Drawing.Size(97, 69);
-            this.lbl_modify_Nr.TabIndex = 5;
-            this.lbl_modify_Nr.Text = "00";
-            this.lbl_modify_Nr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_Kitchen_Modify_Done
             // 
@@ -91,15 +78,24 @@
             this.btn_Kitchen_Modify_Done.TabIndex = 6;
             this.btn_Kitchen_Modify_Done.Text = "Done";
             this.btn_Kitchen_Modify_Done.UseVisualStyleBackColor = true;
-            //this.btn_Kitchen_Modify_Done.Click += new System.EventHandler(this.btn_Kitchen_Modify_Done_Click);
+            // 
+            // richTxtBox_Modify
+            // 
+            this.richTxtBox_Modify.Font = new System.Drawing.Font("Microsoft PhagsPa", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTxtBox_Modify.Location = new System.Drawing.Point(188, 113);
+            this.richTxtBox_Modify.Name = "richTxtBox_Modify";
+            this.richTxtBox_Modify.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTxtBox_Modify.Size = new System.Drawing.Size(90, 96);
+            this.richTxtBox_Modify.TabIndex = 7;
+            this.richTxtBox_Modify.Text = "00";
             // 
             // ModifyUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(468, 297);
+            this.Controls.Add(this.richTxtBox_Modify);
             this.Controls.Add(this.btn_Kitchen_Modify_Done);
-            this.Controls.Add(this.lbl_modify_Nr);
             this.Controls.Add(this.lbl_modify_Title);
             this.Controls.Add(btn_minus);
             this.Controls.Add(btn_plus);
@@ -113,7 +109,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_modify_Title;
-        private System.Windows.Forms.Label lbl_modify_Nr;
         private System.Windows.Forms.Button btn_Kitchen_Modify_Done;
+        private System.Windows.Forms.RichTextBox richTxtBox_Modify;
     }
 }

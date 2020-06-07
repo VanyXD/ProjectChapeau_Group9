@@ -60,60 +60,12 @@ namespace ChapeauUI
             this.Close();
         }
 
-        private void EmployeePNL_Paint(object sender, PaintEventArgs e)
-        {
-            EmployeeServices employeeServices = new EmployeeServices();
-            List<Employee> employees = employeeServices.GetEmployees();
-
-            employeeList.Items.Clear();
-
-            foreach(Employee employee in employees)
-            {
-                ListViewItem li = new ListViewItem(employee.FirstName);
-                li.SubItems.Add(employee.LastName);
-                li.SubItems.Add(employee.position.ToString());
-                employeeList.Items.Add(li);
-            }
-        }
-
+       
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            AddEmployeePNL.Hide();
-            EmployeePNL.Show();
-        }
-
-        private void btnAddEmployee_Click(object sender, EventArgs e)
-        {
-            AddEmployeePNL.Show();
-        }
-
-        private void Add_Click(object sender, EventArgs e)
-        {
-            Employee employee = new Employee()
-            {
-                EmployeeID = int.Parse(txtEmployeeID.Text),
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Email = txtEmail.Text,
-                PhoneNumber = int.Parse(txtPhoneNumber.Text),
-                Password = int.Parse(txtPassword.Text),
-                position = (Position)Enum.Parse(typeof(Position), txtPositionID.Text)
-            };
-            employeeServices.InsertEmployee(employee);
-        }
-
-        private void btnRemoveEmployee_Click(object sender, EventArgs e)
-        {
-            List<Employee> employees = employeeServices.GetEmployees();
-
-            if (employeeList.Items.Count > 0)
-            {
-                ListViewItem items = employeeList.SelectedItems[0];
-                int EmployeeID = int.Parse(items.SubItems[0].Text);
-                employeeServices.RemoveEmployee(EmployeeID);
-                
-            }
-
+            EmployeeUI employeeui = new EmployeeUI(employee);
+            this.Close();
+            employeeui.Show();
         }
     }
 }

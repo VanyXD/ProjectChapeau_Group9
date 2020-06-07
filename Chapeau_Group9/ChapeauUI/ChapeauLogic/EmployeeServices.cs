@@ -30,9 +30,9 @@ namespace ChapeauLogic
         {
             employee_db.InsertEmployee(employee);
         }
-        public void RemoveEmployee(int employeeID)
+        public void RemoveEmployee(int employeeCode)
         {
-            employee_db.DeleteEmployee(employeeID);
+            employee_db.DeleteEmployee(employeeCode);
         }
         public void EditEmployee(Employee employee)
         {

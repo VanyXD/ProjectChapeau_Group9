@@ -52,7 +52,7 @@
             this.lv_ViewTable.HideSelection = false;
             this.lv_ViewTable.Location = new System.Drawing.Point(16, 75);
             this.lv_ViewTable.Name = "lv_ViewTable";
-            this.lv_ViewTable.Size = new System.Drawing.Size(380, 334);
+            this.lv_ViewTable.Size = new System.Drawing.Size(380, 409);
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 527);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_ViewItem_Close);
             this.Controls.Add(this.btn_ViewItem_Ready);

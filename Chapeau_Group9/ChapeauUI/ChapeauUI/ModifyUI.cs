@@ -12,21 +12,27 @@ namespace ChapeauUI
 {
     public partial class ModifyUI : Form
     {
-        MenuItem item;
-        public ModifyUI(MenuItem item)
+        int itemId;
+        string itemName;
+        int amount;
+        public ModifyUI(string name, int id, int stock)
         {
             InitializeComponent();
-            this.item = item;
+            itemId = id;
+            itemName = name;
+            amount = stock;
+            lbl_modify_Title.Text = itemName;
+            richTxtBox_Modify.Text = amount.ToString();
         }
 
         private void btn_plus_Click(object sender, EventArgs e)
         {
-            lbl_modify_Nr.Text = (Convert.ToInt32(lbl_modify_Nr.Text) + 1).ToString();
+            richTxtBox_Modify.Text = (Convert.ToInt32(richTxtBox_Modify.Text) + 1).ToString();
         }
 
         private void btn_minus_Click(object sender, EventArgs e)
         {
-            lbl_modify_Nr.Text = (Convert.ToInt32(lbl_modify_Nr.Text) - 1).ToString();
+            richTxtBox_Modify.Text = (Convert.ToInt32(richTxtBox_Modify.Text) - 1).ToString();
         }
 
         //private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
