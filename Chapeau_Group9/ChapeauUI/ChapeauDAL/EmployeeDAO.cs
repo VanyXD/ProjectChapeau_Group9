@@ -12,14 +12,49 @@ using System.Configuration;
 namespace ChapeauDAL
 {
     public class EmployeeDAO : Base
-    {  
+    {
         public List<Employee> GetAllEmployees()
         {
             string query = "SELECT employee_id,first_name,last_name,email,phone,password, position_id FROM [employees]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadEmployees(ExecuteSelectQuery(query, sqlParameters));
         }
-       
+
+        //private SqlConnection dbConnection;
+        //public EmployeeDAO()
+        //{
+        //    string connString = ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString;
+        //    dbConnection = new SqlConnection(connString);
+        //}
+        //public List<Employee> GetAllEmployees()
+        //{
+        //    dbConnection.Open();
+        //    SqlCommand cmd = new SqlCommand("SELECT employee_id,first_name,last_name,email,phone,password, position_id FROM [employees]", dbConnection);
+        //    SqlDataReader reader = cmd.ExecuteReader();
+        //    List<Employee> employees = new List<Employee>();
+        //    while (reader.Read())
+        //    {
+        //        Employee employee = ReadEmployees(reader);
+        //        employees.Add(employee);
+        //    }
+        //    reader.Close();
+        //    dbConnection.Close();
+        //    return employees;
+        //}
+        //private Employee ReadEmployees(SqlDataReader reader)
+        //{
+        //    int EmployeeID = (int)reader["employee_id"];
+        //    string FirstName = (string)reader["first_name"];
+        //    string LastName = (string)reader["last_name"];
+        //    Position position = (Position)reader["position_id"];
+        //    int PhoneNumber = (int)reader["phone"];
+        //    string Email = (string)reader["email"];
+        //    int password = (int)reader["password"];
+
+
+        //    return new Employee(EmployeeID, FirstName,LastName,position,Email,PhoneNumber,password);
+        //}
+
         public void InsertEmployee(Employee employee)
         {
             int posID = (int)employee.position;
