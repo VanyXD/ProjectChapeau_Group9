@@ -27,14 +27,14 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void DeleteEmployee(int employeeID)
+        public void DeleteEmployee(int employeeCode)
         {
             //string query = $"Delete from Employees where employee_id = {employee.EmployeeID}";
             //SqlParameter[] sqlParameters = new SqlParameter[0];
             //ExecuteEditQuery(query, sqlParameters);
-            string query = $"DELETE FROM employees WHERE employees.employee_id='" + employeeID + "'";
-
-
+            string query = $"DELETE FROM employees WHERE password={employeeCode}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
 
         }
         public void UpdateEmployee(Employee employee)

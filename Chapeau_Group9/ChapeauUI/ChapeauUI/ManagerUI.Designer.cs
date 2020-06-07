@@ -75,6 +75,8 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Add_Employee = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.EmployeePNL.SuspendLayout();
@@ -306,10 +308,11 @@
             // 
             // EmployeePNL
             // 
-            this.EmployeePNL.Controls.Add(this.AddEmployeePNL);
+            this.EmployeePNL.Controls.Add(this.employeeList);
+            this.EmployeePNL.Controls.Add(this.Add_Employee);
             this.EmployeePNL.Controls.Add(this.btnRemoveEmployee);
             this.EmployeePNL.Controls.Add(this.btnAddEmployee);
-            this.EmployeePNL.Controls.Add(this.employeeList);
+            this.EmployeePNL.Controls.Add(this.AddEmployeePNL);
             this.EmployeePNL.Location = new System.Drawing.Point(-1, 74);
             this.EmployeePNL.Name = "EmployeePNL";
             this.EmployeePNL.Size = new System.Drawing.Size(1102, 511);
@@ -334,7 +337,7 @@
             this.AddEmployeePNL.Controls.Add(this.label11);
             this.AddEmployeePNL.Controls.Add(this.label12);
             this.AddEmployeePNL.Controls.Add(this.label10);
-            this.AddEmployeePNL.Location = new System.Drawing.Point(517, 21);
+            this.AddEmployeePNL.Location = new System.Drawing.Point(537, 19);
             this.AddEmployeePNL.Name = "AddEmployeePNL";
             this.AddEmployeePNL.Size = new System.Drawing.Size(562, 430);
             this.AddEmployeePNL.TabIndex = 10;
@@ -463,7 +466,7 @@
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(854, 457);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(586, 462);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(131, 37);
             this.btnRemoveEmployee.TabIndex = 9;
@@ -473,7 +476,7 @@
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(549, 457);
+            this.btnAddEmployee.Location = new System.Drawing.Point(751, 462);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(131, 37);
             this.btnAddEmployee.TabIndex = 8;
@@ -484,15 +487,16 @@
             // employeeList
             // 
             this.employeeList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Code,
             this.FirstName,
             this.LastName,
             this.Position});
             this.employeeList.FullRowSelect = true;
             this.employeeList.GridLines = true;
             this.employeeList.HideSelection = false;
-            this.employeeList.Location = new System.Drawing.Point(13, 19);
+            this.employeeList.Location = new System.Drawing.Point(3, 19);
             this.employeeList.Name = "employeeList";
-            this.employeeList.Size = new System.Drawing.Size(490, 477);
+            this.employeeList.Size = new System.Drawing.Size(508, 432);
             this.employeeList.TabIndex = 0;
             this.employeeList.UseCompatibleStateImageBehavior = false;
             this.employeeList.View = System.Windows.Forms.View.Details;
@@ -500,17 +504,32 @@
             // FirstName
             // 
             this.FirstName.Text = "First Name";
-            this.FirstName.Width = 170;
+            this.FirstName.Width = 132;
             // 
             // LastName
             // 
             this.LastName.Text = "Last Name";
-            this.LastName.Width = 189;
+            this.LastName.Width = 114;
             // 
             // Position
             // 
             this.Position.Text = "Position";
-            this.Position.Width = 397;
+            this.Position.Width = 138;
+            // 
+            // Code
+            // 
+            this.Code.Text = "Employee Code";
+            this.Code.Width = 109;
+            // 
+            // Add_Employee
+            // 
+            this.Add_Employee.Location = new System.Drawing.Point(184, 469);
+            this.Add_Employee.Name = "Add_Employee";
+            this.Add_Employee.Size = new System.Drawing.Size(75, 23);
+            this.Add_Employee.TabIndex = 11;
+            this.Add_Employee.Text = "Add ";
+            this.Add_Employee.UseVisualStyleBackColor = true;
+            this.Add_Employee.Click += new System.EventHandler(this.Add_Employee_Click);
             // 
             // ManagerUI
             // 
@@ -587,5 +606,7 @@
         private System.Windows.Forms.Button btnRemoveEmployee;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button Add;
+        private System.Windows.Forms.ColumnHeader Code;
+        private System.Windows.Forms.Button Add_Employee;
     }
 }

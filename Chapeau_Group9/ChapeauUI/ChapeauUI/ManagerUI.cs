@@ -23,6 +23,7 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
+            EmployeePNL.Hide();
         }
 
         public void TableStatus()
@@ -69,7 +70,8 @@ namespace ChapeauUI
 
             foreach(Employee employee in employees)
             {
-                ListViewItem li = new ListViewItem(employee.FirstName);
+                ListViewItem li = new ListViewItem(employee.Password.ToString());
+                li.SubItems.Add(employee.FirstName);
                 li.SubItems.Add(employee.LastName);
                 li.SubItems.Add(employee.position.ToString());
                 employeeList.Items.Add(li);
@@ -104,16 +106,19 @@ namespace ChapeauUI
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            List<Employee> employees = employeeServices.GetEmployees();
-
             if (employeeList.Items.Count > 0)
             {
                 ListViewItem items = employeeList.SelectedItems[0];
-                int EmployeeID = int.Parse(items.SubItems[0].Text);
-                employeeServices.RemoveEmployee(EmployeeID);
-                
+                int EmployeeCode = int.Parse(items.SubItems[0].Text);
+                employeeServices.RemoveEmployee(EmployeeCode);
             }
+        }
 
+        private void Add_Employee_Click(object sender, EventArgs e)
+        {
+            ListViewItem items = employeeList.SelectedItems[0];
+            int EmployeeCode = int.Parse(items.SubItems[0].Text);
+            employeeServices.RemoveEmployee(EmployeeCode);
         }
     }
 }
