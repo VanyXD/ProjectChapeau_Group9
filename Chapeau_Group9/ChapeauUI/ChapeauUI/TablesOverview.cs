@@ -58,7 +58,8 @@ namespace ChapeauUI
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-
+            TakeOrder takeOrder = new TakeOrder(employee);
+            takeOrder.ShowDialog();
         }
     }
 }

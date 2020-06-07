@@ -8,16 +8,16 @@ namespace ChapeauModel
 {
     public class Order
     {
-        public int EmployeeID { get; set; }
+        public Employee Employee { get; set; }
 
         public int OrderID { get; set; }
         public int Quantity { get; set; }
 
         public decimal TotalPrice { get; set; }
-        public MenuItem Items { get; set; }// no menu item or change the name to orderitem?
+        public List<OrderItem> OrderItems { get; set; } 
 
         public DateTime Time { get; set; }
-        public int TableID { get; set; }
+        public Tables Table { get; set; }
 
         public OrderStatus OrderStatus { get; set; }
 

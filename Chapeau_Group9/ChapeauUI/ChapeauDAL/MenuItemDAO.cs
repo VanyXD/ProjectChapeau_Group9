@@ -79,5 +79,48 @@ namespace ChapeauDAL
             }
             return articleList;
         }
+        public List<MenuItem> GetForCategory(CategoryID category)
+        {
+            List<MenuItem> items = new List<MenuItem>();
+            SqlCommand cmd;
+            if (category == CategoryID.Beers || category == CategoryID.Wines)
+            {
+                cmd = new SqlCommand("SELECT article_id, [name], stock, VAT, price, category_id FROM menu WHERE category_id = @id OR category_id = @idd", conn);
+                cmd.Parameters.AddWithValue("@idd", CategoryID.Wines);
+                cmd.Parameters.AddWithValue("@id", CategoryID.Beers);
+
+            }
+            else
+            {
+                cmd = new SqlCommand($"SELECT article_id, [name], stock, VAT, price, category_id FROM menu WHERE category_id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", category);
+
+            }
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                MenuItem item = ReadItem(reader);
+                items.Add(item);
+            }
+            reader.Close();
+            conn.Close();
+            return items;
+        }
+        public MenuItem ReadItem(SqlDataReader reader)
+        {
+            MenuItem item = new MenuItem
+            {
+                MenuItemID = (int)reader["article_id"],
+                Stock = (int)reader["stock"],
+                Category = (CategoryID)reader["category_id"],
+                HighVAT = (bool)reader["VAT"],
+                Name = (string)reader["name"],
+                Price = (decimal)reader["price"]
+
+            };
+            return item;
+
+        }
     }
 }
