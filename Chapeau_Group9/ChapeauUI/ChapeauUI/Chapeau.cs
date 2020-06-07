@@ -54,8 +54,6 @@ namespace ChapeauUI
                 if (user.position == Position.Manager)
                 {
                     ManagerUI ManagerUI = new ManagerUI(user);
-                    Chapeau chapeau = new Chapeau();
-                    chapeau.Close();
                     ManagerUI.Show();
                 }
                 else if (user.position == Position.waiter)

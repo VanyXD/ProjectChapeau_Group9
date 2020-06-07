@@ -42,13 +42,11 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.txtPositionID = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,6 +54,8 @@
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
+            this.EditEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -128,17 +128,16 @@
             // AddEmployeePNL
             // 
             this.AddEmployeePNL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddEmployeePNL.Controls.Add(this.Edit);
             this.AddEmployeePNL.Controls.Add(this.Add);
             this.AddEmployeePNL.Controls.Add(this.txtEmail);
             this.AddEmployeePNL.Controls.Add(this.txtPassword);
             this.AddEmployeePNL.Controls.Add(this.txtPhoneNumber);
-            this.AddEmployeePNL.Controls.Add(this.txtEmployeeID);
             this.AddEmployeePNL.Controls.Add(this.txtPositionID);
             this.AddEmployeePNL.Controls.Add(this.txtLastName);
             this.AddEmployeePNL.Controls.Add(this.txtFirstName);
             this.AddEmployeePNL.Controls.Add(this.label6);
             this.AddEmployeePNL.Controls.Add(this.label7);
-            this.AddEmployeePNL.Controls.Add(this.label8);
             this.AddEmployeePNL.Controls.Add(this.label9);
             this.AddEmployeePNL.Controls.Add(this.label11);
             this.AddEmployeePNL.Controls.Add(this.label12);
@@ -150,7 +149,7 @@
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(231, 374);
+            this.Add.Location = new System.Drawing.Point(185, 374);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(75, 38);
             this.Add.TabIndex = 15;
@@ -160,31 +159,24 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(139, 317);
+            this.txtEmail.Location = new System.Drawing.Point(164, 317);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(226, 20);
             this.txtEmail.TabIndex = 14;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(378, 246);
+            this.txtPassword.Location = new System.Drawing.Point(399, 246);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(160, 20);
             this.txtPassword.TabIndex = 13;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(185, 246);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(6, 246);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(160, 20);
             this.txtPhoneNumber.TabIndex = 12;
-            // 
-            // txtEmployeeID
-            // 
-            this.txtEmployeeID.Location = new System.Drawing.Point(6, 246);
-            this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(160, 20);
-            this.txtEmployeeID.TabIndex = 11;
             // 
             // txtPositionID
             // 
@@ -225,19 +217,10 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Last Name";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 230);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Employee ID";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(228, 301);
+            this.label9.Location = new System.Drawing.Point(161, 301);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 13);
             this.label9.TabIndex = 4;
@@ -246,7 +229,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(375, 230);
+            this.label11.Location = new System.Drawing.Point(396, 230);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 6;
@@ -264,7 +247,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(182, 230);
+            this.label10.Location = new System.Drawing.Point(3, 230);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 13);
             this.label10.TabIndex = 5;
@@ -272,7 +255,7 @@
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(59, 526);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(22, 526);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(131, 37);
             this.btnRemoveEmployee.TabIndex = 18;
@@ -282,7 +265,7 @@
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(238, 526);
+            this.btnAddEmployee.Location = new System.Drawing.Point(172, 526);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(131, 37);
             this.btnAddEmployee.TabIndex = 19;
@@ -300,12 +283,33 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // Edit
+            // 
+            this.Edit.Location = new System.Drawing.Point(302, 374);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(75, 38);
+            this.Edit.TabIndex = 16;
+            this.Edit.Text = "EDIT";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // EditEmployee
+            // 
+            this.EditEmployee.Location = new System.Drawing.Point(321, 526);
+            this.EditEmployee.Name = "EditEmployee";
+            this.EditEmployee.Size = new System.Drawing.Size(131, 37);
+            this.EditEmployee.TabIndex = 37;
+            this.EditEmployee.Text = "Edit Employee";
+            this.EditEmployee.UseVisualStyleBackColor = true;
+            this.EditEmployee.Click += new System.EventHandler(this.EditEmployee_Click);
+            // 
             // EmployeeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1099, 607);
+            this.Controls.Add(this.EditEmployee);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.btnRemoveEmployee);
@@ -340,13 +344,11 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtPhoneNumber;
-        private System.Windows.Forms.TextBox txtEmployeeID;
         private System.Windows.Forms.TextBox txtPositionID;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -354,5 +356,7 @@
         private System.Windows.Forms.Button btnRemoveEmployee;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button Edit;
+        private System.Windows.Forms.Button EditEmployee;
     }
 }
