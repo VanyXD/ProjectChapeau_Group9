@@ -37,11 +37,21 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void UpdateStock(int newStock)
+        //public void UpdateStock(int newStock)
+        //{
+        //    MenuItem menu = new MenuItem();
+        //    string query = $"update Menu Set Stock = {newStock} Where articleID = {menu.MenuItemID}";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+        //    ExecuteEditQuery(query, sqlParameters);
+        //}
+        public void UpdateStock(int id, int stock)
         {
-            MenuItem menu = new MenuItem();
-            string query = $"update Menu Set Stock = {newStock} Where articleID = {menu.MenuItemID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "update drinks " +
+                "set[stock] = @stock " +
+                "where drink_id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@stock", stock);
+            sqlParameters[1] = new SqlParameter("@id", id);
             ExecuteEditQuery(query, sqlParameters);
         }
         public List<MenuItem> GetAllMenuItems()

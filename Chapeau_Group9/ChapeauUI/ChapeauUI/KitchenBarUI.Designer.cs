@@ -88,9 +88,9 @@
             this.cbox_Kitchen_Category = new System.Windows.Forms.ComboBox();
             this.cbox_Kitchen_Menu = new System.Windows.Forms.ComboBox();
             this.lv_stock = new System.Windows.Forms.ListView();
-            this.col_Item = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -601,7 +601,7 @@
             this.btn_Kitchen_Modify.TabIndex = 32;
             this.btn_Kitchen_Modify.Text = "Modify";
             this.btn_Kitchen_Modify.UseVisualStyleBackColor = false;
-            //this.btn_Kitchen_Modify.Click += new System.EventHandler(this.btn_Kitchen_Modify_Click);
+            this.btn_Kitchen_Modify.Click += new System.EventHandler(this.btn_Kitchen_Modify_Click);
             // 
             // Lbl_Stock
             // 
@@ -656,9 +656,10 @@
             this.lv_stock.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lv_stock.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_ID,
-            this.col_Item,
+            this.col_ItemName,
             this.col_Stock});
             this.lv_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lv_stock.FullRowSelect = true;
             this.lv_stock.GridLines = true;
             this.lv_stock.HideSelection = false;
             this.lv_stock.Location = new System.Drawing.Point(15, 60);
@@ -668,19 +669,19 @@
             this.lv_stock.UseCompatibleStateImageBehavior = false;
             this.lv_stock.View = System.Windows.Forms.View.Details;
             // 
-            // col_Item
+            // col_ID
             // 
-            this.col_Item.Text = "Item";
-            this.col_Item.Width = 402;
+            this.col_ID.Text = "ID";
+            // 
+            // col_ItemName
+            // 
+            this.col_ItemName.Text = "Name";
+            this.col_ItemName.Width = 402;
             // 
             // col_Stock
             // 
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 399;
-            // 
-            // col_ID
-            // 
-            this.col_ID.Text = "ID";
             // 
             // KitchenBarUI
             // 
@@ -709,7 +710,7 @@
         private System.Windows.Forms.ComboBox cbox_Kitchen_Menu;
         private System.Windows.Forms.ListView lv_stock;
         private System.Windows.Forms.Label lbl_Kitchen_Catergory;
-        private System.Windows.Forms.ColumnHeader col_Item;
+        private System.Windows.Forms.ColumnHeader col_ItemName;
         private System.Windows.Forms.ColumnHeader col_Stock;
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Label Lbl_Stock;
