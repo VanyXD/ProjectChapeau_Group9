@@ -8,7 +8,7 @@ namespace ChapeauDAL
     public abstract class Base
     {
         private SqlDataAdapter adapter;
-        private SqlConnection conn;
+        protected SqlConnection conn;
         public Base()
         {
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString);

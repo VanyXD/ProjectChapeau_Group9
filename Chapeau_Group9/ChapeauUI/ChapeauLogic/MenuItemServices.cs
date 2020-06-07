@@ -10,19 +10,59 @@ namespace ChapeauLogic
 {
     public class MenuItemServices
     {
-        MenuItemDAO menuItem = new MenuItemDAO();
+        MenuItemDAO menuItemDao = new MenuItemDAO();
         public List<MenuItem> GetMenuItems()
         {
             try
             {
                 List<MenuItem> items = new List<MenuItem>();
-                items = menuItem.GetAllMenuItems();
+                items = menuItemDao.GetAllMenuItems();
                 return items;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+        public List<MenuItem> GetForCategory(string category)
+        {
+
+            CategoryID categoryID = CategoryID.empty;
+            switch (category.ToLower())
+            {
+                case "lunchmains":
+                    categoryID = CategoryID.LunchMain;
+                    break;
+                case "lunchspecials":
+                    categoryID = CategoryID.LunchSpecials;
+                    break;
+                case "lunchbites":
+                    categoryID = CategoryID.LunchBites;
+                    break;
+                case "dinnermains":
+                    categoryID = CategoryID.DinnerMains;
+                    break;
+                case "dinnerstarters":
+                    categoryID = CategoryID.DinnerStarters;
+                    break;
+                case "dinnerdesserts":
+                    categoryID = CategoryID.DinnerDesserts;
+                    break;
+                case "softdrinks":
+                    categoryID = CategoryID.SoftDrinks;
+                    break;
+                case "hotdrinks":
+                    categoryID = CategoryID.HotDrinks;
+                    break;
+                case "alcohol":
+                    categoryID = CategoryID.Wines;
+                    break;
+                    // no default set, error handling needs to be added
+            }
+
+            List<MenuItem> items = menuItemDao.GetForCategory(categoryID);
+
+            return items;
         }
     }
 }

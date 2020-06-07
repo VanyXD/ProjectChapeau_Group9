@@ -17,13 +17,26 @@ namespace ChapeauLogic
             try
             {
                 List<Order> orders = new List<Order>();
-                orders = order.GetAllOrders();
+                //orders = order.GetAllOrders();
                 return orders;
             }
             catch (Exception)
             {
                 throw new Exception("Couldn't connect to the database");
             }
+        }
+        public int WriteOrder(Order order)
+        {
+
+            int row = this.order.WriteOrder(order);
+            int roww = this.order.WriteOrderItems(order);
+            if (row > 0 && roww > 0)
+            {
+                return row;
+            }
+
+
+            return -1;
         }
     }
 }

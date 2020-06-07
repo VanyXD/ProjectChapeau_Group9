@@ -25,9 +25,9 @@ namespace ChapeauUI
 
         public void PrintItem(Order order)
         {
-            var row = new string[] { order.Quantity.ToString(), order.Items.ToString() };
-            var lvi = new ListViewItem(row);
-            lv_ViewTable.Items.Add(lvi);
+            //var row = new string[] { order.Quantity.ToString(), order.Items.ToString() };
+            //var lvi = new ListViewItem(row);
+            //lv_ViewTable.Items.Add(lvi);
         }
     }
 }
