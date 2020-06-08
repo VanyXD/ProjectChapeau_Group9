@@ -76,6 +76,7 @@ namespace ChapeauUI
             };
             employeeServices.InsertEmployee(employee);
             UpDate();
+            ;
             
         }
 
@@ -102,6 +103,7 @@ namespace ChapeauUI
                         employe.Password = int.Parse(txtPassword.Text);
                         employe.position = (Position)(int.Parse(txtPositionID.Text));
                         employeeServices.EditEmployee(employe);
+                        break;
                     }
                 }
                 UpDate();
@@ -110,6 +112,7 @@ namespace ChapeauUI
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
+            AddEmployeePNL.Show();
         }
     }
 }
