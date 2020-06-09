@@ -53,6 +53,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EmployeePNL = new System.Windows.Forms.Panel();
+            this.btnStock = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.EmployeePNL.SuspendLayout();
@@ -283,12 +284,23 @@
             // 
             // EmployeePNL
             // 
+            this.EmployeePNL.Controls.Add(this.btnStock);
             this.EmployeePNL.Controls.Add(this.panel1);
             this.EmployeePNL.Controls.Add(this.btnEmployees);
             this.EmployeePNL.Location = new System.Drawing.Point(-1, 74);
             this.EmployeePNL.Name = "EmployeePNL";
             this.EmployeePNL.Size = new System.Drawing.Size(1102, 511);
             this.EmployeePNL.TabIndex = 37;
+            // 
+            // btnStock
+            // 
+            this.btnStock.Location = new System.Drawing.Point(736, 373);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(156, 49);
+            this.btnStock.TabIndex = 35;
+            this.btnStock.Text = "Stock";
+            this.btnStock.UseVisualStyleBackColor = true;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
             // 
             // ManagerUI
             // 
@@ -339,5 +351,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel EmployeePNL;
+        private System.Windows.Forms.Button btnStock;
     }
 }

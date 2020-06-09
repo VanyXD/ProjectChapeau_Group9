@@ -82,6 +82,12 @@
     <Compile Include="KitchenBarUI.Designer.cs">
       <DependentUpon>KitchenBarUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="StockUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockUI.Designer.cs">
+      <DependentUpon>StockUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablesOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenBarUI.resx">
       <DependentUpon>KitchenBarUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockUI.resx">
+      <DependentUpon>StockUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablesOverview.resx">
       <DependentUpon>TablesOverview.cs</DependentUpon>

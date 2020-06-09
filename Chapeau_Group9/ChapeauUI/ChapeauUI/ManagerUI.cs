@@ -67,5 +67,12 @@ namespace ChapeauUI
             this.Close();
             employeeui.Show();
         }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            StockUI stockUi = new StockUI(employee);
+            this.Close();
+            stockUi.Show();
+        }
     }
 }

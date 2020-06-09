@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using ChapeauLogic;
 using System.Runtime.InteropServices.ComTypes;
 using ChapeauDAL;
+using System.Net.Http.Headers;
 
 namespace ChapeauUI
 {
@@ -38,6 +39,8 @@ namespace ChapeauUI
                 li.SubItems.Add(employe.FirstName);
                 li.SubItems.Add(employe.LastName);
                 li.SubItems.Add(employe.position.ToString());
+                li.SubItems.Add(employe.EmployeeID.ToString());
+
                 employeeList.Items.Add(li);
             }
         }
@@ -57,8 +60,8 @@ namespace ChapeauUI
             if (employeeList.Items.Count > 0)
             {
                 ListViewItem items = employeeList.SelectedItems[0];
-                int EmployeeCode = int.Parse(items.SubItems[0].Text);
-                employeeServices.RemoveEmployee(EmployeeCode);
+                int EmployeeID = int.Parse(items.SubItems[4].Text);
+                employeeServices.RemoveEmployee(EmployeeID);
             }
             UpDate();
         }
@@ -91,10 +94,10 @@ namespace ChapeauUI
             if (employeeList.SelectedItems.Count > 0)
             {
                 ListViewItem item = employeeList.SelectedItems[0];
-                int password = int.Parse(item.SubItems[0].Text);
+                int employeeID = int.Parse(item.SubItems[4].Text);
                 foreach (Employee employe in employees)
                 {
-                    if (password == employe.Password)
+                    if (employeeID == employe.EmployeeID)
                     {
                         employe.FirstName = txtFirstName.Text;
                         employe.LastName = txtLastName.Text;
@@ -103,7 +106,6 @@ namespace ChapeauUI
                         employe.Password = int.Parse(txtPassword.Text);
                         employe.position = (Position)(int.Parse(txtPositionID.Text));
                         employeeServices.EditEmployee(employe);
-                        break;
                     }
                 }
                 UpDate();
@@ -112,7 +114,26 @@ namespace ChapeauUI
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
-            AddEmployeePNL.Show();
+            List<Employee> employees = employeeServices.GetEmployees();
+            if (employeeList.SelectedItems.Count > 0)
+            {
+                ListViewItem item = employeeList.SelectedItems[0];
+                int employeeID = int.Parse(item.SubItems[4].Text);
+
+                foreach (Employee employe in employees)
+                {
+                    if (employeeID == employe.EmployeeID)
+                    {
+                        txtFirstName.Text = employe.FirstName;
+                        txtLastName.Text = employe.LastName;
+                        txtPositionID.Text = Convert.ToInt32(employe.position).ToString();
+                        txtPhoneNumber.Text = employe.PhoneNumber.ToString();
+                        txtPassword.Text = employe.Password.ToString();
+                        txtEmail.Text = employe.Email;
+                    }
+                }
+            }
+                AddEmployeePNL.Show();
         }
     }
 }
