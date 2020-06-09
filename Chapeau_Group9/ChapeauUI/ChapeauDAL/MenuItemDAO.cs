@@ -46,10 +46,10 @@ namespace ChapeauDAL
         //}
         public void UpdateStock(int id, int stock)
         {
-            string query = "update drinks " +
+            string query = "update menu " +
                 "set[stock] = @stock " +
-                "where drink_id = @id";
-            SqlParameter[] sqlParameters = new SqlParameter[3];
+                "where article_id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@stock", stock);
             sqlParameters[1] = new SqlParameter("@id", id);
             ExecuteEditQuery(query, sqlParameters);

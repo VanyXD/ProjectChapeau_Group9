@@ -64,5 +64,17 @@ namespace ChapeauLogic
 
             return items;
         }
+        public bool UpdateStock(int id, int stock)
+        {
+            try
+            {
+                menuItemDao.UpdateStock(id, stock);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

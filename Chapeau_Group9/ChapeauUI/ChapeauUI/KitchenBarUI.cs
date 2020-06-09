@@ -30,8 +30,9 @@ namespace ChapeauUI
         }
 
 
-        private void DisplayStock()
+        public void DisplayStock()
         {
+            lv_stock.Items.Clear();
             GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
@@ -47,7 +48,7 @@ namespace ChapeauUI
 
         private void DisplayStock(CategoryID category)
         {
-            lv_stock.Clear();
+            lv_stock.Items.Clear();
             GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
@@ -57,7 +58,7 @@ namespace ChapeauUI
         }
         private void DisplayStock(MenuItemType type)
         {
-            lv_stock.Clear();
+            lv_stock.Items.Clear();
             GetMenuItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
@@ -73,7 +74,7 @@ namespace ChapeauUI
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            GetMenuItems();
+            DisplayStock();
         }
         private void Logout()
         {

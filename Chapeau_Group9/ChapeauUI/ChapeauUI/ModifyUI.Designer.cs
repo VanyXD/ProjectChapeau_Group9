@@ -78,6 +78,7 @@
             this.btn_Kitchen_Modify_Done.TabIndex = 6;
             this.btn_Kitchen_Modify_Done.Text = "Done";
             this.btn_Kitchen_Modify_Done.UseVisualStyleBackColor = true;
+            this.btn_Kitchen_Modify_Done.Click += new System.EventHandler(this.btn_Kitchen_Modify_Done_Click);
             // 
             // richTxtBox_Modify
             // 

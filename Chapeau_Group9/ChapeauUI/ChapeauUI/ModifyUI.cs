@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChapeauLogic;
 
 namespace ChapeauUI
 {
@@ -35,10 +36,11 @@ namespace ChapeauUI
             richTxtBox_Modify.Text = (Convert.ToInt32(richTxtBox_Modify.Text) - 1).ToString();
         }
 
-        //private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
-        //{
-        //    item.
-        //    Close();
-        //}
+        private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
+        {
+            MenuItemServices menuServices = new MenuItemServices();
+            menuServices.UpdateStock(itemId, int.Parse(richTxtBox_Modify.Text));
+            Close();
+        }
     }
 }
