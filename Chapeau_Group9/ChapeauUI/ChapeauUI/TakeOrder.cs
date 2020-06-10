@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using ChapeauLogic;
 using ChapeauModel;
 using MenuItem = ChapeauModel.MenuItem;
+using System.Data.SqlClient;
+using System.Runtime.CompilerServices;
+using ChapeauDAL;
 
 namespace ChapeauUI
 {
@@ -18,15 +21,26 @@ namespace ChapeauUI
         
         MenuItemServices menuItemService;
         List<ChapeauModel.MenuItem> selectedItems;
+        OrderDAO orderdao = new OrderDAO();
 
         Employee employee;
-        public TakeOrder(Employee employee)
+        Tables table;
+        Order order;
+        public TakeOrder(Employee employee, int tableNum)
         {
             InitializeComponent();
             menuItemService = new MenuItemServices();
             selectedItems = new List<ChapeauModel.MenuItem>();
             this.employee = employee;
 
+            order = new Order();
+            order.Employee = employee;
+            order.OrderStatus = OrderStatus.Pending;
+
+            table = new Tables(tableNum, TableStatus.Occupied, tableNum);
+
+            order.Table = table;
+            orderdao.WriteOrder(order); //error here
         }
 
         private void TakeOrder_Load(object sender, EventArgs e)
@@ -169,9 +183,43 @@ namespace ChapeauUI
 
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
+            //button send order!!!!
+            //SqlCommand cmd = new SqlCommand();
 
 
 
+            //for (int i = 0; i < selectedItems.Count; i++)
+            //{
+            //    OrderItem orderItem;
+
+            //    if (itens.Any(x => x.MenuItem.MenuItemID == selectedItems.ElementAt(i).MenuItemID))
+            //    {
+            //        orderItem = itens.FirstOrDefault(x => x.MenuItem.MenuItemID == selectedItems.ElementAt(i).MenuItemID);
+            //        orderItem.Quantity++;
+            //    }
+            //    else
+            //    {
+            //        orderItem = new OrderItem
+            //        {
+            //            OrderId = order.OrderID,
+            //            MenuItem = selectedItems.ElementAt(i),
+            //            Quantity = 1
+            //        };
+            //        itens.Add(orderItem);
+            //    }
+            //}
+
+            //order.OrderItems = itens;
+
+            //orderdao.WriteOrderItems(order); //here
+
+            //SqlCommand cmd = new SqlCommand(cmd);
+
+            List<Order> itens = new List<Order>();
+            foreach (Order item in itens)
+            {
+                orderdao.InsertOrder(item);
+            }
         }
     }
 }
