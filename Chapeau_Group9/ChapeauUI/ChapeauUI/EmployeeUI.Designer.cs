@@ -37,6 +37,7 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AddEmployeePNL = new System.Windows.Forms.Panel();
             this.Edit = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.EditEmployee = new System.Windows.Forms.Button();
-            this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -109,27 +109,28 @@
             // 
             // Code
             // 
-            this.Code.DisplayIndex = 0;
             this.Code.Text = "Employee Code";
             this.Code.Width = 90;
             // 
             // FirstName
             // 
-            this.FirstName.DisplayIndex = 1;
             this.FirstName.Text = "First Name";
             this.FirstName.Width = 132;
             // 
             // LastName
             // 
-            this.LastName.DisplayIndex = 2;
             this.LastName.Text = "Last Name";
             this.LastName.Width = 114;
             // 
             // Position
             // 
-            this.Position.DisplayIndex = 3;
             this.Position.Text = "Position";
             this.Position.Width = 94;
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.Text = "EmployeeID";
+            this.EmployeeID.Width = 104;
             // 
             // AddEmployeePNL
             // 
@@ -308,12 +309,6 @@
             this.EditEmployee.Text = "Edit Employee";
             this.EditEmployee.UseVisualStyleBackColor = true;
             this.EditEmployee.Click += new System.EventHandler(this.EditEmployee_Click);
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.DisplayIndex = 4;
-            this.EmployeeID.Text = "EmployeeID";
-            this.EmployeeID.Width = 82;
             // 
             // EmployeeUI
             // 
