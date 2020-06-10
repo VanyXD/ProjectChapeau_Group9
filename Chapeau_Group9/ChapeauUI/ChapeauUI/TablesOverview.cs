@@ -16,18 +16,21 @@ namespace ChapeauUI
 {
     public partial class TablesOverview : Form
     {
+        Form Login;
         private TablesServices tablesServices;
         private Employee employee;
         private List<Button> buttons;
-        public TablesOverview(Employee employee)
+        public TablesOverview(Form login ,Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+            this.Login = login;
             tablesServices = new TablesServices();
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             this.Close();
+            Login.Show();
         }
         private void DisplayTables()
         {
