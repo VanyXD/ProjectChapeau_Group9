@@ -68,5 +68,11 @@ namespace ChapeauUI
                 modUI.Show();
             }
         }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            ItemList.Items.Clear();
+            GetMenuItems();
+        }
     }
 }
