@@ -45,44 +45,33 @@ namespace ChapeauUI
 
             }
 
-            if ( user  == null )
+
+            if (user.position == Position.Manager)
             {
-                MessageBox.Show("User Does not Exist");
+                ManagerUI ManagerUI = new ManagerUI(this, user);
+                Hide();
+                ManagerUI.Show();
+            }
+            else if (user.position == Position.waiter)
+            {
+                TablesOverview WaiterOverview = new TablesOverview(this, user);
+                Hide();
+                WaiterOverview.Show();
+            }
+            else if (user.position == Position.cook)
+            {
+                KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                Hide();
+                kitchenUI.Show();
+            }
+            else if (user.position == Position.Bartender)
+            {
+                KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                Hide();
+                kitchenUI.Show();
             }
             else
-            {
-                if (user.position == Position.Manager)
-                {
-                    ManagerUI ManagerUI = new ManagerUI(this, user);
-                    Hide();
-                    ManagerUI.Show();
-                }
-                else if (user.position == Position.waiter)
-                {
-                    TablesOverview WaiterOverview = new TablesOverview(user);
-                    WaiterOverview.Show();
-                }
-                else if (user.position == Position.cook)
-                {
-                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
-                    Hide();
-                    kitchenUI.Show();
-                }
-                else if (user.position == Position.Bartender)
-                {
-                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
-                    Hide();
-                    kitchenUI.Show();
-                }
-                else
-                   MessageBox.Show("User Does not Exist");
-            }
-
-        }
-
-        private void Chapeau_Load(object sender, EventArgs e)
-        {
-
+                MessageBox.Show("user does not exist");
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
+using System.Data.SqlClient;
 
 namespace ChapeauLogic
 {
