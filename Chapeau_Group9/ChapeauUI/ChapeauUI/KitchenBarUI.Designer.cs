@@ -31,10 +31,8 @@
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
             this.btn_Kitchen_Logout = new System.Windows.Forms.Button();
-            this.lbl_green = new System.Windows.Forms.Label();
             this.lbl_red = new System.Windows.Forms.Label();
             this.lbl_yellow = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_kitchen_table9 = new System.Windows.Forms.Button();
@@ -80,7 +78,6 @@
             this.col_menuItem3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
             this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
-            this.btn_Kitchen_Logout2 = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Kitchen_Modify = new System.Windows.Forms.Button();
             this.Lbl_Stock = new System.Windows.Forms.Label();
@@ -92,8 +89,8 @@
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbl_current_user = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
-            this.lbl_Current_User = new System.Windows.Forms.Label();
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -103,7 +100,7 @@
             // 
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Orders);
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Stock);
-            this.tabs_Kitchen.Location = new System.Drawing.Point(12, 12);
+            this.tabs_Kitchen.Location = new System.Drawing.Point(12, 36);
             this.tabs_Kitchen.Name = "tabs_Kitchen";
             this.tabs_Kitchen.SelectedIndex = 0;
             this.tabs_Kitchen.Size = new System.Drawing.Size(918, 484);
@@ -112,11 +109,8 @@
             // tab_Kitchen_Orders
             // 
             this.tab_Kitchen_Orders.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_Kitchen_Logout);
-            this.tab_Kitchen_Orders.Controls.Add(this.lbl_green);
             this.tab_Kitchen_Orders.Controls.Add(this.lbl_red);
             this.tab_Kitchen_Orders.Controls.Add(this.lbl_yellow);
-            this.tab_Kitchen_Orders.Controls.Add(this.label4);
             this.tab_Kitchen_Orders.Controls.Add(this.label3);
             this.tab_Kitchen_Orders.Controls.Add(this.label2);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table9);
@@ -149,7 +143,7 @@
             // 
             // btn_Kitchen_Logout
             // 
-            this.btn_Kitchen_Logout.Location = new System.Drawing.Point(785, 0);
+            this.btn_Kitchen_Logout.Location = new System.Drawing.Point(805, 16);
             this.btn_Kitchen_Logout.Name = "btn_Kitchen_Logout";
             this.btn_Kitchen_Logout.Size = new System.Drawing.Size(101, 42);
             this.btn_Kitchen_Logout.TabIndex = 64;
@@ -157,21 +151,11 @@
             this.btn_Kitchen_Logout.UseVisualStyleBackColor = true;
             this.btn_Kitchen_Logout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
             // 
-            // lbl_green
-            // 
-            this.lbl_green.AutoSize = true;
-            this.lbl_green.BackColor = System.Drawing.Color.ForestGreen;
-            this.lbl_green.Location = new System.Drawing.Point(631, 9);
-            this.lbl_green.Name = "lbl_green";
-            this.lbl_green.Size = new System.Drawing.Size(20, 17);
-            this.lbl_green.TabIndex = 53;
-            this.lbl_green.Text = "   ";
-            // 
             // lbl_red
             // 
             this.lbl_red.AutoSize = true;
             this.lbl_red.BackColor = System.Drawing.Color.Red;
-            this.lbl_red.Location = new System.Drawing.Point(458, 9);
+            this.lbl_red.Location = new System.Drawing.Point(657, 13);
             this.lbl_red.Name = "lbl_red";
             this.lbl_red.Size = new System.Drawing.Size(20, 17);
             this.lbl_red.TabIndex = 52;
@@ -181,25 +165,16 @@
             // 
             this.lbl_yellow.AutoSize = true;
             this.lbl_yellow.BackColor = System.Drawing.Color.Gold;
-            this.lbl_yellow.Location = new System.Drawing.Point(260, 9);
+            this.lbl_yellow.Location = new System.Drawing.Point(459, 13);
             this.lbl_yellow.Name = "lbl_yellow";
             this.lbl_yellow.Size = new System.Drawing.Size(20, 17);
             this.lbl_yellow.TabIndex = 51;
             this.lbl_yellow.Text = "   ";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(657, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Served";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(484, 9);
+            this.label3.Location = new System.Drawing.Point(683, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 17);
             this.label3.TabIndex = 49;
@@ -208,7 +183,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(286, 9);
+            this.label2.Location = new System.Drawing.Point(485, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 48;
@@ -308,7 +283,7 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(7, 9);
+            this.lbl_title.Location = new System.Drawing.Point(7, 3);
             this.lbl_title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(105, 33);
@@ -558,10 +533,7 @@
             // tab_Kitchen_Stock
             // 
             this.tab_Kitchen_Stock.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tab_Kitchen_Stock.Controls.Add(this.lbl_Current_User);
-            this.tab_Kitchen_Stock.Controls.Add(this.lbl_user);
             this.tab_Kitchen_Stock.Controls.Add(this.cmb_Bar_Category);
-            this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Logout2);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Refresh);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Modify);
             this.tab_Kitchen_Stock.Controls.Add(this.Lbl_Stock);
@@ -585,21 +557,11 @@
             "Hot Drinks",
             "Beer",
             "Wine"});
-            this.cmb_Bar_Category.Location = new System.Drawing.Point(568, 21);
+            this.cmb_Bar_Category.Location = new System.Drawing.Point(598, 24);
             this.cmb_Bar_Category.Name = "cmb_Bar_Category";
             this.cmb_Bar_Category.Size = new System.Drawing.Size(121, 24);
             this.cmb_Bar_Category.TabIndex = 66;
             this.cmb_Bar_Category.SelectedIndexChanged += new System.EventHandler(this.cmb_Bar_Category_SelectedIndexChanged);
-            // 
-            // btn_Kitchen_Logout2
-            // 
-            this.btn_Kitchen_Logout2.Location = new System.Drawing.Point(789, 0);
-            this.btn_Kitchen_Logout2.Name = "btn_Kitchen_Logout2";
-            this.btn_Kitchen_Logout2.Size = new System.Drawing.Size(101, 42);
-            this.btn_Kitchen_Logout2.TabIndex = 65;
-            this.btn_Kitchen_Logout2.Text = "Logout";
-            this.btn_Kitchen_Logout2.UseVisualStyleBackColor = true;
-            this.btn_Kitchen_Logout2.Click += new System.EventHandler(this.btn_Kitchen_Logout2_Click);
             // 
             // btn_Refresh
             // 
@@ -627,7 +589,7 @@
             // 
             this.Lbl_Stock.AutoSize = true;
             this.Lbl_Stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Stock.Location = new System.Drawing.Point(32, 12);
+            this.Lbl_Stock.Location = new System.Drawing.Point(20, 14);
             this.Lbl_Stock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_Stock.Name = "Lbl_Stock";
             this.Lbl_Stock.Size = new System.Drawing.Size(88, 33);
@@ -637,7 +599,7 @@
             // lbl_Kitchen_Catergory
             // 
             this.lbl_Kitchen_Catergory.AutoSize = true;
-            this.lbl_Kitchen_Catergory.Location = new System.Drawing.Point(493, 25);
+            this.lbl_Kitchen_Catergory.Location = new System.Drawing.Point(523, 27);
             this.lbl_Kitchen_Catergory.Name = "lbl_Kitchen_Catergory";
             this.lbl_Kitchen_Catergory.Size = new System.Drawing.Size(69, 17);
             this.lbl_Kitchen_Catergory.TabIndex = 4;
@@ -646,7 +608,7 @@
             // lbl_Kitche_Menu
             // 
             this.lbl_Kitche_Menu.AutoSize = true;
-            this.lbl_Kitche_Menu.Location = new System.Drawing.Point(191, 27);
+            this.lbl_Kitche_Menu.Location = new System.Drawing.Point(213, 25);
             this.lbl_Kitche_Menu.Name = "lbl_Kitche_Menu";
             this.lbl_Kitche_Menu.Size = new System.Drawing.Size(47, 17);
             this.lbl_Kitche_Menu.TabIndex = 3;
@@ -662,7 +624,7 @@
             "Starters",
             "Mains",
             "Desserts"});
-            this.cbox_Kitchen_Category.Location = new System.Drawing.Point(568, 22);
+            this.cbox_Kitchen_Category.Location = new System.Drawing.Point(598, 23);
             this.cbox_Kitchen_Category.Name = "cbox_Kitchen_Category";
             this.cbox_Kitchen_Category.Size = new System.Drawing.Size(121, 24);
             this.cbox_Kitchen_Category.TabIndex = 2;
@@ -674,7 +636,7 @@
             this.cbox_Kitchen_Menu.Items.AddRange(new object[] {
             "Lunch",
             "Dinner"});
-            this.cbox_Kitchen_Menu.Location = new System.Drawing.Point(244, 22);
+            this.cbox_Kitchen_Menu.Location = new System.Drawing.Point(266, 24);
             this.cbox_Kitchen_Menu.Name = "cbox_Kitchen_Menu";
             this.cbox_Kitchen_Menu.Size = new System.Drawing.Size(121, 24);
             this.cbox_Kitchen_Menu.TabIndex = 1;
@@ -712,30 +674,35 @@
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 100;
             // 
+            // lbl_current_user
+            // 
+            this.lbl_current_user.AutoSize = true;
+            this.lbl_current_user.Location = new System.Drawing.Point(137, 16);
+            this.lbl_current_user.Name = "lbl_current_user";
+            this.lbl_current_user.Size = new System.Drawing.Size(23, 17);
+            this.lbl_current_user.TabIndex = 68;
+            this.lbl_current_user.Text = "---";
+            this.lbl_current_user.Click += new System.EventHandler(this.lbl_current_user_Click);
+            // 
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(6, 404);
+            this.lbl_user.Location = new System.Drawing.Point(23, 16);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(93, 17);
             this.lbl_user.TabIndex = 67;
             this.lbl_user.Text = "Current User:";
-            // 
-            // lbl_Current_User
-            // 
-            this.lbl_Current_User.AutoSize = true;
-            this.lbl_Current_User.Location = new System.Drawing.Point(120, 404);
-            this.lbl_Current_User.Name = "lbl_Current_User";
-            this.lbl_Current_User.Size = new System.Drawing.Size(23, 17);
-            this.lbl_Current_User.TabIndex = 68;
-            this.lbl_Current_User.Text = "---";
+            this.lbl_user.Click += new System.EventHandler(this.lbl_user_Click);
             // 
             // KitchenBarUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 493);
+            this.ClientSize = new System.Drawing.Size(942, 549);
+            this.Controls.Add(this.btn_Kitchen_Logout);
+            this.Controls.Add(this.lbl_current_user);
             this.Controls.Add(this.tabs_Kitchen);
+            this.Controls.Add(this.lbl_user);
             this.Name = "KitchenBarUI";
             this.Text = "Kitchen";
             this.tabs_Kitchen.ResumeLayout(false);
@@ -744,6 +711,7 @@
             this.tab_Kitchen_Stock.ResumeLayout(false);
             this.tab_Kitchen_Stock.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -763,10 +731,8 @@
         private System.Windows.Forms.Label Lbl_Stock;
         private System.Windows.Forms.Button btn_Kitchen_Modify;
         private System.Windows.Forms.ListView lv_kitchen_table1;
-        private System.Windows.Forms.Label lbl_green;
         private System.Windows.Forms.Label lbl_red;
         private System.Windows.Forms.Label lbl_yellow;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_kitchen_table9;
@@ -810,10 +776,9 @@
         private System.Windows.Forms.ColumnHeader col_menuItem3;
         private System.Windows.Forms.Button btn_Kitchen_Logout;
         private System.Windows.Forms.Button btn_Refresh;
-        private System.Windows.Forms.Button btn_Kitchen_Logout2;
         private System.Windows.Forms.ColumnHeader col_ID;
         private System.Windows.Forms.ComboBox cmb_Bar_Category;
+        private System.Windows.Forms.Label lbl_current_user;
         private System.Windows.Forms.Label lbl_user;
-        private System.Windows.Forms.Label lbl_Current_User;
     }
 }

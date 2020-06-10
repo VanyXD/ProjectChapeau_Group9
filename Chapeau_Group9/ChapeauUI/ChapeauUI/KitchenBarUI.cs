@@ -34,7 +34,7 @@ namespace ChapeauUI
                 cbox_Kitchen_Menu.Hide();
                 lbl_Kitche_Menu.Hide();
             }
-            lbl_Current_User.Text = $"{user.FirstName} {user.LastName}";
+            lbl_current_user.Text = $"{user.FirstName} {user.LastName}";
         }
 
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
@@ -176,6 +176,16 @@ namespace ChapeauUI
                     DisplayStock(CategoryID.Wines);
                     break;
             }
+        }
+
+        private void lbl_user_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_current_user_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
