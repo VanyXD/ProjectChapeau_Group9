@@ -57,6 +57,7 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.EditEmployee = new System.Windows.Forms.Button();
+            this.BtnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -310,12 +311,23 @@
             this.EditEmployee.UseVisualStyleBackColor = true;
             this.EditEmployee.Click += new System.EventHandler(this.EditEmployee_Click);
             // 
+            // BtnHome
+            // 
+            this.BtnHome.Location = new System.Drawing.Point(12, 35);
+            this.BtnHome.Name = "BtnHome";
+            this.BtnHome.Size = new System.Drawing.Size(75, 23);
+            this.BtnHome.TabIndex = 38;
+            this.BtnHome.Text = "HOME";
+            this.BtnHome.UseVisualStyleBackColor = true;
+            this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
+            // 
             // EmployeeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1099, 607);
+            this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.EditEmployee);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnAddEmployee);
@@ -366,5 +378,6 @@
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Button EditEmployee;
         private System.Windows.Forms.ColumnHeader EmployeeID;
+        private System.Windows.Forms.Button BtnHome;
     }
 }

@@ -16,11 +16,13 @@ namespace ChapeauUI
     public partial class StockUI : Form
     {
         Employee employee;
+        ManagerUI managerUi;
         MenuItemServices Itemservices = new MenuItemServices();
         List<ChapeauModel.MenuItem> menuItems;
-        public StockUI(Employee employee)
+        public StockUI(ManagerUI managerUi, Employee employee)
         {
             InitializeComponent();
+            this.managerUi = managerUi;
             this.employee = employee;
             GetMenuItems();
         }
@@ -46,9 +48,8 @@ namespace ChapeauUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ManagerUI managerui = new ManagerUI(employee);
             this.Close();
-            managerui.Show();
+            managerUi.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
