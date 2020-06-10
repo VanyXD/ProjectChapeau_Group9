@@ -69,7 +69,9 @@ namespace ChapeauUI
                 }
                 else if (user.position == Position.Bartender)
                 {
-                    //BAR overview
+                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                    Hide();
+                    kitchenUI.Show();
                 }
                 else
                    MessageBox.Show("User Does not Exist");

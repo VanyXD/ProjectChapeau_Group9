@@ -24,6 +24,32 @@ namespace ChapeauLogic
                 throw ex;
             }
         }
+        public List<MenuItem> GetFoodItems()
+        {
+            try
+            {
+                List<MenuItem> items = new List<MenuItem>();
+                items = menuItemDao.GetFoodMenuItems();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<MenuItem> GetDrinkItems()
+        {
+            try
+            {
+                List<MenuItem> items = new List<MenuItem>();
+                items = menuItemDao.GetDrinkMenuItems();
+                return items;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<MenuItem> GetForCategory(string category)
         {
 

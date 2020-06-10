@@ -17,11 +17,23 @@ namespace ChapeauUI
     {
         List<ChapeauModel.MenuItem> menuItems;
         Form loginForm;
+        Employee user;
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
-            DisplayStock();
             this.loginForm = loginForm;
+            this.user = user;
+            DisplayStock();
+            if (user.position == Position.cook)
+            {
+                cmb_Bar_Category.Hide();
+            }
+            else
+            {
+                cbox_Kitchen_Category.Hide();
+                cbox_Kitchen_Menu.Hide();
+                lbl_Kitche_Menu.Hide();
+            }
         }
 
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
@@ -69,12 +81,22 @@ namespace ChapeauUI
         void GetMenuItems()
         {
             MenuItemServices service = new MenuItemServices();
-            menuItems = service.GetMenuItems();// depends on the user login get drink or food
+            if (user.position == Position.cook)
+            {
+                menuItems = service.GetFoodItems();
+            }
+            else
+            {
+                menuItems = service.GetDrinkItems();
+            }
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             DisplayStock();
+            cmb_Bar_Category.ResetText();
+            cbox_Kitchen_Category.ResetText();
+            cbox_Kitchen_Menu.ResetText();
         }
         private void Logout()
         {
@@ -95,6 +117,63 @@ namespace ChapeauUI
                 int stock = int.Parse(lv_stock.SelectedItems[0].SubItems[2].Text);
                 ModifyUI modUI = new ModifyUI(itemName, itemId, stock);
                 modUI.Show();
+            }
+        }
+
+        private void cbox_Kitchen_Menu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbox_Kitchen_Menu.SelectedItem.ToString())
+            {
+                case "Lunch":
+                    DisplayStock(MenuItemType.lunch);
+                    break;
+                case "Dinner":
+                    DisplayStock(MenuItemType.dinner);
+                    break;
+            }
+        }
+
+        private void cbox_Kitchen_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbox_Kitchen_Category.SelectedItem.ToString())
+            {
+                case "Lunch Main":
+                    DisplayStock(CategoryID.LunchMain);
+                    break;
+                case "Specials":
+                    DisplayStock(CategoryID.LunchSpecials);
+                    break;
+                case "Bites":
+                    DisplayStock(CategoryID.LunchBites);
+                    break;
+                case "Starters":
+                    DisplayStock(CategoryID.DinnerStarters);
+                    break;
+                case "Mains":
+                    DisplayStock(CategoryID.DinnerMains);
+                    break;
+                case "Desserts":
+                    DisplayStock(CategoryID.DinnerDesserts);
+                    break;
+            }
+        }
+
+        private void cmb_Bar_Category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmb_Bar_Category.SelectedItem.ToString())
+            {
+                case "Soft Drinks":
+                    DisplayStock(CategoryID.SoftDrinks);
+                    break;
+                case "Hot Drinks":
+                    DisplayStock(CategoryID.HotDrinks);
+                    break;
+                case "Beer":
+                    DisplayStock(CategoryID.Beers);
+                    break;
+                case "Wine":
+                    DisplayStock(CategoryID.Wines);
+                    break;
             }
         }
     }

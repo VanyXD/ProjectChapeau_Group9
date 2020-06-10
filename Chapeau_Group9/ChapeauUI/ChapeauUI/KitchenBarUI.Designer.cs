@@ -91,6 +91,7 @@
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -555,6 +556,7 @@
             // tab_Kitchen_Stock
             // 
             this.tab_Kitchen_Stock.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tab_Kitchen_Stock.Controls.Add(this.cmb_Bar_Category);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Logout2);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Refresh);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Modify);
@@ -635,10 +637,18 @@
             // cbox_Kitchen_Category
             // 
             this.cbox_Kitchen_Category.FormattingEnabled = true;
+            this.cbox_Kitchen_Category.Items.AddRange(new object[] {
+            "Lunch Main",
+            "Specials",
+            "Bites",
+            "Starters",
+            "Mains",
+            "Desserts"});
             this.cbox_Kitchen_Category.Location = new System.Drawing.Point(568, 22);
             this.cbox_Kitchen_Category.Name = "cbox_Kitchen_Category";
             this.cbox_Kitchen_Category.Size = new System.Drawing.Size(121, 24);
             this.cbox_Kitchen_Category.TabIndex = 2;
+            this.cbox_Kitchen_Category.SelectedIndexChanged += new System.EventHandler(this.cbox_Kitchen_Category_SelectedIndexChanged);
             // 
             // cbox_Kitchen_Menu
             // 
@@ -650,6 +660,7 @@
             this.cbox_Kitchen_Menu.Name = "cbox_Kitchen_Menu";
             this.cbox_Kitchen_Menu.Size = new System.Drawing.Size(121, 24);
             this.cbox_Kitchen_Menu.TabIndex = 1;
+            this.cbox_Kitchen_Menu.SelectedIndexChanged += new System.EventHandler(this.cbox_Kitchen_Menu_SelectedIndexChanged);
             // 
             // lv_stock
             // 
@@ -681,7 +692,21 @@
             // col_Stock
             // 
             this.col_Stock.Text = "Stock";
-            this.col_Stock.Width = 399;
+            this.col_Stock.Width = 100;
+            // 
+            // cmb_Bar_Category
+            // 
+            this.cmb_Bar_Category.FormattingEnabled = true;
+            this.cmb_Bar_Category.Items.AddRange(new object[] {
+            "Soft Drinks",
+            "Hot Drinks",
+            "Beer",
+            "Wine"});
+            this.cmb_Bar_Category.Location = new System.Drawing.Point(568, 21);
+            this.cmb_Bar_Category.Name = "cmb_Bar_Category";
+            this.cmb_Bar_Category.Size = new System.Drawing.Size(121, 24);
+            this.cmb_Bar_Category.TabIndex = 66;
+            this.cmb_Bar_Category.SelectedIndexChanged += new System.EventHandler(this.cmb_Bar_Category_SelectedIndexChanged);
             // 
             // KitchenBarUI
             // 
@@ -765,5 +790,6 @@
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.Button btn_Kitchen_Logout2;
         private System.Windows.Forms.ColumnHeader col_ID;
+        private System.Windows.Forms.ComboBox cmb_Bar_Category;
     }
 }
