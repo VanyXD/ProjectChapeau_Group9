@@ -41,18 +41,19 @@ namespace ChapeauDAL
         //    dbConnection.Close();
         //    return employees;
         //}
-        //private Employee ReadEmployees(SqlDataReader reader)
+        //public Employee ReadEmployees(SqlDataReader reader)
         //{
-        //    int EmployeeID = (int)reader["employee_id"];
-        //    string FirstName = (string)reader["first_name"];
-        //    string LastName = (string)reader["last_name"];
-        //    Position position = (Position)reader["position_id"];
-        //    int PhoneNumber = (int)reader["phone"];
-        //    string Email = (string)reader["email"];
-        //    int password = (int)reader["password"];
-
-
-        //    return new Employee(EmployeeID, FirstName,LastName,position,Email,PhoneNumber,password);
+        //    Employee employee = new Employee
+        //    {
+        //        EmployeeID = (int)reader["employee_id"],
+        //        FirstName = (string)reader["first_name"],
+        //        LastName = (string)reader["last_name"],
+        //        position = (Position)reader["position_id"],
+        //        PhoneNumber = (int)reader["phone"],
+        //        Email = (string)reader["email"],
+        //        Password = (int)reader["password"],
+        //    };
+        //    return employee;    
         //}
 
         public void InsertEmployee(Employee employee)
@@ -98,6 +99,6 @@ namespace ChapeauDAL
                 employeeList.Add(employee);
             }
             return employeeList;
-        }       
+        }
     }
 }

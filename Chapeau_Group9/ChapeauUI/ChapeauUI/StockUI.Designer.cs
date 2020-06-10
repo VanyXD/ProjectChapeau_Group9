@@ -34,8 +34,8 @@
             this.ItemStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Currentuser = new System.Windows.Forms.Label();
             this.lblCurrentUser = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnHome = new System.Windows.Forms.Button();
+            this.BtnLogOut = new System.Windows.Forms.Button();
             this.BtnModify = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -89,25 +89,25 @@
             this.lblCurrentUser.TabIndex = 16;
             this.lblCurrentUser.Text = "......";
             // 
-            // button1
+            // BtnHome
             // 
-            this.button1.Location = new System.Drawing.Point(-1, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "HOME";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnHome.Location = new System.Drawing.Point(-1, 28);
+            this.BtnHome.Name = "BtnHome";
+            this.BtnHome.Size = new System.Drawing.Size(75, 23);
+            this.BtnHome.TabIndex = 17;
+            this.BtnHome.Text = "HOME";
+            this.BtnHome.UseVisualStyleBackColor = true;
+            this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
-            // button2
+            // BtnLogOut
             // 
-            this.button2.Location = new System.Drawing.Point(726, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Log out";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BtnLogOut.Location = new System.Drawing.Point(726, 28);
+            this.BtnLogOut.Name = "BtnLogOut";
+            this.BtnLogOut.Size = new System.Drawing.Size(75, 23);
+            this.BtnLogOut.TabIndex = 18;
+            this.BtnLogOut.Text = "Log out";
+            this.BtnLogOut.UseVisualStyleBackColor = true;
+            this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
             // BtnModify
             // 
@@ -136,8 +136,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnModify);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnLogOut);
+            this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.Currentuser);
             this.Controls.Add(this.ItemList);
@@ -157,8 +157,8 @@
         private System.Windows.Forms.ColumnHeader ItemStock;
         private System.Windows.Forms.Label Currentuser;
         private System.Windows.Forms.Label lblCurrentUser;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnHome;
+        private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Button BtnModify;
         private System.Windows.Forms.Button BtnRefresh;
     }

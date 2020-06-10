@@ -17,10 +17,12 @@ namespace ChapeauUI
 {
     public partial class ManagerUI : Form
     {
+        Form logIN;
         private Employee employee;
         EmployeeServices employeeServices = new EmployeeServices();
-        public ManagerUI(Employee employee)
+        public ManagerUI(Form LogIn, Employee employee)
         {
+            this.logIN = LogIn;
             InitializeComponent();
             this.employee = employee;
         }
@@ -58,20 +60,21 @@ namespace ChapeauUI
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+            logIN.Show();
         }
 
        
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeUI employeeui = new EmployeeUI(employee);
-            this.Close();
+            EmployeeUI employeeui = new EmployeeUI(this, employee, logIN);
+            this.Hide();
             employeeui.Show();
         }
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            StockUI stockUi = new StockUI(employee);
-            this.Close();
+            StockUI stockUi = new StockUI(this, employee, logIN);
+            this.Hide();
             stockUi.Show();
         }
     }

@@ -53,7 +53,8 @@ namespace ChapeauUI
             {
                 if (user.position == Position.Manager)
                 {
-                    ManagerUI ManagerUI = new ManagerUI(user);
+                    ManagerUI ManagerUI = new ManagerUI(this, user);
+                    Hide();
                     ManagerUI.Show();
                 }
                 else if (user.position == Position.waiter)
@@ -69,9 +70,9 @@ namespace ChapeauUI
                 }
                 else if (user.position == Position.Bartender)
                 {
-                    KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                    KitchenBarUI barUI = new KitchenBarUI(this, user);
                     Hide();
-                    kitchenUI.Show();
+                    barUI.Show();
                 }
                 else
                    MessageBox.Show("User Does not Exist");

@@ -40,7 +40,7 @@
             // btn_plus
             // 
             btn_plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            btn_plus.Location = new System.Drawing.Point(349, 123);
+            btn_plus.Location = new System.Drawing.Point(350, 108);
             btn_plus.Name = "btn_plus";
             btn_plus.Size = new System.Drawing.Size(75, 75);
             btn_plus.TabIndex = 2;
@@ -51,7 +51,7 @@
             // btn_minus
             // 
             btn_minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
-            btn_minus.Location = new System.Drawing.Point(38, 123);
+            btn_minus.Location = new System.Drawing.Point(38, 108);
             btn_minus.Name = "btn_minus";
             btn_minus.Size = new System.Drawing.Size(75, 75);
             btn_minus.TabIndex = 3;
@@ -83,7 +83,7 @@
             // richTxtBox_Modify
             // 
             this.richTxtBox_Modify.Font = new System.Drawing.Font("Microsoft PhagsPa", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtBox_Modify.Location = new System.Drawing.Point(188, 113);
+            this.richTxtBox_Modify.Location = new System.Drawing.Point(189, 102);
             this.richTxtBox_Modify.Name = "richTxtBox_Modify";
             this.richTxtBox_Modify.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.richTxtBox_Modify.Size = new System.Drawing.Size(90, 96);
