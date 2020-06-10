@@ -61,8 +61,71 @@ namespace ChapeauUI
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            TakeOrder takeOrder = new TakeOrder(employee);
+            //TakeOrder takeOrder = new TakeOrder(employee);
+            //takeOrder.ShowDialog();
+            //TakeOrderBtnClick(int.Parse(this.ActiveControl.Text));
+            DisplayTable(1);
+
+        }
+        private void TakeOrderBtnClick(int tableNum)
+        {
+            
+            TakeOrder takeOrder = new TakeOrder(employee, tableNum);
             takeOrder.ShowDialog();
+        }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+            DisplayTable(2);
+        }
+
+        private void DisplayTable(int tableNum)
+        {
+            TakeOrder orderUI = new TakeOrder(employee, tableNum);
+            orderUI.Show();
+
+
+        }
+
+        private void btnTable3_Click(object sender, EventArgs e)
+        {
+            DisplayTable(3);
+
+        }
+
+        private void btnTable4_Click(object sender, EventArgs e)
+        {
+            DisplayTable(4);
+        }
+
+        private void btnTable5_Click(object sender, EventArgs e)
+        {
+            DisplayTable(5);
+        }
+
+        private void btnTable6_Click(object sender, EventArgs e)
+        {
+            DisplayTable(6);
+        }
+
+        private void btnTable7_Click(object sender, EventArgs e)
+        {
+            DisplayTable(7);
+        }
+
+        private void btnTable8_Click(object sender, EventArgs e)
+        {
+            DisplayTable(8);
+        }
+
+        private void btnTable9_Click(object sender, EventArgs e)
+        {
+            DisplayTable(9);
+        }
+
+        private void btnTable10_Click(object sender, EventArgs e)
+        {
+            DisplayTable(10);
         }
     }
 }
