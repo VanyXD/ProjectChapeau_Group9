@@ -79,6 +79,7 @@
             this.col_quantity3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_menuItem3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
+            this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
             this.btn_Kitchen_Logout2 = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Kitchen_Modify = new System.Windows.Forms.Button();
@@ -91,7 +92,8 @@
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
+            this.lbl_user = new System.Windows.Forms.Label();
+            this.lbl_Current_User = new System.Windows.Forms.Label();
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -556,6 +558,8 @@
             // tab_Kitchen_Stock
             // 
             this.tab_Kitchen_Stock.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tab_Kitchen_Stock.Controls.Add(this.lbl_Current_User);
+            this.tab_Kitchen_Stock.Controls.Add(this.lbl_user);
             this.tab_Kitchen_Stock.Controls.Add(this.cmb_Bar_Category);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Logout2);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Refresh);
@@ -572,6 +576,20 @@
             this.tab_Kitchen_Stock.Size = new System.Drawing.Size(910, 455);
             this.tab_Kitchen_Stock.TabIndex = 1;
             this.tab_Kitchen_Stock.Text = "Stock";
+            // 
+            // cmb_Bar_Category
+            // 
+            this.cmb_Bar_Category.FormattingEnabled = true;
+            this.cmb_Bar_Category.Items.AddRange(new object[] {
+            "Soft Drinks",
+            "Hot Drinks",
+            "Beer",
+            "Wine"});
+            this.cmb_Bar_Category.Location = new System.Drawing.Point(568, 21);
+            this.cmb_Bar_Category.Name = "cmb_Bar_Category";
+            this.cmb_Bar_Category.Size = new System.Drawing.Size(121, 24);
+            this.cmb_Bar_Category.TabIndex = 66;
+            this.cmb_Bar_Category.SelectedIndexChanged += new System.EventHandler(this.cmb_Bar_Category_SelectedIndexChanged);
             // 
             // btn_Kitchen_Logout2
             // 
@@ -597,7 +615,7 @@
             // btn_Kitchen_Modify
             // 
             this.btn_Kitchen_Modify.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(38, 390);
+            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(457, 390);
             this.btn_Kitchen_Modify.Name = "btn_Kitchen_Modify";
             this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_Modify.TabIndex = 32;
@@ -694,19 +712,23 @@
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 100;
             // 
-            // cmb_Bar_Category
+            // lbl_user
             // 
-            this.cmb_Bar_Category.FormattingEnabled = true;
-            this.cmb_Bar_Category.Items.AddRange(new object[] {
-            "Soft Drinks",
-            "Hot Drinks",
-            "Beer",
-            "Wine"});
-            this.cmb_Bar_Category.Location = new System.Drawing.Point(568, 21);
-            this.cmb_Bar_Category.Name = "cmb_Bar_Category";
-            this.cmb_Bar_Category.Size = new System.Drawing.Size(121, 24);
-            this.cmb_Bar_Category.TabIndex = 66;
-            this.cmb_Bar_Category.SelectedIndexChanged += new System.EventHandler(this.cmb_Bar_Category_SelectedIndexChanged);
+            this.lbl_user.AutoSize = true;
+            this.lbl_user.Location = new System.Drawing.Point(6, 404);
+            this.lbl_user.Name = "lbl_user";
+            this.lbl_user.Size = new System.Drawing.Size(93, 17);
+            this.lbl_user.TabIndex = 67;
+            this.lbl_user.Text = "Current User:";
+            // 
+            // lbl_Current_User
+            // 
+            this.lbl_Current_User.AutoSize = true;
+            this.lbl_Current_User.Location = new System.Drawing.Point(120, 404);
+            this.lbl_Current_User.Name = "lbl_Current_User";
+            this.lbl_Current_User.Size = new System.Drawing.Size(23, 17);
+            this.lbl_Current_User.TabIndex = 68;
+            this.lbl_Current_User.Text = "---";
             // 
             // KitchenBarUI
             // 
@@ -791,5 +813,7 @@
         private System.Windows.Forms.Button btn_Kitchen_Logout2;
         private System.Windows.Forms.ColumnHeader col_ID;
         private System.Windows.Forms.ComboBox cmb_Bar_Category;
+        private System.Windows.Forms.Label lbl_user;
+        private System.Windows.Forms.Label lbl_Current_User;
     }
 }
