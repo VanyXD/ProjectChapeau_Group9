@@ -17,11 +17,13 @@ namespace ChapeauUI
     {
         Employee employee;
         ManagerUI managerUi;
+        Form LogIn;
         MenuItemServices Itemservices = new MenuItemServices();
         List<ChapeauModel.MenuItem> menuItems;
-        public StockUI(ManagerUI managerUi, Employee employee)
+        public StockUI(ManagerUI managerUi, Employee employee, Form LogIn)
         {
             InitializeComponent();
+            this.LogIn = LogIn;
             this.managerUi = managerUi;
             this.employee = employee;
             GetMenuItems();
@@ -46,17 +48,6 @@ namespace ChapeauUI
             GetMenuItems();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            managerUi.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void BtnModify_Click(object sender, EventArgs e)
         {
             
@@ -74,6 +65,18 @@ namespace ChapeauUI
         {
             ItemList.Items.Clear();
             GetMenuItems();
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LogIn.Show();
+        }
+
+        private void BtnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            managerUi.Show();
         }
     }
 }

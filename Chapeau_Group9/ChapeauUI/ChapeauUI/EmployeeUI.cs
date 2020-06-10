@@ -20,11 +20,13 @@ namespace ChapeauUI
     public partial class EmployeeUI : Form
     {
         private Employee employee;
+        Form LogIn;
         ManagerUI managerUI;
         EmployeeServices employeeServices = new EmployeeServices();
-        public EmployeeUI(ManagerUI managerUI, Employee employee)
+        public EmployeeUI(ManagerUI managerUI, Employee employee, Form LogIn)
         {
             InitializeComponent();
+            this.LogIn = LogIn;
             this.employee = employee;
             this.managerUI = managerUI;
             AddEmployeePNL.Hide();
@@ -56,6 +58,7 @@ namespace ChapeauUI
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
+            LogIn.Show();
         }
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
@@ -81,8 +84,14 @@ namespace ChapeauUI
                 position = (Position)(int.Parse(txtPositionID.Text))
             };
             employeeServices.InsertEmployee(employee);
+            txtFirstName.ResetText();
+            txtLastName.ResetText();
+            txtPositionID.ResetText();
+            txtEmail.ResetText();
+            txtPassword.ResetText();
+            txtPhoneNumber.ResetText();
             UpDate();
-            ;
+            
             
         }
 
@@ -111,6 +120,12 @@ namespace ChapeauUI
                         employeeServices.EditEmployee(employe);
                     }
                 }
+                txtFirstName.ResetText();
+                txtLastName.ResetText();
+                txtPositionID.ResetText();
+                txtEmail.ResetText();
+                txtPassword.ResetText();
+                txtPhoneNumber.ResetText();
                 UpDate();
             }
         }

@@ -66,14 +66,14 @@ namespace ChapeauUI
        
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeUI employeeui = new EmployeeUI(this, employee);
+            EmployeeUI employeeui = new EmployeeUI(this, employee, logIN);
             this.Hide();
             employeeui.Show();
         }
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            StockUI stockUi = new StockUI(this, employee);
+            StockUI stockUi = new StockUI(this, employee, logIN);
             this.Hide();
             stockUi.Show();
         }
