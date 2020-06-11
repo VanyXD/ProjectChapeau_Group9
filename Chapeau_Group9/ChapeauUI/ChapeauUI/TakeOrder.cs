@@ -54,6 +54,7 @@ namespace ChapeauUI
         {
             List<MenuItem> fullMenu = menuItemService.GetMenuItems();
             order.OrderItems = selectedItems;
+            txtComment.Enabled = false;
             LoadMenu(fullMenu);
 
 
@@ -97,8 +98,8 @@ namespace ChapeauUI
                 MessageBox.Show("please select a quantity to add");
                 return;
             }
-
             
+
             else
             {
                 MenuItem chosen = (MenuItem)lstvMenu.SelectedItems[0].Tag;
@@ -109,6 +110,14 @@ namespace ChapeauUI
                     
                     OrderItem orderItem = new OrderItem { MenuItem = chosen, Quantity = Convert.ToInt32(numericUpDownQuantity.Value) };
 
+                    if (txtComment.Enabled && txtComment.Text != null)
+                    {
+                        orderItem.Comment = txtComment.Text;
+                    }
+                    else
+                    {
+                        orderItem.Comment = "none";
+                    }
                     selectedItems.Add(orderItem);
                 }
                 else
@@ -119,6 +128,8 @@ namespace ChapeauUI
 
                 
             }
+            checkBoxComment.Checked = false;
+            txtComment.Text = "";
             ShowSelectedItems();
 
 
@@ -220,6 +231,7 @@ namespace ChapeauUI
                 item.SubItems.Add(m.MenuItem.Name);
                 item.SubItems.Add(m.Quantity.ToString());
                 item.SubItems.Add(m.MenuItem.Price.ToString("0.00"));
+                item.SubItems.Add(m.Comment);
                 item.Tag = m;
                 lstvSelected.Items.Add(item);
             }
@@ -235,6 +247,7 @@ namespace ChapeauUI
                 MessageBox.Show("you need to choose items to order");
                 return;
             }
+            
 
             int num = orderService.WriteOrder(order);
             table.Status = TableStatus.Occupied;
@@ -257,11 +270,16 @@ namespace ChapeauUI
 
             btnShowFull_Click(sender, e);
 
+            RenewOrder();
+        }
+        private void RenewOrder()
+        {
             order = new Order();
             selectedItems = new List<OrderItem>();
             order.OrderItems = selectedItems;
             order.Table = this.table;
 
+            numericUpDownQuantity.Value = 0;
             order.Employee = this.employee;
         }
 
@@ -275,6 +293,25 @@ namespace ChapeauUI
         {
             this.Close();
             overview.Show();
+        }
+
+        private void checkBoxComment_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtComment.Enabled)
+            {
+                txtComment.Enabled = false;
+            }
+            else
+            {
+                txtComment.Enabled = true;
+            }
+        }
+
+        private void btnRemoveOrder_Click(object sender, EventArgs e)
+        {
+            
+            RenewOrder();
+            ShowSelectedItems();
         }
     }
 }

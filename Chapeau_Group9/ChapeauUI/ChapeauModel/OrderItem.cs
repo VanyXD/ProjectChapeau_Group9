@@ -6,6 +6,7 @@
         public MenuItem MenuItem { get; set; }
         public int OrderId { get; set; }
         public int Quantity { get; set; }
+        public string Comment { get; set; }
         public decimal TotaPrice { get { return MenuItem.Price * Quantity; } } 
     }
 }

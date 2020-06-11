@@ -33,11 +33,12 @@ namespace ChapeauDAL
         public int WriteOrderItems(Order order, OrderItem item)
         {
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO OrderItems(order_ID, article_id, quantity, total_price) VALUES(@id, @aid, @quan, @total)", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO OrderItems(order_ID, article_id, quantity, total_price, comment) VALUES(@id, @aid, @quan, @total, @comment)", conn);
             cmd.Parameters.AddWithValue("@id", order.OrderID);
             cmd.Parameters.AddWithValue("@aid", item.MenuItem.MenuItemID);
             cmd.Parameters.AddWithValue("@quan", item.Quantity);
             cmd.Parameters.AddWithValue("@total", item.TotaPrice);
+            cmd.Parameters.AddWithValue("@comment", item.Comment);
 
             conn.Open();
             int row = cmd.ExecuteNonQuery();

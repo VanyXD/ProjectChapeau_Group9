@@ -30,7 +30,6 @@ namespace ChapeauLogic
         {
 
             tabledao.UpdateTableStatus(table);
-
         }
     }
 }
