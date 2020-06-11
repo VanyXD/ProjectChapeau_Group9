@@ -105,8 +105,8 @@ namespace ChapeauUI
                 if(chosen.Stock >= numericUpDownQuantity.Value)
                 {
                     chosen.Stock -= Convert.ToInt32(numericUpDownQuantity.Value);
-                    // change stock amount
-                    //menuItemService.ChangeStockAmount(chosen);
+                    
+                    
                     OrderItem orderItem = new OrderItem { MenuItem = chosen, Quantity = Convert.ToInt32(numericUpDownQuantity.Value) };
 
                     selectedItems.Add(orderItem);
@@ -150,7 +150,7 @@ namespace ChapeauUI
 
         private void btnDinnerMains_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory("DinnerMains");
+            List<MenuItem> items = menuItemService.GetForCategory("DinnerMains");
             LoadMenu(items);
         }
 
@@ -196,7 +196,7 @@ namespace ChapeauUI
             OrderItem item = (OrderItem)lstvSelected.SelectedItems[0].Tag;
 
             string message = $"do you want to remove {item.MenuItem.Name}?";
-            string title = "Remove Food";
+            string title = "Remove item";
             MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
             DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3);
             if (result == DialogResult.Yes)
@@ -237,16 +237,17 @@ namespace ChapeauUI
             }
 
             int num = orderService.WriteOrder(order);
+            table.Status = TableStatus.Occupied;
             TablesServices.Updatetable(table);
             foreach (OrderItem item in order.OrderItems)
             {
                 menuItemService.ChangeStockAmount(item.MenuItem);
             }
-            
+
             if (num > 0)
             {
                 MessageBox.Show("order is sent");
-              
+
             }
             else
             {
@@ -256,8 +257,12 @@ namespace ChapeauUI
 
             btnShowFull_Click(sender, e);
 
-            order.OrderItems = null;
-            
+            order = new Order();
+            selectedItems = new List<OrderItem>();
+            order.OrderItems = selectedItems;
+            order.Table = this.table;
+
+            order.Employee = this.employee;
         }
 
         private void lstvMenu_SelectedIndexChanged(object sender, EventArgs e)
