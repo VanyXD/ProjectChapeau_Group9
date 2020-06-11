@@ -18,11 +18,13 @@ namespace ChapeauUI
         List<ChapeauModel.MenuItem> menuItems;
         Form loginForm;
         Employee user;
+        List<Order> orders;
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
             this.loginForm = loginForm;
             this.user = user;
+            GetOrders();
             DisplayStock();
             if (user.position == Position.cook)
             {
@@ -46,7 +48,7 @@ namespace ChapeauUI
         public void DisplayStock()
         {
             lv_stock.Items.Clear();
-            GetMenuItems();
+            GetStockItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 PrintItem(item, lv_stock);
@@ -54,7 +56,7 @@ namespace ChapeauUI
         }
         private void PrintItem(ChapeauModel.MenuItem item, ListView lv)
         {
-            var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString()};
+            var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString() };
             var lvi = new ListViewItem(row);
             lv.Items.Add(lvi);
         }
@@ -62,7 +64,7 @@ namespace ChapeauUI
         private void DisplayStock(CategoryID category)
         {
             lv_stock.Items.Clear();
-            GetMenuItems();
+            GetStockItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 if (item.Category == category)
@@ -72,14 +74,14 @@ namespace ChapeauUI
         private void DisplayStock(MenuItemType type)
         {
             lv_stock.Items.Clear();
-            GetMenuItems();
+            GetStockItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 if (item.Type == type)
                     PrintItem(item, lv_stock);
             }
         }
-        void GetMenuItems()
+        void GetStockItems()
         {
             MenuItemServices service = new MenuItemServices();
             if (user.position == Position.cook)
@@ -89,6 +91,26 @@ namespace ChapeauUI
             else
             {
                 menuItems = service.GetDrinkItems();
+            }
+        }
+
+        void GetOrders()
+        {
+            OrderServices service = new OrderServices();
+            orders = service.GetOrders();
+            if (user.position == Position.cook)
+            {
+                foreach (Order order in orders)
+                {
+                    order.OrderItems = service.GetKitchenOrderItems(order.OrderID);
+                }
+            }
+            else
+            {
+                foreach (Order order in orders)
+                {
+                    order.OrderItems = service.GetBarOrderItems(order.OrderID);
+                }
             }
         }
 
@@ -176,16 +198,6 @@ namespace ChapeauUI
                     DisplayStock(CategoryID.Wines);
                     break;
             }
-        }
-
-        private void lbl_user_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_current_user_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

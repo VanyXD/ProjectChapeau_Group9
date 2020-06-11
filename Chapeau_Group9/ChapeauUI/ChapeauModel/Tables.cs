@@ -13,6 +13,10 @@
             this.Status = status;
             this.TableNumber = tablenumber;
         }
+        public Tables(int tableid)
+        {
+            TableID = tableid;
+        }
     }
     
 

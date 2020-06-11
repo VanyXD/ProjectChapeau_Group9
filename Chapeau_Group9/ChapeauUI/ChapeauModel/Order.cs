@@ -8,10 +8,13 @@ namespace ChapeauModel
 {
     public class Order
     {
+        public Order()
+        {
+            OrderStatus = OrderStatus.Pending;
+        }
         public Employee Employee { get; set; }
 
         public int OrderID { get; set; }
-        public int Quantity { get; set; }
 
         public decimal TotalPrice { get; set; }
         public List<OrderItem> OrderItems { get; set; } 
