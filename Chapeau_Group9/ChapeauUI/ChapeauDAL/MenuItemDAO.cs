@@ -134,5 +134,19 @@ namespace ChapeauDAL
             return item;
 
         }
+        public int ChangeStockAmount(MenuItem item)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE menu SET stock = @stock WHERE article_id = @id", conn);
+            cmd.Parameters.AddWithValue("@stock", item.Stock);
+            cmd.Parameters.AddWithValue("@id", item.MenuItemID);
+
+            conn.Open();
+
+            int num = cmd.ExecuteNonQuery();
+
+            conn.Close();
+            
+            return num;
+        }
     }
 }

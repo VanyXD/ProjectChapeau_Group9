@@ -35,6 +35,7 @@
             this.lstvSelected = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSelect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +51,11 @@
             this.btnHotDrinks = new System.Windows.Forms.Button();
             this.btnSoftDrinks = new System.Windows.Forms.Button();
             this.btnSendOrder = new System.Windows.Forms.Button();
+            this.numericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // lstvMenu
@@ -57,15 +63,18 @@
             this.lstvMenu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lstvMenu.FullRowSelect = true;
             this.lstvMenu.HideSelection = false;
             this.lstvMenu.Location = new System.Drawing.Point(56, 55);
             this.lstvMenu.Name = "lstvMenu";
-            this.lstvMenu.Size = new System.Drawing.Size(357, 778);
+            this.lstvMenu.Size = new System.Drawing.Size(522, 778);
             this.lstvMenu.TabIndex = 0;
             this.lstvMenu.UseCompatibleStateImageBehavior = false;
             this.lstvMenu.View = System.Windows.Forms.View.Details;
+            this.lstvMenu.SelectedIndexChanged += new System.EventHandler(this.lstvMenu_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -87,12 +96,13 @@
             this.lstvSelected.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
             this.columnHeader5,
+            this.columnHeader7,
             this.columnHeader6});
             this.lstvSelected.FullRowSelect = true;
             this.lstvSelected.HideSelection = false;
             this.lstvSelected.Location = new System.Drawing.Point(1126, 55);
             this.lstvSelected.Name = "lstvSelected";
-            this.lstvSelected.Size = new System.Drawing.Size(357, 778);
+            this.lstvSelected.Size = new System.Drawing.Size(473, 778);
             this.lstvSelected.TabIndex = 1;
             this.lstvSelected.UseCompatibleStateImageBehavior = false;
             this.lstvSelected.View = System.Windows.Forms.View.Details;
@@ -108,6 +118,10 @@
             this.columnHeader5.Text = "Name";
             this.columnHeader5.Width = 150;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Quantity";
+            // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Price";
@@ -115,7 +129,7 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(699, 516);
+            this.btnSelect.Location = new System.Drawing.Point(824, 539);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(139, 23);
             this.btnSelect.TabIndex = 2;
@@ -143,7 +157,7 @@
             // 
             // btnShowFull
             // 
-            this.btnShowFull.Location = new System.Drawing.Point(432, 71);
+            this.btnShowFull.Location = new System.Drawing.Point(602, 87);
             this.btnShowFull.Name = "btnShowFull";
             this.btnShowFull.Size = new System.Drawing.Size(139, 23);
             this.btnShowFull.TabIndex = 5;
@@ -153,7 +167,7 @@
             // 
             // btnLunchMains
             // 
-            this.btnLunchMains.Location = new System.Drawing.Point(432, 116);
+            this.btnLunchMains.Location = new System.Drawing.Point(602, 132);
             this.btnLunchMains.Name = "btnLunchMains";
             this.btnLunchMains.Size = new System.Drawing.Size(139, 23);
             this.btnLunchMains.TabIndex = 9;
@@ -163,7 +177,7 @@
             // 
             // btnLunchSpecials
             // 
-            this.btnLunchSpecials.Location = new System.Drawing.Point(432, 161);
+            this.btnLunchSpecials.Location = new System.Drawing.Point(602, 177);
             this.btnLunchSpecials.Name = "btnLunchSpecials";
             this.btnLunchSpecials.Size = new System.Drawing.Size(139, 23);
             this.btnLunchSpecials.TabIndex = 10;
@@ -173,7 +187,7 @@
             // 
             // btnDinnerDesserts
             // 
-            this.btnDinnerDesserts.Location = new System.Drawing.Point(432, 341);
+            this.btnDinnerDesserts.Location = new System.Drawing.Point(602, 357);
             this.btnDinnerDesserts.Name = "btnDinnerDesserts";
             this.btnDinnerDesserts.Size = new System.Drawing.Size(139, 23);
             this.btnDinnerDesserts.TabIndex = 11;
@@ -183,7 +197,7 @@
             // 
             // btnDinnerMains
             // 
-            this.btnDinnerMains.Location = new System.Drawing.Point(432, 251);
+            this.btnDinnerMains.Location = new System.Drawing.Point(602, 267);
             this.btnDinnerMains.Name = "btnDinnerMains";
             this.btnDinnerMains.Size = new System.Drawing.Size(139, 23);
             this.btnDinnerMains.TabIndex = 12;
@@ -193,7 +207,7 @@
             // 
             // btnDinnerStarters
             // 
-            this.btnDinnerStarters.Location = new System.Drawing.Point(432, 296);
+            this.btnDinnerStarters.Location = new System.Drawing.Point(602, 312);
             this.btnDinnerStarters.Name = "btnDinnerStarters";
             this.btnDinnerStarters.Size = new System.Drawing.Size(139, 23);
             this.btnDinnerStarters.TabIndex = 13;
@@ -203,7 +217,7 @@
             // 
             // btnLunchBites
             // 
-            this.btnLunchBites.Location = new System.Drawing.Point(432, 206);
+            this.btnLunchBites.Location = new System.Drawing.Point(602, 222);
             this.btnLunchBites.Name = "btnLunchBites";
             this.btnLunchBites.Size = new System.Drawing.Size(139, 23);
             this.btnLunchBites.TabIndex = 14;
@@ -213,7 +227,7 @@
             // 
             // btnAlcoholics
             // 
-            this.btnAlcoholics.Location = new System.Drawing.Point(432, 476);
+            this.btnAlcoholics.Location = new System.Drawing.Point(602, 492);
             this.btnAlcoholics.Name = "btnAlcoholics";
             this.btnAlcoholics.Size = new System.Drawing.Size(139, 23);
             this.btnAlcoholics.TabIndex = 15;
@@ -223,7 +237,7 @@
             // 
             // btnHotDrinks
             // 
-            this.btnHotDrinks.Location = new System.Drawing.Point(432, 431);
+            this.btnHotDrinks.Location = new System.Drawing.Point(602, 447);
             this.btnHotDrinks.Name = "btnHotDrinks";
             this.btnHotDrinks.Size = new System.Drawing.Size(139, 23);
             this.btnHotDrinks.TabIndex = 16;
@@ -233,7 +247,7 @@
             // 
             // btnSoftDrinks
             // 
-            this.btnSoftDrinks.Location = new System.Drawing.Point(432, 386);
+            this.btnSoftDrinks.Location = new System.Drawing.Point(602, 402);
             this.btnSoftDrinks.Name = "btnSoftDrinks";
             this.btnSoftDrinks.Size = new System.Drawing.Size(139, 23);
             this.btnSoftDrinks.TabIndex = 17;
@@ -251,10 +265,37 @@
             this.btnSendOrder.UseVisualStyleBackColor = true;
             this.btnSendOrder.Click += new System.EventHandler(this.btnSendOrder_Click);
             // 
+            // numericUpDownQuantity
+            // 
+            this.numericUpDownQuantity.Location = new System.Drawing.Point(860, 307);
+            this.numericUpDownQuantity.Name = "numericUpDownQuantity";
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownQuantity.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(860, 274);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "select quantity";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Stock";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "availability";
+            this.columnHeader9.Width = 100;
+            // 
             // TakeOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDownQuantity);
             this.Controls.Add(this.btnSendOrder);
             this.Controls.Add(this.btnSoftDrinks);
             this.Controls.Add(this.btnHotDrinks);
@@ -274,6 +315,7 @@
             this.Name = "TakeOrder";
             this.Text = "TakeOrder";
             this.Load += new System.EventHandler(this.TakeOrder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +345,10 @@
         private System.Windows.Forms.Button btnHotDrinks;
         private System.Windows.Forms.Button btnSoftDrinks;
         private System.Windows.Forms.Button btnSendOrder;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.NumericUpDown numericUpDownQuantity;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

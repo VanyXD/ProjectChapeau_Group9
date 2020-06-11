@@ -12,7 +12,7 @@ using ChapeauModel;
 using MenuItem = ChapeauModel.MenuItem;
 using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
-using ChapeauDAL;
+
 
 namespace ChapeauUI
 {
@@ -20,8 +20,9 @@ namespace ChapeauUI
     {
         
         MenuItemServices menuItemService;
-        List<ChapeauModel.MenuItem> selectedItems;
-        OrderDAO orderdao = new OrderDAO();
+        List<OrderItem> selectedItems;
+        OrderServices orderService;
+        MenuItemServices menuIt;
 
         Employee employee;
         Tables table;
@@ -30,22 +31,26 @@ namespace ChapeauUI
         {
             InitializeComponent();
             menuItemService = new MenuItemServices();
-            selectedItems = new List<ChapeauModel.MenuItem>();
+            selectedItems = new List<OrderItem>();
             this.employee = employee;
+            orderService = new OrderServices();
+            menuIt = new MenuItemServices();
 
+            // fix
             order = new Order();
-            order.Employee = employee;
+            order.Employee = this.employee;
             order.OrderStatus = OrderStatus.Pending;
 
             table = new Tables(tableNum, TableStatus.Occupied, tableNum);
 
             order.Table = table;
-            orderdao.WriteOrder(order); //error here
+            //orderdao.WriteOrder(order);
         }
 
         private void TakeOrder_Load(object sender, EventArgs e)
         {
             List<MenuItem> fullMenu = menuItemService.GetMenuItems();
+            order.OrderItems = selectedItems;
             LoadMenu(fullMenu);
 
 
@@ -58,24 +63,61 @@ namespace ChapeauUI
                 ListViewItem item = new ListViewItem(mt.MenuItemID.ToString());
                 item.SubItems.Add(mt.Name);
                 item.SubItems.Add(mt.Price.ToString("0.00"));
+                item.SubItems.Add(mt.Stock.ToString());
+                if(mt.Stock < 10)
+                {
+                    item.SubItems.Add("low Stock");
+                }
+                else if(mt.Stock == 0)
+                {
+                    item.SubItems.Add("out of stock");
+                }
+                else
+                {
+                    item.SubItems.Add("sufficient");
+                }
                 item.Tag = mt;
                 lstvMenu.Items.Add(item);
             }
+
 
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            if (lstvMenu.SelectedItems.Count < 1)
+            if (lstvMenu.SelectedItems.Count <= 0)
             {
                 return;
             }
+            if(numericUpDownQuantity.Value <= 0)
+            {
+                MessageBox.Show("please select a quantity to add");
+                return;
+            }
 
-            MenuItem chosen = (MenuItem)lstvMenu.SelectedItems[0].Tag;
+            
+            else
+            {
+                MenuItem chosen = (MenuItem)lstvMenu.SelectedItems[0].Tag;
+                if(chosen.Stock >= numericUpDownQuantity.Value)
+                {
+                    chosen.Stock -= Convert.ToInt32(numericUpDownQuantity.Value);
+                    // change stock amount
+                    //menuItemService.ChangeStockAmount(chosen);
+                    OrderItem orderItem = new OrderItem { MenuItem = chosen, Quantity = Convert.ToInt32(numericUpDownQuantity.Value) };
 
-            selectedItems.Add(chosen);
+                    selectedItems.Add(orderItem);
+                }
+                else
+                {
+                    MessageBox.Show($"the amount chosen is not available in the stock, the available amount is {chosen.Stock}");
+                }
+                
 
+                
+            }
             ShowSelectedItems();
+
 
         }
 
@@ -148,9 +190,9 @@ namespace ChapeauUI
                 return;
             }
 
-            ChapeauModel.MenuItem item = (ChapeauModel.MenuItem)lstvSelected.SelectedItems[0].Tag;
+            OrderItem item = (OrderItem)lstvSelected.SelectedItems[0].Tag;
 
-            string message = $"do you want to remove {item.Name}?";
+            string message = $"do you want to remove {item.MenuItem.Name}?";
             string title = "Remove Food";
             MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
             DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3);
@@ -169,11 +211,12 @@ namespace ChapeauUI
         private void ShowSelectedItems()
         {
             lstvSelected.Items.Clear();
-            foreach(ChapeauModel.MenuItem m in selectedItems)
+            foreach(OrderItem m in selectedItems)
             {
-                ListViewItem item = new ListViewItem(m.MenuItemID.ToString());
-                item.SubItems.Add(m.Name);
-                item.SubItems.Add(m.Price.ToString("0.00"));
+                ListViewItem item = new ListViewItem(m.MenuItem.MenuItemID.ToString());
+                item.SubItems.Add(m.MenuItem.Name);
+                item.SubItems.Add(m.Quantity.ToString());
+                item.SubItems.Add(m.MenuItem.Price.ToString("0.00"));
                 item.Tag = m;
                 lstvSelected.Items.Add(item);
             }
@@ -183,43 +226,38 @@ namespace ChapeauUI
 
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
-            //button send order!!!!
-            //SqlCommand cmd = new SqlCommand();
-
-
-
-            //for (int i = 0; i < selectedItems.Count; i++)
-            //{
-            //    OrderItem orderItem;
-
-            //    if (itens.Any(x => x.MenuItem.MenuItemID == selectedItems.ElementAt(i).MenuItemID))
-            //    {
-            //        orderItem = itens.FirstOrDefault(x => x.MenuItem.MenuItemID == selectedItems.ElementAt(i).MenuItemID);
-            //        orderItem.Quantity++;
-            //    }
-            //    else
-            //    {
-            //        orderItem = new OrderItem
-            //        {
-            //            OrderId = order.OrderID,
-            //            MenuItem = selectedItems.ElementAt(i),
-            //            Quantity = 1
-            //        };
-            //        itens.Add(orderItem);
-            //    }
-            //}
-
-            //order.OrderItems = itens;
-
-            //orderdao.WriteOrderItems(order); //here
-
-            //SqlCommand cmd = new SqlCommand(cmd);
-
-            List<Order> itens = new List<Order>();
-            foreach (Order item in itens)
+            if(selectedItems.Count <= 0) // when no items are selected (added to list of order)
             {
-                orderdao.InsertOrder(item);
+                MessageBox.Show("you need to choose items to order");
+                return;
             }
+
+            int num = orderService.WriteOrder(order);
+            foreach(OrderItem item in order.OrderItems)
+            {
+                menuItemService.ChangeStockAmount(item.MenuItem);
+            }
+            
+            if (num > 0)
+            {
+                MessageBox.Show("order is sent");
+            }
+            else
+            {
+                MessageBox.Show("whoopsie");
+            }
+            lstvSelected.Items.Clear();
+
+            btnShowFull_Click(sender, e);
+
+            order.OrderItems = null;
+
+        }
+
+        private void lstvMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            numericUpDownQuantity.Value = 0;
+            
         }
     }
 }

@@ -12,6 +12,7 @@ namespace ChapeauLogic
     {
         OrderDAO order = new OrderDAO();
 
+
         public List<Order> GetArticles()
         {
             try
@@ -29,14 +30,22 @@ namespace ChapeauLogic
         {
 
             int row = this.order.WriteOrder(order);
-            int roww = this.order.WriteOrderItems(order);
-            if (row > 0 && roww > 0)
+
+
+            Order ord = this.order.GetLastOrder();
+            foreach(OrderItem item in order.OrderItems)
+            {
+                // send the int order id
+                this.order.WriteOrderItems(ord, item);
+            }
+            
+            if (row > 0)
             {
                 return row;
             }
 
 
-            return -1;
+            return row;
         }
     }
 }

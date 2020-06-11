@@ -90,6 +90,11 @@ namespace ChapeauLogic
 
             return items;
         }
+        public int ChangeStockAmount(MenuItem item)
+        {
+
+            return menuItemDao.ChangeStockAmount(item);
+        }
         public bool UpdateStock(int id, int stock)
         {
             try
