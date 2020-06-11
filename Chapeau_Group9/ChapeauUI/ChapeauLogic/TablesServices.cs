@@ -11,17 +11,30 @@ namespace ChapeauLogic
 {
     public class TablesServices
     {
-        TablesDAO table = new TablesDAO();
+        TablesDAO tabledao = new TablesDAO();
 
         public List<Tables> GetALLTables()
         {
             try
             {
                 List<Tables> tablesservices = new List<Tables>();
-                tablesservices = table.GetALLTables();
+                tablesservices = tabledao.GetALLTables();
                 return tablesservices;
             }
             catch (Exception)
+            {
+                throw new Exception("Couldn't connect to the database");
+            }
+        }
+        public void Updatetable(Tables table)
+        {
+            try
+            {
+                
+                tabledao.UpdateTableStatus(table);
+              
+            }
+            catch
             {
                 throw new Exception("Couldn't connect to the database");
             }
