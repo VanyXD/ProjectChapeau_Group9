@@ -70,7 +70,7 @@ namespace ChapeauUI
                     barUI.Show();
                 }
                 else
-                   MessageBox.Show("User Does not Exist");
+                   MessageBox.Show("Wrong Password!!");
             
 
         }
