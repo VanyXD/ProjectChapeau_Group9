@@ -19,6 +19,10 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadEmployees(ExecuteSelectQuery(query, sqlParameters));
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89a4ca188c8049bd8379a7023bd01cfbcd9f3064
         public void InsertEmployee(Employee employee)
         {
             int posID = (int)employee.position;

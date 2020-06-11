@@ -8,26 +8,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapeauModel;
+using ChapeauLogic;
 
 namespace ChapeauUI
 {
     public partial class KitchenViewItem : Form
     {
-        public KitchenViewItem(Order order)
+        int tableId;
+        Employee user;
+        List<OrderItem> items;
+        public KitchenViewItem(int tableId, Employee user)
         {
             InitializeComponent();
+            this.user = user;
+            this.tableId = tableId;
+            lbl_title.Text += " " + tableId.ToString();
+            GetOrderItems();
         }
 
         private void btn_ViewItem_Close_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        public void PrintItem(Order order)
+        void GetOrderItems()
         {
-            //var row = new string[] { order.Quantity.ToString(), order.Items.ToString() };
-            //var lvi = new ListViewItem(row);
-            //lv_ViewTable.Items.Add(lvi);
+            OrderServices orderService = new OrderServices();
+            if (user.position == Position.cook)
+            {
+                items = orderService.GetKitchenTableItems(tableId);
+            }
+            else
+            {
+                items = orderService.GetBarTableItems(tableId);
+            }
+            PrintItems();
+        }
+
+        public void PrintItems()
+        {
+            foreach (OrderItem item in items)
+            {
+                var row = new string[] { item.OrderItemID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), item.Time.ToString("HH:mm") };
+                var lvi = new ListViewItem(row);
+                lv_ViewTable.Items.Add(lvi);
+            }
+        }
+
+        private void btn_ViewItem_Ready_Click(object sender, EventArgs e)
+        {
+            OrderServices services = new OrderServices();
+            if (lv_ViewTable.SelectedItems.Count > 0)
+                foreach (ListViewItem item in lv_ViewTable.SelectedItems)
+                {
+                    {
+                        services.OrderReady(int.Parse(item.SubItems[0].Text));
+                        lv_ViewTable.Items.Remove(item);
+                    }
+                }
         }
     }
 }

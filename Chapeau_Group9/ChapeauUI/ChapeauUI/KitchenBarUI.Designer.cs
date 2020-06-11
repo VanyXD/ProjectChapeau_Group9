@@ -30,9 +30,7 @@
         {
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
-            this.lbl_red = new System.Windows.Forms.Label();
             this.lbl_yellow = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_kitchen_table9 = new System.Windows.Forms.Button();
             this.btn_kitchen_table8 = new System.Windows.Forms.Button();
@@ -109,9 +107,7 @@
             // tab_Kitchen_Orders
             // 
             this.tab_Kitchen_Orders.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tab_Kitchen_Orders.Controls.Add(this.lbl_red);
             this.tab_Kitchen_Orders.Controls.Add(this.lbl_yellow);
-            this.tab_Kitchen_Orders.Controls.Add(this.label3);
             this.tab_Kitchen_Orders.Controls.Add(this.label2);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table9);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table8);
@@ -141,16 +137,6 @@
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
             // 
-            // lbl_red
-            // 
-            this.lbl_red.AutoSize = true;
-            this.lbl_red.BackColor = System.Drawing.Color.Red;
-            this.lbl_red.Location = new System.Drawing.Point(657, 13);
-            this.lbl_red.Name = "lbl_red";
-            this.lbl_red.Size = new System.Drawing.Size(20, 17);
-            this.lbl_red.TabIndex = 52;
-            this.lbl_red.Text = "   ";
-            // 
             // lbl_yellow
             // 
             this.lbl_yellow.AutoSize = true;
@@ -160,15 +146,6 @@
             this.lbl_yellow.Size = new System.Drawing.Size(20, 17);
             this.lbl_yellow.TabIndex = 51;
             this.lbl_yellow.Text = "   ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(683, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Ready";
             // 
             // label2
             // 
@@ -187,6 +164,7 @@
             this.btn_kitchen_table9.TabIndex = 47;
             this.btn_kitchen_table9.Text = "Table 9";
             this.btn_kitchen_table9.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table9.Click += new System.EventHandler(this.btn_kitchen_table9_Click);
             // 
             // btn_kitchen_table8
             // 
@@ -196,6 +174,7 @@
             this.btn_kitchen_table8.TabIndex = 46;
             this.btn_kitchen_table8.Text = "Table 8";
             this.btn_kitchen_table8.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table8.Click += new System.EventHandler(this.btn_kitchen_table8_Click);
             // 
             // btn_kitchen_table7
             // 
@@ -205,6 +184,7 @@
             this.btn_kitchen_table7.TabIndex = 45;
             this.btn_kitchen_table7.Text = "Table 7";
             this.btn_kitchen_table7.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table7.Click += new System.EventHandler(this.btn_kitchen_table7_Click);
             // 
             // btn_kitchen_table6
             // 
@@ -214,6 +194,7 @@
             this.btn_kitchen_table6.TabIndex = 44;
             this.btn_kitchen_table6.Text = "Table 6";
             this.btn_kitchen_table6.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table6.Click += new System.EventHandler(this.btn_kitchen_table6_Click);
             // 
             // btn_kitchen_table5
             // 
@@ -223,6 +204,7 @@
             this.btn_kitchen_table5.TabIndex = 43;
             this.btn_kitchen_table5.Text = "Table 5";
             this.btn_kitchen_table5.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table5.Click += new System.EventHandler(this.btn_kitchen_table5_Click);
             // 
             // btn_kitchen_table4
             // 
@@ -232,6 +214,7 @@
             this.btn_kitchen_table4.TabIndex = 42;
             this.btn_kitchen_table4.Text = "Table 4";
             this.btn_kitchen_table4.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table4.Click += new System.EventHandler(this.btn_kitchen_table4_Click);
             // 
             // btn_kitchen_table10
             // 
@@ -241,6 +224,7 @@
             this.btn_kitchen_table10.TabIndex = 41;
             this.btn_kitchen_table10.Text = "Table 10";
             this.btn_kitchen_table10.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table10.Click += new System.EventHandler(this.btn_kitchen_table10_Click);
             // 
             // btn_kitchen_table3
             // 
@@ -250,6 +234,7 @@
             this.btn_kitchen_table3.TabIndex = 40;
             this.btn_kitchen_table3.Text = "Table 3";
             this.btn_kitchen_table3.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table3.Click += new System.EventHandler(this.btn_kitchen_table3_Click);
             // 
             // btn_kitchen_table2
             // 
@@ -259,6 +244,7 @@
             this.btn_kitchen_table2.TabIndex = 39;
             this.btn_kitchen_table2.Text = "Table 2";
             this.btn_kitchen_table2.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table2.Click += new System.EventHandler(this.btn_kitchen_table2_Click);
             // 
             // btn_kitchen_table1
             // 
@@ -268,6 +254,7 @@
             this.btn_kitchen_table1.TabIndex = 38;
             this.btn_kitchen_table1.Text = "Table 1";
             this.btn_kitchen_table1.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table1.Click += new System.EventHandler(this.btn_kitchen_table1_Click);
             // 
             // lbl_title
             // 
@@ -729,9 +716,7 @@
         private System.Windows.Forms.Label Lbl_Stock;
         private System.Windows.Forms.Button btn_Kitchen_Modify;
         private System.Windows.Forms.ListView lv_kitchen_table1;
-        private System.Windows.Forms.Label lbl_red;
         private System.Windows.Forms.Label lbl_yellow;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_kitchen_table9;
         private System.Windows.Forms.Button btn_kitchen_table8;
