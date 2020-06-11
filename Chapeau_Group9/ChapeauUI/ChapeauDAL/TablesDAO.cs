@@ -6,7 +6,7 @@ using System.Configuration;
 
 namespace ChapeauDAL
 {
-    public class TablesDAO 
+    public class TablesDAO : Base
     {
         private SqlConnection dbConnection;
         public TablesDAO()
@@ -31,14 +31,25 @@ namespace ChapeauDAL
         }
         private Tables ReadTables(SqlDataReader reader)
         {
+
+
             int TableID = (int)reader["table_id"];
-            TableStatus  Status = (TableStatus)reader["TableStatus"];
+            TableStatus Status = (TableStatus)reader["TableStatus"];
             int TableNumber = (int)reader["table_number"];
-            return new Tables(TableID, Status, TableNumber);
+           
+            return new Tables(TableID , Status , TableNumber);
+        }
+        public void  UpdateTableStatus(Tables table)
+        {
+            string query = $"update tables Set Tablestatus = '{table.Status}' WHERE Table_ID = {table.TableID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
+            
 
 
-        
+
+
 
