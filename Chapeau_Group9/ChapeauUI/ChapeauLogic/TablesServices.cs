@@ -34,6 +34,7 @@ namespace ChapeauLogic
                 tabledao.UpdateTableStatus(table);
               
             }
+            //error here cant connect to the db
             catch
             {
                 throw new Exception("Couldn't connect to the database");

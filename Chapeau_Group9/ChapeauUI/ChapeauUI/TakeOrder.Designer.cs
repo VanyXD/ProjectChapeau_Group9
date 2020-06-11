@@ -267,7 +267,7 @@
             // 
             // btnSendOrder
             // 
-            this.btnSendOrder.Location = new System.Drawing.Point(1496, 890);
+            this.btnSendOrder.Location = new System.Drawing.Point(824, 682);
             this.btnSendOrder.Name = "btnSendOrder";
             this.btnSendOrder.Size = new System.Drawing.Size(139, 23);
             this.btnSendOrder.TabIndex = 18;
