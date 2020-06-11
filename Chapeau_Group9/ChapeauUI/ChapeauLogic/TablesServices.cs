@@ -36,9 +36,9 @@ namespace ChapeauLogic
                 throw new Exception("Couldn't connect to the database");
             }
 
-<<<<<<< HEAD
+ 
             tabledao.UpdateTableStatus(table);
-=======
+
         }
         public void ReadOrderStatus(Order order)
         {
@@ -51,7 +51,7 @@ namespace ChapeauLogic
             {
                 throw new Exception("Couldn't connect to the database");
             }
->>>>>>> 86123ce713860c10792421c35121cfe6ae0de05f
+ 
         }
     }
 }
