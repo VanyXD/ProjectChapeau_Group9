@@ -44,13 +44,6 @@ namespace ChapeauUI
                 }
 
             }
-
-            if ( user  == null )
-            {
-                MessageBox.Show("User Does not Exist");
-            }
-            else
-            {
                 if (user.position == Position.Manager)
                 {
                     ManagerUI ManagerUI = new ManagerUI(this, user);
@@ -78,7 +71,7 @@ namespace ChapeauUI
                 }
                 else
                    MessageBox.Show("User Does not Exist");
-            }
+            
 
         }
     }
