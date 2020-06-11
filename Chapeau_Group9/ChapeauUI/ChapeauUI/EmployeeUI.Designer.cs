@@ -58,6 +58,10 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.EditEmployee = new System.Windows.Forms.Button();
             this.BtnHome = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +140,10 @@
             // AddEmployeePNL
             // 
             this.AddEmployeePNL.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AddEmployeePNL.Controls.Add(this.label4);
+            this.AddEmployeePNL.Controls.Add(this.label3);
+            this.AddEmployeePNL.Controls.Add(this.label2);
+            this.AddEmployeePNL.Controls.Add(this.label1);
             this.AddEmployeePNL.Controls.Add(this.Edit);
             this.AddEmployeePNL.Controls.Add(this.Add);
             this.AddEmployeePNL.Controls.Add(this.txtEmail);
@@ -198,21 +206,21 @@
             // 
             // txtPositionID
             // 
-            this.txtPositionID.Location = new System.Drawing.Point(370, 106);
+            this.txtPositionID.Location = new System.Drawing.Point(370, 55);
             this.txtPositionID.Name = "txtPositionID";
             this.txtPositionID.Size = new System.Drawing.Size(160, 20);
             this.txtPositionID.TabIndex = 10;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(185, 106);
+            this.txtLastName.Location = new System.Drawing.Point(6, 155);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(160, 20);
             this.txtLastName.TabIndex = 9;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(6, 106);
+            this.txtFirstName.Location = new System.Drawing.Point(6, 55);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(160, 20);
             this.txtFirstName.TabIndex = 8;
@@ -220,7 +228,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 90);
+            this.label6.Location = new System.Drawing.Point(3, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 1;
@@ -229,7 +237,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 90);
+            this.label7.Location = new System.Drawing.Point(3, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 2;
@@ -256,7 +264,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(375, 90);
+            this.label12.Location = new System.Drawing.Point(367, 39);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 7;
@@ -321,6 +329,42 @@
             this.BtnHome.UseVisualStyleBackColor = true;
             this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(367, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "1 = Manager";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(367, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "2 = Waitor";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(367, 130);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "3 = Bartender";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(367, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "4 = Cook";
+            // 
             // EmployeeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,5 +423,9 @@
         private System.Windows.Forms.Button EditEmployee;
         private System.Windows.Forms.ColumnHeader EmployeeID;
         private System.Windows.Forms.Button BtnHome;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
