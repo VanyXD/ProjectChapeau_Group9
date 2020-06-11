@@ -39,6 +39,7 @@
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_quant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_order_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label
@@ -56,7 +57,8 @@
             this.col_id,
             this.col_name,
             this.col_quant,
-            this.col_time});
+            this.col_time,
+            this.col_order_id});
             this.lv_ViewTable.FullRowSelect = true;
             this.lv_ViewTable.GridLines = true;
             this.lv_ViewTable.HideSelection = false;
@@ -134,6 +136,10 @@
             this.col_time.Text = "time";
             this.col_time.Width = 72;
             // 
+            // col_order_id
+            // 
+            this.col_order_id.Text = "order id";
+            // 
             // KitchenViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -166,5 +172,6 @@
         private System.Windows.Forms.ColumnHeader col_name;
         private System.Windows.Forms.ColumnHeader col_quant;
         private System.Windows.Forms.ColumnHeader col_time;
+        private System.Windows.Forms.ColumnHeader col_order_id;
     }
 }

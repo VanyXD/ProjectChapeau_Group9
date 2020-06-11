@@ -61,16 +61,24 @@ namespace ChapeauUI
         }
         void ColorButtons()
         {
+            foreach (Button btn in buttons)
+            {
+                btn.BackColor = Color.Gray;
+            }
             foreach (Order order in orders)
             {
+                if(order.OrderStatus == OrderStatus.Pending)
                 buttons[order.Table.TableID - 1].BackColor = Color.FromArgb(255,255,51);
             }
         }
         void DisplayOrderItems()
         {
+            foreach (ListView listV in listViews)
+            {
+                listV.Items.Clear();
+            }
             foreach (Order order in orders)
             {
-                    listViews[order.Table.TableID - 1].Items.Clear();
                 foreach (OrderItem item in order.OrderItems)
                 {
                     PrintOrderItem(item, listViews[order.Table.TableID - 1]);

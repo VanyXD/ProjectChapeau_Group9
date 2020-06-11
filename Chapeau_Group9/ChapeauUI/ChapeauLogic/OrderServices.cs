@@ -47,15 +47,15 @@ namespace ChapeauLogic
                 orders = order.GetBarItems(id);
                 return orders;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Couldn't connect to the database");
+                throw ex;
             }
         }
         public int WriteOrder(Order order)
         {
 
-            
+
 
             decimal hanna = 0;
             foreach (OrderItem item in order.OrderItems)
@@ -67,12 +67,12 @@ namespace ChapeauLogic
             int row = this.order.WriteOrder(order);
             //error here about a steak  when I tried to ad 2 of them.
             Order ord = this.order.GetLastOrder();
-            foreach(OrderItem item in order.OrderItems)
+            foreach (OrderItem item in order.OrderItems)
             {
                 // send the int order id
                 this.order.WriteOrderItems(ord, item);
             }
-            
+
             if (row > 0)
             {
                 return row;
@@ -113,6 +113,41 @@ namespace ChapeauLogic
             try
             {
                 order.UpdateReady(id);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public string GetComments(int id)
+        {
+            try
+            {
+                return order.GetComment(id);
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
+        public bool CheckStatusReady(int id)
+        {
+            List<int> status = new List<int>();
+            status = order.GetStatus(id);
+            foreach (int state in status)
+            {
+                if (state != 2)
+                    return false;
+            }
+            return true;
+        }
+        public bool OrderCompeteReady(int id)
+        {
+            try
+            {
+                order.OrderReady(id);
                 return true;
             }
             catch

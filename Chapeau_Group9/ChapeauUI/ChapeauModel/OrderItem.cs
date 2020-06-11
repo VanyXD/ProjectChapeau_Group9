@@ -13,7 +13,7 @@ namespace ChapeauModel
         public int OrderId { get; set; }
         public int Quantity { get; set; }
         public decimal TotaPrice { get { return MenuItem.Price * Quantity; } } 
-
         public DateTime Time { get; set; }
+        public string Comment { get; set; }
     }
 }
