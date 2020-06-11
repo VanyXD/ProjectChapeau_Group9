@@ -70,5 +70,67 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
+        public List<Order> GetAllOrders()
+        {
+            string query = "select order_id, order_time, table_id from [order] where order_status = 1";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadOrders(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<Order> ReadOrders(DataTable datatable)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (DataRow dr in datatable.Rows)
+            {
+                Order order = new Order()
+                {
+                    OrderID = (int)dr["order_id"],
+                    Time = (DateTime)dr["order_time"],
+                    Table = new Tables((int)dr["table_id"]),
+                };
+                orders.Add(order);
+            }
+            return orders;
+        }
+        public List<OrderItem> GetKitchenItems(int id)
+        {
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id " +
+                "FROM OrderItems " +
+                "JOIN menu as m " +
+                "ON m.article_id = OrderItems.article_id " +
+                "WHERE status = 1 " +
+                "AND order_id = @id   " +
+                "AND m.item_type_id != 3";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetBarItems(int id)
+        {
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id " +
+                "FROM OrderItems " +
+                "JOIN menu as m " +
+                "ON m.article_id = OrderItems.article_id " +
+                "WHERE status = 1 " +
+                "AND order_id = @id   " +
+                "AND m.item_type_id = 3";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<OrderItem> ReadOrderItems(DataTable datatable)
+        {
+            List<OrderItem> orders = new List<OrderItem>();
+            foreach (DataRow dr in datatable.Rows)
+            {
+                OrderItem order = new OrderItem()
+                {
+                    OrderItemID = (int)dr["item_id"],
+                    MenuItem = new MenuItem((int)dr["article_id"], dr["name"].ToString()),
+                    Quantity = (int)dr["quantity"]
+                };
+                orders.Add(order);
+            }
+            return orders;
+        }
     }
 }

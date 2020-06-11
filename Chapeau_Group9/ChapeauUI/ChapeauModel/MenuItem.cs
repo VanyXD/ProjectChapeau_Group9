@@ -17,5 +17,12 @@ namespace ChapeauModel
         public MenuItemType Type { get; set; }
         public CategoryID Category { get; set; }
 
+        public MenuItem() { }
+       
+        public MenuItem(int id, string name)
+        {
+            MenuItemID = id;
+            Name = name;
+        }
     }
 }

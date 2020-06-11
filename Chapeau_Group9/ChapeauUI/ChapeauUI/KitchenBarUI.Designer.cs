@@ -30,7 +30,6 @@
         {
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
-            this.btn_Kitchen_Logout = new System.Windows.Forms.Button();
             this.lbl_red = new System.Windows.Forms.Label();
             this.lbl_yellow = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -89,6 +88,7 @@
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Kitchen_Logout = new System.Windows.Forms.Button();
             this.lbl_current_user = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
             this.tabs_Kitchen.SuspendLayout();
@@ -140,16 +140,6 @@
             this.tab_Kitchen_Orders.Size = new System.Drawing.Size(910, 455);
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
-            // 
-            // btn_Kitchen_Logout
-            // 
-            this.btn_Kitchen_Logout.Location = new System.Drawing.Point(805, 16);
-            this.btn_Kitchen_Logout.Name = "btn_Kitchen_Logout";
-            this.btn_Kitchen_Logout.Size = new System.Drawing.Size(101, 42);
-            this.btn_Kitchen_Logout.TabIndex = 64;
-            this.btn_Kitchen_Logout.Text = "Logout";
-            this.btn_Kitchen_Logout.UseVisualStyleBackColor = true;
-            this.btn_Kitchen_Logout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
             // 
             // lbl_red
             // 
@@ -674,6 +664,16 @@
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 100;
             // 
+            // btn_Kitchen_Logout
+            // 
+            this.btn_Kitchen_Logout.Location = new System.Drawing.Point(805, 16);
+            this.btn_Kitchen_Logout.Name = "btn_Kitchen_Logout";
+            this.btn_Kitchen_Logout.Size = new System.Drawing.Size(101, 42);
+            this.btn_Kitchen_Logout.TabIndex = 64;
+            this.btn_Kitchen_Logout.Text = "Logout";
+            this.btn_Kitchen_Logout.UseVisualStyleBackColor = true;
+            this.btn_Kitchen_Logout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
+            // 
             // lbl_current_user
             // 
             this.lbl_current_user.AutoSize = true;
@@ -682,7 +682,6 @@
             this.lbl_current_user.Size = new System.Drawing.Size(23, 17);
             this.lbl_current_user.TabIndex = 68;
             this.lbl_current_user.Text = "---";
-            this.lbl_current_user.Click += new System.EventHandler(this.lbl_current_user_Click);
             // 
             // lbl_user
             // 
@@ -692,7 +691,6 @@
             this.lbl_user.Size = new System.Drawing.Size(93, 17);
             this.lbl_user.TabIndex = 67;
             this.lbl_user.Text = "Current User:";
-            this.lbl_user.Click += new System.EventHandler(this.lbl_user_Click);
             // 
             // KitchenBarUI
             // 

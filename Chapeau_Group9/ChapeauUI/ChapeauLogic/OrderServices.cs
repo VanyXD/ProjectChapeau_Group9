@@ -13,12 +13,38 @@ namespace ChapeauLogic
         OrderDAO order = new OrderDAO();
 
 
-        public List<Order> GetArticles()
+        public List<Order> GetOrders()
         {
             try
             {
                 List<Order> orders = new List<Order>();
-                //orders = order.GetAllOrders();
+                orders = order.GetAllOrders();
+                return orders;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Couldn't connect to the database");
+            }
+        }
+        public List<OrderItem> GetKitchenOrderItems(int id)
+        {
+            try
+            {
+                List<OrderItem> orders = new List<OrderItem>();
+                orders = order.GetKitchenItems(id);
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<OrderItem> GetBarOrderItems(int id)
+        {
+            try
+            {
+                List<OrderItem> orders = new List<OrderItem>();
+                orders = order.GetBarItems(id);
                 return orders;
             }
             catch (Exception)
