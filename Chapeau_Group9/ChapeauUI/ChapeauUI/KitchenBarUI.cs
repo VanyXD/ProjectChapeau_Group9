@@ -19,12 +19,18 @@ namespace ChapeauUI
         Form loginForm;
         Employee user;
         List<Order> orders;
+        List<Button> buttons;
+        List<ListView> listViews;
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
+            buttons = MakeButtonsList();
+            listViews = MakeListviewList();
             this.loginForm = loginForm;
             this.user = user;
             GetOrders();
+            ColorButtons();
+            DisplayOrderItems();
             DisplayStock();
             if (user.position == Position.cook)
             {
@@ -37,6 +43,84 @@ namespace ChapeauUI
                 lbl_Kitche_Menu.Hide();
             }
             lbl_current_user.Text = $"{user.FirstName} {user.LastName}";
+            InitTimer();
+        }
+            private Timer timer1;
+        public void InitTimer()
+        {
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 10000; // in miliseconds
+            timer1.Start();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GetOrders();
+            ColorButtons();
+            DisplayOrderItems();
+        }
+        void ColorButtons()
+        {
+            foreach (Button btn in buttons)
+            {
+                btn.BackColor = Color.Gray;
+            }
+            foreach (Order order in orders)
+            {
+                if(order.OrderStatus == OrderStatus.Pending)
+                buttons[order.Table.TableID - 1].BackColor = Color.FromArgb(255,255,51);
+            }
+        }
+        void DisplayOrderItems()
+        {
+            foreach (ListView listV in listViews)
+            {
+                listV.Items.Clear();
+            }
+            foreach (Order order in orders)
+            {
+                foreach (OrderItem item in order.OrderItems)
+                {
+                    PrintOrderItem(item, listViews[order.Table.TableID - 1]);
+                }
+            }
+        }
+        void PrintOrderItem(OrderItem item, ListView lv)
+        {
+            var row = new string[] { item.Quantity.ToString(), item.MenuItem.Name };
+            var lvi = new ListViewItem(row);
+            lv.Items.Add(lvi);
+        }
+
+        List<Button> MakeButtonsList()
+        {
+            List<Button> buttons = new List<Button>();
+            buttons.Add(btn_kitchen_table1);
+            buttons.Add(btn_kitchen_table2);
+            buttons.Add(btn_kitchen_table3);
+            buttons.Add(btn_kitchen_table4);
+            buttons.Add(btn_kitchen_table5);
+            buttons.Add(btn_kitchen_table6);
+            buttons.Add(btn_kitchen_table7);
+            buttons.Add(btn_kitchen_table8);
+            buttons.Add(btn_kitchen_table9);
+            buttons.Add(btn_kitchen_table10);
+            return buttons;
+        }
+        List<ListView> MakeListviewList()
+        {
+            List<ListView> listViews = new List<ListView>();
+            listViews.Add(lv_kitchen_table1);
+            listViews.Add(lv_kitchen_table2);
+            listViews.Add(lv_kitchen_table3);
+            listViews.Add(lv_kitchen_table4);
+            listViews.Add(lv_kitchen_table5);
+            listViews.Add(lv_kitchen_table6);
+            listViews.Add(lv_kitchen_table7);
+            listViews.Add(lv_kitchen_table8);
+            listViews.Add(lv_kitchen_table9);
+            listViews.Add(lv_kitchen_table10);
+            return listViews;
         }
 
         private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
@@ -51,10 +135,10 @@ namespace ChapeauUI
             GetStockItems();
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
-                PrintItem(item, lv_stock);
+                PrintStockItem(item, lv_stock);
             }
         }
-        private void PrintItem(ChapeauModel.MenuItem item, ListView lv)
+        private void PrintStockItem(ChapeauModel.MenuItem item, ListView lv)
         {
             var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString() };
             var lvi = new ListViewItem(row);
@@ -68,7 +152,7 @@ namespace ChapeauUI
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 if (item.Category == category)
-                    PrintItem(item, lv_stock);
+                    PrintStockItem(item, lv_stock);
             }
         }
         private void DisplayStock(MenuItemType type)
@@ -78,7 +162,7 @@ namespace ChapeauUI
             foreach (ChapeauModel.MenuItem item in menuItems)
             {
                 if (item.Type == type)
-                    PrintItem(item, lv_stock);
+                    PrintStockItem(item, lv_stock);
             }
         }
         void GetStockItems()
@@ -198,6 +282,61 @@ namespace ChapeauUI
                     DisplayStock(CategoryID.Wines);
                     break;
             }
+        }
+        void DisplayOrder(int tableId)
+        {
+            KitchenViewItem display = new KitchenViewItem(tableId, user);
+            display.Show();
+        }
+
+        private void btn_kitchen_table1_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(1);
+        }
+
+        private void btn_kitchen_table2_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(2);
+        }
+
+        private void btn_kitchen_table3_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(3);
+        }
+
+        private void btn_kitchen_table4_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(4);
+        }
+
+        private void btn_kitchen_table5_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(5);
+        }
+
+        private void btn_kitchen_table6_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(6);
+        }
+
+        private void btn_kitchen_table7_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(7);
+        }
+
+        private void btn_kitchen_table8_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(8);
+        }
+
+        private void btn_kitchen_table9_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(9);
+        }
+
+        private void btn_kitchen_table10_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(10);
         }
     }
 }

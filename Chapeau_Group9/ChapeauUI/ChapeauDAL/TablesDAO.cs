@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System;
 
 namespace ChapeauDAL
 {
@@ -31,28 +32,28 @@ namespace ChapeauDAL
         }
         private Tables ReadTables(SqlDataReader reader)
         {
-
-
             int TableID = (int)reader["table_id"];
             TableStatus Status = (TableStatus)reader["TableStatus"];
             int TableNumber = (int)reader["table_number"];
-
             return new Tables(TableID, Status, TableNumber);
         }
         public void UpdateTableStatus(Tables table)
         {
-
-
             SqlCommand cmd = new SqlCommand("update [tables] set Tablestatus = @stat where table_id = @id", conn);
 
-            cmd.Parameters.AddWithValue("@id", table.TableID); // fuck elias
-            cmd.Parameters.AddWithValue("@stat", table.Status); // it never does fuck u anyway akhrus
+            cmd.Parameters.AddWithValue("@id", table.TableID);
+            cmd.Parameters.AddWithValue("@stat", table.Status);
 
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
 
-
+        public void ReadOrdersStatus(Order order)
+        {
+            string query = $"SELECT order_status FROM [Order]";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
