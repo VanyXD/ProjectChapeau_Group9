@@ -184,7 +184,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(399, 246);
+            this.txtPassword.Location = new System.Drawing.Point(370, 246);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(160, 20);
             this.txtPassword.TabIndex = 13;
@@ -198,7 +198,7 @@
             // 
             // txtPositionID
             // 
-            this.txtPositionID.Location = new System.Drawing.Point(378, 106);
+            this.txtPositionID.Location = new System.Drawing.Point(370, 106);
             this.txtPositionID.Name = "txtPositionID";
             this.txtPositionID.Size = new System.Drawing.Size(160, 20);
             this.txtPositionID.TabIndex = 10;

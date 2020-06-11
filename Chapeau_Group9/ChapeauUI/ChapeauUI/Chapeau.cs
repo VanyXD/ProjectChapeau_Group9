@@ -59,7 +59,7 @@ namespace ChapeauUI
                 }
                 else if (user.position == Position.waiter)
                 {
-                    
+
                     TablesOverview WaiterOverview = new TablesOverview(this, user);
                     WaiterOverview.Show();
                 }
@@ -78,11 +78,6 @@ namespace ChapeauUI
                 else
                    MessageBox.Show("User Does not Exist");
             }
-
-        }
-
-        private void Chapeau_Load(object sender, EventArgs e)
-        {
 
         }
     }
