@@ -32,10 +32,9 @@ namespace ChapeauLogic
             tabledao.UpdateTableStatus(table);
 
         }
-        public List<Order> ReadOrderStatus()
+        public void ReadOrderStatus(Order order)
         {
-            orders = tabledao.ReadAllOrderStatus();
-            return orders;
+            tabledao.ReadOrdersStatus(order);
         }
     }
 }

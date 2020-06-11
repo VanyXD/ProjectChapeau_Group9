@@ -49,29 +49,11 @@ namespace ChapeauDAL
             conn.Close();
         }
 
-        public List<Order> ReadAllOrderStatus()
+        public void ReadOrdersStatus(Order order)
         {
-            dbConnection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT order_status FROM [Order]", dbConnection);
-            SqlDataReader reader = cmd.ExecuteReader();
-            List<Order> orders = new List<Order>();
-            while (reader.Read())
-            {
-                Order order = ReadOrdersStatus(reader);
-                orders.Add(order);
-            }
-            reader.Close();
-            dbConnection.Close();
-            return orders;
-        }
-        public Order ReadOrdersStatus(SqlDataReader reader)
-        {
-
-            Order order = new Order
-            {
-                OrderStatus = (OrderStatus)reader["order_status"],
-            };
-            return order;
+            string query = $"SELECT order_status FROM [Order]";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
