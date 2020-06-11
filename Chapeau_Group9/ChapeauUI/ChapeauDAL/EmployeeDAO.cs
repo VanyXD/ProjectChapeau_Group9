@@ -33,7 +33,6 @@ namespace ChapeauDAL
             string query = $"DELETE FROM employees WHERE employee_id = {employeeID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-
         }
         public void UpdateEmployee(Employee employee)
         {
