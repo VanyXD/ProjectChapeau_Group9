@@ -73,5 +73,32 @@ namespace ChapeauLogic
 
             return row;
         }
+
+        public List<OrderItem> GetKitchenTableItems(int id)
+        {
+            try
+            {
+                List<OrderItem> orders = new List<OrderItem>();
+                orders = order.GetKitchenItemsPerTable(id);
+                return orders;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Couldn't connect to the database");
+            }
+        }
+        public List<OrderItem> GetBarTableItems(int id)
+        {
+            try
+            {
+                List<OrderItem> orders = new List<OrderItem>();
+                orders = order.GetBarItemsPerTable(id);
+                return orders;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Couldn't connect to the database");
+            }
+        }
     }
 }

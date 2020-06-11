@@ -30,9 +30,7 @@
         {
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
-            this.lbl_red = new System.Windows.Forms.Label();
             this.lbl_yellow = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_kitchen_table9 = new System.Windows.Forms.Button();
             this.btn_kitchen_table8 = new System.Windows.Forms.Button();
@@ -109,9 +107,7 @@
             // tab_Kitchen_Orders
             // 
             this.tab_Kitchen_Orders.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tab_Kitchen_Orders.Controls.Add(this.lbl_red);
             this.tab_Kitchen_Orders.Controls.Add(this.lbl_yellow);
-            this.tab_Kitchen_Orders.Controls.Add(this.label3);
             this.tab_Kitchen_Orders.Controls.Add(this.label2);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table9);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table8);
@@ -141,16 +137,6 @@
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
             // 
-            // lbl_red
-            // 
-            this.lbl_red.AutoSize = true;
-            this.lbl_red.BackColor = System.Drawing.Color.Red;
-            this.lbl_red.Location = new System.Drawing.Point(657, 13);
-            this.lbl_red.Name = "lbl_red";
-            this.lbl_red.Size = new System.Drawing.Size(20, 17);
-            this.lbl_red.TabIndex = 52;
-            this.lbl_red.Text = "   ";
-            // 
             // lbl_yellow
             // 
             this.lbl_yellow.AutoSize = true;
@@ -160,15 +146,6 @@
             this.lbl_yellow.Size = new System.Drawing.Size(20, 17);
             this.lbl_yellow.TabIndex = 51;
             this.lbl_yellow.Text = "   ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(683, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Ready";
             // 
             // label2
             // 
@@ -729,9 +706,7 @@
         private System.Windows.Forms.Label Lbl_Stock;
         private System.Windows.Forms.Button btn_Kitchen_Modify;
         private System.Windows.Forms.ListView lv_kitchen_table1;
-        private System.Windows.Forms.Label lbl_red;
         private System.Windows.Forms.Label lbl_yellow;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_kitchen_table9;
         private System.Windows.Forms.Button btn_kitchen_table8;

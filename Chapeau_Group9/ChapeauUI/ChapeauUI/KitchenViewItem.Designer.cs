@@ -35,6 +35,9 @@
             this.btn_ViewItem_Ready = new System.Windows.Forms.Button();
             this.btn_ViewItem_Close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.col_quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label
@@ -48,6 +51,10 @@
             // 
             // lv_ViewTable
             // 
+            this.lv_ViewTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col_quantity,
+            this.col_name,
+            this.col_time});
             this.lv_ViewTable.GridLines = true;
             this.lv_ViewTable.HideSelection = false;
             this.lv_ViewTable.Location = new System.Drawing.Point(16, 75);
@@ -103,6 +110,21 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "View Table";
             // 
+            // col_quantity
+            // 
+            this.col_quantity.Text = "quantity";
+            this.col_quantity.Width = 65;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "name";
+            this.col_name.Width = 160;
+            // 
+            // col_time
+            // 
+            this.col_time.Text = "time";
+            this.col_time.Width = 149;
+            // 
             // KitchenViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -131,5 +153,8 @@
         private System.Windows.Forms.Button btn_ViewItem_Ready;
         private System.Windows.Forms.Button btn_ViewItem_Close;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader col_quantity;
+        private System.Windows.Forms.ColumnHeader col_name;
+        private System.Windows.Forms.ColumnHeader col_time;
     }
 }
