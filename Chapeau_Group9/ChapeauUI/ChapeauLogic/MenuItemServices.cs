@@ -90,6 +90,7 @@ namespace ChapeauLogic
 
             return items;
         }
+        //add total price to table order
         public int ChangeStockAmount(MenuItem item)
         {
 

@@ -5,6 +5,7 @@
         public int TableID { get; set; }
         public TableStatus Status { get; set; } 
         public int TableNumber { get; set; }
+        
 
         public Tables(int tableid, TableStatus status , int tablenumber)
         {

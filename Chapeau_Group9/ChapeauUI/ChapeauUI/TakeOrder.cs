@@ -226,6 +226,7 @@ namespace ChapeauUI
 
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
+            //add total price to the table Order
             if(selectedItems.Count <= 0) // when no items are selected (added to list of order)
             {
                 MessageBox.Show("you need to choose items to order");
