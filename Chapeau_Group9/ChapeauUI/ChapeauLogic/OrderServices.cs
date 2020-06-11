@@ -57,7 +57,7 @@ namespace ChapeauLogic
 
             int row = this.order.WriteOrder(order);
 
-
+            //error here about a steak  when I tried to ad 2 of them.
             Order ord = this.order.GetLastOrder();
             foreach(OrderItem item in order.OrderItems)
             {

@@ -23,6 +23,7 @@ namespace ChapeauUI
         List<OrderItem> selectedItems;
         OrderServices orderService;
         MenuItemServices menuIt;
+        TablesServices TablesServices;
 
         Employee employee;
         Tables table;
@@ -36,6 +37,7 @@ namespace ChapeauUI
             this.employee = employee;
             orderService = new OrderServices();
             menuIt = new MenuItemServices();
+            TablesServices = new TablesServices();
 
             // fix
             order = new Order();
@@ -227,6 +229,7 @@ namespace ChapeauUI
 
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
+            //add total price to the table Order
             if(selectedItems.Count <= 0) // when no items are selected (added to list of order)
             {
                 MessageBox.Show("you need to choose items to order");
@@ -234,7 +237,8 @@ namespace ChapeauUI
             }
 
             int num = orderService.WriteOrder(order);
-            foreach(OrderItem item in order.OrderItems)
+            TablesServices.Updatetable(table);
+            foreach (OrderItem item in order.OrderItems)
             {
                 menuItemService.ChangeStockAmount(item.MenuItem);
             }
@@ -242,6 +246,7 @@ namespace ChapeauUI
             if (num > 0)
             {
                 MessageBox.Show("order is sent");
+              
             }
             else
             {
