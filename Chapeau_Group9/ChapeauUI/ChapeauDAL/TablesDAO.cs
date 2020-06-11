@@ -36,18 +36,20 @@ namespace ChapeauDAL
             int TableID = (int)reader["table_id"];
             TableStatus Status = (TableStatus)reader["TableStatus"];
             int TableNumber = (int)reader["table_number"];
-           
-            return new Tables(TableID , Status , TableNumber);
+
+            return new Tables(TableID, Status, TableNumber);
         }
-        public void  UpdateTableStatus(Tables table)
+        public void UpdateTableStatus(Tables table)
         {
-            string query = $"update tables Set Tablestatus = '{table.Status}' WHERE Table_ID = {table.TableID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+
+            ////string query = $"update tables Set Tablestatus = '{table.Status}' WHERE Table_ID = {table.TableID}";
+            //string query = $"  UPDATE tables SET table_id = s.StatusID FROM tables T JOIN TabelStatus s ON T.table_id = s.Tablestatus";
+            //SqlParameter[] sqlParameters = new SqlParameter[0];
+            //ExecuteEditQuery(query, sqlParameters);
         }
     }
 }
-            
+
 
 
 
