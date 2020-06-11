@@ -30,14 +30,14 @@
         {
             this.label = new System.Windows.Forms.Label();
             this.lv_ViewTable = new System.Windows.Forms.ListView();
+            this.col_quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.txtbox_kitchen_notes = new System.Windows.Forms.RichTextBox();
             this.btn_ViewItem_Ready = new System.Windows.Forms.Button();
             this.btn_ViewItem_Close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.col_quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label
@@ -63,6 +63,21 @@
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
+            // 
+            // col_quantity
+            // 
+            this.col_quantity.Text = "quantity";
+            this.col_quantity.Width = 65;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "name";
+            this.col_name.Width = 160;
+            // 
+            // col_time
+            // 
+            this.col_time.Text = "time";
+            this.col_time.Width = 149;
             // 
             // label1
             // 
@@ -109,21 +124,6 @@
             this.label2.Size = new System.Drawing.Size(187, 39);
             this.label2.TabIndex = 6;
             this.label2.Text = "View Table";
-            // 
-            // col_quantity
-            // 
-            this.col_quantity.Text = "quantity";
-            this.col_quantity.Width = 65;
-            // 
-            // col_name
-            // 
-            this.col_name.Text = "name";
-            this.col_name.Width = 160;
-            // 
-            // col_time
-            // 
-            this.col_time.Text = "time";
-            this.col_time.Width = 149;
             // 
             // KitchenViewItem
             // 

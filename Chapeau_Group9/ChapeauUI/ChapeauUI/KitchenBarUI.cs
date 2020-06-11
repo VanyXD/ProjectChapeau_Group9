@@ -262,6 +262,57 @@ namespace ChapeauUI
         void DisplayOrder(int tableId)
         {
             KitchenViewItem display = new KitchenViewItem(tableId, user);
+            display.Show();
+        }
+
+        private void btn_kitchen_table1_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(1);
+        }
+
+        private void btn_kitchen_table2_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(2);
+        }
+
+        private void btn_kitchen_table3_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(3);
+        }
+
+        private void btn_kitchen_table4_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(4);
+        }
+
+        private void btn_kitchen_table5_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(5);
+        }
+
+        private void btn_kitchen_table6_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(6);
+        }
+
+        private void btn_kitchen_table7_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(7);
+        }
+
+        private void btn_kitchen_table8_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(8);
+        }
+
+        private void btn_kitchen_table9_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(9);
+        }
+
+        private void btn_kitchen_table10_Click(object sender, EventArgs e)
+        {
+            DisplayOrder(10);
         }
     }
 }

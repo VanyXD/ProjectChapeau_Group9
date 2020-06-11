@@ -15,7 +15,6 @@ namespace ChapeauUI
     public partial class KitchenViewItem : Form
     {
         int tableId;
-        OrderServices orderService;
         Employee user;
         List<OrderItem> items;
         public KitchenViewItem(int tableId, Employee user)
@@ -32,6 +31,7 @@ namespace ChapeauUI
         }
         void GetOrderItems()
         {
+            OrderServices orderService = new OrderServices();
             if (user.position == Position.cook)
             {
                 items = orderService.GetKitchenTableItems(tableId);
@@ -40,13 +40,14 @@ namespace ChapeauUI
             {
                 items = orderService.GetBarTableItems(tableId);
             }
+            PrintItems();
         }
 
-        public void PrintItem()
+        public void PrintItems()
         {
             foreach (OrderItem item in items)
             {
-                var row = new string[] { item.Quantity.ToString(), item.MenuItem.Name};
+                var row = new string[] { item.Quantity.ToString(), item.MenuItem.Name, item.Time.ToString("HH:mm")};
                 var lvi = new ListViewItem(row);
                 lv_ViewTable.Items.Add(lvi);
             }

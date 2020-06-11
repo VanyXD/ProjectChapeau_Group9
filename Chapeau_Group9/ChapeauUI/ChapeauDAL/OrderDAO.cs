@@ -93,13 +93,28 @@ namespace ChapeauDAL
         }
         public List<OrderItem> GetKitchenItems(int id)
         {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id " +
-                "FROM OrderItems " +
-                "JOIN menu as m " +
-                "ON m.article_id = OrderItems.article_id " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, order_time " +
+                "FROM OrderItems  " +
+                "JOIN menu as m  ON m.article_id = OrderItems.article_id  " +
+                "JOIN [order] AS o ON o.order_id = OrderItems.order_id " +
                 "WHERE status = 1 " +
-                "AND order_id = @id   " +
+                "AND o.order_id = @id " +
                 "AND m.item_type_id != 3";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetBarItems(int id)
+        {
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, order_time " +
+                "FROM OrderItems  " +
+                "JOIN menu as m  " +
+                "ON m.article_id = OrderItems.article_id  " +
+                "JOIN [order] AS o " +
+                "ON o.order_id = OrderItems.order_id " +
+                "WHERE status = 1 " +
+                "AND o.order_id = @id " +
+                "AND m.item_type_id = 3";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", id);
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -134,19 +149,6 @@ namespace ChapeauDAL
             sqlParameters[0] = new SqlParameter("@id", id);
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        public List<OrderItem> GetBarItems(int id)
-        {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id " +
-                "FROM OrderItems " +
-                "JOIN menu as m " +
-                "ON m.article_id = OrderItems.article_id " +
-                "WHERE status = 1 " +
-                "AND order_id = @id   " +
-                "AND m.item_type_id = 3";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@id", id);
-            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
-        }
         private List<OrderItem> ReadOrderItems(DataTable datatable)
         {
             List<OrderItem> orders = new List<OrderItem>();
@@ -156,7 +158,8 @@ namespace ChapeauDAL
                 {
                     OrderItemID = (int)dr["item_id"],
                     MenuItem = new MenuItem((int)dr["article_id"], dr["name"].ToString()),
-                    Quantity = (int)dr["quantity"]
+                    Quantity = (int)dr["quantity"],
+                    Time = (DateTime)dr["order_time"]
                 };
                 orders.Add(order);
             }
