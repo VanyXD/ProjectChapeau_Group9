@@ -41,10 +41,7 @@ namespace ChapeauDAL
         }
         public void UpdateTableStatus(Tables table)
         {
-<<<<<<< HEAD
-            //string query = $"update [tables] set Tablestatus = {table.Status} where table_id = {table.TableID}";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //ExecuteEditQuery(query, sqlParameters);
+
 
             SqlCommand cmd = new SqlCommand("update [tables] set Tablestatus = @stat where table_id = @id", conn);
 
@@ -55,13 +52,7 @@ namespace ChapeauDAL
             cmd.ExecuteNonQuery();
             conn.Close();
 
-=======
 
-            ////string query = $"update tables Set Tablestatus = '{table.Status}' WHERE Table_ID = {table.TableID}";
-            //string query = $"  UPDATE tables SET table_id = s.StatusID FROM tables T JOIN TabelStatus s ON T.table_id = s.Tablestatus";
-            //SqlParameter[] sqlParameters = new SqlParameter[0];
-            //ExecuteEditQuery(query, sqlParameters);
->>>>>>> ad1a809adec212f5d3d8cb29091c2fea4a4dbc1d
         }
     }
 }
