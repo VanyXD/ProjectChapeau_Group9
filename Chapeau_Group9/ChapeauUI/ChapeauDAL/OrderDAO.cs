@@ -63,7 +63,7 @@ namespace ChapeauDAL
         public void InsertOrder(Order order)  
         {
             OrderItem orderprice = new OrderItem();
-            string query = $"INSERT INTO OrderItemFabio(employee_ID, table_ID, order_time, total) VALUES({order.Employee.EmployeeID},{order.Table.TableID},{order.Time},{orderprice.TotaPrice})";
+            string query = $"INSERT INTO Order(employee_ID, table_ID, order_time, total) VALUES({order.Employee.EmployeeID},{order.Table.TableID},{order.Time},{orderprice.TotaPrice})";
 
 
 
