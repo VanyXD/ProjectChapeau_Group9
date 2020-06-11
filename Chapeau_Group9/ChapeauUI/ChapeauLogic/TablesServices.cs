@@ -12,12 +12,12 @@ namespace ChapeauLogic
     public class TablesServices
     {
         TablesDAO tabledao = new TablesDAO();
-
+        List<Tables> tablesservices = new List<Tables>();
+        List<Order> orders = new List<Order>();
         public List<Tables> GetALLTables()
         {
             try
-            {
-                List<Tables> tablesservices = new List<Tables>();
+            {              
                 tablesservices = tabledao.GetALLTables();
                 return tablesservices;
             }
@@ -31,6 +31,11 @@ namespace ChapeauLogic
 
             tabledao.UpdateTableStatus(table);
 
+        }
+        public List<Order> ReadOrderStatus()
+        {
+            orders = tabledao.ReadAllOrderStatus();
+            return orders;
         }
     }
 }

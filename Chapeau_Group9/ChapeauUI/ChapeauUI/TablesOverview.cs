@@ -18,14 +18,18 @@ namespace ChapeauUI
     {
         Form Login;
         private TablesServices tablesServices;
+        private OrderServices OrderServices;
         private Employee employee;
         private List<Button> buttons;
+
         public TablesOverview(Form login ,Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
             this.Login = login;
             tablesServices = new TablesServices();
+            OrderServices = new OrderServices();
+            
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
@@ -36,11 +40,21 @@ namespace ChapeauUI
         {
             List<Tables> tables = new List<Tables>();                      
             tables = tablesServices.GetALLTables();
+            List< Order> order = new  List<Order> ();
+            order = tablesServices.ReadOrderStatus();
             buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+
+            //for (int i = 0; i < buttons.Count; i++)
+            //{
+            //    if (order[i].OrderStatus == OrderStatus.Closed)
+            //    {
+            //        buttons[i].BackColor = Color.Green;
+            //    }       
+            //}
 
             for (int i = 0; i < buttons.Count; i++)
             {
-                if(tables[i].Status == TableStatus.Free)
+                if(tables[i].Status == TableStatus.Free /*&&  order.OrderStatus = OrderStatus.Closed*/)
                 {
                     buttons[i].BackColor = Color.Green;
                 }
