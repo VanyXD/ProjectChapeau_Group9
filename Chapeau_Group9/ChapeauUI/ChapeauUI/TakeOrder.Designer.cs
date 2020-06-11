@@ -32,6 +32,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstvSelected = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,8 +55,7 @@
             this.btnSendOrder = new System.Windows.Forms.Button();
             this.numericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +91,15 @@
             // 
             this.columnHeader3.Text = "Price";
             this.columnHeader3.Width = 100;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Stock";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "availability";
+            this.columnHeader9.Width = 100;
             // 
             // lstvSelected
             // 
@@ -281,19 +291,21 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "select quantity";
             // 
-            // columnHeader8
+            // button1
             // 
-            this.columnHeader8.Text = "Stock";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "availability";
-            this.columnHeader9.Width = 100;
+            this.button1.Location = new System.Drawing.Point(824, 609);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 37);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "End Ordering";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TakeOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDownQuantity);
             this.Controls.Add(this.btnSendOrder);
@@ -350,5 +362,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button1;
     }
 }

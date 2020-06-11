@@ -18,7 +18,7 @@ namespace ChapeauUI
 {
     public partial class TakeOrder : Form
     {
-        
+        TablesOverview overview;
         MenuItemServices menuItemService;
         List<OrderItem> selectedItems;
         OrderServices orderService;
@@ -27,9 +27,10 @@ namespace ChapeauUI
         Employee employee;
         Tables table;
         Order order;
-        public TakeOrder(Employee employee, int tableNum)
+        public TakeOrder(TablesOverview overview,Employee employee, int tableNum)
         {
             InitializeComponent();
+            this.overview = overview;
             menuItemService = new MenuItemServices();
             selectedItems = new List<OrderItem>();
             this.employee = employee;
@@ -251,13 +252,19 @@ namespace ChapeauUI
             btnShowFull_Click(sender, e);
 
             order.OrderItems = null;
-
+            
         }
 
         private void lstvMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             numericUpDownQuantity.Value = 0;
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            overview.Show();
         }
     }
 }

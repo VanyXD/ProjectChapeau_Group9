@@ -65,67 +65,76 @@ namespace ChapeauUI
             //takeOrder.ShowDialog();
             //TakeOrderBtnClick(int.Parse(this.ActiveControl.Text));
             DisplayTable(1);
+            this.Hide();
 
         }
         private void TakeOrderBtnClick(int tableNum)
         {
-            
-            TakeOrder takeOrder = new TakeOrder(employee, tableNum);
+            TakeOrder takeOrder = new TakeOrder(this,employee, tableNum);
             takeOrder.ShowDialog();
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
         {
             DisplayTable(2);
+            this.Hide();
+
         }
 
         private void DisplayTable(int tableNum)
         {
-            TakeOrder orderUI = new TakeOrder(employee, tableNum);
+            TakeOrder orderUI = new TakeOrder(this,employee, tableNum);
             orderUI.Show();
-
-
+            this.Hide();
         }
 
         private void btnTable3_Click(object sender, EventArgs e)
         {
             DisplayTable(3);
+            this.Hide();
 
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
             DisplayTable(4);
+            this.Hide();
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
             DisplayTable(5);
+            this.Hide();
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
             DisplayTable(6);
+            this.Hide();
         }
 
         private void btnTable7_Click(object sender, EventArgs e)
         {
             DisplayTable(7);
+            this.Hide();
         }
 
         private void btnTable8_Click(object sender, EventArgs e)
         {
             DisplayTable(8);
+            this.Hide();
         }
 
         private void btnTable9_Click(object sender, EventArgs e)
         {
             DisplayTable(9);
+            this.Hide();
         }
 
         private void btnTable10_Click(object sender, EventArgs e)
         {
             DisplayTable(10);
+            this.Hide();
         }
     }
 }

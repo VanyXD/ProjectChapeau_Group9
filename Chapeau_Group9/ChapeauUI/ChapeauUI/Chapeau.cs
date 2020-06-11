@@ -61,6 +61,7 @@ namespace ChapeauUI
                 {
 
                     TablesOverview WaiterOverview = new TablesOverview(this, user);
+                    Hide();
                     WaiterOverview.Show();
                 }
                 else if (user.position == Position.cook)
