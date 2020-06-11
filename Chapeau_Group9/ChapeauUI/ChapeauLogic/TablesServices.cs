@@ -28,17 +28,18 @@ namespace ChapeauLogic
         }
         public void Updatetable(Tables table)
         {
-            try
-            {
-                
-                tabledao.UpdateTableStatus(table);
-              
-            }
-            //error here cant connect to the db
-            catch
-            {
-                throw new Exception("Couldn't connect to the database");
-            }
+            tabledao.UpdateTableStatus(table);
+            //try
+            //{
+
+            //    tabledao.UpdateTableStatus(table);
+
+            //}
+            ////error here cant connect to the db
+            //catch
+            //{
+            //    throw new Exception("Couldn't connect to the database");
+            //}
         }
     }
 }

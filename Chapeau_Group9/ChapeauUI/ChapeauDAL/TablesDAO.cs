@@ -41,9 +41,19 @@ namespace ChapeauDAL
         }
         public void  UpdateTableStatus(Tables table)
         {
-            string query = $"update tables Set Tablestatus = '{table.Status}' WHERE Table_ID = {table.TableID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+            //string query = $"update [tables] set Tablestatus = {table.Status} where table_id = {table.TableID}";
+            //SqlParameter[] sqlParameters = new SqlParameter[0];
+            //ExecuteEditQuery(query, sqlParameters);
+
+            SqlCommand cmd = new SqlCommand("update [tables] set Tablestatus = @stat where table_id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", table.TableID); // fuck elias
+            cmd.Parameters.AddWithValue("@stat", table.Status); // it never does fuck u anyway akhrus
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
         }
     }
 }

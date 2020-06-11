@@ -60,7 +60,7 @@ namespace ChapeauDAL
             }
             catch (SqlException ex)
             {
-                // Print.ErrorLog(e);
+                //Print.ErrorLog(e);
                 throw;
             }
             finally
