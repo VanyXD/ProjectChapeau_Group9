@@ -165,5 +165,12 @@ namespace ChapeauDAL
             }
             return orders;
         }
+        public void UpdateReady(int id)
+        {
+            string query = "UPDATE OrderItems SET status = 2 WHERE item_id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }

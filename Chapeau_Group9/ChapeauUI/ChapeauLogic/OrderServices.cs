@@ -108,5 +108,17 @@ namespace ChapeauLogic
                 throw new Exception("Couldn't connect to the database");
             }
         }
+        public bool OrderReady(int id)
+        {
+            try
+            {
+                order.UpdateReady(id);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

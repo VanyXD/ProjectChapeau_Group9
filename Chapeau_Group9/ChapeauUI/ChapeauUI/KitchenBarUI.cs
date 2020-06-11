@@ -43,18 +43,34 @@ namespace ChapeauUI
                 lbl_Kitche_Menu.Hide();
             }
             lbl_current_user.Text = $"{user.FirstName} {user.LastName}";
+            InitTimer();
+        }
+            private Timer timer1;
+        public void InitTimer()
+        {
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 10000; // in miliseconds
+            timer1.Start();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GetOrders();
+            ColorButtons();
+            DisplayOrderItems();
         }
         void ColorButtons()
         {
             foreach (Order order in orders)
             {
-                buttons[order.Table.TableID - 1].BackColor = Color.Yellow;
+                buttons[order.Table.TableID - 1].BackColor = Color.FromArgb(255,255,51);
             }
         }
         void DisplayOrderItems()
         {
             foreach (Order order in orders)
             {
+                    listViews[order.Table.TableID - 1].Items.Clear();
                 foreach (OrderItem item in order.OrderItems)
                 {
                     PrintOrderItem(item, listViews[order.Table.TableID - 1]);

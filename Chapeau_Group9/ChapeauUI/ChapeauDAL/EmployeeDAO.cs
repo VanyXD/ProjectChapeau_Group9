@@ -20,42 +20,6 @@ namespace ChapeauDAL
             return ReadEmployees(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        //private SqlConnection dbConnection;
-        //public EmployeeDAO()
-        //{
-        //    string connString = ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString;
-        //    dbConnection = new SqlConnection(connString);
-        //}
-        //public List<Employee> GetAllEmployees()
-        //{
-        //    dbConnection.Open();
-        //    SqlCommand cmd = new SqlCommand("SELECT employee_id,first_name,last_name,email,phone,password, position_id FROM [employees]", dbConnection);
-        //    SqlDataReader reader = cmd.ExecuteReader();
-        //    List<Employee> employees = new List<Employee>();
-        //    while (reader.Read())
-        //    {
-        //        Employee employee = ReadEmployees(reader);
-        //        employees.Add(employee);
-        //    }
-        //    reader.Close();
-        //    dbConnection.Close();
-        //    return employees;
-        //}
-        //public Employee ReadEmployees(SqlDataReader reader)
-        //{
-        //    Employee employee = new Employee
-        //    {
-        //        EmployeeID = (int)reader["employee_id"],
-        //        FirstName = (string)reader["first_name"],
-        //        LastName = (string)reader["last_name"],
-        //        position = (Position)reader["position_id"],
-        //        PhoneNumber = (int)reader["phone"],
-        //        Email = (string)reader["email"],
-        //        Password = (int)reader["password"],
-        //    };
-        //    return employee;    
-        //}
-
         public void InsertEmployee(Employee employee)
         {
             int posID = (int)employee.position;

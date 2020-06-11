@@ -30,14 +30,15 @@
         {
             this.label = new System.Windows.Forms.Label();
             this.lv_ViewTable = new System.Windows.Forms.ListView();
-            this.col_quantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.txtbox_kitchen_notes = new System.Windows.Forms.RichTextBox();
             this.btn_ViewItem_Ready = new System.Windows.Forms.Button();
             this.btn_ViewItem_Close = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_title = new System.Windows.Forms.Label();
+            this.col_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_quant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label
@@ -52,37 +53,24 @@
             // lv_ViewTable
             // 
             this.lv_ViewTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity,
+            this.col_id,
             this.col_name,
+            this.col_quant,
             this.col_time});
+            this.lv_ViewTable.FullRowSelect = true;
             this.lv_ViewTable.GridLines = true;
             this.lv_ViewTable.HideSelection = false;
             this.lv_ViewTable.Location = new System.Drawing.Point(16, 75);
             this.lv_ViewTable.Name = "lv_ViewTable";
-            this.lv_ViewTable.Size = new System.Drawing.Size(380, 409);
+            this.lv_ViewTable.Size = new System.Drawing.Size(445, 409);
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
             // 
-            // col_quantity
-            // 
-            this.col_quantity.Text = "quantity";
-            this.col_quantity.Width = 65;
-            // 
-            // col_name
-            // 
-            this.col_name.Text = "name";
-            this.col_name.Width = 160;
-            // 
-            // col_time
-            // 
-            this.col_time.Text = "time";
-            this.col_time.Width = 149;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 55);
+            this.label1.Location = new System.Drawing.Point(551, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 2;
@@ -90,24 +78,26 @@
             // 
             // txtbox_kitchen_notes
             // 
-            this.txtbox_kitchen_notes.Location = new System.Drawing.Point(450, 75);
+            this.txtbox_kitchen_notes.Location = new System.Drawing.Point(554, 93);
             this.txtbox_kitchen_notes.Name = "txtbox_kitchen_notes";
+            this.txtbox_kitchen_notes.ReadOnly = true;
             this.txtbox_kitchen_notes.Size = new System.Drawing.Size(313, 144);
             this.txtbox_kitchen_notes.TabIndex = 3;
             this.txtbox_kitchen_notes.Text = "";
             // 
             // btn_ViewItem_Ready
             // 
-            this.btn_ViewItem_Ready.Location = new System.Drawing.Point(450, 334);
+            this.btn_ViewItem_Ready.Location = new System.Drawing.Point(554, 349);
             this.btn_ViewItem_Ready.Name = "btn_ViewItem_Ready";
             this.btn_ViewItem_Ready.Size = new System.Drawing.Size(153, 75);
             this.btn_ViewItem_Ready.TabIndex = 4;
             this.btn_ViewItem_Ready.Text = "Ready";
             this.btn_ViewItem_Ready.UseVisualStyleBackColor = true;
+            this.btn_ViewItem_Ready.Click += new System.EventHandler(this.btn_ViewItem_Ready_Click);
             // 
             // btn_ViewItem_Close
             // 
-            this.btn_ViewItem_Close.Location = new System.Drawing.Point(610, 334);
+            this.btn_ViewItem_Close.Location = new System.Drawing.Point(714, 349);
             this.btn_ViewItem_Close.Name = "btn_ViewItem_Close";
             this.btn_ViewItem_Close.Size = new System.Drawing.Size(153, 75);
             this.btn_ViewItem_Close.TabIndex = 5;
@@ -115,22 +105,41 @@
             this.btn_ViewItem_Close.UseVisualStyleBackColor = true;
             this.btn_ViewItem_Close.Click += new System.EventHandler(this.btn_ViewItem_Close_Click);
             // 
-            // label2
+            // lbl_title
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label2.Location = new System.Drawing.Point(9, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 39);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "View Table";
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lbl_title.Location = new System.Drawing.Point(9, 9);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(187, 39);
+            this.lbl_title.TabIndex = 6;
+            this.lbl_title.Text = "View Table";
+            // 
+            // col_id
+            // 
+            this.col_id.Text = "id";
+            this.col_id.Width = 45;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "name";
+            this.col_name.Width = 146;
+            // 
+            // col_quant
+            // 
+            this.col_quant.Text = "quantity";
+            // 
+            // col_time
+            // 
+            this.col_time.Text = "time";
+            this.col_time.Width = 72;
             // 
             // KitchenViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 527);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(928, 527);
+            this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_ViewItem_Close);
             this.Controls.Add(this.btn_ViewItem_Ready);
             this.Controls.Add(this.txtbox_kitchen_notes);
@@ -152,9 +161,10 @@
         private System.Windows.Forms.RichTextBox txtbox_kitchen_notes;
         private System.Windows.Forms.Button btn_ViewItem_Ready;
         private System.Windows.Forms.Button btn_ViewItem_Close;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColumnHeader col_quantity;
+        private System.Windows.Forms.Label lbl_title;
+        private System.Windows.Forms.ColumnHeader col_id;
         private System.Windows.Forms.ColumnHeader col_name;
+        private System.Windows.Forms.ColumnHeader col_quant;
         private System.Windows.Forms.ColumnHeader col_time;
     }
 }
