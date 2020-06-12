@@ -13,18 +13,20 @@ namespace ChapeauLogic
     public class EmployeeServices
     {
         EmployeeDAO employee_db = new EmployeeDAO();
-
+        List<Employee> employees;
         public List<Employee> GetEmployees()
         {
             try
             {
-                List<Employee> employees = new List<Employee>();
+                employees = new List<Employee>();
                 employees = employee_db.GetAllEmployees();
                 return employees;
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                return employees;
+
             }
 
         }
@@ -36,7 +38,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
             }
            
         }
@@ -48,7 +50,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
             }
 
         }
@@ -60,7 +62,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
             }
 
         }

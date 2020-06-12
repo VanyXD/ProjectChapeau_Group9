@@ -23,9 +23,13 @@ namespace ChapeauLogic
                 tablesservices = tabledao.GetALLTables();
                 return tablesservices;
             }
-            catch (Exception)
+            catch 
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                List<Tables> teststock = new List<Tables>();
+                Tables S = new Tables(1, TableStatus.Free, 1);
+                teststock.Add(S);
+                return teststock;
             }
         }
         public void Updatetable(Tables table)
@@ -36,7 +40,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");
+                MessageBox.Show("Couldn't connect to the database");
             }
 
            
@@ -50,7 +54,8 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("something went wrong connecting to the database");           
+                MessageBox.Show("Couldn't connect to the database");
+                return orderservice;
             }
         }
 

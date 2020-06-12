@@ -44,7 +44,7 @@ namespace ChapeauUI
         }
      
         private void DisplayTables()
-        {                    
+        {
             tables = tablesServices.GetALLTables();
             buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
 
