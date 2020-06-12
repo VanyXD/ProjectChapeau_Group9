@@ -39,17 +39,18 @@ namespace ChapeauLogic
             }
         }
 
-        public List<Order> GetAllOrders()
+        public List<Order> GetAllOrders(Order order)
         {
             try
             {
-                orderservice = tabledao.ReadAllOrders();
+                orderservice = tabledao.ReadAllOrders(order);
                 return orderservice;
             }
             catch
             {
                 throw new Exception("Couldn't connect to the database");
             }
-        } 
+        }
+
     }
 }

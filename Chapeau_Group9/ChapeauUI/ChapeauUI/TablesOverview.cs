@@ -24,7 +24,6 @@ namespace ChapeauUI
         private List<Label> labels;
         private List<Order> orders;
         private Order order;
-        private Timer timer;
 
         public TablesOverview(Form login ,Employee employee)
         {
@@ -35,7 +34,6 @@ namespace ChapeauUI
             tables = new List<Tables>();
             orders = new List<Order>();
             order = new Order();
-            timer = new Timer();
 
 
         }
@@ -48,16 +46,34 @@ namespace ChapeauUI
         private void DisplayTables()
         {                    
             tables = tablesServices.GetALLTables();
-            orders = tablesServices.GetAllOrders();
-            //orders = tablesServices.GetAllOrderTime();
-           
-
+            orders = tablesServices.GetAllOrders(order);
+  
             buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
             labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time , lbltable4time , lbltable5time , lbltable6time , lbltable7time , lbltable8time , lbltable9time, lbltable10time };
 
-            for (int i = 0; i < buttons.Count; i++)
+            for (int i = 0; i < orders.Count   ; i++)
             {
-                if(tables[i].Status == TableStatus.Free || orders[i].OrderStatus == OrderStatus.Closed)
+                if (orders[i].OrderStatus == OrderStatus.Pending)
+                {
+                    labels[orders[i].Table.TableID -1 ].Text = $" Order is pending {orders[i].Time}";
+                }
+                else if (orders[i].OrderStatus == OrderStatus.Served)
+                {
+                    labels[orders[i].Table.TableID - 1].Text = $"Order is served !!";
+                }
+                else if (orders[i].OrderStatus == OrderStatus.Ready)
+                {
+                    labels[orders[i].Table.TableID - 1].Text = $"Order is Ready !!";
+                }
+                else
+                {
+                    labels[orders[i].Table.TableID - 1].Text = $"There is no order{0.00}";
+                }
+            }
+
+            for (int i = 0; i < buttons.Count  ; i++)
+            {
+                if(tables[i].Status == TableStatus.Free)
                 {
                     buttons[i].BackColor = Color.Green;
                 }
@@ -78,12 +94,8 @@ namespace ChapeauUI
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            //TakeOrder takeOrder = new TakeOrder(employee);
-            //takeOrder.ShowDialog();
-            //TakeOrderBtnClick(int.Parse(this.ActiveControl.Text));
             DisplayTable(1);
             this.Hide();
-
         }
         private void TakeOrderBtnClick(int tableNum)
         {

@@ -49,10 +49,11 @@ namespace ChapeauDAL
             conn.Close();
         }
 
-        public List<Order> ReadAllOrders()
-        {
+        public List<Order> ReadAllOrders(Order order)
+        {         
             dbConnection.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT  order_status FROM [Order]", dbConnection);
+            //SqlCommand cmd = new SqlCommand($"SELECT  order_status FROM [Order]", dbConnection);
+            SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Order> orders = new List<Order>();
             while (reader.Read())
@@ -66,16 +67,20 @@ namespace ChapeauDAL
         }
         public Order ReadOrder(SqlDataReader reader)
         {
+          
             Order order = new Order
             {
                 OrderStatus = (OrderStatus)reader["order_status"],
+                Time = (DateTime)reader["order_time"],
+                Table = new Tables((int)(reader["table_id"])),
+
             };
             return order;
         }
-        //public List<Order> GetAllOrderTime()
+        //public List<Order> GetAllOrderTime(/*Tables Table*/)
         //{
         //    dbConnection.Open();
-        //    SqlCommand cmd = new SqlCommand($"SELECT DISTINCT order_time FROM [Order] ", dbConnection);
+        //    SqlCommand cmd = new SqlCommand($"SELECT  order_time FROM [Order] WHERE order_status = 1 ", dbConnection);
         //    SqlDataReader reader = cmd.ExecuteReader();
         //    List<Order> orders = new List<Order>();
         //    while (reader.Read())
@@ -91,7 +96,8 @@ namespace ChapeauDAL
         //{
         //    Order order = new Order
         //    {
-        //        Time = (DateTime)reader["order_time"]
+        //        Time = (DateTime)reader["order_time"],
+        //        //Table = (Tables)reader["table_id"],
         //    };
         //    return order;
         //}

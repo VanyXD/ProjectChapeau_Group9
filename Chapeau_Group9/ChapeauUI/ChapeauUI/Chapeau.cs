@@ -70,9 +70,7 @@ namespace ChapeauUI
                     barUI.Show();
                 }
                 else
-                   MessageBox.Show("Wrong Password!!");
-            
-
+                   MessageBox.Show("Wrong Password!!");          
         }
     }
 }

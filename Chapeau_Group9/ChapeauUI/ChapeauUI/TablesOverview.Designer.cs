@@ -51,23 +51,23 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lbltable1time = new System.Windows.Forms.Label();
-            this.lbltable2time = new System.Windows.Forms.Label();
-            this.lbltable3time = new System.Windows.Forms.Label();
-            this.lbltable4time = new System.Windows.Forms.Label();
-            this.lbltable5time = new System.Windows.Forms.Label();
-            this.lbltable6time = new System.Windows.Forms.Label();
-            this.lbltable7time = new System.Windows.Forms.Label();
-            this.lbltable8time = new System.Windows.Forms.Label();
-            this.lbltable9time = new System.Windows.Forms.Label();
             this.lbltable10time = new System.Windows.Forms.Label();
+            this.lbltable9time = new System.Windows.Forms.Label();
+            this.lbltable8time = new System.Windows.Forms.Label();
+            this.lbltable7time = new System.Windows.Forms.Label();
+            this.lbltable6time = new System.Windows.Forms.Label();
+            this.lbltable5time = new System.Windows.Forms.Label();
+            this.lbltable4time = new System.Windows.Forms.Label();
+            this.lbltable3time = new System.Windows.Forms.Label();
+            this.lbltable2time = new System.Windows.Forms.Label();
+            this.lbltable1time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTable1
             // 
-            this.btnTable1.Location = new System.Drawing.Point(158, 50);
+            this.btnTable1.Location = new System.Drawing.Point(158, 30);
             this.btnTable1.Name = "btnTable1";
             this.btnTable1.Size = new System.Drawing.Size(75, 33);
             this.btnTable1.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             // btnTable2
             // 
-            this.btnTable2.Location = new System.Drawing.Point(291, 50);
+            this.btnTable2.Location = new System.Drawing.Point(410, 30);
             this.btnTable2.Name = "btnTable2";
             this.btnTable2.Size = new System.Drawing.Size(75, 33);
             this.btnTable2.TabIndex = 1;
@@ -97,7 +97,7 @@
             // 
             // btnTable4
             // 
-            this.btnTable4.Location = new System.Drawing.Point(291, 105);
+            this.btnTable4.Location = new System.Drawing.Point(410, 105);
             this.btnTable4.Name = "btnTable4";
             this.btnTable4.Size = new System.Drawing.Size(75, 33);
             this.btnTable4.TabIndex = 3;
@@ -117,7 +117,7 @@
             // 
             // btnTable6
             // 
-            this.btnTable6.Location = new System.Drawing.Point(291, 160);
+            this.btnTable6.Location = new System.Drawing.Point(410, 160);
             this.btnTable6.Name = "btnTable6";
             this.btnTable6.Size = new System.Drawing.Size(75, 32);
             this.btnTable6.TabIndex = 5;
@@ -127,7 +127,7 @@
             // 
             // btnTable7
             // 
-            this.btnTable7.Location = new System.Drawing.Point(158, 214);
+            this.btnTable7.Location = new System.Drawing.Point(158, 230);
             this.btnTable7.Name = "btnTable7";
             this.btnTable7.Size = new System.Drawing.Size(75, 32);
             this.btnTable7.TabIndex = 6;
@@ -138,7 +138,7 @@
             // btnTable8
             // 
             this.btnTable8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnTable8.Location = new System.Drawing.Point(291, 214);
+            this.btnTable8.Location = new System.Drawing.Point(410, 230);
             this.btnTable8.Name = "btnTable8";
             this.btnTable8.Size = new System.Drawing.Size(75, 32);
             this.btnTable8.TabIndex = 7;
@@ -149,7 +149,7 @@
             // btnTable9
             // 
             this.btnTable9.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnTable9.Location = new System.Drawing.Point(158, 264);
+            this.btnTable9.Location = new System.Drawing.Point(158, 293);
             this.btnTable9.Name = "btnTable9";
             this.btnTable9.Size = new System.Drawing.Size(75, 32);
             this.btnTable9.TabIndex = 8;
@@ -159,7 +159,7 @@
             // 
             // btnTable10
             // 
-            this.btnTable10.Location = new System.Drawing.Point(291, 264);
+            this.btnTable10.Location = new System.Drawing.Point(410, 293);
             this.btnTable10.Name = "btnTable10";
             this.btnTable10.Size = new System.Drawing.Size(75, 32);
             this.btnTable10.TabIndex = 9;
@@ -295,100 +295,100 @@
             this.panel4.Controls.Add(this.btnTable8);
             this.panel4.Controls.Add(this.btnTable9);
             this.panel4.Controls.Add(this.btnTable10);
-            this.panel4.Location = new System.Drawing.Point(219, 98);
+            this.panel4.Location = new System.Drawing.Point(117, 87);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(391, 340);
+            this.panel4.Size = new System.Drawing.Size(605, 340);
             this.panel4.TabIndex = 21;
             // 
-            // lbltable1time
+            // lbltable10time
             // 
-            this.lbltable1time.AutoSize = true;
-            this.lbltable1time.Location = new System.Drawing.Point(155, 34);
-            this.lbltable1time.Name = "lbltable1time";
-            this.lbltable1time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable1time.TabIndex = 22;
-            this.lbltable1time.Text = ".........";
+            this.lbltable10time.AutoSize = true;
+            this.lbltable10time.Location = new System.Drawing.Point(407, 267);
+            this.lbltable10time.Name = "lbltable10time";
+            this.lbltable10time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable10time.TabIndex = 31;
+            this.lbltable10time.Text = "There is no order ";
             // 
-            // lbltable2time
+            // lbltable9time
             // 
-            this.lbltable2time.AutoSize = true;
-            this.lbltable2time.Location = new System.Drawing.Point(288, 34);
-            this.lbltable2time.Name = "lbltable2time";
-            this.lbltable2time.Size = new System.Drawing.Size(37, 13);
-            this.lbltable2time.TabIndex = 23;
-            this.lbltable2time.Text = "..........";
+            this.lbltable9time.AutoSize = true;
+            this.lbltable9time.Location = new System.Drawing.Point(155, 267);
+            this.lbltable9time.Name = "lbltable9time";
+            this.lbltable9time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable9time.TabIndex = 30;
+            this.lbltable9time.Text = "There is no order ";
             // 
-            // lbltable3time
+            // lbltable8time
             // 
-            this.lbltable3time.AutoSize = true;
-            this.lbltable3time.Location = new System.Drawing.Point(155, 86);
-            this.lbltable3time.Name = "lbltable3time";
-            this.lbltable3time.Size = new System.Drawing.Size(43, 13);
-            this.lbltable3time.TabIndex = 24;
-            this.lbltable3time.Text = "............";
-            // 
-            // lbltable4time
-            // 
-            this.lbltable4time.AutoSize = true;
-            this.lbltable4time.Location = new System.Drawing.Point(288, 89);
-            this.lbltable4time.Name = "lbltable4time";
-            this.lbltable4time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable4time.TabIndex = 25;
-            this.lbltable4time.Text = ".........";
-            // 
-            // lbltable5time
-            // 
-            this.lbltable5time.AutoSize = true;
-            this.lbltable5time.Location = new System.Drawing.Point(155, 144);
-            this.lbltable5time.Name = "lbltable5time";
-            this.lbltable5time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable5time.TabIndex = 26;
-            this.lbltable5time.Text = ".........";
-            // 
-            // lbltable6time
-            // 
-            this.lbltable6time.AutoSize = true;
-            this.lbltable6time.Location = new System.Drawing.Point(291, 144);
-            this.lbltable6time.Name = "lbltable6time";
-            this.lbltable6time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable6time.TabIndex = 27;
-            this.lbltable6time.Text = ".........";
+            this.lbltable8time.AutoSize = true;
+            this.lbltable8time.Location = new System.Drawing.Point(410, 198);
+            this.lbltable8time.Name = "lbltable8time";
+            this.lbltable8time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable8time.TabIndex = 29;
+            this.lbltable8time.Text = "There is no order ";
             // 
             // lbltable7time
             // 
             this.lbltable7time.AutoSize = true;
             this.lbltable7time.Location = new System.Drawing.Point(155, 198);
             this.lbltable7time.Name = "lbltable7time";
-            this.lbltable7time.Size = new System.Drawing.Size(34, 13);
+            this.lbltable7time.Size = new System.Drawing.Size(90, 13);
             this.lbltable7time.TabIndex = 28;
-            this.lbltable7time.Text = ".........";
+            this.lbltable7time.Text = "There is no order ";
             // 
-            // lbltable8time
+            // lbltable6time
             // 
-            this.lbltable8time.AutoSize = true;
-            this.lbltable8time.Location = new System.Drawing.Point(291, 198);
-            this.lbltable8time.Name = "lbltable8time";
-            this.lbltable8time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable8time.TabIndex = 29;
-            this.lbltable8time.Text = ".........";
+            this.lbltable6time.AutoSize = true;
+            this.lbltable6time.Location = new System.Drawing.Point(410, 144);
+            this.lbltable6time.Name = "lbltable6time";
+            this.lbltable6time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable6time.TabIndex = 27;
+            this.lbltable6time.Text = "There is no order ";
             // 
-            // lbltable9time
+            // lbltable5time
             // 
-            this.lbltable9time.AutoSize = true;
-            this.lbltable9time.Location = new System.Drawing.Point(155, 248);
-            this.lbltable9time.Name = "lbltable9time";
-            this.lbltable9time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable9time.TabIndex = 30;
-            this.lbltable9time.Text = ".........";
+            this.lbltable5time.AutoSize = true;
+            this.lbltable5time.Location = new System.Drawing.Point(155, 144);
+            this.lbltable5time.Name = "lbltable5time";
+            this.lbltable5time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable5time.TabIndex = 26;
+            this.lbltable5time.Text = "There is no order ";
             // 
-            // lbltable10time
+            // lbltable4time
             // 
-            this.lbltable10time.AutoSize = true;
-            this.lbltable10time.Location = new System.Drawing.Point(288, 249);
-            this.lbltable10time.Name = "lbltable10time";
-            this.lbltable10time.Size = new System.Drawing.Size(34, 13);
-            this.lbltable10time.TabIndex = 31;
-            this.lbltable10time.Text = ".........";
+            this.lbltable4time.AutoSize = true;
+            this.lbltable4time.Location = new System.Drawing.Point(407, 84);
+            this.lbltable4time.Name = "lbltable4time";
+            this.lbltable4time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable4time.TabIndex = 25;
+            this.lbltable4time.Text = "There is no order ";
+            // 
+            // lbltable3time
+            // 
+            this.lbltable3time.AutoSize = true;
+            this.lbltable3time.Location = new System.Drawing.Point(155, 84);
+            this.lbltable3time.Name = "lbltable3time";
+            this.lbltable3time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable3time.TabIndex = 24;
+            this.lbltable3time.Text = "There is no order ";
+            // 
+            // lbltable2time
+            // 
+            this.lbltable2time.AutoSize = true;
+            this.lbltable2time.Location = new System.Drawing.Point(407, 11);
+            this.lbltable2time.Name = "lbltable2time";
+            this.lbltable2time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable2time.TabIndex = 23;
+            this.lbltable2time.Text = "There is no order ";
+            // 
+            // lbltable1time
+            // 
+            this.lbltable1time.AutoSize = true;
+            this.lbltable1time.Location = new System.Drawing.Point(155, 11);
+            this.lbltable1time.Name = "lbltable1time";
+            this.lbltable1time.Size = new System.Drawing.Size(90, 13);
+            this.lbltable1time.TabIndex = 22;
+            this.lbltable1time.Text = "There is no order ";
             // 
             // TablesOverview
             // 
