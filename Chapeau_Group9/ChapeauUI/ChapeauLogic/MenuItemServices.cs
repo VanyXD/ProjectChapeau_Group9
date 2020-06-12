@@ -20,7 +20,7 @@ namespace ChapeauLogic
                 items = menuItemDao.GetAllMenuItems();
                 return items;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MenuItem dummy = new MenuItem
                 {
