@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ChapeauLogic
 {
@@ -23,21 +24,45 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                throw new Exception("something went wrong connecting to the database");
             }
 
         }
         public void InsertEmployee(Employee employee)
         {
-            employee_db.InsertEmployee(employee);
+            try
+            {
+                employee_db.InsertEmployee(employee);
+            }
+            catch (Exception)
+            {
+                throw new Exception("something went wrong connecting to the database");
+            }
+           
         }
         public void RemoveEmployee(int employeeID)
         {
-            employee_db.DeleteEmployee(employeeID);
+            try
+            {
+                employee_db.DeleteEmployee(employeeID);
+            }
+            catch (Exception)
+            {
+                throw new Exception("something went wrong connecting to the database");
+            }
+
         }
         public void EditEmployee(Employee employee)
         {
-            employee_db.UpdateEmployee(employee);
+            try
+            {
+                employee_db.UpdateEmployee(employee);
+            }
+            catch (Exception)
+            {
+                throw new Exception("something went wrong connecting to the database");
+            }
+
         }
 
     }
