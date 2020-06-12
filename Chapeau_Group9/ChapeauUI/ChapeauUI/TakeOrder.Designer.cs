@@ -419,7 +419,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.btnRemoveOrder);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.checkBoxComment);

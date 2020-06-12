@@ -21,7 +21,10 @@ namespace ChapeauUI
         private Employee employee;
         private List<Button> buttons;
         private List<Tables> tables;
+        private List<Label> labels;
+        private List<Order> orders;
         private Order order;
+        private Timer timer;
 
         public TablesOverview(Form login ,Employee employee)
         {
@@ -30,7 +33,10 @@ namespace ChapeauUI
             this.Login = login;
             tablesServices = new TablesServices();
             tables = new List<Tables>();
+            orders = new List<Order>();
             order = new Order();
+            timer = new Timer();
+
 
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
@@ -38,15 +44,20 @@ namespace ChapeauUI
             this.Close();
             Login.Show();
         }
+
         private void DisplayTables()
         {                    
             tables = tablesServices.GetALLTables();
-            tablesServices.ReadOrderStatus(order);
+            orders = tablesServices.GetAllOrders();
+            //orders = tablesServices.GetAllOrderTime();
+           
+
             buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+            labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time , lbltable4time , lbltable5time , lbltable6time , lbltable7time , lbltable8time , lbltable9time, lbltable10time };
 
             for (int i = 0; i < buttons.Count; i++)
             {
-                if(tables[i].Status == TableStatus.Free && order.OrderStatus == OrderStatus.Closed)
+                if(tables[i].Status == TableStatus.Free || orders[i].OrderStatus == OrderStatus.Closed)
                 {
                     buttons[i].BackColor = Color.Green;
                 }
