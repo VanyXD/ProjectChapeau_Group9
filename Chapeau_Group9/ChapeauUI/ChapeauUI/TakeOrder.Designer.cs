@@ -39,6 +39,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSelect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxComment = new System.Windows.Forms.CheckBox();
             this.txtComment = new System.Windows.Forms.TextBox();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemoveOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             this.SuspendLayout();
@@ -148,6 +148,11 @@
             this.columnHeader6.Text = "Price";
             this.columnHeader6.Width = 100;
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Comment";
+            this.columnHeader10.Width = 250;
+            // 
             // btnSelect
             // 
             this.btnSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
@@ -169,7 +174,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(52, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
             this.label1.Size = new System.Drawing.Size(65, 32);
@@ -183,7 +188,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(1175, 20);
-            this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5);
             this.label2.Size = new System.Drawing.Size(88, 32);
@@ -350,7 +355,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(871, 229);
-            this.label3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5);
             this.label3.Size = new System.Drawing.Size(148, 32);
@@ -378,7 +383,7 @@
             this.checkBoxComment.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxComment.ForeColor = System.Drawing.Color.Black;
             this.checkBoxComment.Location = new System.Drawing.Point(875, 318);
-            this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
             this.checkBoxComment.Padding = new System.Windows.Forms.Padding(5);
             this.checkBoxComment.Size = new System.Drawing.Size(116, 36);
@@ -395,11 +400,6 @@
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(279, 151);
             this.txtComment.TabIndex = 23;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Comment";
-            this.columnHeader10.Width = 250;
             // 
             // btnRemoveOrder
             // 
@@ -419,7 +419,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.btnRemoveOrder);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.checkBoxComment);
