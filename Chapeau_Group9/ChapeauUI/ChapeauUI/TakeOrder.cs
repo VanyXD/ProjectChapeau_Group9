@@ -25,6 +25,7 @@ namespace ChapeauUI
         MenuItemServices menuIt;
         TablesServices TablesServices;
 
+        Timer timer = new Timer();
         Employee employee;
         Tables table;
         Order order;

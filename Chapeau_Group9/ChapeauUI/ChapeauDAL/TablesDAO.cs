@@ -49,12 +49,53 @@ namespace ChapeauDAL
             conn.Close();
         }
 
-        public void ReadOrdersStatus(Order order)
+        public List<Order> ReadAllOrders()
         {
-            string query = $"SELECT order_status FROM [Order]";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            ExecuteEditQuery(query, sqlParameters);
+            dbConnection.Open();
+            SqlCommand cmd = new SqlCommand($"SELECT  order_status FROM [Order]", dbConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Order> orders = new List<Order>();
+            while (reader.Read())
+            {
+                Order order1 = ReadOrder(reader);
+                orders.Add(order1);
+            }
+            reader.Close();
+            dbConnection.Close();
+            return orders;
         }
+        public Order ReadOrder(SqlDataReader reader)
+        {
+            Order order = new Order
+            {
+                OrderStatus = (OrderStatus)reader["order_status"],
+            };
+            return order;
+        }
+        //public List<Order> GetAllOrderTime()
+        //{
+        //    dbConnection.Open();
+        //    SqlCommand cmd = new SqlCommand($"SELECT DISTINCT order_time FROM [Order] ", dbConnection);
+        //    SqlDataReader reader = cmd.ExecuteReader();
+        //    List<Order> orders = new List<Order>();
+        //    while (reader.Read())
+        //    {
+        //        Order order1 = ReadOrderTime(reader);
+        //        orders.Add(order1);
+        //    }
+        //    reader.Close();
+        //    dbConnection.Close();
+        //    return orders;
+        //}
+        //public Order ReadOrderTime(SqlDataReader reader)
+        //{
+        //    Order order = new Order
+        //    {
+        //        Time = (DateTime)reader["order_time"]
+        //    };
+        //    return order;
+        //}
+
     }
 }
 
