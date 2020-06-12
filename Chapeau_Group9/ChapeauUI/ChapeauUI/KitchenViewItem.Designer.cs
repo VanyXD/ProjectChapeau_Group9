@@ -30,16 +30,17 @@
         {
             this.label = new System.Windows.Forms.Label();
             this.lv_ViewTable = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtbox_kitchen_notes = new System.Windows.Forms.RichTextBox();
-            this.btn_ViewItem_Ready = new System.Windows.Forms.Button();
-            this.btn_ViewItem_Close = new System.Windows.Forms.Button();
-            this.lbl_title = new System.Windows.Forms.Label();
             this.col_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_quant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_order_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtbox_kitchen_notes = new System.Windows.Forms.RichTextBox();
+            this.btn_ViewItem_Ready = new System.Windows.Forms.Button();
+            this.btn_ViewItem_Close = new System.Windows.Forms.Button();
+            this.lbl_title = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label
@@ -58,7 +59,8 @@
             this.col_name,
             this.col_quant,
             this.col_time,
-            this.col_order_id});
+            this.col_order_id,
+            this.col_comment});
             this.lv_ViewTable.FullRowSelect = true;
             this.lv_ViewTable.GridLines = true;
             this.lv_ViewTable.HideSelection = false;
@@ -68,6 +70,34 @@
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
+            this.lv_ViewTable.Click += new System.EventHandler(this.lv_item_Click);
+            // 
+            // col_id
+            // 
+            this.col_id.Text = "id";
+            this.col_id.Width = 45;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "name";
+            this.col_name.Width = 146;
+            // 
+            // col_quant
+            // 
+            this.col_quant.Text = "quantity";
+            // 
+            // col_time
+            // 
+            this.col_time.Text = "time";
+            this.col_time.Width = 72;
+            // 
+            // col_order_id
+            // 
+            this.col_order_id.Text = "order id";
+            // 
+            // col_comment
+            // 
+            this.col_comment.Text = "comments";
             // 
             // label1
             // 
@@ -117,29 +147,6 @@
             this.lbl_title.TabIndex = 6;
             this.lbl_title.Text = "View Table";
             // 
-            // col_id
-            // 
-            this.col_id.Text = "id";
-            this.col_id.Width = 45;
-            // 
-            // col_name
-            // 
-            this.col_name.Text = "name";
-            this.col_name.Width = 146;
-            // 
-            // col_quant
-            // 
-            this.col_quant.Text = "quantity";
-            // 
-            // col_time
-            // 
-            this.col_time.Text = "time";
-            this.col_time.Width = 72;
-            // 
-            // col_order_id
-            // 
-            this.col_order_id.Text = "order id";
-            // 
             // KitchenViewItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,5 +180,6 @@
         private System.Windows.Forms.ColumnHeader col_quant;
         private System.Windows.Forms.ColumnHeader col_time;
         private System.Windows.Forms.ColumnHeader col_order_id;
+        private System.Windows.Forms.ColumnHeader col_comment;
     }
 }
