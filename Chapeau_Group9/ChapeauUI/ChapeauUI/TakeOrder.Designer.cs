@@ -420,7 +420,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1344, 729);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.btnRemoveOrder);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.checkBoxComment);
@@ -443,7 +443,7 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.lstvSelected);
             this.Controls.Add(this.lstvMenu);
-            this.MinimumSize = new System.Drawing.Size(1360, 768);
+            this.MinimumSize = new System.Drawing.Size(1918, 1038);
             this.Name = "TakeOrder";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "TakeOrder";
