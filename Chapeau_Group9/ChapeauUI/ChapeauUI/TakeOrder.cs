@@ -84,7 +84,10 @@ namespace ChapeauUI
                 item.Tag = mt;
                 lstvMenu.Items.Add(item);
             }
-
+            if(menu[0].MenuItemID == 000)
+            {
+                MessageBox.Show("database connection failed");
+            }
 
         }
 
@@ -263,9 +266,13 @@ namespace ChapeauUI
                 MessageBox.Show("order is sent");
 
             }
+            else if(num == -1)
+            {
+                MessageBox.Show("database connection failed");
+            }
             else
             {
-                MessageBox.Show("whoopsie");
+                MessageBox.Show("some unhandled error");
             }
             lstvSelected.Items.Clear();
 
@@ -313,6 +320,11 @@ namespace ChapeauUI
             
             RenewOrder();
             ShowSelectedItems();
+        }
+
+        private void TakeOrder_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

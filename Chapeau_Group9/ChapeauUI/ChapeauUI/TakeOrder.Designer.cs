@@ -177,7 +177,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(95, 41);
+            this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Menu";
             // 
@@ -191,7 +191,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5);
-            this.label2.Size = new System.Drawing.Size(125, 41);
+            this.label2.Size = new System.Drawing.Size(88, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected";
             // 
@@ -345,7 +345,7 @@
             this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQuantity.Location = new System.Drawing.Point(871, 264);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 39);
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 29);
             this.numericUpDownQuantity.TabIndex = 19;
             // 
             // label3
@@ -358,7 +358,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(216, 41);
+            this.label3.Size = new System.Drawing.Size(148, 32);
             this.label3.TabIndex = 20;
             this.label3.Text = "Select Quantity:";
             // 
@@ -386,7 +386,7 @@
             this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
             this.checkBoxComment.Padding = new System.Windows.Forms.Padding(5);
-            this.checkBoxComment.Size = new System.Drawing.Size(166, 45);
+            this.checkBoxComment.Size = new System.Drawing.Size(116, 36);
             this.checkBoxComment.TabIndex = 22;
             this.checkBoxComment.Text = "comment";
             this.checkBoxComment.UseVisualStyleBackColor = false;
@@ -411,7 +411,7 @@
             this.btnRemoveOrder.Name = "btnRemoveOrder";
             this.btnRemoveOrder.Size = new System.Drawing.Size(139, 45);
             this.btnRemoveOrder.TabIndex = 24;
-            this.btnRemoveOrder.Text = "Remove All Orders";
+            this.btnRemoveOrder.Text = "Remove Order";
             this.btnRemoveOrder.UseVisualStyleBackColor = false;
             this.btnRemoveOrder.Click += new System.EventHandler(this.btnRemoveOrder_Click);
             // 
@@ -419,7 +419,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.btnRemoveOrder);
             this.Controls.Add(this.txtComment);
             this.Controls.Add(this.checkBoxComment);
@@ -442,9 +442,11 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.lstvSelected);
             this.Controls.Add(this.lstvMenu);
+            this.MinimumSize = new System.Drawing.Size(1918, 1038);
             this.Name = "TakeOrder";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Text = "TakeOrder";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TakeOrder_FormClosed);
             this.Load += new System.EventHandler(this.TakeOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             this.ResumeLayout(false);
