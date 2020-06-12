@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
+using System.Windows.Forms;
 
 namespace ChapeauLogic
 {
@@ -15,48 +16,48 @@ namespace ChapeauLogic
 
         public List<Order> GetOrders()
         {
+            List<Order> orders = new List<Order>();
             try
             {
-                List<Order> orders = new List<Order>();
                 orders = order.GetAllOrders();
                 return orders;
             }
             catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                return orders;
             }
         }
         public List<OrderItem> GetKitchenOrderItems(int id)
         {
+            List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                List<OrderItem> orders = new List<OrderItem>();
                 orders = order.GetKitchenItems(id);
                 return orders;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                MessageBox.Show("Couldn't connect to the database");
+                return orders;
             }
         }
         public List<OrderItem> GetBarOrderItems(int id)
         {
+            List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                List<OrderItem> orders = new List<OrderItem>();
                 orders = order.GetBarItems(id);
                 return orders;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                MessageBox.Show("Couldn't connect to the database");
+                return orders;
             }
         }
         public int WriteOrder(Order order)
         {
-
-
-
             decimal hanna = 0;
             foreach (OrderItem item in order.OrderItems)
             {
@@ -84,28 +85,30 @@ namespace ChapeauLogic
 
         public List<OrderItem> GetKitchenTableItems(int id)
         {
+            List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                List<OrderItem> orders = new List<OrderItem>();
                 orders = order.GetKitchenItemsPerTable(id);
                 return orders;
             }
             catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                return orders;
             }
         }
         public List<OrderItem> GetBarTableItems(int id)
         {
+                List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                List<OrderItem> orders = new List<OrderItem>();
                 orders = order.GetBarItemsPerTable(id);
                 return orders;
             }
             catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                return orders;
             }
         }
         public bool OrderReady(int id)

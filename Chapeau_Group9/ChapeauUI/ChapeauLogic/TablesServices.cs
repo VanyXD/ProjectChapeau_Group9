@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
+using System.Windows.Forms;
 
 
 namespace ChapeauLogic
@@ -22,9 +23,13 @@ namespace ChapeauLogic
                 tablesservices = tabledao.GetALLTables();
                 return tablesservices;
             }
-            catch (Exception)
+            catch 
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                List<Tables> teststock = new List<Tables>();
+                Tables S = new Tables(1, TableStatus.Free, 1);
+                teststock.Add(S);
+                return teststock;
             }
         }
         public void Updatetable(Tables table)
@@ -35,10 +40,11 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
             }
-        }
 
+           
+        }
         public List<Order> GetAllOrders(Order order)
         {
             try
@@ -46,9 +52,10 @@ namespace ChapeauLogic
                 orderservice = tabledao.ReadAllOrders(order);
                 return orderservice;
             }
-            catch
+            catch (Exception)
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("Couldn't connect to the database");
+                return orderservice;
             }
         }
 
