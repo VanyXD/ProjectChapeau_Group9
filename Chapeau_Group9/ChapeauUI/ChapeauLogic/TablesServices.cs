@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
+using System.Windows.Forms;
 
 
 namespace ChapeauLogic
@@ -22,9 +23,10 @@ namespace ChapeauLogic
                 tablesservices = tabledao.GetALLTables();
                 return tablesservices;
             }
-            catch (Exception)
+            catch
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("something went wrong connecting to the database", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                return tablesservices;
             }
         }
         public void Updatetable(Tables table)
@@ -33,12 +35,13 @@ namespace ChapeauLogic
             {
                 tabledao.UpdateTableStatus(table);
             }
-            catch (Exception)
+            catch
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("something went wrong connecting to the database", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             }
-        }
 
+           
+        }
         public List<Order> GetAllOrders(Order order)
         {
             try
@@ -46,9 +49,10 @@ namespace ChapeauLogic
                 orderservice = tabledao.ReadAllOrders(order);
                 return orderservice;
             }
-            catch
+            catch 
             {
-                throw new Exception("Couldn't connect to the database");
+                MessageBox.Show("something went wrong connecting to the database", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                return orderservice;
             }
         }
 

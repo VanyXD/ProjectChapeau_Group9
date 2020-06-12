@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System;
 
+
 namespace ChapeauDAL
 {
     public class TablesDAO : Base
@@ -18,7 +19,7 @@ namespace ChapeauDAL
         public List<Tables> GetALLTables()
         {
             dbConnection.Open();
-            SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM tables", dbConnection);
+            SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM ", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Tables> tables = new List<Tables>();
             while (reader.Read())
