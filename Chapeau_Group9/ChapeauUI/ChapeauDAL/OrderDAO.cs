@@ -94,7 +94,7 @@ namespace ChapeauDAL
         }
         public List<OrderItem> GetKitchenItems(int id)
         {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, order_time, o.order_id " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, order_time, o.order_id, comment " +
                 "FROM OrderItems  " +
                 "JOIN menu as m  ON m.article_id = OrderItems.article_id  " +
                 "JOIN [order] AS o ON o.order_id = OrderItems.order_id " +
@@ -107,7 +107,7 @@ namespace ChapeauDAL
         }
         public List<OrderItem> GetBarItems(int id)
         {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, o.order_time, o.order_id " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, o.order_time, o.order_id, comment " +
                 "FROM OrderItems  " +
                 "JOIN menu as m  " +
                 "ON m.article_id = OrderItems.article_id  " +
@@ -122,7 +122,7 @@ namespace ChapeauDAL
         }
         public List<OrderItem> GetKitchenItemsPerTable(int id)
         {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id, comment " +
                 "FROM OrderItems " +
                 "JOIN menu as m " +
                 "ON m.article_id = OrderItems.article_id " +
@@ -137,7 +137,7 @@ namespace ChapeauDAL
         }
         public List<OrderItem> GetBarItemsPerTable(int id)
         {
-            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id, comment " +
                 "FROM OrderItems " +
                 "JOIN menu as m " +
                 "ON m.article_id = OrderItems.article_id " +
@@ -161,7 +161,8 @@ namespace ChapeauDAL
                     MenuItem = new MenuItem((int)dr["article_id"], dr["name"].ToString()),
                     Quantity = (int)dr["quantity"],
                     Time = (DateTime)dr["order_time"],
-                    OrderId = (int)dr["order_id"]
+                    OrderId = (int)dr["order_id"],
+                    Comment = dr["comment"].ToString()
                 };
                 orders.Add(order);
             }

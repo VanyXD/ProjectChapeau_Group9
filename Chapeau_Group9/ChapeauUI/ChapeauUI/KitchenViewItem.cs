@@ -24,13 +24,6 @@ namespace ChapeauUI
             this.tableId = tableId;
             lbl_title.Text += " " + tableId.ToString();
             GetOrderItems();
-            GetComments();
-        }
-
-        void GetComments()
-        {
-            OrderServices service = new OrderServices();
-            txtbox_kitchen_notes.Text = service.GetComments(tableId);
         }
 
         private void btn_ViewItem_Close_Click(object sender, EventArgs e)
@@ -55,7 +48,7 @@ namespace ChapeauUI
         {
             foreach (OrderItem item in items)
             {
-                var row = new string[] { item.OrderItemID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), item.Time.ToString("HH:mm") , item.OrderId.ToString()};
+                var row = new string[] { item.OrderItemID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), item.Time.ToString("HH:mm") , item.OrderId.ToString(), item.Comment};
                 var lvi = new ListViewItem(row);
                 lv_ViewTable.Items.Add(lvi);
             }
@@ -77,6 +70,14 @@ namespace ChapeauUI
                         lv_ViewTable.Items.Remove(item);
                     }
                 }
+        }
+
+        private void lv_item_Click(object sender, EventArgs e)
+        {
+            if(lv_ViewTable.SelectedItems.Count > 0)
+            {
+                txtbox_kitchen_notes.Text = lv_ViewTable.SelectedItems[0].SubItems[5].Text;
+            }
         }
     }
 }

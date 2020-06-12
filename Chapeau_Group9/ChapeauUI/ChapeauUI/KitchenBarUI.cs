@@ -50,7 +50,7 @@ namespace ChapeauUI
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 10000; // in miliseconds
+            timer1.Interval = 10000;
             timer1.Start();
         }
         private void timer1_Tick(object sender, EventArgs e)

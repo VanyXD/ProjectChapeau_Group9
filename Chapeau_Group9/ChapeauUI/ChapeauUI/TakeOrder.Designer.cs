@@ -177,7 +177,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(65, 32);
+            this.label1.Size = new System.Drawing.Size(95, 41);
             this.label1.TabIndex = 3;
             this.label1.Text = "Menu";
             // 
@@ -191,7 +191,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5);
-            this.label2.Size = new System.Drawing.Size(88, 32);
+            this.label2.Size = new System.Drawing.Size(125, 41);
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected";
             // 
@@ -332,7 +332,7 @@
             this.btnSendOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendOrder.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendOrder.ForeColor = System.Drawing.Color.Black;
-            this.btnSendOrder.Location = new System.Drawing.Point(1741, 913);
+            this.btnSendOrder.Location = new System.Drawing.Point(1014, 762);
             this.btnSendOrder.Name = "btnSendOrder";
             this.btnSendOrder.Size = new System.Drawing.Size(139, 45);
             this.btnSendOrder.TabIndex = 18;
@@ -345,7 +345,7 @@
             this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQuantity.Location = new System.Drawing.Point(871, 264);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 29);
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 39);
             this.numericUpDownQuantity.TabIndex = 19;
             // 
             // label3
@@ -358,7 +358,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(148, 32);
+            this.label3.Size = new System.Drawing.Size(216, 41);
             this.label3.TabIndex = 20;
             this.label3.Text = "Select Quantity:";
             // 
@@ -386,7 +386,7 @@
             this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
             this.checkBoxComment.Padding = new System.Windows.Forms.Padding(5);
-            this.checkBoxComment.Size = new System.Drawing.Size(116, 36);
+            this.checkBoxComment.Size = new System.Drawing.Size(166, 45);
             this.checkBoxComment.TabIndex = 22;
             this.checkBoxComment.Text = "comment";
             this.checkBoxComment.UseVisualStyleBackColor = false;
@@ -407,11 +407,11 @@
             this.btnRemoveOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveOrder.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveOrder.ForeColor = System.Drawing.Color.Black;
-            this.btnRemoveOrder.Location = new System.Drawing.Point(1179, 913);
+            this.btnRemoveOrder.Location = new System.Drawing.Point(778, 762);
             this.btnRemoveOrder.Name = "btnRemoveOrder";
             this.btnRemoveOrder.Size = new System.Drawing.Size(139, 45);
             this.btnRemoveOrder.TabIndex = 24;
-            this.btnRemoveOrder.Text = "Remove Order";
+            this.btnRemoveOrder.Text = "Remove All Orders";
             this.btnRemoveOrder.UseVisualStyleBackColor = false;
             this.btnRemoveOrder.Click += new System.EventHandler(this.btnRemoveOrder_Click);
             // 
