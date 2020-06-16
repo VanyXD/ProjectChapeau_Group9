@@ -173,6 +173,7 @@
             this.btnTable1.TabIndex = 23;
             this.btnTable1.Text = "Table 1";
             this.btnTable1.UseVisualStyleBackColor = true;
+            this.btnTable1.Click += new System.EventHandler(this.btnTable1_Click);
             // 
             // panel4
             // 

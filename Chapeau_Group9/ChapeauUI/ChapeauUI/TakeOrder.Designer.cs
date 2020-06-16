@@ -178,7 +178,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(81, 37);
+            this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Menu";
             // 
@@ -192,7 +192,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5);
-            this.label2.Size = new System.Drawing.Size(107, 37);
+            this.label2.Size = new System.Drawing.Size(88, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected";
             // 
@@ -346,7 +346,7 @@
             this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQuantity.Location = new System.Drawing.Point(871, 264);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 34);
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 29);
             this.numericUpDownQuantity.TabIndex = 19;
             // 
             // label3
@@ -359,7 +359,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5);
-            this.label3.Size = new System.Drawing.Size(181, 37);
+            this.label3.Size = new System.Drawing.Size(148, 32);
             this.label3.TabIndex = 20;
             this.label3.Text = "Select Quantity:";
             // 
@@ -387,7 +387,7 @@
             this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
             this.checkBoxComment.Padding = new System.Windows.Forms.Padding(5);
-            this.checkBoxComment.Size = new System.Drawing.Size(140, 41);
+            this.checkBoxComment.Size = new System.Drawing.Size(116, 36);
             this.checkBoxComment.TabIndex = 22;
             this.checkBoxComment.Text = "comment";
             this.checkBoxComment.UseVisualStyleBackColor = false;
@@ -421,12 +421,13 @@
             this.lblTable.AutoSize = true;
             this.lblTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.lblTable.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTable.Location = new System.Drawing.Point(669, 55);
+            this.lblTable.Location = new System.Drawing.Point(640, 55);
             this.lblTable.Name = "lblTable";
             this.lblTable.Padding = new System.Windows.Forms.Padding(5);
-            this.lblTable.Size = new System.Drawing.Size(52, 33);
+            this.lblTable.Size = new System.Drawing.Size(43, 30);
             this.lblTable.TabIndex = 25;
             this.lblTable.Text = "____";
+            this.lblTable.Click += new System.EventHandler(this.lblTable_Click);
             // 
             // TakeOrder
             // 

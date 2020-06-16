@@ -57,7 +57,7 @@ namespace ChapeauUI
             order.OrderItems = selectedItems;
             txtComment.Enabled = false;
             LoadMenu(fullMenu);
-            lblTable.Text = $"table number {this.table.TableID}";
+            lblTable.Text = $"Table: {this.table.TableID}";
 
         }
         private void LoadMenu(List<MenuItem> menu)
@@ -325,6 +325,11 @@ namespace ChapeauUI
             
             RenewOrder();
             ShowSelectedItems();
+        }
+
+        private void lblTable_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
