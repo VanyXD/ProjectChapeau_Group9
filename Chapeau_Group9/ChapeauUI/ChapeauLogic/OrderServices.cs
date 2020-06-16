@@ -11,7 +11,7 @@ namespace ChapeauLogic
 {
     public class OrderServices
     {
-        OrderDAO order = new OrderDAO();
+        OrderDAO orderdao = new OrderDAO();
 
 
         public List<Order> GetOrders()
@@ -19,7 +19,7 @@ namespace ChapeauLogic
             List<Order> orders = new List<Order>();
             try
             {
-                orders = order.GetAllOrders();
+                orders = orderdao.GetAllOrders();
                 return orders;
             }
             catch (Exception)
@@ -33,7 +33,7 @@ namespace ChapeauLogic
             List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                orders = order.GetKitchenItems(id);
+                orders = orderdao.GetKitchenItems(id);
                 return orders;
             }
             catch (Exception)
@@ -47,7 +47,7 @@ namespace ChapeauLogic
             List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                orders = order.GetBarItems(id);
+                orders = orderdao.GetBarItems(id);
                 return orders;
             }
             catch (Exception)
@@ -58,6 +58,7 @@ namespace ChapeauLogic
         }
         public int WriteOrder(Order order)
         {
+            
             decimal hanna = 0;
             foreach (OrderItem item in order.OrderItems)
             {
@@ -65,18 +66,13 @@ namespace ChapeauLogic
                 hanna += item.TotaPrice;
             }
             order.TotalPrice = hanna;
-            int row = this.order.WriteOrder(order);
+            int row = this.orderdao.WriteOrder(order);
             //error here about a steak  when I tried to ad 2 of them.
-            Order ord = this.order.GetLastOrder();
+            Order ord = this.orderdao.GetLastOrder();
             foreach (OrderItem item in order.OrderItems)
             {
                 // send the int order id
-                this.order.WriteOrderItems(ord, item);
-            }
-
-            if (row > 0)
-            {
-                return row;
+                this.orderdao.WriteOrderItems(ord, item);
             }
 
 
@@ -88,7 +84,7 @@ namespace ChapeauLogic
             List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                orders = order.GetKitchenItemsPerTable(id);
+                orders = orderdao.GetKitchenItemsPerTable(id);
                 return orders;
             }
             catch (Exception)
@@ -102,7 +98,7 @@ namespace ChapeauLogic
                 List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                orders = order.GetBarItemsPerTable(id);
+                orders = orderdao.GetBarItemsPerTable(id);
                 return orders;
             }
             catch (Exception)
@@ -115,7 +111,7 @@ namespace ChapeauLogic
         {
             try
             {
-                order.UpdateReady(id);
+                orderdao.UpdateReady(id);
                 return true;
             }
             catch
@@ -127,7 +123,7 @@ namespace ChapeauLogic
         {
             try
             {
-                return order.GetComment(id);
+                return orderdao.GetComment(id);
             }
             catch
             {
@@ -138,7 +134,7 @@ namespace ChapeauLogic
         public bool CheckStatusReady(int id)
         {
             List<int> status = new List<int>();
-            status = order.GetStatus(id);
+            status = orderdao.GetStatus(id);
             foreach (int state in status)
             {
                 if (state != 2)
@@ -150,7 +146,7 @@ namespace ChapeauLogic
         {
             try
             {
-                order.OrderReady(id);
+                orderdao.OrderReady(id);
                 return true;
             }
             catch

@@ -57,26 +57,27 @@ namespace ChapeauUI
             order.OrderItems = selectedItems;
             txtComment.Enabled = false;
             LoadMenu(fullMenu);
-
+            lblTable.Text = $"table number {this.table.TableID}";
 
         }
         private void LoadMenu(List<MenuItem> menu)
         {
-            lstvMenu.Items.Clear();
+            lstvMenu.Items.Clear();  
             foreach (MenuItem mt in menu)
             {
                 ListViewItem item = new ListViewItem(mt.MenuItemID.ToString());
                 item.SubItems.Add(mt.Name);
                 item.SubItems.Add(mt.Price.ToString("0.00"));
                 item.SubItems.Add(mt.Stock.ToString());
+                if(mt.Stock == 0)
+                {
+                    item.SubItems.Add("out of stock");
+                }
                 if(mt.Stock < 10)
                 {
                     item.SubItems.Add("low Stock");
                 }
-                else if(mt.Stock == 0)
-                {
-                    item.SubItems.Add("out of stock");
-                }
+                
                 else
                 {
                     item.SubItems.Add("sufficient");
@@ -213,7 +214,7 @@ namespace ChapeauUI
             string message = $"do you want to remove {item.MenuItem.Name}?";
             string title = "Remove item";
             MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
-            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3);
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
             if (result == DialogResult.Yes)
             {
                 selectedItems.Remove(item);
@@ -301,9 +302,10 @@ namespace ChapeauUI
         {
 
 
-            this.Hide();
+           
             
             overview.Show();
+            this.Close();
         }
 
         private void checkBoxComment_CheckedChanged(object sender, EventArgs e)
@@ -323,11 +325,6 @@ namespace ChapeauUI
             
             RenewOrder();
             ShowSelectedItems();
-        }
-
-        private void TakeOrder_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
