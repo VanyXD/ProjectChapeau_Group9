@@ -50,7 +50,7 @@ namespace ChapeauDAL
             conn.Close();
         }
 
-        public List<Order> ReadAllOrders(Order order)
+        public List<Order> ReadAllOrders()
         {         
             dbConnection.Open();
             SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);

@@ -23,7 +23,6 @@ namespace ChapeauUI
         private List<Tables> tables;
         private List<Label> labels;
         private List<Order> orders;
-        private Order order;
 
         public TablesOverview(Form login ,Employee employee)
         {
@@ -33,9 +32,6 @@ namespace ChapeauUI
             tablesServices = new TablesServices();
             tables = new List<Tables>();
             orders = new List<Order>();
-            order = new Order();
-
-
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
@@ -65,7 +61,7 @@ namespace ChapeauUI
         }
         private void DisplayTablesTimeAndOrder()
         {
-            orders = tablesServices.GetAllOrders(order);
+            orders = tablesServices.GetAllOrders();
             labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time, lbltable4time, lbltable5time, lbltable6time, lbltable7time, lbltable8time, lbltable9time, lbltable10time };
 
             for (int i = 0; i < orders.Count; i++)
@@ -98,19 +94,11 @@ namespace ChapeauUI
         private void btnTable1_Click(object sender, EventArgs e)
         {
             DisplayTable(1);
-            this.Hide();
-        }
-        private void TakeOrderBtnClick(int tableNum)
-        {
-            TakeOrder takeOrder = new TakeOrder(this,employee, tableNum);
-            takeOrder.ShowDialog();
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
         {
             DisplayTable(2);
-            this.Hide();
-
         }
 
         private void DisplayTable(int tableNum)
@@ -123,50 +111,47 @@ namespace ChapeauUI
         private void btnTable3_Click(object sender, EventArgs e)
         {
             DisplayTable(3);
-            this.Hide();
-
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
             DisplayTable(4);
-            this.Hide();
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
             DisplayTable(5);
-            this.Hide();
+
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
             DisplayTable(6);
-            this.Hide();
         }
 
         private void btnTable7_Click(object sender, EventArgs e)
         {
             DisplayTable(7);
-            this.Hide();
         }
 
         private void btnTable8_Click(object sender, EventArgs e)
         {
             DisplayTable(8);
-            this.Hide();
         }
 
         private void btnTable9_Click(object sender, EventArgs e)
         {
-            DisplayTable(9);
-            this.Hide();
+            DisplayTable(9);         
         }
 
         private void btnTable10_Click(object sender, EventArgs e)
         {
             DisplayTable(10);
-            this.Hide();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            tablesServices.GetALLTables();
         }
     }
 }

@@ -25,11 +25,7 @@ namespace ChapeauLogic
             }
             catch 
             {
-                MessageBox.Show("Couldn't connect to the database");
-                List<Tables> teststock = new List<Tables>();
-                Tables S = new Tables(1, TableStatus.Free, 1);
-                teststock.Add(S);
-                return teststock;
+                throw new Exception("Couldn't connect to the database");
             }
         }
         public void Updatetable(Tables table)
@@ -40,22 +36,21 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
+                throw new Exception ("Couldn't connect to the database");
             }
 
            
         }
-        public List<Order> GetAllOrders(Order order)
+        public List<Order> GetAllOrders()
         {
             try
             {
-                orderservice = tabledao.ReadAllOrders(order);
+                orderservice = tabledao.ReadAllOrders();
                 return orderservice;
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
-                return orderservice;
+                throw new Exception("Couldn't connect to the database");
             }
         }
 

@@ -61,6 +61,7 @@
             this.lbltable3time = new System.Windows.Forms.Label();
             this.lbltable2time = new System.Windows.Forms.Label();
             this.lbltable1time = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -390,12 +391,23 @@
             this.lbltable1time.TabIndex = 22;
             this.lbltable1time.Text = "There is no order ";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(117, 58);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 22;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // TablesOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblCurrentUser);
@@ -448,5 +460,6 @@
         private System.Windows.Forms.Label lbltable8time;
         private System.Windows.Forms.Label lbltable9time;
         private System.Windows.Forms.Label lbltable10time;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
