@@ -158,6 +158,7 @@
             // 
             // lblMenu
             // 
+<<<<<<< HEAD
             this.lblMenu.AutoSize = true;
             this.lblMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.lblMenu.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,6 +170,19 @@
             this.lblMenu.Size = new System.Drawing.Size(69, 34);
             this.lblMenu.TabIndex = 3;
             this.lblMenu.Text = "Menu";
+=======
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(52, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(5);
+            this.label1.Size = new System.Drawing.Size(65, 32);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Menu";
+>>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             // 
             // label2
             // 
@@ -180,7 +194,11 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5);
+<<<<<<< HEAD
             this.label2.Size = new System.Drawing.Size(145, 34);
+=======
+            this.label2.Size = new System.Drawing.Size(88, 32);
+>>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             this.label2.TabIndex = 4;
             this.label2.Text = "Selected Items";
             // 
@@ -340,7 +358,7 @@
             this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDownQuantity.Location = new System.Drawing.Point(219, 569);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 34);
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(148, 29);
             this.numericUpDownQuantity.TabIndex = 19;
             // 
             // label3
@@ -352,7 +370,12 @@
             this.label3.Location = new System.Drawing.Point(215, 532);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
+<<<<<<< HEAD
             this.label3.Size = new System.Drawing.Size(146, 24);
+=======
+            this.label3.Padding = new System.Windows.Forms.Padding(5);
+            this.label3.Size = new System.Drawing.Size(148, 32);
+>>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             this.label3.TabIndex = 20;
             this.label3.Text = "Select Quantity:";
             // 
@@ -380,7 +403,12 @@
             this.checkBoxComment.Location = new System.Drawing.Point(3, 532);
             this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
+<<<<<<< HEAD
             this.checkBoxComment.Size = new System.Drawing.Size(116, 28);
+=======
+            this.checkBoxComment.Padding = new System.Windows.Forms.Padding(5);
+            this.checkBoxComment.Size = new System.Drawing.Size(116, 36);
+>>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             this.checkBoxComment.TabIndex = 22;
             this.checkBoxComment.Text = "Comment";
             this.checkBoxComment.UseVisualStyleBackColor = false;
@@ -413,13 +441,22 @@
             // 
             this.lblTable.AutoSize = true;
             this.lblTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+<<<<<<< HEAD
             this.lblTable.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTable.Location = new System.Drawing.Point(433, 44);
             this.lblTable.Name = "lblTable";
             this.lblTable.Padding = new System.Windows.Forms.Padding(5);
             this.lblTable.Size = new System.Drawing.Size(47, 30);
+=======
+            this.lblTable.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTable.Location = new System.Drawing.Point(640, 55);
+            this.lblTable.Name = "lblTable";
+            this.lblTable.Padding = new System.Windows.Forms.Padding(5);
+            this.lblTable.Size = new System.Drawing.Size(43, 30);
+>>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             this.lblTable.TabIndex = 25;
             this.lblTable.Text = "____";
+            this.lblTable.Click += new System.EventHandler(this.lblTable_Click);
             // 
             // panel1
             // 

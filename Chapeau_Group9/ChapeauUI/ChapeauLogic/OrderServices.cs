@@ -24,8 +24,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
+                throw new Exception("Couldn't connect to the database");
             }
         }
         public List<OrderItem> GetKitchenOrderItems(int id)
