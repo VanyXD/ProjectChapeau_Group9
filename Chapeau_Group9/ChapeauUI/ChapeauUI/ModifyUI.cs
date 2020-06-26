@@ -38,7 +38,7 @@ namespace ChapeauUI
 
         private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
         {
-            MenuItemServices menuServices = new MenuItemServices();
+            MenuItemService menuServices = new MenuItemService();
             menuServices.UpdateStock(itemId, int.Parse(richTxtBox_Modify.Text));
             Close();
         }

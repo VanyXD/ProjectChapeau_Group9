@@ -167,7 +167,7 @@ namespace ChapeauUI
         }
         void GetStockItems()
         {
-            MenuItemServices service = new MenuItemServices();
+            MenuItemService service = new MenuItemService();
             if (user.position == Position.cook)
             {
                 menuItems = service.GetFoodItems();
@@ -180,7 +180,7 @@ namespace ChapeauUI
 
         void GetOrders()
         {
-            OrderServices service = new OrderServices();
+            OrderService service = new OrderService();
             orders = service.GetOrders();
             if (user.position == Position.cook)
             {

@@ -18,77 +18,87 @@ namespace ChapeauUI
 {
     public partial class TakeOrder : Form
     {
-        TablesOverview overview;
-        MenuItemServices menuItemService;
-        List<OrderItem> selectedItems;
-        OrderServices orderService;
-        MenuItemServices menuIt;
-        TablesServices TablesServices;
+        Form passedForm;
+        MenuItemService menuItemService;
 
-        Timer timer = new Timer();
+        OrderService orderService;
+
+        TablesService TablesServices;
+
+        //Timer timer = new Timer();
         Employee employee;
-        Tables table;
-        Order order;
-        public TakeOrder(TablesOverview overview,Employee employee, int tableNum)
+        Table table;
+        Order order; // this needs to be global for the buttons to be able to access it
+        public TakeOrder(Form passedForm, Employee employee, int tableNum) // passing Form for future changes, if this form needs to be opened from any other form
         {
             InitializeComponent();
-            this.overview = overview;
-            menuItemService = new MenuItemServices();
-            selectedItems = new List<OrderItem>();
+            this.passedForm = passedForm;
+
             this.employee = employee;
-            orderService = new OrderServices();
-            menuIt = new MenuItemServices();
-            TablesServices = new TablesServices();
+            orderService = new OrderService();
+            menuItemService = new MenuItemService();
+            TablesServices = new TablesService();
 
-            // fix
-            order = new Order();
-            order.Employee = this.employee;
-            order.OrderStatus = OrderStatus.Pending;
+            this.table = new Table(tableNum, TableStatus.Occupied, tableNum);
 
-            table = new Tables(tableNum, TableStatus.Occupied, tableNum);
-
-            order.Table = table;
-            //orderdao.WriteOrder(order);
         }
-
         private void TakeOrder_Load(object sender, EventArgs e)
         {
+            InitializeOrder();
             List<MenuItem> fullMenu = menuItemService.GetMenuItems();
-            order.OrderItems = selectedItems;
-            txtComment.Enabled = false;
-            LoadMenu(fullMenu);
-            lblTable.Text = $"table number {this.table.TableID}";
+            DisplayMenu(fullMenu);
+            lblMenu.Text = "Full Menu";
 
+            txtComment.Enabled = false;
+            lblTable.Text = $"#{this.table.TableID}";
+            
         }
-        private void LoadMenu(List<MenuItem> menu)
+
+        private void InitializeOrder()
         {
-            lstvMenu.Items.Clear();  
-            foreach (MenuItem mt in menu)
-            {
-                ListViewItem item = new ListViewItem(mt.MenuItemID.ToString());
-                item.SubItems.Add(mt.Name);
-                item.SubItems.Add(mt.Price.ToString("0.00"));
-                item.SubItems.Add(mt.Stock.ToString());
-                if(mt.Stock == 0)
-                {
-                    item.SubItems.Add("out of stock");
-                }
-                if(mt.Stock < 10)
-                {
-                    item.SubItems.Add("low Stock");
-                }
-                
-                else
-                {
-                    item.SubItems.Add("sufficient");
-                }
-                item.Tag = mt;
-                lstvMenu.Items.Add(item);
-            }
-            if(menu[0].MenuItemID == 000)
+
+            this.order = new Order();
+
+            this.order.Employee = this.employee;
+
+            order.Table = this.table;
+        }
+
+
+        private void DisplayMenu(List<MenuItem> menu)
+        {
+
+            if (menu.Count == 0)
             {
                 MessageBox.Show("database connection failed");
+                return;
             }
+
+
+            lstvMenu.Items.Clear();
+            foreach (MenuItem article in menu)
+            {
+                ListViewItem lvItem = new ListViewItem(article.Name);
+                
+                lvItem.SubItems.Add(article.Price.ToString("0.00"));
+                lvItem.SubItems.Add(article.Stock.ToString());
+                if (article.Stock == 0)
+                {
+                    lvItem.SubItems[2].BackColor = Color.Red;
+                }
+                else if (article.Stock < 10)
+                {
+                    lvItem.SubItems[2].BackColor = Color.Orange;
+                }
+                lvItem.UseItemStyleForSubItems = false;
+                lvItem.Tag = article; // for future use throughout the code
+                lstvMenu.Items.Add(lvItem);
+            }
+
+
+
+
+
 
         }
 
@@ -98,113 +108,119 @@ namespace ChapeauUI
             {
                 return;
             }
-            if(numericUpDownQuantity.Value <= 0)
+            if (numericUpDownQuantity.Value <= 0)
             {
                 MessageBox.Show("please select a quantity to add");
                 return;
             }
-            
 
-            else
+            MenuItem chosen = (MenuItem)lstvMenu.SelectedItems[0].Tag;
+            if (chosen.Stock >= numericUpDownQuantity.Value)
             {
-                MenuItem chosen = (MenuItem)lstvMenu.SelectedItems[0].Tag;
-                if(chosen.Stock >= numericUpDownQuantity.Value)
-                {
-                    chosen.Stock -= Convert.ToInt32(numericUpDownQuantity.Value);
-                    
-                    
-                    OrderItem orderItem = new OrderItem { MenuItem = chosen, Quantity = Convert.ToInt32(numericUpDownQuantity.Value) };
+                chosen.Stock -= Convert.ToInt32(numericUpDownQuantity.Value); // changing the stock amount so it can be updated in db
 
-                    if (txtComment.Enabled && txtComment.Text != null)
-                    {
-                        orderItem.Comment = txtComment.Text;
-                    }
-                    else
-                    {
-                        orderItem.Comment = "none";
-                    }
-                    selectedItems.Add(orderItem);
+
+                OrderItem orderItem = new OrderItem { MenuItem = chosen, Quantity = Convert.ToInt32(numericUpDownQuantity.Value) };
+
+
+                if (txtComment.Enabled && txtComment.Text != null)
+                {
+                    orderItem.Comment = txtComment.Text;
                 }
                 else
                 {
-                    MessageBox.Show($"the amount chosen is not available in the stock, the available amount is {chosen.Stock}");
+                    orderItem.Comment = "none";
                 }
-                
-
-                
+                this.order.OrderItems.Add(orderItem);
             }
+            else
+            {
+                MessageBox.Show($"the amount chosen is not available in the stock, the available amount is {chosen.Stock}");
+            }
+
             checkBoxComment.Checked = false;
             txtComment.Text = "";
-            ShowSelectedItems();
-
+            ShowSelectedItems(); //change
+            lblTotal.Text = order.TotalPrice.ToString();
 
         }
 
         private void btnShowFull_Click(object sender, EventArgs e)
         {
+
             List<MenuItem> items = menuItemService.GetMenuItems();
-            LoadMenu(items);
+            DisplayMenu(items);
+            lblMenu.Text = "Full Menu";
         }
 
         private void btnLunchMains_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory("LunchMains");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchMain);
+            DisplayMenu(items);
+            lblMenu.Text = "Lunch Mains";
         }
 
         private void btnLunchSpecials_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("LunchSpecials");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchSpecials);
+            DisplayMenu(items);
+            lblMenu.Text = "Lunch Specials";
         }
 
         private void btnLunchBites_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("Lunchbites");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchBites);
+            DisplayMenu(items);
+            lblMenu.Text = "Lunch Bites";
         }
 
         private void btnDinnerMains_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("DinnerMains");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerMains);
+            DisplayMenu(items);
+            lblMenu.Text = "Dinner Mains";
         }
 
         private void btnDinnerStarters_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("DinnerStarters");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerStarters);
+            DisplayMenu(items);
+            lblMenu.Text = "Dinner Starters";
         }
 
         private void btnDinnerDesserts_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("DinnerDesserts");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerDesserts);
+            DisplayMenu(items);
+            lblMenu.Text = "Dinner Desserts";
         }
 
         private void btnSoftDrinks_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory("SoftDrinks");
-            LoadMenu(items);
+            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.SoftDrinks);
+            DisplayMenu(items);
+            lblMenu.Text = "Soft Drinks";
         }
 
         private void btnHotDrinks_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory("HotDrinks");
-            LoadMenu(items);
+            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(CategoryID.HotDrinks);
+            DisplayMenu(items);
+            lblMenu.Text = "Hot Drinks";
         }
 
         private void btnAlcoholics_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory("alcohol");
-            LoadMenu(items);
+            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(CategoryID.Beers);
+            DisplayMenu(items);
+            lblMenu.Text = "Beers/Wines";
         }
 
-        
+
 
         private void lstvSelected_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(lstvSelected.SelectedItems.Count < 1)
+            if (lstvSelected.SelectedItems.Count < 1)
             {
                 return;
             }
@@ -214,30 +230,28 @@ namespace ChapeauUI
             string message = $"do you want to remove {item.MenuItem.Name}?";
             string title = "Remove item";
             MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
-            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Error, MessageBoxDefaultButton.Button3);
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3);
             if (result == DialogResult.Yes)
             {
-                selectedItems.Remove(item);
+                order.OrderItems.Remove(item);
+                ShowSelectedItems();
             }
-            else
-            {
-                return;
-            }
-            ShowSelectedItems();
+
+
 
 
         }
         private void ShowSelectedItems()
         {
             lstvSelected.Items.Clear();
-            foreach(OrderItem m in selectedItems)
+            foreach (OrderItem oitem in order.OrderItems)
             {
-                ListViewItem item = new ListViewItem(m.MenuItem.MenuItemID.ToString());
-                item.SubItems.Add(m.MenuItem.Name);
-                item.SubItems.Add(m.Quantity.ToString());
-                item.SubItems.Add(m.MenuItem.Price.ToString("0.00"));
-                item.SubItems.Add(m.Comment);
-                item.Tag = m;
+                ListViewItem item = new ListViewItem(oitem.MenuItem.Name);
+                
+                item.SubItems.Add(oitem.Quantity.ToString());
+                
+                item.SubItems.Add(oitem.Comment);
+                item.Tag = oitem;
                 lstvSelected.Items.Add(item);
             }
 
@@ -246,17 +260,17 @@ namespace ChapeauUI
 
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
-            //add total price to the table Order
-            if(selectedItems.Count <= 0) // when no items are selected (added to list of order)
+
+            if (order.OrderItems.Count <= 0) // when no items are selected (added to list of order)
             {
                 MessageBox.Show("you need to choose items to order");
                 return;
             }
-            
 
-            int num = orderService.WriteOrder(order);
-            table.Status = TableStatus.Occupied;
-            TablesServices.Updatetable(table);
+
+            int num = orderService.WriteOrder(order, this.table);
+            //table.Status = TableStatus.Occupied;
+            //TablesServices.Updatetable(table);
             foreach (OrderItem item in order.OrderItems)
             {
                 menuItemService.ChangeStockAmount(item.MenuItem);
@@ -267,7 +281,11 @@ namespace ChapeauUI
                 MessageBox.Show("order is sent");
 
             }
-            else if(num == -1)
+            else if (num == -1)
+            {
+                MessageBox.Show("some error happened while writing orders to the system");
+            }
+            else if (num == -2)
             {
                 MessageBox.Show("database connection failed");
             }
@@ -277,37 +295,17 @@ namespace ChapeauUI
             }
             lstvSelected.Items.Clear();
 
-            btnShowFull_Click(sender, e);
+            DisplayMenu(menuItemService.GetMenuItems()); // showing all menu items after the order is sent and finished
+            InitializeOrder();
 
-            RenewOrder();
         }
-        private void RenewOrder()
-        {
-            order = new Order();
-            selectedItems = new List<OrderItem>();
-            order.OrderItems = selectedItems;
-            order.Table = this.table;
 
-            numericUpDownQuantity.Value = 0;
-            order.Employee = this.employee;
-        }
 
         private void lstvMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             numericUpDownQuantity.Value = 0;
-            
+
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-
-           
-            
-            overview.Show();
-            this.Close();
-        }
-
         private void checkBoxComment_CheckedChanged(object sender, EventArgs e)
         {
             if (txtComment.Enabled)
@@ -322,9 +320,57 @@ namespace ChapeauUI
 
         private void btnRemoveOrder_Click(object sender, EventArgs e)
         {
-            
-            RenewOrder();
+
+
+            InitializeOrder();
             ShowSelectedItems();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            passedForm.Show();
+            this.Close();
+        }
+
+        private void btnShowFull_MouseHover(object sender, EventArgs e)
+        {
+            MouseHoverEvent(btnShowFull);
+        }
+        private void MouseHoverEvent(Button btn)
+        {
+            btn.BackColor = Color.FromArgb(0, 83, 83);
+            btn.ForeColor = Color.White;
+
+        }
+        private void MouseLeaveEvent(Button btn)
+        {
+            btn.BackColor = Color.FromArgb(189, 227, 236);
+            btn.ForeColor = Color.Black;
+        }
+
+        private void btnShowFull_MouseLeave(object sender, EventArgs e)
+        {
+            MouseLeaveEvent(btnShowFull);
+        }
+
+        private void btnLunchSpecials_MouseHover(object sender, EventArgs e)
+        {
+            MouseHoverEvent(btnLunchSpecials);
+        }
+
+        private void btnLunchSpecials_MouseLeave(object sender, EventArgs e)
+        {
+            MouseLeaveEvent(btnLunchSpecials);
+        }
+
+        private void btnLunchMains_MouseHover(object sender, EventArgs e)
+        {
+            MouseHoverEvent(btnLunchMains);
+        }
+
+        private void btnLunchMains_MouseLeave(object sender, EventArgs e)
+        {
+            MouseLeaveEvent(btnLunchMains);
         }
     }
 }

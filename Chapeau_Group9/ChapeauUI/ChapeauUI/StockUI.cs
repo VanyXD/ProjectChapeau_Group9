@@ -18,7 +18,7 @@ namespace ChapeauUI
         Employee employee;
         ManagerUI managerUi;
         Form LogIn;
-        MenuItemServices Itemservices = new MenuItemServices();
+        MenuItemService Itemservices = new MenuItemService();
         List<ChapeauModel.MenuItem> menuItems;
         public StockUI(ManagerUI managerUi, Employee employee, Form LogIn)
         {

@@ -17,10 +17,10 @@ namespace ChapeauUI
     public partial class TablesOverview : Form
     {
         Form Login;
-        private TablesServices tablesServices;
+        private TablesService tablesServices;
         private Employee employee;
         private List<Button> buttons;
-        private List<Tables> tables;
+        private List<Table> tables;
         private List<Label> labels;
         private List<Order> orders;
         private Order order;
@@ -30,8 +30,8 @@ namespace ChapeauUI
             InitializeComponent();
             this.employee = employee;
             this.Login = login;
-            tablesServices = new TablesServices();
-            tables = new List<Tables>();
+            tablesServices = new TablesService();
+            tables = new List<Table>();
             orders = new List<Order>();
             order = new Order();
 

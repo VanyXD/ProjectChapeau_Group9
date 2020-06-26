@@ -29,8 +29,8 @@ namespace ChapeauUI
 
         public void TableStatus()
         {
-            TablesServices tableServices = new TablesServices();
-            List<Tables> tables = tableServices.GetALLTables();
+            TablesService tableServices = new TablesService();
+            List<Table> tables = tableServices.GetALLTables();
             List<Button> buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
 
             for (int i = 0; i < buttons.Count; i++)

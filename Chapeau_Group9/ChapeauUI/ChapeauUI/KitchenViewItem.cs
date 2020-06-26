@@ -32,7 +32,7 @@ namespace ChapeauUI
         }
         void GetOrderItems()
         {
-            OrderServices orderService = new OrderServices();
+            OrderService orderService = new OrderService();
             if (user.position == Position.cook)
             {
                 items = orderService.GetKitchenTableItems(tableId);
@@ -56,7 +56,7 @@ namespace ChapeauUI
 
         private void btn_ViewItem_Ready_Click(object sender, EventArgs e)
         {
-            OrderServices services = new OrderServices();
+            OrderService services = new OrderService();
             if (lv_ViewTable.SelectedItems.Count > 0)
                 foreach (ListViewItem item in lv_ViewTable.SelectedItems)
                 {

@@ -16,29 +16,29 @@ namespace ChapeauDAL
             string connString = ConfigurationManager.ConnectionStrings["ChapeauDatabase"].ConnectionString;
             dbConnection = new SqlConnection(connString);
         }
-        public List<Tables> GetALLTables()
+        public List<Table> GetALLTables()
         {
             dbConnection.Open();
             SqlCommand cmd = new SqlCommand("SELECT table_id,TableStatus,table_number FROM tables ", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
-            List<Tables> tables = new List<Tables>();
+            List<Table> tables = new List<Table>();
             while (reader.Read())
             {
-                Tables table = ReadTables(reader);
+                Table table = ReadTables(reader);
                 tables.Add(table);
             }
             reader.Close();
             dbConnection.Close();
             return tables;
         }
-        private Tables ReadTables(SqlDataReader reader)
+        private Table ReadTables(SqlDataReader reader)
         {
             int TableID = (int)reader["table_id"];
             TableStatus Status = (TableStatus)reader["TableStatus"];
             int TableNumber = (int)reader["table_number"];
-            return new Tables(TableID, Status, TableNumber);
+            return new Table(TableID, Status, TableNumber);
         }
-        public void UpdateTableStatus(Tables table)
+        public void UpdateTableStatus(Table table)
         {
             SqlCommand cmd = new SqlCommand("update [tables] set Tablestatus = @stat where table_id = @id", conn);
 
@@ -71,7 +71,7 @@ namespace ChapeauDAL
             {
                 OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
-                Table = new Tables((int)(reader["table_id"])),
+                Table = new Table((int)(reader["table_id"])),
             };
             return order;
         }

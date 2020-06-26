@@ -30,11 +30,11 @@ namespace ChapeauDAL
 
             return rows;
         }
-        public int WriteOrderItems(Order order, OrderItem item)
+        public int WriteOrderItems(int orderID, OrderItem item)
         {
 
             SqlCommand cmd = new SqlCommand("INSERT INTO OrderItems(order_ID, article_id, quantity, total_price, comment) VALUES(@id, @aid, @quan, @total, @comment)", conn);
-            cmd.Parameters.AddWithValue("@id", order.OrderID);
+            cmd.Parameters.AddWithValue("@id", orderID);
             cmd.Parameters.AddWithValue("@aid", item.MenuItem.MenuItemID);
             cmd.Parameters.AddWithValue("@quan", item.Quantity);
             cmd.Parameters.AddWithValue("@total", item.TotaPrice);
@@ -47,19 +47,19 @@ namespace ChapeauDAL
 
             return row;
         }
-        public Order GetLastOrder()
+        public int GetLastOrderID()
         {
-            SqlCommand cmd = new SqlCommand("SELECT TOP 1 * FROM [Order] ORDER BY order_ID DESC", conn);
+            SqlCommand cmd = new SqlCommand("SELECT TOP 1 order_id FROM [Order] ORDER BY order_ID DESC", conn);
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            Order order = new Order
-            {
-                OrderID = (int)reader["order_id"]
-            };
+
+            int orderID = (int)reader["order_id"];
+
+            reader.Close();
             conn.Close();
 
-            return order;
+            return orderID;
         }
         public void InsertOrder(Order order)
         {
@@ -86,7 +86,7 @@ namespace ChapeauDAL
                 {
                     OrderID = (int)dr["order_id"],
                     Time = (DateTime)dr["order_time"],
-                    Table = new Tables((int)dr["table_id"]),
+                    Table = new Table((int)dr["table_id"]),
                 };
                 orders.Add(order);
             }
