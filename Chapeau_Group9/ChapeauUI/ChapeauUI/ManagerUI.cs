@@ -77,10 +77,5 @@ namespace ChapeauUI
             this.Hide();
             stockUi.Show();
         }
-
-        private void btnTable1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

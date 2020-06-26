@@ -50,7 +50,7 @@ namespace ChapeauDAL
             conn.Close();
         }
 
-        public List<Order> ReadAllOrders()
+        public List<Order> GetAllRunningOrders()
         {         
             dbConnection.Open();
             SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);
@@ -65,18 +65,13 @@ namespace ChapeauDAL
             dbConnection.Close();
             return orders;
         }
-        public Order ReadOrder(SqlDataReader reader) // make it private 
+        public Order ReadOrder(SqlDataReader reader)
         {
-            // read all the information from the order class 
             Order order = new Order
             {
                 OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
-<<<<<<< HEAD
                 Table = new Table((int)(reader["table_id"])),
-=======
-                Table = new Tables((int)(reader["table_id"])), // change tables to table
->>>>>>> 896274f4722729128e42cbb1be95b0520917385a
             };
             return order;
         }

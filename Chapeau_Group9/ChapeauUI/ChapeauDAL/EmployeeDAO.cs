@@ -63,5 +63,54 @@ namespace ChapeauDAL
             }
             return employeeList;
         }
+        public Employee GetEmployee(int password , string userName)
+        {
+            SqlCommand cmd = new SqlCommand("select employee_id, first_name, last_name, email, phone, [password], position_id from employees where [password] = @pass and first_name = @name", conn);
+            cmd.Parameters.AddWithValue("@pass" , password);
+            cmd.Parameters.AddWithValue("@name", userName);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            Employee employee = ReadEmployee(reader);
+            conn.Close();
+            reader.Close();
+            if (employee == null)
+            {
+                return null;
+            }
+            
+            return employee;
+
+        }
+        private Employee ReadEmployee(SqlDataReader reader)
+        {
+            try
+            {
+                Employee employee = new Employee
+                {
+                    EmployeeID = (int)reader["employee_id"],
+                    Email = (string)reader["email"],
+                    FirstName = (string)reader["first_name"],
+                    LastName = (string)reader["last_name"],
+                    Password = (int)reader["password"],
+                    PhoneNumber = (int)reader["phone"],
+                    position = (Position)reader["position_id"]
+
+                };
+                return employee;
+            }
+            catch (Exception)
+            {
+                
+                return null;
+                
+            }
+            
+
+
+
+
+            
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace ChapeauUI
         {
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 3000;
+            timer1.Interval = 10000;
             timer1.Start();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -88,10 +88,7 @@ namespace ChapeauUI
         void PrintOrderItem(OrderItem item, ListView lv)
         {
             var row = new string[] { item.Quantity.ToString(), item.MenuItem.Name };
-            var lvi = new ListViewItem(row)
-            {
-                Tag = item
-            };
+            var lvi = new ListViewItem(row);
             lv.Items.Add(lvi);
         }
 
@@ -126,6 +123,10 @@ namespace ChapeauUI
             return listViews;
         }
 
+        private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
+        {
+            Logout();
+        }
 
 
         public void DisplayStock()
@@ -203,6 +204,15 @@ namespace ChapeauUI
             cmb_Bar_Category.ResetText();
             cbox_Kitchen_Category.ResetText();
             cbox_Kitchen_Menu.ResetText();
+        }
+        private void Logout()
+        {
+            Close();
+            loginForm.Show();
+        }
+        private void btn_Kitchen_Logout2_Click(object sender, EventArgs e)
+        {
+            Logout();
         }
 
         private void btn_Kitchen_Modify_Click(object sender, EventArgs e)
@@ -327,11 +337,6 @@ namespace ChapeauUI
         private void btn_kitchen_table10_Click(object sender, EventArgs e)
         {
             DisplayOrder(10);
-        }
-        private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
-        {
-            Close();
-            loginForm.Show();
         }
     }
 }

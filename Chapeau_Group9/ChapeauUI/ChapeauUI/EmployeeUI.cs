@@ -45,6 +45,7 @@ namespace ChapeauUI
                 li.SubItems.Add(employe.LastName);
                 li.SubItems.Add(employe.position.ToString());
                 li.SubItems.Add(employe.EmployeeID.ToString());
+
                 employeeList.Items.Add(li);
             }
         }

@@ -50,17 +50,12 @@ namespace ChapeauUI
             lblMenu.Text = "Full Menu";
 
             txtComment.Enabled = false;
-<<<<<<< HEAD
             lblTable.Text = $"#{this.table.TableID}";
             
         }
 
         private void InitializeOrder()
         {
-=======
-            LoadMenu(fullMenu);
-            lblTable.Text = $"Table: {this.table.TableID}";
->>>>>>> 896274f4722729128e42cbb1be95b0520917385a
 
             this.order = new Order();
 
@@ -331,7 +326,6 @@ namespace ChapeauUI
             ShowSelectedItems();
         }
 
-<<<<<<< HEAD
         private void btnBack_Click(object sender, EventArgs e)
         {
             passedForm.Show();
@@ -377,11 +371,6 @@ namespace ChapeauUI
         private void btnLunchMains_MouseLeave(object sender, EventArgs e)
         {
             MouseLeaveEvent(btnLunchMains);
-=======
-        private void lblTable_Click(object sender, EventArgs e)
-        {
-
->>>>>>> 896274f4722729128e42cbb1be95b0520917385a
         }
     }
 }

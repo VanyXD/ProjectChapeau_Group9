@@ -45,11 +45,11 @@ namespace ChapeauLogic
 
            
         }
-        public List<Order> GetAllOrders(Order order)
+        public List<Order> GetAllRunningOrders()
         {
             try
             {
-                orderservice = tabledao.ReadAllOrders(order);
+                orderservice = tabledao.GetAllRunningOrders();
                 return orderservice;
             }
             catch (Exception)
