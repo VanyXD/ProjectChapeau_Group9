@@ -20,9 +20,9 @@ namespace ChapeauUI
         private TablesServices tablesServices;
         private Employee employee;
         private List<Button> buttons;
-        private List<Tables> tables;
-        private List<Label> labels;
-        private List<Order> orders;
+        private List<Tables> tables; // move this to display tables 
+        private List<Label> labels; 
+        private List<Order> orders; // make it a local varables 
 
         public TablesOverview(Form login ,Employee employee)
         {
@@ -30,8 +30,8 @@ namespace ChapeauUI
             this.employee = employee;
             this.Login = login;
             tablesServices = new TablesServices();
-            tables = new List<Tables>();
-            orders = new List<Order>();
+        //    tables = new List<Tables>();
+       //     orders = new List<Order>();
         }
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
@@ -42,7 +42,6 @@ namespace ChapeauUI
         private void DisplayTables()
         {
             tables = tablesServices.GetALLTables();
-            buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
 
             for (int i = 0; i < buttons.Count  ; i++)
             {
@@ -61,8 +60,7 @@ namespace ChapeauUI
         }
         private void DisplayTablesTimeAndOrder()
         {
-            orders = tablesServices.GetAllOrders();
-            labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time, lbltable4time, lbltable5time, lbltable6time, lbltable7time, lbltable8time, lbltable9time, lbltable10time };
+            orders = tablesServices.GetAllOrders(); // name it get all running orders
 
             for (int i = 0; i < orders.Count; i++)
             {
@@ -87,6 +85,8 @@ namespace ChapeauUI
         private void TablesOverview_Load(object sender, EventArgs e)
         {
             lblCurrentUser.Text = employee.FirstName;
+            buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+            labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time, lbltable4time, lbltable5time, lbltable6time, lbltable7time, lbltable8time, lbltable9time, lbltable10time };
             DisplayTables();
             DisplayTablesTimeAndOrder();
         }
@@ -103,7 +103,7 @@ namespace ChapeauUI
 
         private void DisplayTable(int tableNum)
         {
-            TakeOrder orderUI = new TakeOrder(this,employee, tableNum);
+            TakeOrder orderUI = new TakeOrder(this,employee, tableNum); 
             orderUI.Show();
             this.Hide();
         }
@@ -150,8 +150,9 @@ namespace ChapeauUI
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            tablesServices.GetALLTables();
+        {        
+            DisplayTables();
+            DisplayTablesTimeAndOrder();
         }
     }
 }

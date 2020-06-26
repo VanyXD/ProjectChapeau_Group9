@@ -41,10 +41,9 @@
             this.loginbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.loginbtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.loginbtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.loginbtn.Location = new System.Drawing.Point(215, 330);
-            this.loginbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginbtn.Location = new System.Drawing.Point(428, 309);
             this.loginbtn.Name = "loginbtn";
-            this.loginbtn.Size = new System.Drawing.Size(216, 55);
+            this.loginbtn.Size = new System.Drawing.Size(162, 45);
             this.loginbtn.TabIndex = 0;
             this.loginbtn.Text = "Login";
             this.loginbtn.UseVisualStyleBackColor = false;
@@ -52,11 +51,10 @@
             // 
             // logintextbox
             // 
-            this.logintextbox.Location = new System.Drawing.Point(215, 235);
-            this.logintextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logintextbox.Location = new System.Drawing.Point(428, 165);
             this.logintextbox.Name = "logintextbox";
             this.logintextbox.PasswordChar = '*';
-            this.logintextbox.Size = new System.Drawing.Size(215, 22);
+            this.logintextbox.Size = new System.Drawing.Size(162, 20);
             this.logintextbox.TabIndex = 1;
             this.logintextbox.TextChanged += new System.EventHandler(this.lblloginbox_TextChanged);
             // 
@@ -64,10 +62,9 @@
             // 
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(215, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(428, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(216, 110);
+            this.pictureBox1.Size = new System.Drawing.Size(162, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -75,14 +72,13 @@
             // Chapeau
             // 
             this.AcceptButton = this.loginbtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(624, 468);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.logintextbox);
             this.Controls.Add(this.loginbtn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Chapeau";

@@ -16,9 +16,9 @@ namespace ChapeauUI
 {
     public partial class Chapeau : Form
     {
-        Employee user;
-        private int LoginPassword;
-        private List<Employee> employees;
+        Employee user; // comment this 
+        private int LoginPassword; // comment this 
+        private List<Employee> employees; // comment this 
         EmployeeServices employeeServices = new EmployeeServices();
         public Chapeau()
         {
@@ -29,11 +29,15 @@ namespace ChapeauUI
 
         private void lblloginbox_TextChanged(object sender, EventArgs e)
         {
-            bool status = int.TryParse(logintextbox.Text, out LoginPassword);
+            //bool status = int.TryParse(logintextbox.Text, out LoginPassword);
         }
         private void lbllogin_Click(object sender, EventArgs e)
         {
-            employees = employeeServices.GetEmployees();
+            bool status = int.TryParse(logintextbox.Text, out LoginPassword);
+
+            // get the emp from the service layer 
+            // check if the emp is not null 
+            employees = employeeServices.GetEmployees(); // read one emp at the time 
 
             foreach (Employee emp in employees)
             {

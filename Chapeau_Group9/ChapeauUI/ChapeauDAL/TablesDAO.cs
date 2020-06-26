@@ -65,13 +65,14 @@ namespace ChapeauDAL
             dbConnection.Close();
             return orders;
         }
-        public Order ReadOrder(SqlDataReader reader)
+        public Order ReadOrder(SqlDataReader reader) // make it private 
         {
+            // read all the information from the order class 
             Order order = new Order
             {
                 OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
-                Table = new Tables((int)(reader["table_id"])),
+                Table = new Tables((int)(reader["table_id"])), // change tables to table
             };
             return order;
         }
