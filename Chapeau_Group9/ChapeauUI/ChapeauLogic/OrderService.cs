@@ -82,7 +82,7 @@ namespace ChapeauLogic
                   //entire order, then get it back from db (line 69) and write the orderitems using that orderid
                   // and we have a list of orderitems that all of them need to be written to the db, so we use a foreach
                   // and foreach orderitem in the orderitems list of the order, we write it's menuitem and quantity in the db
-                  // I talked too much again, didnt I?! :(
+                 
                 if (oirows > 0)
                 {
                     return row;
