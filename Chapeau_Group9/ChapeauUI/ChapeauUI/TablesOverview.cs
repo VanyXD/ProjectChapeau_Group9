@@ -156,6 +156,14 @@ namespace ChapeauUI
         {
             TablesOverview_Load(sender, e);
         }
+
+        private void BTNManager_Click(object sender, EventArgs e)
+        {
+            //Employee employee = employeeServices.GetEmployee(LoginPassword, userName);
+            ManagerUI managerUI = new ManagerUI(this, employee);
+            managerUI.Show();
+            Hide();
+        }
     }
 }
 

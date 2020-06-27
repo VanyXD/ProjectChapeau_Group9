@@ -26,9 +26,9 @@ namespace ChapeauUI
             this.LogIn = LogIn;
             this.managerUi = managerUi;
             this.employee = employee;
-            GetMenuItems();
+            LoadMenuItems();
         }
-        public void GetMenuItems()
+        public void LoadMenuItems()
         {
             menuItems = Itemservices.GetMenuItems();
             ItemList.Items.Clear();
@@ -38,14 +38,14 @@ namespace ChapeauUI
                 ListViewItem li = new ListViewItem(item.MenuItemID.ToString());
                 li.SubItems.Add(item.Name);
                 li.SubItems.Add(item.Stock.ToString());
-
+                li.Tag = item;
                 ItemList.Items.Add(li);
             }
         }
         private void StockUI_Load_1(object sender, EventArgs e)
         {
             lblCurrentUser.Text = employee.FirstName;
-            GetMenuItems();
+            LoadMenuItems();
         }
 
         private void BtnModify_Click(object sender, EventArgs e)
@@ -64,19 +64,36 @@ namespace ChapeauUI
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             ItemList.Items.Clear();
-            GetMenuItems();
-        }
-
-        private void BtnLogOut_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            LogIn.Show();
+            LoadMenuItems();
         }
 
         private void BtnHome_Click(object sender, EventArgs e)
         {
             this.Close();
             managerUi.Show();
+        }
+
+        private void BTNLowStock_Click(object sender, EventArgs e)
+        {
+            menuItems = Itemservices.GetMenuItems();
+            ItemList.Items.Clear();
+
+            foreach (ChapeauModel.MenuItem item in menuItems)
+            {
+                if (item.Stock < 15)
+                {
+                    ListViewItem li = new ListViewItem(item.MenuItemID.ToString()); ;
+                    li.SubItems.Add(item.Name);
+                    li.SubItems.Add(item.Stock.ToString());
+                    li.Tag = item;
+                    ItemList.Items.Add(li);
+                }
+            }
+        }
+
+        private void BTNAllItems_Click(object sender, EventArgs e)
+        {
+            LoadMenuItems();
         }
     }
 }

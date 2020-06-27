@@ -28,7 +28,6 @@ namespace ChapeauLogic
                 return employees;
 
             }
-
         }
         public void InsertEmployee(Employee employee)
         {
@@ -42,17 +41,16 @@ namespace ChapeauLogic
             }
            
         }
-        public void RemoveEmployee(int employeeID)
+        public void RemoveEmployee(Employee employee)
         {
             try
             {
-                employee_db.DeleteEmployee(employeeID);
+                employee_db.DeleteEmployee(employee);
             }
             catch (Exception)
             {
                 MessageBox.Show("Couldn't connect to the database");
             }
-
         }
         public void EditEmployee(Employee employee)
         {

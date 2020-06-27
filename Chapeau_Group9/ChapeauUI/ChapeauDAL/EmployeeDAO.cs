@@ -28,14 +28,34 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void DeleteEmployee(int employeeID)
+        //public void DeleteEmployee(int employeeID)
+        //{
+        //    string query = $"DELETE FROM employees WHERE employee_id = {employeeID}";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+        //    ExecuteEditQuery(query, sqlParameters);
+        //}
+        public void DeleteEmployee(Employee employee)
         {
-            string query = $"DELETE FROM employees WHERE employee_id = {employeeID}";
+            string query = $"DELETE FROM employees WHERE employee_id = {employee.EmployeeID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
         public void UpdateEmployee(Employee employee)
         {
+            //SqlCommand cmd = new SqlCommand($"update employees Set first_name = @name, last_name = @lastName," +
+            //   $"email = @email, phone = @phone, password = @password,position_id = @posID WHERE employee_id = @ID", conn);
+            //cmd.Parameters.AddWithValue("@name", employee.FirstName);
+            //cmd.Parameters.AddWithValue("@lastName", employee.LastName);
+            //cmd.Parameters.AddWithValue("@email", employee.Email);
+            //cmd.Parameters.AddWithValue("@phone", employee.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@password", employee.Password);
+            //cmd.Parameters.AddWithValue("@posID", employee.position);
+            //cmd.Parameters.AddWithValue("@ID", employee.EmployeeID);
+            //conn.Open();
+            //cmd.ExecuteNonQuery();
+            //conn.Close();
+
+
             int posID = (int)employee.position;
             string query = $"update employees Set first_name = '{employee.FirstName}', last_name = '{employee.LastName}'," +
                 $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.Password},position_id = {posID} WHERE employee_id = {employee.EmployeeID}";
