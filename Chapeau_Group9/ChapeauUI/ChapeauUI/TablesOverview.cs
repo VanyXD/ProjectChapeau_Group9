@@ -83,7 +83,7 @@ namespace ChapeauUI
                 else if (orders[i].OrderStatus == OrderStatus.Served)
                 {
 
-                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(224, 224, 224);
+                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(64, 64, 64);
                     labels[orders[i].Table.TableID - 1].Text = "Served";
                 }
                 else if (orders[i].OrderStatus == OrderStatus.Ready)
