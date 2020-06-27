@@ -139,10 +139,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(754, 586);
-<<<<<<< HEAD
-=======
+
             this.Controls.Add(this.pictureBox1);
->>>>>>> 37b3a29d1ad03e6b0ac3c44632222149b465c5bc
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
