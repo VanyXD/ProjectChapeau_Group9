@@ -72,7 +72,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.loginbtn);
             this.panel1.Controls.Add(this.logintextbox);
-            this.panel1.Location = new System.Drawing.Point(214, 177);
+            this.panel1.Location = new System.Drawing.Point(265, 209);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(491, 483);
@@ -111,7 +111,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(214, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(265, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(491, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

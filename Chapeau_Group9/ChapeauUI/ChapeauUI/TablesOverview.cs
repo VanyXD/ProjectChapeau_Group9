@@ -122,9 +122,9 @@ namespace ChapeauUI
             TableClicked(2);
         }
 
-        private void TableClicked(int tableNum) // displaytable?! fuck you elias!
+        private void TableClicked(int tableNum) 
         {
-            // I changed this method alot, take a look NOOB
+
             Table table = tablesServices.GetTableForID(tableNum);
             if(table != null)
             {
