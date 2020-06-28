@@ -78,13 +78,13 @@ namespace ChapeauDAL
                     Stock = (int)dr["stock"],
                     HighVAT = (bool)dr["VAT"],
                     Type = (MenuItemType)dr["item_type_id"],
-                    Category = (CategoryID)dr["category_id"]
+                    Category = (Category)dr["category_id"]
                 };
                 articleList.Add(article);
             }
             return articleList;
         }
-        public List<MenuItem> GetForCategory(CategoryID category)
+        public List<MenuItem> GetForCategory(Category category)
         {
             List<MenuItem> items = new List<MenuItem>();
             SqlCommand cmd = new SqlCommand($"SELECT article_id, [name], stock, VAT, price, category_id FROM menu WHERE category_id = @id", conn);
@@ -106,7 +106,7 @@ namespace ChapeauDAL
             {
                 MenuItemID = (int)reader["article_id"],
                 Stock = (int)reader["stock"],
-                Category = (CategoryID)reader["category_id"],
+                Category = (Category)reader["category_id"],
                 HighVAT = (bool)reader["VAT"],
                 Name = (string)reader["name"],
                 Price = (decimal)reader["price"]
@@ -128,6 +128,24 @@ namespace ChapeauDAL
             conn.Close();
             
             return num;
+        }
+        public void EditMenuItem(MenuItem item)
+        {
+            SqlCommand cmd = new SqlCommand("update menu set [name] = @name , stock = @stock , vat = @vat , price = @price , category_id = @cat , item_type_id = @type where article_id = @id", conn);
+            cmd.Parameters.AddWithValue("@name", item.Name);
+            cmd.Parameters.AddWithValue("@stock", item.Stock);
+            cmd.Parameters.AddWithValue("@vat", item.HighVAT);
+            cmd.Parameters.AddWithValue("@price", item.Price);
+            cmd.Parameters.AddWithValue("@cat", item.Category);
+            cmd.Parameters.AddWithValue("@type", item.Type);
+            cmd.Parameters.AddWithValue("@id", item.MenuItemID);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            //string query = $"update menu set [name] = '{item.Name}' , stock = {item.Stock} , vat = {item.HighVAT} , price = {item.Price} , category_id = {item.Category} , item_type_id = {item.Type} where article_id = {item.MenuItemID}";
+            //SqlParameter[] sqlParameters = new SqlParameter[0];
+            //ExecuteSelectQuery(query, sqlParameters);
         }
     }
 }

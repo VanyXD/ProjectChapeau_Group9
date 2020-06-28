@@ -92,7 +92,7 @@ namespace ChapeauUI
 
 
                 string message = $"Do you want to Add {employee.FirstName}?";
-                string header = "Add Employee";
+                string header = "Add";
                 MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
                 DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
                 if (result == DialogResult.Yes)
@@ -101,7 +101,6 @@ namespace ChapeauUI
                     MessageBox.Show("Employee is added!");
                     ResetText();
                     AddEmployeePNL.Hide();
-                    ResetText();
                     UpDate();
                 } 
 
@@ -115,7 +114,15 @@ namespace ChapeauUI
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            AddEmployeePNL.Show();
+            if (AddEmployeePNL.Visible)
+            {
+                AddEmployeePNL.Visible = false;
+            }
+            else
+            {
+                AddEmployeePNL.Visible = true;
+            }
+            
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -137,11 +144,19 @@ namespace ChapeauUI
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
+            if (AddEmployeePNL.Visible)
+            {
+                AddEmployeePNL.Visible = false;
+            }
+            else
+            {
+                AddEmployeePNL.Visible = true;
+            }
             if (employeeList.SelectedItems.Count < 1)
             {
                 return;
             }
-            AddEmployeePNL.Show();
+            
             Employee employee = (Employee)employeeList.SelectedItems[0].Tag;
             FillDetails(employee);
    
@@ -196,13 +211,16 @@ namespace ChapeauUI
 
         private void Close_Click(object sender, EventArgs e)
         {
-            AddEmployeePNL.Hide();
+            AddEmployeePNL.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+
+        private void Home_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
             managerUI.Show();
+            this.Close();
         }
     }
 }
