@@ -94,6 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(468, 297);
             this.Controls.Add(this.richTxtBox_Modify);
             this.Controls.Add(this.btn_Kitchen_Modify_Done);
