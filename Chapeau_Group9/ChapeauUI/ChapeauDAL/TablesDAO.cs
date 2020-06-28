@@ -53,7 +53,7 @@ namespace ChapeauDAL
         public List<Order> GetAllRunningOrders()
         {         
             dbConnection.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection); // getting all the orders that are not closed 
+            SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Order> orders = new List<Order>();
             while (reader.Read())
@@ -65,13 +65,15 @@ namespace ChapeauDAL
             dbConnection.Close();
             return orders;
         }
-        private Order ReadOrder(SqlDataReader reader)
+        public Order ReadOrder(SqlDataReader reader)
         {
             Order order = new Order
-            {        
-                Table = new Table((int)(reader["table_id"])),
+            {               
+                OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
-                OrderStatus = (OrderStatus)reader["order_status"], 
+                Table = new Table((int)(reader["table_id"])),
+                Employee = (Employee)reader["employee_id"],
+                OrderID = (int)reader["order_id"],
             };
             return order;
         }

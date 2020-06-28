@@ -44,21 +44,20 @@ namespace ChapeauUI
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            StockUI stockUi = new StockUI(this, employee);
+            StockUI stockUi = new StockUI(this, employee, logIN);
             this.Hide();
             stockUi.Show();
         }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void BTNHome_Click(object sender, EventArgs e)
         {
             this.Close();
             logIN.Show();
-        }
-
-        private void btnTablesOverview_Click(object sender, EventArgs e)
-        {
-            TablesOverview tablesOverview = new TablesOverview(this, employee);
-            tablesOverview.Show();
-            this.Hide();
         }
     }
 }
