@@ -77,6 +77,25 @@ namespace ChapeauDAL
             };
             return order;
         }
+        public Table GetTableForID(int tableID)
+        {
+            SqlCommand cmd = new SqlCommand("select table_id, table_number, tablestatus from [tables] where table_id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", tableID);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            Table table;
+            if (reader.Read())
+            {
+                table = ReadTables(reader);
+            }
+            else
+            {
+                table = null;
+            }
+            reader.Close();
+            conn.Close();
+            return table;
+        }
     }
 }
 

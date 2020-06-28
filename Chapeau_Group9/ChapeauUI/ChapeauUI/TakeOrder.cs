@@ -29,7 +29,7 @@ namespace ChapeauUI
         Employee employee;
         Table table;
         Order order; // this needs to be global for the buttons to be able to access it
-        public TakeOrder(Form passedForm, Employee employee, int tableNum) // passing Form for future changes, if this form needs to be opened from any other form
+        public TakeOrder(Form passedForm, Employee employee, Table table) // passing Form for future changes, if this form needs to be opened from any other form
         {
             InitializeComponent();
             this.passedForm = passedForm;
@@ -39,7 +39,7 @@ namespace ChapeauUI
             menuItemService = new MenuItemService();
             TablesServices = new TablesService();
 
-            this.table = new Table(tableNum, TableStatus.Occupied, tableNum);
+            this.table = table;
 
         }
         private void TakeOrder_Load(object sender, EventArgs e)

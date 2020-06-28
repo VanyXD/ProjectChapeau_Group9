@@ -53,104 +53,127 @@ namespace ChapeauUI
         private void DisplayTables(List<Button> buttons)
         {
             List<Table> tables = tablesServices.GetALLTables();
-            for (int i = 0; i < buttons.Count; i++)
+            if(tables != null)
             {
-                if (tables[i].Status == TableStatus.Free)
+                for (int i = 0; i < buttons.Count; i++)
                 {
-                    buttons[i].BackColor = Color.Green;
+                    if (tables[i].Status == TableStatus.Free)
+                    {
+                        buttons[i].BackColor = Color.Green;
+                    }
+                    else if (tables[i].Status == TableStatus.Occupied)
+                    {
+                        buttons[i].BackColor = Color.Red;
+                    }
+                    else
+                        buttons[i].BackColor = Color.Orange;
                 }
-                else if (tables[i].Status == TableStatus.Occupied)
-                {
-                    buttons[i].BackColor = Color.Red;
-                }
-                else
-                    buttons[i].BackColor = Color.Orange;
             }
+            else
+            {
+                MessageBox.Show("database connection failed"); // instead of service, you put it here NOOB
+            }
+            
 
         }
         private void DisplayTablesTimeAndOrder(List<Label> labels)
         {
             
             List<Order> orders = tablesServices.GetAllRunningOrders(); 
-            
-            for (int i = 0; i < orders.Count; i++)
+            if(orders != null)
             {
-                if (orders[i].OrderStatus == OrderStatus.Pending && ((DateTime.Now.Minute - orders[i].Time.Minute) > 15) )
+                for (int i = 0; i < orders.Count; i++)
                 {
-                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(192, 0, 192);
-                    labels[orders[i].Table.TableID - 1].Text = "delayed";
-                }
-                else if (orders[i].OrderStatus == OrderStatus.Served)
-                {
+                    if (orders[i].OrderStatus == OrderStatus.Pending && ((DateTime.Now.Minute - orders[i].Time.Minute) > 15))
+                    {
+                        labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(192, 0, 192);
+                        labels[orders[i].Table.TableID - 1].Text = "delayed";
+                    }
+                    else if (orders[i].OrderStatus == OrderStatus.Served)
+                    {
 
-                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(64, 64, 64);
-                    labels[orders[i].Table.TableID - 1].Text = "Served";
-                }
-                else if (orders[i].OrderStatus == OrderStatus.Ready)
-                {
-                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(128, 128, 255);
-                    labels[orders[i].Table.TableID - 1].Text = "Ready";
+                        labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(64, 64, 64);
+                        labels[orders[i].Table.TableID - 1].Text = "Served";
+                    }
+                    else if (orders[i].OrderStatus == OrderStatus.Ready)
+                    {
+                        labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(128, 128, 255);
+                        labels[orders[i].Table.TableID - 1].Text = "Ready";
+                    }
                 }
             }
+            // no else needed to say db conn failed cuz u already said it in the display tables
+            
+            
         }
         
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            DisplayTable(1);
+            TableClicked(1);
         }
 
         private void btnTable2_Click(object sender, EventArgs e)
         {
-            DisplayTable(2);
+            TableClicked(2);
         }
 
-        private void DisplayTable(int tableNum)
+        private void TableClicked(int tableNum) // displaytable?! fuck you elias!
         {
-            TakeOrder orderUI = new TakeOrder(this, employee, tableNum);
-            orderUI.Show();
-            this.Hide();
+            // I changed this method alot, take a look NOOB
+            Table table = tablesServices.GetTableForID(tableNum);
+            if(table != null)
+            {
+                TakeOrder orderUI = new TakeOrder(this, employee, table);
+                orderUI.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Database connection failed");
+            }
+            
         }
 
         private void btnTable3_Click(object sender, EventArgs e)
         {
-            DisplayTable(3);
+            TableClicked(3);
         }
 
         private void btnTable4_Click(object sender, EventArgs e)
         {
-            DisplayTable(4);
+            TableClicked(4);
         }
 
         private void btnTable5_Click(object sender, EventArgs e)
         {
-            DisplayTable(5);
+            TableClicked(5);
 
         }
 
         private void btnTable6_Click(object sender, EventArgs e)
         {
-            DisplayTable(6);
+            TableClicked(6);
         }
 
         private void btnTable7_Click(object sender, EventArgs e)
         {
-            DisplayTable(7);
+            TableClicked(7);
         }
 
         private void btnTable8_Click(object sender, EventArgs e)
         {
-            DisplayTable(8);
+            TableClicked(8);
         }
 
         private void btnTable9_Click(object sender, EventArgs e)
         {
-            DisplayTable(9);
+            TableClicked(9);
         }
 
         private void btnTable10_Click(object sender, EventArgs e)
         {
-            DisplayTable(10);
+            TableClicked(10);
         }    
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
