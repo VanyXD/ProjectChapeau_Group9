@@ -16,7 +16,7 @@ namespace ChapeauDAL
     {
         public void UpdateItem(MenuItem menu)
         {
-            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Lunch}, Category_ID = {menu.Category}";
+            string query = $"update Menu Set articleID = {menu.MenuItemID},Name = '{menu.Name}', Price = {menu.Price},Stock= {menu.Stock},VAT = {menu.HighVAT}, Lunch = {menu.Type}, Category_ID = {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -32,21 +32,36 @@ namespace ChapeauDAL
         //I added this method from the Employee class
         public void AddItem(MenuItem menu)
         {
-            string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,Lunch,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {menu.HighVAT}, {menu.Lunch}, {menu.Category}";
+            string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,item_type_id,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
+                $"{menu.Stock}, {menu.HighVAT}, {menu.Type}, {menu.Category}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public void UpdateStock(int newStock)
+        public void UpdateStock(int id, int stock)
         {
-            MenuItem menu = new MenuItem();
-            string query = $"update Menu Set Stock = {newStock} Where articleID = {menu.MenuItemID}";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "update menu " +
+                "set[stock] = @stock " +
+                "where article_id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@stock", stock);
+            sqlParameters[1] = new SqlParameter("@id", id);
             ExecuteEditQuery(query, sqlParameters);
         }
         public List<MenuItem> GetAllMenuItems()
         {
-            string query = "SELECT article_id,Name,Price,Stock,VAT,Lunch,Category_ID FROM [Menu]";
+            string query = "SELECT article_id, name, stock, VAT, price, category_id,item_type_id from menu";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetFoodMenuItems()
+        {
+            string query = "SELECT article_id, name, stock, VAT, price, category_id,item_type_id from menu WHERE item_type_id < 3";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<MenuItem> GetDrinkMenuItems()
+        {
+            string query = "SELECT article_id, name, stock, VAT, price, category_id,item_type_id from menu WHERE item_type_id = 3";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadMenu(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -57,17 +72,62 @@ namespace ChapeauDAL
             {
                 MenuItem article = new MenuItem()
                 {
-                    MenuItemID = (int)dr["articleID"],
-                    Name = (String)dr["Name"],
-                    Price = (decimal)dr["Price"],
-                    Stock = (int)dr["Stock"],
+                    MenuItemID = (int)dr["article_id"],
+                    Name = (string)dr["name"],
+                    Price = (decimal)dr["price"],
+                    Stock = (int)dr["stock"],
                     HighVAT = (bool)dr["VAT"],
-                    Lunch = (bool)dr["Lunch"],
-                    Category = (CategoryID)dr["Category_ID"]
+                    Type = (MenuItemType)dr["item_type_id"],
+                    Category = (CategoryID)dr["category_id"]
                 };
                 articleList.Add(article);
             }
             return articleList;
+        }
+        public List<MenuItem> GetForCategory(CategoryID category)
+        {
+            List<MenuItem> items = new List<MenuItem>();
+            SqlCommand cmd = new SqlCommand($"SELECT article_id, [name], stock, VAT, price, category_id FROM menu WHERE category_id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", category);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                MenuItem item = ReadItem(reader);
+                items.Add(item);
+            }
+            reader.Close();
+            conn.Close();
+            return items;
+        }
+        public MenuItem ReadItem(SqlDataReader reader)
+        {
+            MenuItem item = new MenuItem
+            {
+                MenuItemID = (int)reader["article_id"],
+                Stock = (int)reader["stock"],
+                Category = (CategoryID)reader["category_id"],
+                HighVAT = (bool)reader["VAT"],
+                Name = (string)reader["name"],
+                Price = (decimal)reader["price"]
+
+            };
+            return item;
+
+        }
+        public int ChangeStockAmount(MenuItem item)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE menu SET stock = @stock WHERE article_id = @id", conn);
+            cmd.Parameters.AddWithValue("@stock", item.Stock);
+            cmd.Parameters.AddWithValue("@id", item.MenuItemID);
+
+            conn.Open();
+
+            int num = cmd.ExecuteNonQuery();
+
+            conn.Close();
+            
+            return num;
         }
     }
 }

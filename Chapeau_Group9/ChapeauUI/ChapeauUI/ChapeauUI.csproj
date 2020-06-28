@@ -52,17 +52,23 @@
     <Compile Include="Chapeau.Designer.cs">
       <DependentUpon>Chapeau.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeUI.Designer.cs">
+      <DependentUpon>EmployeeUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerUI.Designer.cs">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModifyUI.Designer.cs">
       <DependentUpon>ModifyUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KitchenUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KitchenUI.Designer.cs">
-      <DependentUpon>KitchenUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenViewItem.cs">
       <SubType>Form</SubType>
@@ -76,6 +82,12 @@
     <Compile Include="KitchenBarUI.Designer.cs">
       <DependentUpon>KitchenBarUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="StockUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockUI.Designer.cs">
+      <DependentUpon>StockUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablesOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,8 +96,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TakeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeOrder.designer.cs">
+      <DependentUpon>TakeOrder.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Chapeau.resx">
       <DependentUpon>Chapeau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeUI.resx">
+      <DependentUpon>EmployeeUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerUI.resx">
+      <DependentUpon>ManagerUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUI.resx">
       <DependentUpon>ModifyUI.cs</DependentUpon>
@@ -95,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenBarUI.resx">
       <DependentUpon>KitchenBarUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockUI.resx">
+      <DependentUpon>StockUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablesOverview.resx">
       <DependentUpon>TablesOverview.cs</DependentUpon>
@@ -108,6 +135,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TakeOrder.resx">
+      <DependentUpon>TakeOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

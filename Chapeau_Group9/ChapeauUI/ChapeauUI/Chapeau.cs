@@ -11,74 +11,78 @@ using ChapeauModel;
 using System.Data.SqlClient;
 using ChapeauDAL;
 using ChapeauLogic;
+using System.Security.Cryptography;
 
 namespace ChapeauUI
 {
     public partial class Chapeau : Form
     {
-        Employee user;
-        private int LoginPassword;
-        private List<Employee> employees;
+        
+        
+        
         EmployeeServices employeeServices = new EmployeeServices();
         public Chapeau()
         {
             InitializeComponent();
-            employees = new List<Employee>();
-            user = new Employee();
+            
         }
 
-        private void lblloginbox_TextChanged(object sender, EventArgs e)
-        {
-            bool status = int.TryParse(logintextbox.Text, out LoginPassword);
-        }
         private void lbllogin_Click(object sender, EventArgs e)
         {
-            employees = employeeServices.GetEmployees();
+            string userName = txtUsername.Text;
+            bool correctPass = int.TryParse(logintextbox.Text, out int LoginPassword);
+      
 
-            foreach (Employee emp in employees)
+            if (correctPass)
             {
-                if (emp.Password == LoginPassword)
+                Employee user = employeeServices.GetEmployee(LoginPassword,userName);
+                if(user != null)
                 {
-                    user = emp;
-                    break;
-                }
-            }
+                    if (user.position == Position.Manager)
+                    {
+                        TablesOverview WaiterOverview = new TablesOverview(this, user);
 
-            if (user == null)
-            {
-                MessageBox.Show("User Does not Exist");
+                        Hide();
+                        WaiterOverview.Show();
+                    }
+                    else if (user.position == Position.waiter)
+                    {
+
+                        TablesOverview WaiterOverview = new TablesOverview(this, user);
+                        Hide();
+                        WaiterOverview.Show();
+                    }
+                    else if (user.position == Position.cook)
+                    {
+                        KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
+                        Hide();
+                        kitchenUI.Show();
+                    }
+                    else if (user.position == Position.Bartender)
+                    {
+                        KitchenBarUI barUI = new KitchenBarUI(this, user);
+                        Hide();
+                        barUI.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Password!!");
+                }
+                
             }
             else
             {
-                if (user.position == Position.Manager)
-                {
-                    TablesOverview tablesOverview = new TablesOverview(user);
-                    Chapeau.ActiveForm.Hide();
-                    tablesOverview.ShowDialog();
-                }
-                else if (user.position == Position.waiter)
-                {
-                    TablesOverview tablesOverview = new TablesOverview(user);
-                    Chapeau.ActiveForm.Hide();
-                    tablesOverview.ShowDialog();
-                }
-                else if (user.position == Position.cook)
-                {
-                    KitchenUI kitchenUI = new KitchenUI();
-                    Chapeau.ActiveForm.Hide();
-                    kitchenUI.Show();
-                }
-                else if (user.position == Position.Bartender)
-                {
-                    //BAR overview
-                }
-                else
-                    MessageBox.Show("User Does not Exist");
+                MessageBox.Show("Please enter the password in the correct format.");
             }
-
         }
 
-        private void Chapeau_Load(object sender, EventArgs e)
+        private void lblForgot_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You need to contact your manager to reset your password.");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

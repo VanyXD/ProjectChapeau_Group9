@@ -12,32 +12,53 @@ using System.Configuration;
 namespace ChapeauDAL
 {
     public class EmployeeDAO : Base
-    {  
+    {
         public List<Employee> GetAllEmployees()
         {
             string query = "SELECT employee_id,first_name,last_name,email,phone,password, position_id FROM [employees]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadEmployees(ExecuteSelectQuery(query, sqlParameters));
         }
-       
+
         public void InsertEmployee(Employee employee)
         {
-            string query = $"insert into employees(employee_id,first_name,last_name,email,phone,password,position_id) values({employee.EmployeeID}, '{employee.FirstName}', '{employee.LastName}', " +
-                $"{employee.position}, '{employee.Email}', {employee.PhoneNumber}, {employee.Password}";
+            int posID = (int)employee.position;
+            string query = $"insert into employees(first_name,last_name,email,phone,password,position_id) " +
+                $"values('{employee.FirstName}', '{employee.LastName}', '{employee.Email}', {employee.PhoneNumber}, {employee.Password},{posID})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
+        //public void DeleteEmployee(int employeeID)
+        //{
+        //    string query = $"DELETE FROM employees WHERE employee_id = {employeeID}";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+        //    ExecuteEditQuery(query, sqlParameters);
+        //}
         public void DeleteEmployee(Employee employee)
         {
-            string query = $"Delete from Employees where employee_id = {employee.EmployeeID}";
+            string query = $"DELETE FROM employees WHERE employee_id = {employee.EmployeeID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
-
         }
         public void UpdateEmployee(Employee employee)
         {
-            string query = $"update Employees Set employee_id = {employee.EmployeeID},first_name = '{employee.FirstName}', last_name = '{employee.LastName}'," +
-                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.PhoneNumber},position_id = {employee.position}";
+            //SqlCommand cmd = new SqlCommand($"update employees Set first_name = @name, last_name = @lastName," +
+            //   $"email = @email, phone = @phone, password = @password,position_id = @posID WHERE employee_id = @ID", conn);
+            //cmd.Parameters.AddWithValue("@name", employee.FirstName);
+            //cmd.Parameters.AddWithValue("@lastName", employee.LastName);
+            //cmd.Parameters.AddWithValue("@email", employee.Email);
+            //cmd.Parameters.AddWithValue("@phone", employee.PhoneNumber);
+            //cmd.Parameters.AddWithValue("@password", employee.Password);
+            //cmd.Parameters.AddWithValue("@posID", employee.position);
+            //cmd.Parameters.AddWithValue("@ID", employee.EmployeeID);
+            //conn.Open();
+            //cmd.ExecuteNonQuery();
+            //conn.Close();
+
+
+            int posID = (int)employee.position;
+            string query = $"update employees Set first_name = '{employee.FirstName}', last_name = '{employee.LastName}'," +
+                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.Password},position_id = {posID} WHERE employee_id = {employee.EmployeeID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -52,19 +73,58 @@ namespace ChapeauDAL
                     FirstName = (String)dr["first_name"],
                     LastName = (string)dr["last_name"],
                     Email = (string)dr["email"],
-<<<<<<< HEAD
-                    PhoneNumber = (int)dr["phone_NR"],
-                    Password = (int)dr["password"]
 
-=======
                     PhoneNumber = (int)dr["phone"],
                     Password = (int)dr["password"],
                     position = (Position)dr["position_id"]
->>>>>>> 123c8647e1db0a47414d3af96ee2db340149e939
+
                 };
                 employeeList.Add(employee);
             }
             return employeeList;
-        }       
+        }
+        public Employee GetEmployee(int password , string userName)
+        {
+            SqlCommand cmd = new SqlCommand("select employee_id, first_name, last_name, email, phone, [password], position_id from employees where [password] = @pass and first_name = @name", conn);
+            cmd.Parameters.AddWithValue("@pass" , password);
+            cmd.Parameters.AddWithValue("@name", userName);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+            Employee employee = ReadEmployee(reader);
+            conn.Close();
+            reader.Close();
+            if (employee == null)
+            {
+                return null;
+            }
+            
+            return employee;
+
+        }
+        private Employee ReadEmployee(SqlDataReader reader)
+        {
+            try
+            {
+                Employee employee = new Employee
+                {
+                    EmployeeID = (int)reader["employee_id"],
+                    Email = (string)reader["email"],
+                    FirstName = (string)reader["first_name"],
+                    LastName = (string)reader["last_name"],
+                    Password = (int)reader["password"],
+                    PhoneNumber = (int)reader["phone"],
+                    position = (Position)reader["position_id"]
+
+                };
+                return employee;
+            }
+            catch (Exception)
+            {
+                
+                return null;
+                
+            }
+        }
     }
 }
