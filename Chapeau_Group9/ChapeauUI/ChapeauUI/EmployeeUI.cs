@@ -92,7 +92,7 @@ namespace ChapeauUI
 
 
                 string message = $"Do you want to Add {employee.FirstName}?";
-                string header = "Add";
+                string header = "Add Employee";
                 MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
                 DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
                 if (result == DialogResult.Yes)
@@ -101,6 +101,7 @@ namespace ChapeauUI
                     MessageBox.Show("Employee is added!");
                     ResetText();
                     AddEmployeePNL.Hide();
+                    ResetText();
                     UpDate();
                 } 
 
