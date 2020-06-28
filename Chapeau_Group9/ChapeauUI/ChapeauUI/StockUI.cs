@@ -53,10 +53,7 @@ namespace ChapeauUI
             
             if (ItemList.SelectedItems.Count != 0)
             {
-                int itemId = int.Parse(ItemList.SelectedItems[0].SubItems[0].Text);
-                string itemName = ItemList.SelectedItems[0].SubItems[1].Text;
-                int stock = int.Parse(ItemList.SelectedItems[0].SubItems[2].Text);
-                ModifyUI modUI = new ModifyUI(itemName, itemId, stock);
+                ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag);
                 modUI.Show();
             }
         }

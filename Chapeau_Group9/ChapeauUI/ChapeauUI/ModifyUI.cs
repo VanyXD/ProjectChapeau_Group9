@@ -13,22 +13,13 @@ namespace ChapeauUI
 {
     public partial class ModifyUI : Form
     {
-        int itemId;
-        string itemName;
-        int amount;
-        public ModifyUI(string name, int id, int stock)
+        ChapeauModel.MenuItem item;
+        public ModifyUI(ChapeauModel.MenuItem item)
         {
             InitializeComponent();
-            itemId = id;
-            itemName = name;
-            amount = stock;
-            lbl_modify_Title.Text = itemName;
-            richTxtBox_Modify.Text = amount.ToString();
-        }
-        public ModifyUI(string name, int stock)
-        {
-            itemName = name;
-            amount = stock;
+            this.item = item;
+            lbl_modify_Title.Text = item.Name;
+            richTxtBox_Modify.Text = item.Stock.ToString(); ;
         }
 
         private void btn_plus_Click(object sender, EventArgs e)
@@ -44,7 +35,7 @@ namespace ChapeauUI
         private void btn_Kitchen_Modify_Done_Click(object sender, EventArgs e)
         {
             MenuItemService menuServices = new MenuItemService();
-            menuServices.UpdateStock(itemId, int.Parse(richTxtBox_Modify.Text));
+            menuServices.UpdateStock(item.MenuItemID, int.Parse(richTxtBox_Modify.Text));
             Close();
         }
     }
