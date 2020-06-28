@@ -13,23 +13,20 @@ namespace ChapeauLogic
     public class TablesService
     {
         TablesDAO tabledao = new TablesDAO();
-        List<Table> tablesservices = new List<Table>();
+        
         List<Order> orderservice = new List<Order>();
 
         public List<Table> GetALLTables()
         {
             try
             {
-                tablesservices = tabledao.GetALLTables();
-                return tablesservices;
+                return tabledao.GetALLTables();
+                
             }
             catch 
             {
-                MessageBox.Show("Couldn't connect to the database");
-                List<Table> teststock = new List<Table>();
-                Table S = new Table(1, TableStatus.Free, 1);
-                teststock.Add(S);
-                return teststock;
+                //MessageBox.Show("Couldn't connect to the database"); // you will fail for this NOOB
+                return null;
             }
         }
         public void Updatetable(Table table)
@@ -49,13 +46,28 @@ namespace ChapeauLogic
         {
             try
             {
-                orderservice = tabledao.GetAllRunningOrders();
-                return orderservice;
+                //orderservice = tabledao.GetAllRunningOrders();
+                //return orderservice; // when will you learn to do shit in one line?! UGH
+                return tabledao.GetAllRunningOrders();
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
-                return orderservice;
+                //MessageBox.Show("Couldn't connect to the database"); // wtf elias?!!!
+                //return orderservice; // just return null NOOB
+                return null;
+            }
+        }
+        // you dont have a method to get a specific table's status or details, so I created it cuz u need it NOOB
+        // will also create it in dal
+        public Table GetTableForID(int tableID)
+        {
+            try
+            {
+                return tabledao.GetTableForID(tableID);
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

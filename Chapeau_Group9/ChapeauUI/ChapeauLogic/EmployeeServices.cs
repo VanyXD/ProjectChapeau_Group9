@@ -66,12 +66,16 @@ namespace ChapeauLogic
         }
         public Employee GetEmployee(int password , string username )
         {
-            Employee employee = employee_db.GetEmployee(password,username.ToLower());
-            if(employee == null)
+            try
+            {
+                Employee employee = employee_db.GetEmployee(password, username.ToLower());
+                return employee;
+            }
+            catch (Exception)
             {
                 return null;
             }
-            return employee;
+            
         }
 
     }
