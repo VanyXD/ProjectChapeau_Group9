@@ -46,10 +46,9 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(10, 45);
-            this.label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label.Location = new System.Drawing.Point(13, 55);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(36, 13);
+            this.label.Size = new System.Drawing.Size(49, 17);
             this.label.TabIndex = 0;
             this.label.Text = "Order:";
             // 
@@ -65,10 +64,10 @@
             this.lv_ViewTable.FullRowSelect = true;
             this.lv_ViewTable.GridLines = true;
             this.lv_ViewTable.HideSelection = false;
-            this.lv_ViewTable.Location = new System.Drawing.Point(12, 61);
-            this.lv_ViewTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lv_ViewTable.Location = new System.Drawing.Point(16, 75);
+            this.lv_ViewTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lv_ViewTable.Name = "lv_ViewTable";
-            this.lv_ViewTable.Size = new System.Drawing.Size(335, 333);
+            this.lv_ViewTable.Size = new System.Drawing.Size(445, 409);
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
@@ -104,29 +103,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(413, 59);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(551, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Notes:";
             // 
             // txtbox_kitchen_notes
             // 
-            this.txtbox_kitchen_notes.Location = new System.Drawing.Point(416, 76);
-            this.txtbox_kitchen_notes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbox_kitchen_notes.Location = new System.Drawing.Point(555, 94);
+            this.txtbox_kitchen_notes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbox_kitchen_notes.Name = "txtbox_kitchen_notes";
             this.txtbox_kitchen_notes.ReadOnly = true;
-            this.txtbox_kitchen_notes.Size = new System.Drawing.Size(236, 118);
+            this.txtbox_kitchen_notes.Size = new System.Drawing.Size(313, 144);
             this.txtbox_kitchen_notes.TabIndex = 3;
             this.txtbox_kitchen_notes.Text = "";
             // 
             // btn_ViewItem_Ready
             // 
-            this.btn_ViewItem_Ready.Location = new System.Drawing.Point(416, 284);
-            this.btn_ViewItem_Ready.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ViewItem_Ready.Location = new System.Drawing.Point(555, 350);
+            this.btn_ViewItem_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ViewItem_Ready.Name = "btn_ViewItem_Ready";
-            this.btn_ViewItem_Ready.Size = new System.Drawing.Size(115, 61);
+            this.btn_ViewItem_Ready.Size = new System.Drawing.Size(153, 75);
             this.btn_ViewItem_Ready.TabIndex = 4;
             this.btn_ViewItem_Ready.Text = "Ready";
             this.btn_ViewItem_Ready.UseVisualStyleBackColor = true;
@@ -134,10 +132,10 @@
             // 
             // btn_ViewItem_Close
             // 
-            this.btn_ViewItem_Close.Location = new System.Drawing.Point(536, 284);
-            this.btn_ViewItem_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ViewItem_Close.Location = new System.Drawing.Point(715, 350);
+            this.btn_ViewItem_Close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ViewItem_Close.Name = "btn_ViewItem_Close";
-            this.btn_ViewItem_Close.Size = new System.Drawing.Size(115, 61);
+            this.btn_ViewItem_Close.Size = new System.Drawing.Size(153, 75);
             this.btn_ViewItem_Close.TabIndex = 5;
             this.btn_ViewItem_Close.Text = "Close";
             this.btn_ViewItem_Close.UseVisualStyleBackColor = true;
@@ -147,18 +145,17 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbl_title.Location = new System.Drawing.Point(7, 7);
-            this.lbl_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_title.Location = new System.Drawing.Point(9, 9);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(148, 31);
+            this.lbl_title.Size = new System.Drawing.Size(187, 39);
             this.lbl_title.TabIndex = 6;
             this.lbl_title.Text = "View Table";
             // 
             // KitchenViewItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 428);
+            this.ClientSize = new System.Drawing.Size(1061, 569);
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_ViewItem_Close);
             this.Controls.Add(this.btn_ViewItem_Ready);
@@ -166,7 +163,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lv_ViewTable);
             this.Controls.Add(this.label);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KitchenViewItem";
             this.Text = "View Table";
             this.ResumeLayout(false);
