@@ -40,10 +40,11 @@ namespace ChapeauUI
                 {
                     if (user.position == Position.Manager)
                     {
-                        TablesOverview WaiterOverview = new TablesOverview(this, user);
-
+                        ManagerUI managerUI = new ManagerUI(this, user);
+                        managerUI.Show();
                         Hide();
-                        WaiterOverview.Show();
+
+                        
                     }
                     else if (user.position == Position.waiter)
                     {
@@ -77,14 +78,8 @@ namespace ChapeauUI
             }
         }
 
-        private void lblForgot_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("You need to contact your manager to reset your password.");
-        }
+        
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

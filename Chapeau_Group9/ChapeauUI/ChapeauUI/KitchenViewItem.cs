@@ -16,25 +16,13 @@ namespace ChapeauUI
     {
         int tableId;
         Employee user;
-        private Timer timer1;
+        List<OrderItem> items;
         public KitchenViewItem(int tableId, Employee user)
         {
             InitializeComponent();
             this.user = user;
             this.tableId = tableId;
             lbl_title.Text += " " + tableId.ToString();
-            SetHeight(lv_ViewTable, 40);
-            GetOrderItems();
-        }
-        public void InitTimer()
-        {
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 10000;
-            timer1.Start();
-        }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
             GetOrderItems();
         }
 
@@ -44,68 +32,57 @@ namespace ChapeauUI
         }
         void GetOrderItems()
         {
-
-
             OrderService orderService = new OrderService();
             if (user.position == Position.cook)
             {
-                List<OrderItem> items = orderService.GetKitchenBarTableItems(tableId, MenuItemType.dinner);
-                PrintItems(items);
+                items = orderService.GetKitchenTableItems(tableId);
             }
             else
             {
-                List<OrderItem> items = orderService.GetKitchenBarTableItems(tableId, MenuItemType.drink);
-                PrintItems(items);
+                items = orderService.GetBarTableItems(tableId);
             }
+            PrintItems();
         }
 
-        public void PrintItems(List<OrderItem> items)
+        public void PrintItems()
         {
             foreach (OrderItem item in items)
             {
-                var row = new string[] { item.MenuItem.Name, "x" + item.Quantity.ToString(), item.Time.ToString("HH:mm") };
-                var lvi = new ListViewItem(row)
-                {
-                    Tag = item
-                };
+                var row = new string[] { item.OrderItemID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), item.Time.ToString("HH:mm") , item.OrderId.ToString(), item.Comment};
+                var lvi = new ListViewItem(row);
                 lv_ViewTable.Items.Add(lvi);
             }
         }
 
         private void btn_ViewItem_Ready_Click(object sender, EventArgs e)
         {
+            OrderService services = new OrderService();
             if (lv_ViewTable.SelectedItems.Count > 0)
-            {
-                OrderService services = new OrderService();
                 foreach (ListViewItem item in lv_ViewTable.SelectedItems)
                 {
                     {
-                        OrderItem orderItem = (OrderItem)lv_ViewTable.SelectedItems[0].Tag;
-                        services.OrderReady(orderItem.OrderItemID);
-                        if (services.CheckStatusReady(orderItem.OrderId))
+                        services.OrderReady(int.Parse(item.SubItems[0].Text));
+                        int orderId = int.Parse(item.SubItems[4].Text);
+                        if (services.CheckStatusReady(orderId))
                         {
-                            services.OrderCompeteReady(orderItem.OrderId);
+                            services.OrderCompeteReady(orderId);
                         }
                         lv_ViewTable.Items.Remove(item);
                     }
                 }
-            }
         }
 
         private void lv_item_Click(object sender, EventArgs e)
         {
-            if (lv_ViewTable.SelectedItems.Count > 0)
+            if(lv_ViewTable.SelectedItems.Count > 0)
             {
-                txtbox_kitchen_notes.Text = ((OrderItem)(lv_ViewTable.SelectedItems[0].Tag)).Comment;
+                txtbox_kitchen_notes.Text = lv_ViewTable.SelectedItems[0].SubItems[5].Text;
             }
         }
-        private void SetHeight(ListView listView, int height)
+
+        private void lv_ViewTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ImageList imgList = new ImageList
-            {
-                ImageSize = new Size(1, height)
-            };
-            listView.SmallImageList = imgList;
+
         }
     }
 }

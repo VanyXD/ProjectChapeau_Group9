@@ -155,63 +155,63 @@ namespace ChapeauUI
 
         private void btnLunchMains_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchMain);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.LunchMain);
             DisplayMenu(items);
             lblMenu.Text = "Lunch Mains";
         }
 
         private void btnLunchSpecials_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchSpecials);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.LunchSpecials);
             DisplayMenu(items);
             lblMenu.Text = "Lunch Specials";
         }
 
         private void btnLunchBites_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.LunchBites);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.LunchBites);
             DisplayMenu(items);
             lblMenu.Text = "Lunch Bites";
         }
 
         private void btnDinnerMains_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerMains);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.DinnerMains);
             DisplayMenu(items);
             lblMenu.Text = "Dinner Mains";
         }
 
         private void btnDinnerStarters_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerStarters);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.DinnerStarters);
             DisplayMenu(items);
             lblMenu.Text = "Dinner Starters";
         }
 
         private void btnDinnerDesserts_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.DinnerDesserts);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.DinnerDesserts);
             DisplayMenu(items);
             lblMenu.Text = "Dinner Desserts";
         }
 
         private void btnSoftDrinks_Click(object sender, EventArgs e)
         {
-            List<MenuItem> items = menuItemService.GetForCategory(CategoryID.SoftDrinks);
+            List<MenuItem> items = menuItemService.GetForCategory(Category.SoftDrinks);
             DisplayMenu(items);
             lblMenu.Text = "Soft Drinks";
         }
 
         private void btnHotDrinks_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(CategoryID.HotDrinks);
+            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(Category.HotDrinks);
             DisplayMenu(items);
             lblMenu.Text = "Hot Drinks";
         }
 
         private void btnAlcoholics_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(CategoryID.Beers);
+            List<ChapeauModel.MenuItem> items = menuItemService.GetForCategory(Category.Beers);
             DisplayMenu(items);
             lblMenu.Text = "Beers/Wines";
         }

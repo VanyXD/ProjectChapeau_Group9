@@ -71,6 +71,7 @@
             this.lv_ViewTable.TabIndex = 1;
             this.lv_ViewTable.UseCompatibleStateImageBehavior = false;
             this.lv_ViewTable.View = System.Windows.Forms.View.Details;
+            this.lv_ViewTable.SelectedIndexChanged += new System.EventHandler(this.lv_ViewTable_SelectedIndexChanged);
             this.lv_ViewTable.Click += new System.EventHandler(this.lv_item_Click);
             // 
             // col_id

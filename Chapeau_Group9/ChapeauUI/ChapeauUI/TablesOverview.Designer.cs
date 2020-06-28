@@ -50,7 +50,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BTNManager = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -70,6 +69,7 @@
             this.lbltable1time = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnManagerUI = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -309,7 +309,6 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.panel4.Controls.Add(this.BTNManager);
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.pictureBox3);
@@ -348,19 +347,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(984, 570);
             this.panel4.TabIndex = 21;
-            // 
-            // BTNManager
-            // 
-            this.BTNManager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.BTNManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNManager.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNManager.Location = new System.Drawing.Point(15, 514);
-            this.BTNManager.Name = "BTNManager";
-            this.BTNManager.Size = new System.Drawing.Size(125, 44);
-            this.BTNManager.TabIndex = 32;
-            this.BTNManager.Text = "Manager";
-            this.BTNManager.UseVisualStyleBackColor = false;
-            this.BTNManager.Click += new System.EventHandler(this.BTNManager_Click);
             // 
             // pictureBox4
             // 
@@ -558,12 +544,25 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(457, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(456, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnManagerUI
+            // 
+            this.btnManagerUI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnManagerUI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagerUI.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagerUI.Location = new System.Drawing.Point(416, 658);
+            this.btnManagerUI.Name = "btnManagerUI";
+            this.btnManagerUI.Size = new System.Drawing.Size(177, 44);
+            this.btnManagerUI.TabIndex = 39;
+            this.btnManagerUI.Text = "&Back To Manager";
+            this.btnManagerUI.UseVisualStyleBackColor = false;
+            this.btnManagerUI.Click += new System.EventHandler(this.btnManagerUI_Click);
             // 
             // TablesOverview
             // 
@@ -571,6 +570,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 721);
+            this.Controls.Add(this.btnManagerUI);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panel4);
@@ -628,7 +628,6 @@
         private System.Windows.Forms.Label lbltable10time;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button BTNManager;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -636,5 +635,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnManagerUI;
     }
 }

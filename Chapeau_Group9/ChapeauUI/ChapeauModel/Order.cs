@@ -28,7 +28,10 @@ namespace ChapeauModel
                 }
                 return totalprice;
             }
-            // if there is a need for this property to have a set later on, it must be added, now its read only
+            set
+            {
+                totalprice = value;
+            }
         }
         public List<OrderItem> OrderItems { get; set; } 
 

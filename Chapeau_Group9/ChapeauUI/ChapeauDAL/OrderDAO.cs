@@ -71,15 +71,9 @@ namespace ChapeauDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
-        public List<Order> GetAllOrders(MenuItemType type)
+        public List<Order> GetAllOrders()
         {
-            string query = "SELECT [order].order_id, order_time, t.table_id, table_number, Tablestatus, item_type_id " +
-                "FROM [order] " +
-                "JOIN [tables] AS t ON [order].table_id = t.table_id " +
-                "JOIN OrderItems as oi ON [order].order_id = oi.order_id " +
-                "JOIN menu as m ON oi.article_id = m.article_id " +
-                "WHERE order_status = 1 " +
-                $"AND item_type_id {((int)type == 3 ? "=" : "<>")} 3";
+            string query = "select order_id, order_time, table_id from [order] where order_status = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadOrders(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -92,33 +86,43 @@ namespace ChapeauDAL
                 {
                     OrderID = (int)dr["order_id"],
                     Time = (DateTime)dr["order_time"],
-                    Table = new Table()
-                    {
-                        TableID = (int)dr["table_id"],
-                        TableNumber = (int)dr["table_number"],
-                        Status = (TableStatus)dr["Tablestatus"]
-                    },
+                    Table = new Table((int)dr["table_id"]),
                 };
                 orders.Add(order);
             }
             return orders;
         }
-        public List<OrderItem> GetKitchenBarItems(int id, MenuItemType type)
+        public List<OrderItem> GetKitchenItems(int id)
         {
-            string query = "SELECT m.article_id,m.price,m.name,m.category_id,m.item_type_id,m.stock,m.VAT , quantity, item_id, order_time, o.order_id, comment " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, order_time, o.order_id, comment " +
                 "FROM OrderItems  " +
                 "JOIN menu as m  ON m.article_id = OrderItems.article_id  " +
                 "JOIN [order] AS o ON o.order_id = OrderItems.order_id " +
                 "WHERE status = 1 " +
                 "AND o.order_id = @id " +
-                $"AND item_type_id {((int)type == 3 ? " = " : " <> ")} 3";
+                "AND m.item_type_id != 3";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", id);
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
         }
-        public List<OrderItem> GetItemsForTable(int id, MenuItemType type)
+        public List<OrderItem> GetBarItems(int id)
         {
-            string query = "SELECT m.article_id,m.price,m.name,m.category_id,m.item_type_id,m.stock,m.VAT , quantity, item_id, order_time, o.order_id, comment " +
+            string query = "SELECT m.article_id,m.name,m.item_type_id , OrderItems.quantity, item_id, o.order_time, o.order_id, comment " +
+                "FROM OrderItems  " +
+                "JOIN menu as m  " +
+                "ON m.article_id = OrderItems.article_id  " +
+                "JOIN [order] AS o " +
+                "ON o.order_id = OrderItems.order_id " +
+                "WHERE status = 1 " +
+                "AND o.order_id = @id " +
+                "AND m.item_type_id = 3";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetKitchenItemsPerTable(int id)
+        {
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id, comment " +
                 "FROM OrderItems " +
                 "JOIN menu as m " +
                 "ON m.article_id = OrderItems.article_id " +
@@ -126,7 +130,22 @@ namespace ChapeauDAL
                 "ON o.order_id = OrderItems.order_id " +
                 "WHERE status = 1  " +
                 "AND table_id = @id " +
-                $"AND item_type_id {((int)type == 3 ? " = " : " <> ")} 3";
+                "AND m.item_type_id != 3";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        public List<OrderItem> GetBarItemsPerTable(int id)
+        {
+            string query = "SELECT m.article_id,m.name,m.item_type_id , quantity, item_id, order_time, o.order_id, comment " +
+                "FROM OrderItems " +
+                "JOIN menu as m " +
+                "ON m.article_id = OrderItems.article_id " +
+                "JOIN [order] as o " +
+                "ON o.order_id = OrderItems.order_id " +
+                "WHERE status = 1  " +
+                "AND table_id = @id " +
+                "AND m.item_type_id = 3";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", id);
             return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
@@ -139,16 +158,7 @@ namespace ChapeauDAL
                 OrderItem order = new OrderItem()
                 {
                     OrderItemID = (int)dr["item_id"],
-                    MenuItem = new MenuItem()
-                    {
-                        MenuItemID = (int)dr["article_id"],
-                        Name = dr["name"].ToString(),
-                        Price = (decimal)dr["price"],
-                        Stock = (int)dr["stock"],
-                        HighVAT = (bool)dr["VAT"],
-                        Type = (MenuItemType)dr["item_type_id"],
-                        Category = (CategoryID)dr["category_id"]
-                    },
+                    MenuItem = new MenuItem((int)dr["article_id"], dr["name"].ToString()),
                     Quantity = (int)dr["quantity"],
                     Time = (DateTime)dr["order_time"],
                     OrderId = (int)dr["order_id"],
@@ -210,6 +220,6 @@ namespace ChapeauDAL
             sqlParameters[0] = new SqlParameter("@id", id);
             ExecuteEditQuery(query, sqlParameters);
         }
-    }
 
     }
+}

@@ -15,7 +15,7 @@ namespace ChapeauModel
         public int Stock { get; set; }
         public bool HighVAT { get; set; }
         public MenuItemType Type { get; set; }
-        public CategoryID Category { get; set; }
+        public Category Category { get; set; }
 
         public MenuItem() { }
        

@@ -164,6 +164,7 @@
             this.btn_kitchen_table9.TabIndex = 47;
             this.btn_kitchen_table9.Text = "Table 9";
             this.btn_kitchen_table9.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table9.Click += new System.EventHandler(this.btn_kitchen_table9_Click);
             // 
             // btn_kitchen_table8
             // 
@@ -173,6 +174,7 @@
             this.btn_kitchen_table8.TabIndex = 46;
             this.btn_kitchen_table8.Text = "Table 8";
             this.btn_kitchen_table8.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table8.Click += new System.EventHandler(this.btn_kitchen_table8_Click);
             // 
             // btn_kitchen_table7
             // 
@@ -182,6 +184,7 @@
             this.btn_kitchen_table7.TabIndex = 45;
             this.btn_kitchen_table7.Text = "Table 7";
             this.btn_kitchen_table7.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table7.Click += new System.EventHandler(this.btn_kitchen_table7_Click);
             // 
             // btn_kitchen_table6
             // 
@@ -191,6 +194,7 @@
             this.btn_kitchen_table6.TabIndex = 44;
             this.btn_kitchen_table6.Text = "Table 6";
             this.btn_kitchen_table6.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table6.Click += new System.EventHandler(this.btn_kitchen_table6_Click);
             // 
             // btn_kitchen_table5
             // 
@@ -200,6 +204,7 @@
             this.btn_kitchen_table5.TabIndex = 43;
             this.btn_kitchen_table5.Text = "Table 5";
             this.btn_kitchen_table5.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table5.Click += new System.EventHandler(this.btn_kitchen_table5_Click);
             // 
             // btn_kitchen_table4
             // 
@@ -209,6 +214,7 @@
             this.btn_kitchen_table4.TabIndex = 42;
             this.btn_kitchen_table4.Text = "Table 4";
             this.btn_kitchen_table4.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table4.Click += new System.EventHandler(this.btn_kitchen_table4_Click);
             // 
             // btn_kitchen_table10
             // 
@@ -218,6 +224,7 @@
             this.btn_kitchen_table10.TabIndex = 41;
             this.btn_kitchen_table10.Text = "Table 10";
             this.btn_kitchen_table10.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table10.Click += new System.EventHandler(this.btn_kitchen_table10_Click);
             // 
             // btn_kitchen_table3
             // 
@@ -227,6 +234,7 @@
             this.btn_kitchen_table3.TabIndex = 40;
             this.btn_kitchen_table3.Text = "Table 3";
             this.btn_kitchen_table3.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table3.Click += new System.EventHandler(this.btn_kitchen_table3_Click);
             // 
             // btn_kitchen_table2
             // 
@@ -236,6 +244,7 @@
             this.btn_kitchen_table2.TabIndex = 39;
             this.btn_kitchen_table2.Text = "Table 2";
             this.btn_kitchen_table2.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table2.Click += new System.EventHandler(this.btn_kitchen_table2_Click);
             // 
             // btn_kitchen_table1
             // 
@@ -245,6 +254,7 @@
             this.btn_kitchen_table1.TabIndex = 38;
             this.btn_kitchen_table1.Text = "Table 1";
             this.btn_kitchen_table1.UseVisualStyleBackColor = true;
+            this.btn_kitchen_table1.Click += new System.EventHandler(this.btn_kitchen_table1_Click);
             // 
             // lbl_title
             // 
