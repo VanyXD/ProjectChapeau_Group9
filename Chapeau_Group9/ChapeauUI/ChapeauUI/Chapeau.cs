@@ -11,6 +11,7 @@ using ChapeauModel;
 using System.Data.SqlClient;
 using ChapeauDAL;
 using ChapeauLogic;
+using System.Security.Cryptography;
 
 namespace ChapeauUI
 {
@@ -24,10 +25,8 @@ namespace ChapeauUI
         {
             InitializeComponent();
             
-            
         }
 
-        
         private void lbllogin_Click(object sender, EventArgs e)
         {
             string userName = txtUsername.Text;
@@ -41,9 +40,10 @@ namespace ChapeauUI
                 {
                     if (user.position == Position.Manager)
                     {
-                        ManagerUI ManagerUI = new ManagerUI(this, user);
+                        TablesOverview WaiterOverview = new TablesOverview(this, user);
+
                         Hide();
-                        ManagerUI.Show();
+                        WaiterOverview.Show();
                     }
                     else if (user.position == Position.waiter)
                     {
@@ -80,6 +80,11 @@ namespace ChapeauUI
         private void lblForgot_Click(object sender, EventArgs e)
         {
             MessageBox.Show("You need to contact your manager to reset your password.");
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

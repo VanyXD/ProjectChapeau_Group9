@@ -18,6 +18,7 @@ namespace ChapeauUI
     public partial class ManagerUI : Form
     {
         Form logIN;
+        Chapeau chapeau;
         private Employee employee;
         EmployeeServices employeeServices = new EmployeeServices();
         public ManagerUI(Form LogIn, Employee employee)
@@ -27,46 +28,16 @@ namespace ChapeauUI
             this.employee = employee;
         }
 
-        public void TableStatus()
-        {
-            TablesService tableServices = new TablesService();
-            List<Table> tables = tableServices.GetALLTables();
-            List<Button> buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
-
-            for (int i = 0; i < buttons.Count; i++)
-            {
-                if (tables[i].Status == ChapeauModel.TableStatus.Reserved)
-                {
-                    buttons[i].BackColor = Color.Orange;
-                }
-                else if (tables[i].Status == ChapeauModel.TableStatus.Occupied)
-                {
-                    buttons[i].BackColor = Color.Red;
-                }
-                else
-                {
-                    buttons[i].BackColor = Color.Green;
-                }
-            }
-        }
-
         private void ManagerUI_Load(object sender, EventArgs e)
         {
-            TableStatus();
             lblCurrentUser.Text = employee.FirstName;
 
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            logIN.Show();
         }
 
        
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeUI employeeui = new EmployeeUI(this, employee, logIN);
+            EmployeeUI employeeui = new EmployeeUI(this, employee, chapeau);
             this.Hide();
             employeeui.Show();
         }
@@ -76,6 +47,17 @@ namespace ChapeauUI
             StockUI stockUi = new StockUI(this, employee, logIN);
             this.Hide();
             stockUi.Show();
+        }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTNHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            logIN.Show();
         }
     }
 }

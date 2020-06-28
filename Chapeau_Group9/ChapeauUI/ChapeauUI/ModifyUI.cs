@@ -25,6 +25,11 @@ namespace ChapeauUI
             lbl_modify_Title.Text = itemName;
             richTxtBox_Modify.Text = amount.ToString();
         }
+        public ModifyUI(string name, int stock)
+        {
+            itemName = name;
+            amount = stock;
+        }
 
         private void btn_plus_Click(object sender, EventArgs e)
         {

@@ -79,5 +79,10 @@ namespace ChapeauUI
                 txtbox_kitchen_notes.Text = lv_ViewTable.SelectedItems[0].SubItems[5].Text;
             }
         }
+
+        private void lv_ViewTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

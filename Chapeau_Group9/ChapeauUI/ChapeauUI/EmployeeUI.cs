@@ -45,7 +45,7 @@ namespace ChapeauUI
                 li.SubItems.Add(employe.LastName);
                 li.SubItems.Add(employe.position.ToString());
                 li.SubItems.Add(employe.EmployeeID.ToString());
-
+                li.Tag = employe;
                 employeeList.Items.Add(li);
             }
         }
@@ -55,44 +55,61 @@ namespace ChapeauUI
             lblCurrentUser.Text = employee.FirstName;
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            LogIn.Show();
-        }
-
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
         {
-            if (employeeList.Items.Count > 0)
+            if (employeeList.SelectedItems.Count < 1)
             {
-                ListViewItem items = employeeList.SelectedItems[0];
-                int EmployeeID = int.Parse(items.SubItems[4].Text);
-                employeeServices.RemoveEmployee(EmployeeID);
+                return;
             }
-            UpDate();
+            Employee employee = (Employee)employeeList.SelectedItems[0].Tag;
+
+            string message = $"Do you want to remove {employee.FirstName}?";
+            string header = "Remove";
+            MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+            if (result == DialogResult.Yes)
+            {
+                employeeServices.RemoveEmployee(employee);
+                MessageBox.Show("Employee is removed!");
+                UpDate();
+            }
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee()
+            
+            if (ValidFields())
             {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Email = txtEmail.Text,
-                PhoneNumber = int.Parse(txtPhoneNumber.Text),
-                Password = int.Parse(txtPassword.Text),
-                position = (Position)(int.Parse(txtPositionID.Text))
-            };
-            employeeServices.InsertEmployee(employee);
-            txtFirstName.ResetText();
-            txtLastName.ResetText();
-            txtPositionID.ResetText();
-            txtEmail.ResetText();
-            txtPassword.ResetText();
-            txtPhoneNumber.ResetText();
-            UpDate();
-            
-            
+                Employee employee = new Employee()
+                {
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Email = txtEmail.Text,
+                    PhoneNumber = int.Parse(txtPhoneNumber.Text),
+                    Password = int.Parse(txtPassword.Text),
+                    position = (Position)(int.Parse(txtPositionID.Text))
+                };
+
+
+                string message = $"Do you want to Add {employee.FirstName}?";
+                string header = "Add";
+                MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+                DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+                if (result == DialogResult.Yes)
+                {
+                    employeeServices.InsertEmployee(employee);
+                    MessageBox.Show("Employee is added!");
+                    ResetText();
+                    AddEmployeePNL.Hide();
+                    UpDate();
+                } 
+
+            }
+            else
+            {
+                MessageBox.Show("Fill up all the fields!");
+            }
+
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -102,56 +119,54 @@ namespace ChapeauUI
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            List<Employee> employees = employeeServices.GetEmployees();
-            if (employeeList.SelectedItems.Count > 0)
+            Employee employee = FillEmployee();
+            string message = $"Do you want to edit {employee.FirstName}?";
+            string header = "Edit employee!";
+            MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+            if (result == DialogResult.Yes)
             {
-                ListViewItem item = employeeList.SelectedItems[0];
-                int employeeID = int.Parse(item.SubItems[4].Text);
-                foreach (Employee employe in employees)
-                {
-                    if (employeeID == employe.EmployeeID)
-                    {
-                        employe.FirstName = txtFirstName.Text;
-                        employe.LastName = txtLastName.Text;
-                        employe.Email = txtEmail.Text;
-                        employe.PhoneNumber = int.Parse(txtPhoneNumber.Text);
-                        employe.Password = int.Parse(txtPassword.Text);
-                        employe.position = (Position)(int.Parse(txtPositionID.Text));
-                        employeeServices.EditEmployee(employe);
-                    }
-                }
-                txtFirstName.ResetText();
-                txtLastName.ResetText();
-                txtPositionID.ResetText();
-                txtEmail.ResetText();
-                txtPassword.ResetText();
-                txtPhoneNumber.ResetText();
+                employeeServices.EditEmployee(employee);
+                MessageBox.Show("Employee is edited!");
+                ResetText();
+                AddEmployeePNL.Hide();
                 UpDate();
             }
         }
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
-            List<Employee> employees = employeeServices.GetEmployees();
-            if (employeeList.SelectedItems.Count > 0)
+            if (employeeList.SelectedItems.Count < 1)
             {
-                ListViewItem item = employeeList.SelectedItems[0];
-                int employeeID = int.Parse(item.SubItems[4].Text);
-
-                foreach (Employee employe in employees)
-                {
-                    if (employeeID == employe.EmployeeID)
-                    {
-                        txtFirstName.Text = employe.FirstName;
-                        txtLastName.Text = employe.LastName;
-                        txtPositionID.Text = Convert.ToInt32(employe.position).ToString();
-                        txtPhoneNumber.Text = employe.PhoneNumber.ToString();
-                        txtPassword.Text = employe.Password.ToString();
-                        txtEmail.Text = employe.Email;
-                    }
-                }
+                return;
             }
-                AddEmployeePNL.Show();
+            AddEmployeePNL.Show();
+            Employee employee = (Employee)employeeList.SelectedItems[0].Tag;
+            FillDetails(employee);
+   
+        }
+
+        private void FillDetails(Employee employee)
+        {
+            lblID.Text = employee.EmployeeID.ToString();
+            txtFirstName.Text = employee.FirstName;
+            txtLastName.Text = employee.LastName;
+            txtPositionID.Text = Convert.ToInt32(employee.position).ToString();
+            txtPhoneNumber.Text = employee.PhoneNumber.ToString();
+            txtPassword.Text = employee.Password.ToString();
+            txtEmail.Text = employee.Email;
+        }
+        private Employee FillEmployee()
+        {
+            Employee employee = new Employee();
+            employee.EmployeeID = Convert.ToInt32(lblID.Text); 
+            employee.FirstName = txtFirstName.Text;
+            employee.LastName = txtLastName.Text;
+            employee.position = (Position)Convert.ToInt32(txtPositionID.Text);
+            employee.PhoneNumber = Convert.ToInt32(txtPhoneNumber.Text);
+            employee.Password = Convert.ToInt32(txtPassword.Text);
+            employee.Email = txtEmail.Text;
+            return employee;
         }
 
         private void BtnHome_Click(object sender, EventArgs e)
@@ -159,6 +174,34 @@ namespace ChapeauUI
             this.Close();
             managerUI.Show();
         }
+        private bool ValidFields()
+        {
+            if (txtFirstName.Text != null && txtLastName.Text != null && txtPositionID != null && txtPhoneNumber.Text != null && txtPassword != null && txtEmail != null)
+            {
+                return true;
+            }
 
+            return false;
+        }
+        private void ResetText()
+        {
+            txtFirstName.ResetText();
+            txtLastName.ResetText();
+            txtPositionID.ResetText();
+            txtEmail.ResetText();
+            txtPassword.ResetText();
+            txtPhoneNumber.ResetText();
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            AddEmployeePNL.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            managerUI.Show();
+        }
     }
 }

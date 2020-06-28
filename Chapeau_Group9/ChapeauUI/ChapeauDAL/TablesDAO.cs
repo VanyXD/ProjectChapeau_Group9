@@ -68,10 +68,12 @@ namespace ChapeauDAL
         public Order ReadOrder(SqlDataReader reader)
         {
             Order order = new Order
-            {
+            {               
                 OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
                 Table = new Table((int)(reader["table_id"])),
+                Employee = (Employee)reader["employee_id"],
+                OrderID = (int)reader["order_id"],
             };
             return order;
         }

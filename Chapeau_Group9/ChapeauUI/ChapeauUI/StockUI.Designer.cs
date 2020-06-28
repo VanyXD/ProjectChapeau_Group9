@@ -29,47 +29,33 @@
         private void InitializeComponent()
         {
             this.ItemList = new System.Windows.Forms.ListView();
-            this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ItemStock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Currentuser = new System.Windows.Forms.Label();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.BtnHome = new System.Windows.Forms.Button();
-            this.BtnLogOut = new System.Windows.Forms.Button();
             this.BtnModify = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
+            this.BTNLowStock = new System.Windows.Forms.Button();
+            this.BTNAllItems = new System.Windows.Forms.Button();
+            this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // ItemList
             // 
             this.ItemList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ItemID,
-            this.ItemName,
-            this.ItemStock});
+            this.name,
+            this.Stock});
             this.ItemList.FullRowSelect = true;
             this.ItemList.GridLines = true;
             this.ItemList.HideSelection = false;
-            this.ItemList.Location = new System.Drawing.Point(-1, 57);
+            this.ItemList.Location = new System.Drawing.Point(82, 114);
             this.ItemList.Name = "ItemList";
-            this.ItemList.Size = new System.Drawing.Size(802, 327);
+            this.ItemList.Size = new System.Drawing.Size(797, 448);
             this.ItemList.TabIndex = 0;
             this.ItemList.UseCompatibleStateImageBehavior = false;
             this.ItemList.View = System.Windows.Forms.View.Details;
-            // 
-            // ItemID
-            // 
-            this.ItemID.Text = "ItemID";
-            this.ItemID.Width = 116;
-            // 
-            // ItemName
-            // 
-            this.ItemName.Text = "Item Name";
-            this.ItemName.Width = 526;
-            // 
-            // ItemStock
-            // 
-            this.ItemStock.Text = "Stock";
-            this.ItemStock.Width = 166;
             // 
             // Currentuser
             // 
@@ -91,52 +77,84 @@
             // 
             // BtnHome
             // 
-            this.BtnHome.Location = new System.Drawing.Point(-1, 28);
+            this.BtnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BtnHome.Location = new System.Drawing.Point(921, 9);
             this.BtnHome.Name = "BtnHome";
-            this.BtnHome.Size = new System.Drawing.Size(75, 23);
+            this.BtnHome.Size = new System.Drawing.Size(75, 39);
             this.BtnHome.TabIndex = 17;
             this.BtnHome.Text = "HOME";
-            this.BtnHome.UseVisualStyleBackColor = true;
+            this.BtnHome.UseVisualStyleBackColor = false;
             this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
-            // 
-            // BtnLogOut
-            // 
-            this.BtnLogOut.Location = new System.Drawing.Point(726, 28);
-            this.BtnLogOut.Name = "BtnLogOut";
-            this.BtnLogOut.Size = new System.Drawing.Size(75, 23);
-            this.BtnLogOut.TabIndex = 18;
-            this.BtnLogOut.Text = "Log out";
-            this.BtnLogOut.UseVisualStyleBackColor = true;
-            this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
             // BtnModify
             // 
-            this.BtnModify.Location = new System.Drawing.Point(54, 403);
+            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BtnModify.Location = new System.Drawing.Point(285, 592);
             this.BtnModify.Name = "BtnModify";
-            this.BtnModify.Size = new System.Drawing.Size(75, 23);
+            this.BtnModify.Size = new System.Drawing.Size(142, 42);
             this.BtnModify.TabIndex = 19;
             this.BtnModify.Text = "Modify";
-            this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.UseVisualStyleBackColor = false;
             this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BtnRefresh
             // 
-            this.BtnRefresh.Location = new System.Drawing.Point(697, 403);
+            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BtnRefresh.Location = new System.Drawing.Point(505, 592);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.BtnRefresh.Size = new System.Drawing.Size(142, 42);
             this.BtnRefresh.TabIndex = 20;
             this.BtnRefresh.Text = "Refresh";
-            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.UseVisualStyleBackColor = false;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
+            // BTNLowStock
+            // 
+            this.BTNLowStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BTNLowStock.Location = new System.Drawing.Point(82, 62);
+            this.BTNLowStock.Name = "BTNLowStock";
+            this.BTNLowStock.Size = new System.Drawing.Size(75, 31);
+            this.BTNLowStock.TabIndex = 21;
+            this.BTNLowStock.Text = "Low Stock";
+            this.BTNLowStock.UseVisualStyleBackColor = false;
+            this.BTNLowStock.Click += new System.EventHandler(this.BTNLowStock_Click);
+            // 
+            // BTNAllItems
+            // 
+            this.BTNAllItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BTNAllItems.Location = new System.Drawing.Point(181, 62);
+            this.BTNAllItems.Name = "BTNAllItems";
+            this.BTNAllItems.Size = new System.Drawing.Size(75, 31);
+            this.BTNAllItems.TabIndex = 22;
+            this.BTNAllItems.Text = "All Items";
+            this.BTNAllItems.UseVisualStyleBackColor = false;
+            this.BTNAllItems.Click += new System.EventHandler(this.BTNAllItems_Click);
+            // 
+            // ItemID
+            // 
+            this.ItemID.Text = "Item ID";
+            this.ItemID.Width = 194;
+            // 
+            // name
+            // 
+            this.name.Text = "Item Name";
+            this.name.Width = 297;
+            // 
+            // Stock
+            // 
+            this.Stock.Text = "Stock";
+            this.Stock.Width = 301;
             // 
             // StockUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.BTNAllItems);
+            this.Controls.Add(this.BTNLowStock);
             this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnModify);
-            this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.Currentuser);
@@ -152,14 +170,15 @@
         #endregion
 
         private System.Windows.Forms.ListView ItemList;
-        private System.Windows.Forms.ColumnHeader ItemID;
-        private System.Windows.Forms.ColumnHeader ItemName;
-        private System.Windows.Forms.ColumnHeader ItemStock;
         private System.Windows.Forms.Label Currentuser;
         private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.Button BtnHome;
-        private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Button BtnModify;
         private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.Button BTNLowStock;
+        private System.Windows.Forms.Button BTNAllItems;
+        private System.Windows.Forms.ColumnHeader ItemID;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader Stock;
     }
 }

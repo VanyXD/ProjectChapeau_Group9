@@ -83,7 +83,7 @@ namespace ChapeauUI
                 else if (orders[i].OrderStatus == OrderStatus.Served)
                 {
 
-                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(224, 224, 224);
+                    labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(64, 64, 64);
                     labels[orders[i].Table.TableID - 1].Text = "Served";
                 }
                 else if (orders[i].OrderStatus == OrderStatus.Ready)
@@ -155,6 +155,14 @@ namespace ChapeauUI
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             TablesOverview_Load(sender, e);
+        }
+
+        private void BTNManager_Click(object sender, EventArgs e)
+        {
+            //Employee employee = employeeServices.GetEmployee(LoginPassword, userName);
+            ManagerUI managerUI = new ManagerUI(this, employee);
+            managerUI.Show();
+            Hide();
         }
     }
 }
