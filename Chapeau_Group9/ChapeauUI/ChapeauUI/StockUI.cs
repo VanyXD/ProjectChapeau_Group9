@@ -55,30 +55,20 @@ namespace ChapeauUI
 
         private void BtnModify_Click(object sender, EventArgs e)
         {
-            
-            if (ItemList.SelectedItems.Count != 0)
-            {
-                ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag);
-                modUI.Show();
-            }
-            else
+            if (ItemList.SelectedItems.Count < 1)
             {
                 return;
             }
-        }
-
-        private void BtnRefresh_Click(object sender, EventArgs e)
-        {
-            ItemList.Items.Clear();
-            BTNAllItems_Click(sender, e);
-        }
-
-        private void BtnHome_Click(object sender, EventArgs e)
-        {
-            previousForm.Show();
-            this.Close();
+            ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag);
+            DialogResult result = modUI.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                ItemList.Items.Clear();
+                BTNAllItems_Click(sender, e);
+            }
 
         }
+
 
         private void BTNLowStock_Click(object sender, EventArgs e)
         {
@@ -104,12 +94,6 @@ namespace ChapeauUI
             LoadMenuItems(menuItems);
         }
         
-
-        private void ItemList_DrawColumnHeader_1(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
-            e.DrawText();
-        }
 
         private void FillItemDetails(ChapeauModel.MenuItem menuItem)
         {
@@ -146,10 +130,6 @@ namespace ChapeauUI
             return true;
         }
 
-        private void ItemList_DrawItem(object sender, DrawListViewItemEventArgs e)
-        {
-            e.DrawDefault = true;
-        }
 
         private void btnEditItem_Click_1(object sender, EventArgs e)
         {
@@ -199,6 +179,27 @@ namespace ChapeauUI
         {
             pnlAddItem.Visible = false;
         }
-       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            previousForm.Show();
+            this.Close();
+        }
+
+        private void pnlAddItem_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ItemList_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
+            e.DrawText();
+        }
+
+        private void ItemList_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
     }
 }

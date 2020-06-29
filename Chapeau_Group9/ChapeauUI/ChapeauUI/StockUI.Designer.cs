@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockUI));
             this.ItemList = new System.Windows.Forms.ListView();
             this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Currentuser = new System.Windows.Forms.Label();
             this.lblCurrentUser = new System.Windows.Forms.Label();
-            this.BtnHome = new System.Windows.Forms.Button();
             this.BtnModify = new System.Windows.Forms.Button();
-            this.BtnRefresh = new System.Windows.Forms.Button();
             this.BTNLowStock = new System.Windows.Forms.Button();
             this.BTNAllItems = new System.Windows.Forms.Button();
             this.pnlAddItem = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.btnEditItem = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlAddItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,12 +68,15 @@
             this.ItemList.FullRowSelect = true;
             this.ItemList.GridLines = true;
             this.ItemList.HideSelection = false;
-            this.ItemList.Location = new System.Drawing.Point(82, 114);
+            this.ItemList.Location = new System.Drawing.Point(48, 131);
             this.ItemList.Name = "ItemList";
+            this.ItemList.OwnerDraw = true;
             this.ItemList.Size = new System.Drawing.Size(797, 448);
             this.ItemList.TabIndex = 0;
             this.ItemList.UseCompatibleStateImageBehavior = false;
             this.ItemList.View = System.Windows.Forms.View.Details;
+            this.ItemList.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.ItemList_DrawColumnHeader);
+            this.ItemList.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.ItemList_DrawItem);
             // 
             // ItemID
             // 
@@ -110,23 +113,12 @@
             this.lblCurrentUser.TabIndex = 16;
             this.lblCurrentUser.Text = "......";
             // 
-            // BtnHome
-            // 
-            this.BtnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.BtnHome.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHome.Location = new System.Drawing.Point(911, 9);
-            this.BtnHome.Name = "BtnHome";
-            this.BtnHome.Size = new System.Drawing.Size(85, 39);
-            this.BtnHome.TabIndex = 17;
-            this.BtnHome.Text = "HOME";
-            this.BtnHome.UseVisualStyleBackColor = false;
-            this.BtnHome.Click += new System.EventHandler(this.BtnHome_Click);
-            // 
             // BtnModify
             // 
-            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BtnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.BtnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModify.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.Location = new System.Drawing.Point(69, 629);
+            this.BtnModify.Location = new System.Drawing.Point(48, 629);
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Size = new System.Drawing.Size(155, 50);
             this.BtnModify.TabIndex = 19;
@@ -134,23 +126,11 @@
             this.BtnModify.UseVisualStyleBackColor = false;
             this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
-            // BtnRefresh
-            // 
-            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefresh.Location = new System.Drawing.Point(795, 629);
-            this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(142, 42);
-            this.BtnRefresh.TabIndex = 20;
-            this.BtnRefresh.Text = "Refresh";
-            this.BtnRefresh.UseVisualStyleBackColor = false;
-            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
-            // 
             // BTNLowStock
             // 
             this.BTNLowStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.BTNLowStock.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNLowStock.Location = new System.Drawing.Point(82, 62);
+            this.BTNLowStock.Location = new System.Drawing.Point(192, 79);
             this.BTNLowStock.Name = "BTNLowStock";
             this.BTNLowStock.Size = new System.Drawing.Size(119, 46);
             this.BTNLowStock.TabIndex = 21;
@@ -162,7 +142,7 @@
             // 
             this.BTNAllItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.BTNAllItems.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNAllItems.Location = new System.Drawing.Point(221, 62);
+            this.BTNAllItems.Location = new System.Drawing.Point(48, 79);
             this.BTNAllItems.Name = "BTNAllItems";
             this.BTNAllItems.Size = new System.Drawing.Size(119, 46);
             this.BTNAllItems.TabIndex = 22;
@@ -173,48 +153,30 @@
             // pnlAddItem
             // 
             this.pnlAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.pnlAddItem.Controls.Add(this.label7);
-            this.pnlAddItem.Controls.Add(this.lblID);
             this.pnlAddItem.Controls.Add(this.btnClose);
             this.pnlAddItem.Controls.Add(this.btnEdit);
-            this.pnlAddItem.Controls.Add(this.label5);
-            this.pnlAddItem.Controls.Add(this.cmbCategory);
-            this.pnlAddItem.Controls.Add(this.label4);
-            this.pnlAddItem.Controls.Add(this.cmbType);
             this.pnlAddItem.Controls.Add(this.label3);
             this.pnlAddItem.Controls.Add(this.txtPrice);
             this.pnlAddItem.Controls.Add(this.txtStock);
             this.pnlAddItem.Controls.Add(this.label2);
             this.pnlAddItem.Controls.Add(this.label1);
             this.pnlAddItem.Controls.Add(this.txtName);
-            this.pnlAddItem.Location = new System.Drawing.Point(69, 54);
+            this.pnlAddItem.Controls.Add(this.label7);
+            this.pnlAddItem.Controls.Add(this.lblID);
+            this.pnlAddItem.Controls.Add(this.label5);
+            this.pnlAddItem.Controls.Add(this.cmbCategory);
+            this.pnlAddItem.Controls.Add(this.label4);
+            this.pnlAddItem.Controls.Add(this.cmbType);
+            this.pnlAddItem.Location = new System.Drawing.Point(48, 49);
             this.pnlAddItem.Name = "pnlAddItem";
             this.pnlAddItem.Size = new System.Drawing.Size(868, 569);
             this.pnlAddItem.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(275, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 21);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Article ID";
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(420, 16);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(31, 21);
-            this.lblID.TabIndex = 26;
-            this.lblID.Text = "___";
+            this.pnlAddItem.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAddItem_Paint);
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(822, 3);
             this.btnClose.Name = "btnClose";
@@ -226,7 +188,8 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Location = new System.Drawing.Point(373, 503);
             this.btnEdit.Name = "btnEdit";
@@ -235,44 +198,6 @@
             this.btnEdit.Text = "Edit Item";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(338, 358);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Category";
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(342, 394);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(189, 29);
-            this.cmbCategory.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(523, 217);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 21);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Item Type";
-            // 
-            // cmbType
-            // 
-            this.cmbType.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(527, 253);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(189, 29);
-            this.cmbType.TabIndex = 6;
             // 
             // label3
             // 
@@ -328,9 +253,68 @@
             this.txtName.Size = new System.Drawing.Size(189, 29);
             this.txtName.TabIndex = 0;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(315, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 21);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Article ID";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(420, 16);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(31, 21);
+            this.lblID.TabIndex = 26;
+            this.lblID.Text = "___";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(338, 358);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 21);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Category";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(342, 394);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(189, 29);
+            this.cmbCategory.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(523, 217);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Item Type";
+            // 
+            // cmbType
+            // 
+            this.cmbType.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(527, 253);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(189, 29);
+            this.cmbType.TabIndex = 6;
+            // 
             // btnEditItem
             // 
-            this.btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditItem.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditItem.Location = new System.Drawing.Point(239, 629);
             this.btnEditItem.Name = "btnEditItem";
@@ -340,22 +324,34 @@
             this.btnEditItem.UseVisualStyleBackColor = false;
             this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click_1);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(935, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(61, 61);
+            this.button1.TabIndex = 27;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StockUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.BTNAllItems);
+            this.Controls.Add(this.pnlAddItem);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditItem);
-            this.Controls.Add(this.BTNLowStock);
-            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.BtnModify);
-            this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.Currentuser);
             this.Controls.Add(this.ItemList);
-            this.Controls.Add(this.pnlAddItem);
+            this.Controls.Add(this.BTNAllItems);
+            this.Controls.Add(this.BTNLowStock);
             this.Name = "StockUI";
             this.Text = "Stock";
             this.Load += new System.EventHandler(this.StockUI_Load_1);
@@ -371,9 +367,7 @@
         private System.Windows.Forms.ListView ItemList;
         private System.Windows.Forms.Label Currentuser;
         private System.Windows.Forms.Label lblCurrentUser;
-        private System.Windows.Forms.Button BtnHome;
         private System.Windows.Forms.Button BtnModify;
-        private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Button BTNLowStock;
         private System.Windows.Forms.Button BTNAllItems;
         private System.Windows.Forms.ColumnHeader ItemID;
@@ -395,5 +389,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnEditItem;
+        private System.Windows.Forms.Button button1;
     }
 }

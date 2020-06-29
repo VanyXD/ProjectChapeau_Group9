@@ -36,6 +36,7 @@ namespace ChapeauUI
         {
             MenuItemService menuServices = new MenuItemService();
             menuServices.UpdateStock(item.MenuItemID, int.Parse(richTxtBox_Modify.Text));
+            this.DialogResult = DialogResult.Yes;
             Close();
         }
     }

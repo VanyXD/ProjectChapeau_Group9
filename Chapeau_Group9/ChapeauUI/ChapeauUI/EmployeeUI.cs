@@ -53,6 +53,7 @@ namespace ChapeauUI
         private void EmployeeUI_Load(object sender, EventArgs e)
         {
             lblCurrentUser.Text = employee.FirstName;
+            AddEmployeePNL.Visible = false;
         }
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
@@ -75,65 +76,11 @@ namespace ChapeauUI
             }
         }
 
-        private void Add_Click(object sender, EventArgs e)
-        {
-            
-            if (ValidFields())
-            {
-                Employee employee = new Employee()
-                {
-                    FirstName = txtFirstName.Text,
-                    LastName = txtLastName.Text,
-                    Email = txtEmail.Text,
-                    PhoneNumber = int.Parse(txtPhoneNumber.Text),
-                    Password = int.Parse(txtPassword.Text),
-                    position = (Position)(int.Parse(txtPositionID.Text))
-                };
-
-
-                string message = $"Do you want to Add {employee.FirstName}?";
-                string header = "Add Employee";
-                MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
-                DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-                if (result == DialogResult.Yes)
-                {
-                    employeeServices.InsertEmployee(employee);
-                    MessageBox.Show("Employee is added!");
-                    ResetText();
-                    AddEmployeePNL.Hide();
-                    ResetText();
-                    UpDate();
-                } 
-
-            }
-            else
-            {
-                MessageBox.Show("Fill up all the fields!");
-            }
-
-        }
-
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             AddEmployeePNL.Show();
         }
 
-        private void Edit_Click(object sender, EventArgs e)
-        {
-            Employee employee = FillEmployee();
-            string message = $"Do you want to edit {employee.FirstName}?";
-            string header = "Edit employee!";
-            MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
-            DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
-            if (result == DialogResult.Yes)
-            {
-                employeeServices.EditEmployee(employee);
-                MessageBox.Show("Employee is edited!");
-                ResetText();
-                AddEmployeePNL.Hide();
-                UpDate();
-            }
-        }
 
         private void EditEmployee_Click(object sender, EventArgs e)
         {
@@ -194,16 +141,82 @@ namespace ChapeauUI
             txtPhoneNumber.ResetText();
         }
 
-        private void Close_Click(object sender, EventArgs e)
-        {
-            AddEmployeePNL.Hide();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
             managerUI.Show();
         }
-        
+
+        private void employeeList_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
+            e.DrawText();
+        }
+
+        private void employeeList_DrawItem(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
+
+        private void Close_Click_1(object sender, EventArgs e)
+        {
+            AddEmployeePNL.Visible = false;
+            ResetText();
+        }
+
+        private void Edit_Click_1(object sender, EventArgs e)
+        {
+            Employee employee = FillEmployee();
+            string message = $"Do you want to edit {employee.FirstName}?";
+            string header = "Edit employee!";
+            MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+            if (result == DialogResult.Yes)
+            {
+                employeeServices.EditEmployee(employee);
+                MessageBox.Show("Employee is edited!");
+                ResetText();
+                AddEmployeePNL.Hide();
+                UpDate();
+            }
+        }
+
+        private void Add_Click_1(object sender, EventArgs e)
+        {
+            if (ValidFields())
+            {
+                Employee employee = new Employee()
+                {
+                    FirstName = txtFirstName.Text,
+                    LastName = txtLastName.Text,
+                    Email = txtEmail.Text,
+                    PhoneNumber = int.Parse(txtPhoneNumber.Text),
+                    Password = int.Parse(txtPassword.Text),
+                    position = (Position)(int.Parse(txtPositionID.Text))
+                };
+
+
+                string message = $"Do you want to Add {employee.FirstName}?";
+                string header = "Add Employee";
+                MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+                DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+                if (result == DialogResult.Yes)
+                {
+                    employeeServices.InsertEmployee(employee);
+                    MessageBox.Show("Employee is added!");
+                    ResetText();
+                    AddEmployeePNL.Hide();
+                    ResetText();
+                    UpDate();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Fill up all the fields!");
+            }
+        }
+
     }
 }
