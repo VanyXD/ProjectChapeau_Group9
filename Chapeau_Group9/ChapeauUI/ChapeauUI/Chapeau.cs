@@ -40,10 +40,10 @@ namespace ChapeauUI
                 {
                     if (user.position == Position.Manager)
                     {
-                        TablesOverview WaiterOverview = new TablesOverview(this, user);
+                        ManagerUI managerUI = new ManagerUI(this, user);
 
                         Hide();
-                        WaiterOverview.Show();
+                        managerUI.Show();
                     }
                     else if (user.position == Position.waiter)
                     {

@@ -44,7 +44,7 @@ namespace ChapeauUI
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            StockUI stockUi = new StockUI(this, employee, logIN);
+            StockUI stockUi = new StockUI(this, employee);
             this.Hide();
             stockUi.Show();
         }
@@ -54,7 +54,19 @@ namespace ChapeauUI
 
         }
 
-        private void BTNHome_Click(object sender, EventArgs e)
+        private void btnTablesOverview_Click(object sender, EventArgs e)
+        {
+            TablesOverview tablesOverview = new TablesOverview(this, employee);
+            tablesOverview.Show();
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
             logIN.Show();

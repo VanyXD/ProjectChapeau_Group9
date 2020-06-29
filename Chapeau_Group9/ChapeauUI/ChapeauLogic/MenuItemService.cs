@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
 
+
 namespace ChapeauLogic
 {
     public class MenuItemService
@@ -98,6 +99,26 @@ namespace ChapeauLogic
             catch
             {
                 return false;
+            }
+        }
+
+        public void EditMenuItems(MenuItem item)
+        {
+            try
+            {
+                if (item.Category == CategoryID.Beers || item.Category == CategoryID.Wines)
+                {
+                    item.HighVAT = true;
+                }
+                else
+                {
+                    item.HighVAT = false;
+                }
+                menuItemDao.EditMenuItem(item);
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
             }
         }
     }

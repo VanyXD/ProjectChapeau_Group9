@@ -126,8 +126,24 @@ namespace ChapeauDAL
             int num = cmd.ExecuteNonQuery();
 
             conn.Close();
-            
+
             return num;
         }
+        public void EditMenuItem(MenuItem item)
+        {
+            SqlCommand cmd = new SqlCommand("update menu set [name] = @name , stock = @stock , vat = @vat , price = @price , category_id = @cat , item_type_id = @type where article_id = @id", conn);
+            cmd.Parameters.AddWithValue("@name", item.Name);
+            cmd.Parameters.AddWithValue("@stock", item.Stock);
+            cmd.Parameters.AddWithValue("@vat", item.HighVAT);
+            cmd.Parameters.AddWithValue("@price", item.Price);
+            cmd.Parameters.AddWithValue("@cat", item.Category);
+            cmd.Parameters.AddWithValue("@type", item.Type);
+            cmd.Parameters.AddWithValue("@id", item.MenuItemID);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+
+        }
     }
-}
+    }

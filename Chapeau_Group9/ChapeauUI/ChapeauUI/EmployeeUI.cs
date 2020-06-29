@@ -204,5 +204,6 @@ namespace ChapeauUI
             this.Close();
             managerUI.Show();
         }
+        
     }
 }

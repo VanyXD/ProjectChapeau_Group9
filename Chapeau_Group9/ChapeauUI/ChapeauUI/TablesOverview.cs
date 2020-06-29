@@ -16,20 +16,8 @@ namespace ChapeauUI
 {
     public partial class TablesOverview : Form
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         Chapeau logIn = new Chapeau();
-        Form previousForm;
-=======
         Form Login;
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
-=======
-        Form Login;
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
-=======
-        Form Login;
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
         private TablesService tablesServices;
         private Employee employee;
         
@@ -60,19 +48,7 @@ namespace ChapeauUI
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             this.Close();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             logIn.Show();
-=======
-            Login.Show();
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
-=======
-            Login.Show();
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
-=======
-            Login.Show();
->>>>>>> a012a252913db7e08818bef6dfe72e461a899127
         }
 
         private void DisplayTables(List<Button> buttons)
@@ -205,12 +181,11 @@ namespace ChapeauUI
             TablesOverview_Load(sender, e);
         }
 
-        private void BTNManager_Click(object sender, EventArgs e)
+        private void btnManagerUI_Click(object sender, EventArgs e)
         {
-            //Employee employee = employeeServices.GetEmployee(LoginPassword, userName);
-            ManagerUI managerUI = new ManagerUI(this, employee);
+            ManagerUI managerUI = new ManagerUI(logIn, employee);
             managerUI.Show();
-            Hide();
+            this.Close();
         }
     }
 }
