@@ -30,13 +30,15 @@ namespace ChapeauDAL
         }
 
         //I added this method from the Employee class
-        public void AddItem(MenuItem menu)
+        public void AddMenuItem(MenuItem menu)
         {
-            string query = $"insert into Menu(articleID,Name,Price,Stock,VAT,item_type_id,Category_ID) values({menu.MenuItemID}, '{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {menu.HighVAT}, {menu.Type}, {menu.Category}";
+
+            string query = $"insert into Menu(Name,Price,Stock,item_type_id,Category_ID) values('{menu.Name}', {menu.Price}, " +
+                $"{menu.Stock}, {Convert.ToInt32(menu.Type)}, {Convert.ToInt32(menu.Category)})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
+
         public void UpdateStock(int id, int stock)
         {
             string query = "update menu " +
@@ -144,10 +146,26 @@ namespace ChapeauDAL
             conn.Close();
 
         }
+        //public void AddMenuItem(MenuItem item)
+        //{
+        //    SqlCommand cmd = new SqlCommand($"insert into menu values [name] = @name , stock = @stock ,vat = {(item.HighVAT ? "1":"0")} , price = @price , category_id = @cat , item_type_id = @type where article_id = @id", conn);
+        //    cmd.Parameters.AddWithValue("@name", item.Name);
+        //    cmd.Parameters.AddWithValue("@stock", item.Stock);
+        //    //cmd.Parameters.AddWithValue("@vat", item.HighVAT);
+        //    cmd.Parameters.AddWithValue("@price", item.Price);
+        //    cmd.Parameters.AddWithValue("@cat", item.Category);
+        //    cmd.Parameters.AddWithValue("@type", item.Type);
+        //    cmd.Parameters.AddWithValue("@id", item.MenuItemID);
+        //    conn.Open();
+        //    cmd.ExecuteNonQuery();
+        //    conn.Close();
+        //}
 
         public void RemoveMenuItem(MenuItem item)
         {
-
+            string query = $"DELETE FROM Menu WHERE article_ID = {item.MenuItemID}";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
     }

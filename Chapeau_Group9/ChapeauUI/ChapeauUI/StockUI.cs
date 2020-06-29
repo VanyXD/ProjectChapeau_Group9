@@ -201,5 +201,44 @@ namespace ChapeauUI
         {
             e.DrawDefault = true;
         }
+
+        private void BTNAdd_Click(object sender, EventArgs e)
+        {
+            
+            if (ValidFields())
+            {
+                ChapeauModel.MenuItem item = new ChapeauModel.MenuItem()
+                {
+                    Name = txtName.Text,
+                    Price = Convert.ToDecimal(txtPrice.Text),
+                    Stock = Convert.ToInt32(txtStock.Text),
+                    Type = (MenuItemType)cmbType.SelectedItem,
+                    Category = (CategoryID)cmbType.SelectedItem
+                };
+                
+                string message = $"Do you want to Add {item.Name}?";
+                string header = "Add Menu Item";
+                MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+                DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+                if (result == DialogResult.Yes)
+                {
+                    Itemservices.AddMenuItem(item);
+                    MessageBox.Show("Item is added!");
+                    pnlAddItem.Visible = false;
+                }
+                List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
+                LoadMenuItems(menuItems);
+            }
+        }
+
+        private void BTNAddItem_Click(object sender, EventArgs e)
+        {
+            cmbCategory.DataSource = Enum.GetValues(typeof(CategoryID));
+            cmbType.DataSource = Enum.GetValues(typeof(MenuItemType));
+            ChapeauModel.MenuItem item = new ChapeauModel.MenuItem() ;
+            pnlAddItem.Visible = true;
+            cmbCategory.Text = Enum.GetValues(typeof(CategoryID)).ToString();
+            cmbType.Text = Enum.GetValues(typeof(MenuItemType)).ToString();
+       }
     }
 }
