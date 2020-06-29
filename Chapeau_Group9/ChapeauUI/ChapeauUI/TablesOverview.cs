@@ -16,7 +16,7 @@ namespace ChapeauUI
 {
     public partial class TablesOverview : Form
     {
-        Chapeau logIn = new Chapeau();
+        //Chapeau logIn = new Chapeau();
         Form Login;
         private TablesService tablesServices;
         private Employee employee;
@@ -42,7 +42,7 @@ namespace ChapeauUI
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            logIn.Show();
+            Login.Show();
         }
 
         private void DisplayTables()
@@ -94,7 +94,11 @@ namespace ChapeauUI
                         labels[orders[i].Table.TableID - 1].Text = "Ready";
                     }
                 }
-            }                     
+            }
+            else
+            {
+                MessageBox.Show("database connection failed");
+            }
         }
         
 
@@ -197,7 +201,7 @@ namespace ChapeauUI
 
         private void btnManagerUI_Click(object sender, EventArgs e)
         {
-            ManagerUI managerUI = new ManagerUI(logIn, employee);
+            ManagerUI managerUI = new ManagerUI(Login, employee);
             managerUI.Show();
             this.Close();
         }
