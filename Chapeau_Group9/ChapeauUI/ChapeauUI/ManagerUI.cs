@@ -17,11 +17,12 @@ namespace ChapeauUI
 {
     public partial class ManagerUI : Form
     {
+        Chapeau login;
         Form logIN;
         private Employee employee;
-        public ManagerUI(Form LogIn, Employee employee)
+        public ManagerUI(Chapeau login, Employee employee)
         {
-            this.logIN = LogIn;
+            this.logIN = login;
             InitializeComponent();
             this.employee = employee;
         }
@@ -49,7 +50,7 @@ namespace ChapeauUI
 
         private void btnTablesOverview_Click(object sender, EventArgs e)
         {
-            TablesOverview tablesOverview = new TablesOverview(employee);
+            TablesOverview tablesOverview = new TablesOverview(login, employee);
             tablesOverview.Show();
             this.Close();
         }
