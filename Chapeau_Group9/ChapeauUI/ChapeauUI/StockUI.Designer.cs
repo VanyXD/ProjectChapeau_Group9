@@ -39,6 +39,7 @@
             this.BTNLowStock = new System.Windows.Forms.Button();
             this.BTNAllItems = new System.Windows.Forms.Button();
             this.pnlAddItem = new System.Windows.Forms.Panel();
+            this.BTNAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,8 +56,8 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.btnEditItem = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.BTNAdd = new System.Windows.Forms.Button();
             this.BTNAddItem = new System.Windows.Forms.Button();
+            this.BTNRemove = new System.Windows.Forms.Button();
             this.pnlAddItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,6 +176,19 @@
             this.pnlAddItem.Size = new System.Drawing.Size(868, 569);
             this.pnlAddItem.TabIndex = 24;
             this.pnlAddItem.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAddItem_Paint);
+            // 
+            // BTNAdd
+            // 
+            this.BTNAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.BTNAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNAdd.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNAdd.Location = new System.Drawing.Point(440, 505);
+            this.BTNAdd.Name = "BTNAdd";
+            this.BTNAdd.Size = new System.Drawing.Size(122, 50);
+            this.BTNAdd.TabIndex = 28;
+            this.BTNAdd.Text = "ADD";
+            this.BTNAdd.UseVisualStyleBackColor = false;
+            this.BTNAdd.Click += new System.EventHandler(this.BTNAdd_Click);
             // 
             // btnClose
             // 
@@ -319,7 +333,7 @@
             this.btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditItem.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditItem.Location = new System.Drawing.Point(239, 629);
+            this.btnEditItem.Location = new System.Drawing.Point(234, 629);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(155, 50);
             this.btnEditItem.TabIndex = 26;
@@ -340,25 +354,12 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // BTNAdd
-            // 
-            this.BTNAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.BTNAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNAdd.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNAdd.Location = new System.Drawing.Point(440, 505);
-            this.BTNAdd.Name = "BTNAdd";
-            this.BTNAdd.Size = new System.Drawing.Size(122, 50);
-            this.BTNAdd.TabIndex = 28;
-            this.BTNAdd.Text = "ADD";
-            this.BTNAdd.UseVisualStyleBackColor = false;
-            this.BTNAdd.Click += new System.EventHandler(this.BTNAdd_Click);
-            // 
             // BTNAddItem
             // 
             this.BTNAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.BTNAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNAddItem.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNAddItem.Location = new System.Drawing.Point(435, 629);
+            this.BTNAddItem.Location = new System.Drawing.Point(424, 629);
             this.BTNAddItem.Name = "BTNAddItem";
             this.BTNAddItem.Size = new System.Drawing.Size(155, 50);
             this.BTNAddItem.TabIndex = 28;
@@ -366,14 +367,28 @@
             this.BTNAddItem.UseVisualStyleBackColor = false;
             this.BTNAddItem.Click += new System.EventHandler(this.BTNAddItem_Click);
             // 
+            // BTNRemove
+            // 
+            this.BTNRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.BTNRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNRemove.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNRemove.Location = new System.Drawing.Point(609, 629);
+            this.BTNRemove.Name = "BTNRemove";
+            this.BTNRemove.Size = new System.Drawing.Size(155, 50);
+            this.BTNRemove.TabIndex = 29;
+            this.BTNRemove.Text = "Remove Item";
+            this.BTNRemove.UseVisualStyleBackColor = false;
+            this.BTNRemove.Click += new System.EventHandler(this.BTNRemove_Click);
+            // 
             // StockUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.BTNAddItem);
             this.Controls.Add(this.pnlAddItem);
+            this.Controls.Add(this.BTNRemove);
+            this.Controls.Add(this.BTNAddItem);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.BtnModify);
@@ -422,5 +437,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BTNAdd;
         private System.Windows.Forms.Button BTNAddItem;
+        private System.Windows.Forms.Button BTNRemove;
     }
 }

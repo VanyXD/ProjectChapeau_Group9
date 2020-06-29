@@ -173,10 +173,12 @@ namespace ChapeauUI
             {
                 MessageBox.Show("Fill all the fields");
             }
+            ResetFields();
         }
         
         private void btnClose_Click_1(object sender, EventArgs e)
         {
+            ResetFields();
             pnlAddItem.Visible = false;
         }
 
@@ -228,6 +230,7 @@ namespace ChapeauUI
                 }
                 List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
                 LoadMenuItems(menuItems);
+                ResetFields();
             }
         }
 
@@ -240,5 +243,33 @@ namespace ChapeauUI
             cmbCategory.Text = Enum.GetValues(typeof(CategoryID)).ToString();
             cmbType.Text = Enum.GetValues(typeof(MenuItemType)).ToString();
        }
+
+        private void BTNRemove_Click(object sender, EventArgs e)
+        {
+            if (ItemList.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            ChapeauModel.MenuItem item = (ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag;
+
+            string message = $"Do you want to remove {item.Name}?";
+            string header = "Remove";
+            MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+            if (result == DialogResult.Yes)
+            {
+                Itemservices.RemoveMenuItem(item);
+                MessageBox.Show("Item is removed!");
+
+                StockUI_Load_1(sender, e);
+            }
+        }
+
+        private void ResetFields()
+        {
+            txtName.ResetText();
+            txtPrice.ResetText();
+            txtStock.ResetText();
+        }
     }
 }

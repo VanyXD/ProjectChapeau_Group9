@@ -20,13 +20,11 @@ namespace ChapeauUI
     public partial class EmployeeUI : Form
     {
         private Employee employee;
-        Form LogIn;
         ManagerUI managerUI;
         EmployeeServices employeeServices = new EmployeeServices();
-        public EmployeeUI(ManagerUI managerUI, Employee employee, Form LogIn)
+        public EmployeeUI(ManagerUI managerUI, Employee employee)
         {
             InitializeComponent();
-            this.LogIn = LogIn;
             this.employee = employee;
             this.managerUI = managerUI;
             AddEmployeePNL.Hide();

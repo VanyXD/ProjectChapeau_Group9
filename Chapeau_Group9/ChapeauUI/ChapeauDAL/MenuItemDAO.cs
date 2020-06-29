@@ -33,8 +33,8 @@ namespace ChapeauDAL
         public void AddMenuItem(MenuItem menu)
         {
 
-            string query = $"insert into Menu(Name,Price,Stock,item_type_id,Category_ID) values('{menu.Name}', {menu.Price}, " +
-                $"{menu.Stock}, {Convert.ToInt32(menu.Type)}, {Convert.ToInt32(menu.Category)})";
+            string query = $"insert into Menu(Name,Price,Stock,VAT,item_type_id,Category_ID) values('{menu.Name}', {menu.Price}, " +
+                $"{menu.Stock}, {(menu.HighVAT ? "1" : "0")},{Convert.ToInt32(menu.Type)}, {Convert.ToInt32(menu.Category)})";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
