@@ -77,7 +77,7 @@
             this.btnTablesOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnTablesOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTablesOverview.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTablesOverview.Location = new System.Drawing.Point(133, 306);
+            this.btnTablesOverview.Location = new System.Drawing.Point(133, 305);
             this.btnTablesOverview.Name = "btnTablesOverview";
             this.btnTablesOverview.Size = new System.Drawing.Size(208, 78);
             this.btnTablesOverview.TabIndex = 37;
@@ -103,7 +103,7 @@
             this.btnEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployees.Location = new System.Drawing.Point(133, 200);
+            this.btnEmployees.Location = new System.Drawing.Point(133, 193);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(208, 78);
             this.btnEmployees.TabIndex = 34;

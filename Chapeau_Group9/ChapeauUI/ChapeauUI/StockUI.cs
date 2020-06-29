@@ -51,6 +51,7 @@ namespace ChapeauUI
             pnlAddItem.Visible = false;
             lblCurrentUser.Text = employee.FirstName;
             LoadMenuItems(menuItems);
+
         }
 
         private void BtnModify_Click(object sender, EventArgs e)
@@ -238,10 +239,8 @@ namespace ChapeauUI
         {
             cmbCategory.DataSource = Enum.GetValues(typeof(CategoryID));
             cmbType.DataSource = Enum.GetValues(typeof(MenuItemType));
-            ChapeauModel.MenuItem item = new ChapeauModel.MenuItem() ;
             pnlAddItem.Visible = true;
-            cmbCategory.Text = Enum.GetValues(typeof(CategoryID)).ToString();
-            cmbType.Text = Enum.GetValues(typeof(MenuItemType)).ToString();
+
        }
 
         private void BTNRemove_Click(object sender, EventArgs e)

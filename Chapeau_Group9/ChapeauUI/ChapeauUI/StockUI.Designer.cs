@@ -333,7 +333,7 @@
             this.btnEditItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnEditItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditItem.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditItem.Location = new System.Drawing.Point(234, 629);
+            this.btnEditItem.Location = new System.Drawing.Point(248, 629);
             this.btnEditItem.Name = "btnEditItem";
             this.btnEditItem.Size = new System.Drawing.Size(155, 50);
             this.btnEditItem.TabIndex = 26;
@@ -359,7 +359,7 @@
             this.BTNAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.BTNAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNAddItem.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNAddItem.Location = new System.Drawing.Point(424, 629);
+            this.BTNAddItem.Location = new System.Drawing.Point(455, 629);
             this.BTNAddItem.Name = "BTNAddItem";
             this.BTNAddItem.Size = new System.Drawing.Size(155, 50);
             this.BTNAddItem.TabIndex = 28;
@@ -372,7 +372,7 @@
             this.BTNRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.BTNRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNRemove.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNRemove.Location = new System.Drawing.Point(609, 629);
+            this.BTNRemove.Location = new System.Drawing.Point(662, 629);
             this.BTNRemove.Name = "BTNRemove";
             this.BTNRemove.Size = new System.Drawing.Size(155, 50);
             this.BTNRemove.TabIndex = 29;

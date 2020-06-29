@@ -27,8 +27,7 @@ namespace ChapeauUI
             InitializeComponent();
             this.employee = employee;
             this.managerUI = managerUI;
-            AddEmployeePNL.Hide();
-            UpDate();
+            
         }
         public void UpDate()
         {
@@ -36,14 +35,14 @@ namespace ChapeauUI
 
             employeeList.Items.Clear();
 
-            foreach (Employee employe in employees)
+            foreach (Employee employee in employees)
             {
-                ListViewItem li = new ListViewItem(employe.Password.ToString());
-                li.SubItems.Add(employe.FirstName);
-                li.SubItems.Add(employe.LastName);
-                li.SubItems.Add(employe.position.ToString());
-                li.SubItems.Add(employe.EmployeeID.ToString());
-                li.Tag = employe;
+                ListViewItem li = new ListViewItem(employee.Password.ToString());
+                li.SubItems.Add(employee.FirstName);
+                li.SubItems.Add(employee.LastName);
+                li.SubItems.Add(employee.position.ToString());
+                li.SubItems.Add(employee.EmployeeID.ToString());
+                li.Tag = employee;
                 employeeList.Items.Add(li);
             }
         }
@@ -52,6 +51,7 @@ namespace ChapeauUI
         {
             lblCurrentUser.Text = employee.FirstName;
             AddEmployeePNL.Visible = false;
+            UpDate();
         }
 
         private void btnRemoveEmployee_Click(object sender, EventArgs e)
@@ -76,7 +76,7 @@ namespace ChapeauUI
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            AddEmployeePNL.Show();
+            AddEmployeePNL.Visible = true;
         }
 
 
@@ -120,6 +120,7 @@ namespace ChapeauUI
             this.Close();
             managerUI.Show();
         }
+
         private bool ValidFields()
         {
             if (txtFirstName.Text != null && txtLastName.Text != null && txtPositionID != null && txtPhoneNumber.Text != null && txtPassword != null && txtEmail != null)
@@ -129,6 +130,7 @@ namespace ChapeauUI
 
             return false;
         }
+
         private void ResetText()
         {
             txtFirstName.ResetText();
@@ -139,23 +141,12 @@ namespace ChapeauUI
             txtPhoneNumber.ResetText();
         }
 
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
             managerUI.Show();
         }
 
-        private void employeeList_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
-            e.DrawText();
-        }
-
-        private void employeeList_DrawItem(object sender, DrawListViewItemEventArgs e)
-        {
-            e.DrawDefault = true;
-        }
 
         private void Close_Click_1(object sender, EventArgs e)
         {
@@ -216,5 +207,15 @@ namespace ChapeauUI
             }
         }
 
+        private void employeeList_DrawColumnHeader_1(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
+            e.DrawText();
+        }
+
+        private void employeeList_DrawItem_1(object sender, DrawListViewItemEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
     }
 }
