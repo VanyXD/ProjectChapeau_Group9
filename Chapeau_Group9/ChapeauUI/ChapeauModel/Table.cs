@@ -5,7 +5,7 @@
         public int TableID { get; set; }
         public TableStatus Status { get; set; } 
         public int TableNumber { get; set; }
-        
+
 
         public Table(int tableid, TableStatus status, int tablenumber)
         {
@@ -17,6 +17,7 @@
         {
             TableID = tableid;
         }
+        public Table() { }
     }
     
 

@@ -16,7 +16,16 @@ namespace ChapeauUI
 {
     public partial class TablesOverview : Form
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
+        Chapeau logIn = new Chapeau();
         Form previousForm;
+=======
+        Form Login;
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
+=======
+        Form Login;
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
         private TablesService tablesServices;
         private Employee employee;
         
@@ -27,7 +36,7 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
-            this.previousForm = login;
+            this.Login = login;
 
             tablesServices = new TablesService();
             
@@ -37,10 +46,6 @@ namespace ChapeauUI
         }
         private void TablesOverview_Load(object sender, EventArgs e)
         {
-            if(employee.position != Position.Manager)
-            {
-                btnManagerUI.Visible = false;
-            }
             lblCurrentUser.Text = employee.FirstName;
             List<Button> buttons = new List<Button> { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
             List<Label> labels = new List<Label> { lbltable1time, lbltable2time, lbltable3time, lbltable4time, lbltable5time, lbltable6time, lbltable7time, lbltable8time, lbltable9time, lbltable10time };
@@ -51,7 +56,15 @@ namespace ChapeauUI
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            previousForm.Show();
+<<<<<<< HEAD
+<<<<<<< HEAD
+            logIn.Show();
+=======
+            Login.Show();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
+=======
+            Login.Show();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
         }
 
         private void DisplayTables(List<Button> buttons)
@@ -184,10 +197,12 @@ namespace ChapeauUI
             TablesOverview_Load(sender, e);
         }
 
-        private void btnManagerUI_Click(object sender, EventArgs e)
+        private void BTNManager_Click(object sender, EventArgs e)
         {
-            this.previousForm.Show();
-            this.Close();
+            //Employee employee = employeeServices.GetEmployee(LoginPassword, userName);
+            ManagerUI managerUI = new ManagerUI(this, employee);
+            managerUI.Show();
+            Hide();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                return null;
+                return new List<MenuItem>();
             }
         }
         public List<MenuItem> GetFoodItems()
@@ -48,17 +48,17 @@ namespace ChapeauLogic
                 throw ex;
             }
         }
-        public List<MenuItem> GetForCategory(Category categoryID)
+        public List<MenuItem> GetForCategory(CategoryID categoryID)
         {
             try
             {
                 List<MenuItem> items;
-                if (categoryID == Category.Beers || categoryID == Category.Wines) //rename enum
+                if (categoryID == CategoryID.Beers || categoryID == CategoryID.Wines) //rename enum
                 {
-                    items = menuItemDao.GetForCategory(Category.Wines);
+                    items = menuItemDao.GetForCategory(CategoryID.Wines);
 
                     // adding the list of wines and beers together
-                    items.AddRange(menuItemDao.GetForCategory(Category.Beers));
+                    items.AddRange(menuItemDao.GetForCategory(CategoryID.Beers));
                 }
                 else
                 {
@@ -99,18 +99,6 @@ namespace ChapeauLogic
             {
                 return false;
             }
-        }
-        public void EditMenuItem(MenuItem item)
-        {
-            if(item.Category == Category.Beers || item.Category == Category.Wines)
-            {
-                item.HighVAT = true;
-            }
-            else
-            {
-                item.HighVAT = false;
-            }
-            menuItemDao.EditMenuItem(item);
         }
     }
 }

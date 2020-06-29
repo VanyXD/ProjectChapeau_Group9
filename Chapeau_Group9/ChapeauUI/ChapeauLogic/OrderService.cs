@@ -13,47 +13,28 @@ namespace ChapeauLogic
     {
         OrderDAO orderdao = new OrderDAO();
 
-
-        public List<Order> GetOrders()
+        public List<Order> GetOrders(MenuItemType type)
         {
-            List<Order> orders = new List<Order>();
             try
             {
-                orders = orderdao.GetAllOrders();
+                List<Order> orders = orderdao.GetAllOrders(type);
                 return orders;
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
+                throw new Exception("Couldn't connect to the database");
             }
         }
-        public List<OrderItem> GetKitchenOrderItems(int id)
+        public List<OrderItem> GetOrderItems(int id, MenuItemType type)
         {
-            List<OrderItem> orders = new List<OrderItem>();
             try
             {
-                orders = orderdao.GetKitchenItems(id);
+                List<OrderItem> orders = orderdao.GetKitchenBarItems(id, type);
                 return orders;
             }
             catch (Exception)
             {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
-            }
-        }
-        public List<OrderItem> GetBarOrderItems(int id)
-        {
-            List<OrderItem> orders = new List<OrderItem>();
-            try
-            {
-                orders = orderdao.GetBarItems(id);
-                return orders;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
+                throw new Exception("Couldn't connect to the database");
             }
         }
         public int WriteOrder(Order order, Table table) // make it a boolean
@@ -68,7 +49,7 @@ namespace ChapeauLogic
 
                 int orderID = this.orderdao.GetLastOrderID();
                 int oirows = 0;
-                foreach (OrderItem item in order.OrderItems) 
+                foreach (OrderItem item in order.OrderItems)
                 {
                     // send the int order id
                     oirows = this.orderdao.WriteOrderItems(orderID, item);
@@ -82,7 +63,7 @@ namespace ChapeauLogic
                   //entire order, then get it back from db (line 69) and write the orderitems using that orderid
                   // and we have a list of orderitems that all of them need to be written to the db, so we use a foreach
                   // and foreach orderitem in the orderitems list of the order, we write it's menuitem and quantity in the db
-                 
+
                 if (oirows > 0)
                 {
                     return row;
@@ -93,37 +74,8 @@ namespace ChapeauLogic
             {
                 return -2;
             }
-            
-            
-        }
 
-        public List<OrderItem> GetKitchenTableItems(int id)
-        {
-            List<OrderItem> orders = new List<OrderItem>();
-            try
-            {
-                orders = orderdao.GetKitchenItemsPerTable(id);
-                return orders;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
-            }
-        }
-        public List<OrderItem> GetBarTableItems(int id)
-        {
-                List<OrderItem> orders = new List<OrderItem>();
-            try
-            {
-                orders = orderdao.GetBarItemsPerTable(id);
-                return orders;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Couldn't connect to the database");
-                return orders;
-            }
+
         }
         public bool OrderReady(int id)
         {
@@ -132,33 +84,29 @@ namespace ChapeauLogic
                 orderdao.UpdateReady(id);
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw new Exception("Couldn't connect to the database");
             }
         }
-        public string GetComments(int id)
+        public bool CheckStatusReady(int id)
         {
             try
             {
-                return orderdao.GetComment(id);
+                List<int> status = orderdao.GetStatus(id);
+                foreach (int state in status)
+                {
+                    if (state != 2)
+                    {
+                        return false;
+                    }
+                }
+                return true;
             }
-            catch
+            catch (Exception)
             {
-                return "";
+                throw new Exception("Couldn't connect to the database");
             }
-        }
-
-        public bool CheckStatusReady(int id)
-        {
-            List<int> status = new List<int>();
-            status = orderdao.GetStatus(id);
-            foreach (int state in status)
-            {
-                if (state != 2)
-                    return false;
-            }
-            return true;
         }
         public bool OrderCompeteReady(int id)
         {
@@ -167,10 +115,11 @@ namespace ChapeauLogic
                 orderdao.OrderReady(id);
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw new Exception("Couldn't connect to the database");
             }
         }
     }
 }
+

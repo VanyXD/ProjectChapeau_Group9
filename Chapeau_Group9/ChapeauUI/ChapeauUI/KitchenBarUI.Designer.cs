@@ -28,56 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenBarUI));
             this.tabs_Kitchen = new System.Windows.Forms.TabControl();
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
-            this.lbl_yellow = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_kitchen_table9 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table8 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table7 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table6 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table5 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table4 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table10 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table3 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table2 = new System.Windows.Forms.Button();
-            this.btn_kitchen_table1 = new System.Windows.Forms.Button();
-            this.lbl_title = new System.Windows.Forms.Label();
-            this.lv_kitchen_table1 = new System.Windows.Forms.ListView();
-            this.col_quantity1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table2 = new System.Windows.Forms.ListView();
-            this.col_quantity2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table10 = new System.Windows.Forms.ListView();
-            this.col_quantity10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table9 = new System.Windows.Forms.ListView();
-            this.col_quantity9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table8 = new System.Windows.Forms.ListView();
-            this.col_quantity8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table7 = new System.Windows.Forms.ListView();
-            this.col_quantity7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table6 = new System.Windows.Forms.ListView();
-            this.col_quantity6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table5 = new System.Windows.Forms.ListView();
-            this.col_quantity5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table4 = new System.Windows.Forms.ListView();
-            this.col_quantity4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lv_kitchen_table3 = new System.Windows.Forms.ListView();
-            this.col_quantity3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.col_menuItem3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbl_OrderView = new System.Windows.Forms.Label();
+            this.btn_Item_Ready = new System.Windows.Forms.Button();
+            this.txtbox_notes = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lv_ViewOrders = new System.Windows.Forms.ListView();
+            this.col_table = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_quant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
             this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.btn_Kitchen_Modify = new System.Windows.Forms.Button();
-            this.Lbl_Stock = new System.Windows.Forms.Label();
+            this.lbl_Stock = new System.Windows.Forms.Label();
             this.lbl_Kitchen_Catergory = new System.Windows.Forms.Label();
             this.lbl_Kitche_Menu = new System.Windows.Forms.Label();
             this.cbox_Kitchen_Category = new System.Windows.Forms.ComboBox();
@@ -86,434 +53,128 @@
             this.col_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_ItemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_Stock = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btn_Kitchen_Logout = new System.Windows.Forms.Button();
             this.lbl_current_user = new System.Windows.Forms.Label();
             this.lbl_user = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabs_Kitchen
             // 
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Orders);
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Stock);
-            this.tabs_Kitchen.Location = new System.Drawing.Point(12, 36);
+            this.tabs_Kitchen.Location = new System.Drawing.Point(48, 93);
             this.tabs_Kitchen.Name = "tabs_Kitchen";
             this.tabs_Kitchen.SelectedIndex = 0;
-            this.tabs_Kitchen.Size = new System.Drawing.Size(918, 484);
+            this.tabs_Kitchen.Size = new System.Drawing.Size(921, 527);
             this.tabs_Kitchen.TabIndex = 0;
             // 
             // tab_Kitchen_Orders
             // 
-            this.tab_Kitchen_Orders.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tab_Kitchen_Orders.Controls.Add(this.lbl_yellow);
-            this.tab_Kitchen_Orders.Controls.Add(this.label2);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table9);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table8);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table7);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table6);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table5);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table4);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table10);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table3);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table2);
-            this.tab_Kitchen_Orders.Controls.Add(this.btn_kitchen_table1);
-            this.tab_Kitchen_Orders.Controls.Add(this.lbl_title);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table1);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table2);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table10);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table9);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table8);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table7);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table6);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table5);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table4);
-            this.tab_Kitchen_Orders.Controls.Add(this.lv_kitchen_table3);
+            this.tab_Kitchen_Orders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.tab_Kitchen_Orders.Controls.Add(this.lbl_OrderView);
+            this.tab_Kitchen_Orders.Controls.Add(this.btn_Item_Ready);
+            this.tab_Kitchen_Orders.Controls.Add(this.txtbox_notes);
+            this.tab_Kitchen_Orders.Controls.Add(this.label1);
+            this.tab_Kitchen_Orders.Controls.Add(this.lv_ViewOrders);
             this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 25);
             this.tab_Kitchen_Orders.Name = "tab_Kitchen_Orders";
             this.tab_Kitchen_Orders.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(910, 455);
+            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(913, 498);
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
             // 
-            // lbl_yellow
-            // 
-            this.lbl_yellow.AutoSize = true;
-            this.lbl_yellow.BackColor = System.Drawing.Color.Gold;
-            this.lbl_yellow.Location = new System.Drawing.Point(459, 13);
-            this.lbl_yellow.Name = "lbl_yellow";
-            this.lbl_yellow.Size = new System.Drawing.Size(20, 17);
-            this.lbl_yellow.TabIndex = 51;
-            this.lbl_yellow.Text = "   ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(485, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Preparing";
-            // 
-            // btn_kitchen_table9
-            // 
-            this.btn_kitchen_table9.Location = new System.Drawing.Point(533, 244);
-            this.btn_kitchen_table9.Name = "btn_kitchen_table9";
-            this.btn_kitchen_table9.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table9.TabIndex = 47;
-            this.btn_kitchen_table9.Text = "Table 9";
-            this.btn_kitchen_table9.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table9.Click += new System.EventHandler(this.btn_kitchen_table9_Click);
-            // 
-            // btn_kitchen_table8
-            // 
-            this.btn_kitchen_table8.Location = new System.Drawing.Point(356, 244);
-            this.btn_kitchen_table8.Name = "btn_kitchen_table8";
-            this.btn_kitchen_table8.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table8.TabIndex = 46;
-            this.btn_kitchen_table8.Text = "Table 8";
-            this.btn_kitchen_table8.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table8.Click += new System.EventHandler(this.btn_kitchen_table8_Click);
-            // 
-            // btn_kitchen_table7
-            // 
-            this.btn_kitchen_table7.Location = new System.Drawing.Point(179, 244);
-            this.btn_kitchen_table7.Name = "btn_kitchen_table7";
-            this.btn_kitchen_table7.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table7.TabIndex = 45;
-            this.btn_kitchen_table7.Text = "Table 7";
-            this.btn_kitchen_table7.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table7.Click += new System.EventHandler(this.btn_kitchen_table7_Click);
-            // 
-            // btn_kitchen_table6
-            // 
-            this.btn_kitchen_table6.Location = new System.Drawing.Point(6, 244);
-            this.btn_kitchen_table6.Name = "btn_kitchen_table6";
-            this.btn_kitchen_table6.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table6.TabIndex = 44;
-            this.btn_kitchen_table6.Text = "Table 6";
-            this.btn_kitchen_table6.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table6.Click += new System.EventHandler(this.btn_kitchen_table6_Click);
-            // 
-            // btn_kitchen_table5
-            // 
-            this.btn_kitchen_table5.Location = new System.Drawing.Point(709, 45);
-            this.btn_kitchen_table5.Name = "btn_kitchen_table5";
-            this.btn_kitchen_table5.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table5.TabIndex = 43;
-            this.btn_kitchen_table5.Text = "Table 5";
-            this.btn_kitchen_table5.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table5.Click += new System.EventHandler(this.btn_kitchen_table5_Click);
-            // 
-            // btn_kitchen_table4
-            // 
-            this.btn_kitchen_table4.Location = new System.Drawing.Point(533, 45);
-            this.btn_kitchen_table4.Name = "btn_kitchen_table4";
-            this.btn_kitchen_table4.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table4.TabIndex = 42;
-            this.btn_kitchen_table4.Text = "Table 4";
-            this.btn_kitchen_table4.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table4.Click += new System.EventHandler(this.btn_kitchen_table4_Click);
-            // 
-            // btn_kitchen_table10
-            // 
-            this.btn_kitchen_table10.Location = new System.Drawing.Point(709, 244);
-            this.btn_kitchen_table10.Name = "btn_kitchen_table10";
-            this.btn_kitchen_table10.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table10.TabIndex = 41;
-            this.btn_kitchen_table10.Text = "Table 10";
-            this.btn_kitchen_table10.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table10.Click += new System.EventHandler(this.btn_kitchen_table10_Click);
-            // 
-            // btn_kitchen_table3
-            // 
-            this.btn_kitchen_table3.Location = new System.Drawing.Point(356, 45);
-            this.btn_kitchen_table3.Name = "btn_kitchen_table3";
-            this.btn_kitchen_table3.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table3.TabIndex = 40;
-            this.btn_kitchen_table3.Text = "Table 3";
-            this.btn_kitchen_table3.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table3.Click += new System.EventHandler(this.btn_kitchen_table3_Click);
-            // 
-            // btn_kitchen_table2
-            // 
-            this.btn_kitchen_table2.Location = new System.Drawing.Point(179, 45);
-            this.btn_kitchen_table2.Name = "btn_kitchen_table2";
-            this.btn_kitchen_table2.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table2.TabIndex = 39;
-            this.btn_kitchen_table2.Text = "Table 2";
-            this.btn_kitchen_table2.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table2.Click += new System.EventHandler(this.btn_kitchen_table2_Click);
-            // 
-            // btn_kitchen_table1
-            // 
-            this.btn_kitchen_table1.Location = new System.Drawing.Point(6, 45);
-            this.btn_kitchen_table1.Name = "btn_kitchen_table1";
-            this.btn_kitchen_table1.Size = new System.Drawing.Size(177, 44);
-            this.btn_kitchen_table1.TabIndex = 38;
-            this.btn_kitchen_table1.Text = "Table 1";
-            this.btn_kitchen_table1.UseVisualStyleBackColor = true;
-            this.btn_kitchen_table1.Click += new System.EventHandler(this.btn_kitchen_table1_Click);
-            // 
-            // lbl_title
-            // 
-            this.lbl_title.AutoSize = true;
-            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(7, 3);
-            this.lbl_title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(105, 33);
-            this.lbl_title.TabIndex = 33;
-            this.lbl_title.Text = "Orders";
-            // 
-            // lv_kitchen_table1
-            // 
-            this.lv_kitchen_table1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity1,
-            this.col_menuItem1});
-            this.lv_kitchen_table1.GridLines = true;
-            this.lv_kitchen_table1.HideSelection = false;
-            this.lv_kitchen_table1.Location = new System.Drawing.Point(6, 55);
-            this.lv_kitchen_table1.Name = "lv_kitchen_table1";
-            this.lv_kitchen_table1.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table1.TabIndex = 54;
-            this.lv_kitchen_table1.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table1.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity1
-            // 
-            this.col_quantity1.Text = "Nr";
-            this.col_quantity1.Width = 32;
-            // 
-            // col_menuItem1
-            // 
-            this.col_menuItem1.Text = "Item";
-            this.col_menuItem1.Width = 140;
-            // 
-            // lv_kitchen_table2
-            // 
-            this.lv_kitchen_table2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity2,
-            this.col_menuItem2});
-            this.lv_kitchen_table2.GridLines = true;
-            this.lv_kitchen_table2.HideSelection = false;
-            this.lv_kitchen_table2.Location = new System.Drawing.Point(179, 55);
-            this.lv_kitchen_table2.Name = "lv_kitchen_table2";
-            this.lv_kitchen_table2.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table2.TabIndex = 55;
-            this.lv_kitchen_table2.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table2.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity2
-            // 
-            this.col_quantity2.Text = "Nr";
-            this.col_quantity2.Width = 32;
-            // 
-            // col_menuItem2
-            // 
-            this.col_menuItem2.Text = "Item";
-            this.col_menuItem2.Width = 140;
-            // 
-            // lv_kitchen_table10
-            // 
-            this.lv_kitchen_table10.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity10,
-            this.col_menuItem10});
-            this.lv_kitchen_table10.GridLines = true;
-            this.lv_kitchen_table10.HideSelection = false;
-            this.lv_kitchen_table10.Location = new System.Drawing.Point(709, 254);
-            this.lv_kitchen_table10.Name = "lv_kitchen_table10";
-            this.lv_kitchen_table10.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table10.TabIndex = 63;
-            this.lv_kitchen_table10.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table10.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity10
-            // 
-            this.col_quantity10.Text = "Nr";
-            this.col_quantity10.Width = 32;
-            // 
-            // col_menuItem10
-            // 
-            this.col_menuItem10.Text = "Item";
-            this.col_menuItem10.Width = 140;
-            // 
-            // lv_kitchen_table9
-            // 
-            this.lv_kitchen_table9.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity9,
-            this.col_menuItem9});
-            this.lv_kitchen_table9.GridLines = true;
-            this.lv_kitchen_table9.HideSelection = false;
-            this.lv_kitchen_table9.Location = new System.Drawing.Point(533, 254);
-            this.lv_kitchen_table9.Name = "lv_kitchen_table9";
-            this.lv_kitchen_table9.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table9.TabIndex = 62;
-            this.lv_kitchen_table9.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table9.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity9
-            // 
-            this.col_quantity9.Text = "Nr";
-            this.col_quantity9.Width = 32;
-            // 
-            // col_menuItem9
-            // 
-            this.col_menuItem9.Text = "Item";
-            this.col_menuItem9.Width = 140;
-            // 
-            // lv_kitchen_table8
-            // 
-            this.lv_kitchen_table8.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity8,
-            this.col_menuItem8});
-            this.lv_kitchen_table8.GridLines = true;
-            this.lv_kitchen_table8.HideSelection = false;
-            this.lv_kitchen_table8.Location = new System.Drawing.Point(356, 254);
-            this.lv_kitchen_table8.Name = "lv_kitchen_table8";
-            this.lv_kitchen_table8.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table8.TabIndex = 61;
-            this.lv_kitchen_table8.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table8.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity8
-            // 
-            this.col_quantity8.Text = "Nr";
-            this.col_quantity8.Width = 32;
-            // 
-            // col_menuItem8
-            // 
-            this.col_menuItem8.Text = "Item";
-            this.col_menuItem8.Width = 140;
-            // 
-            // lv_kitchen_table7
-            // 
-            this.lv_kitchen_table7.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity7,
-            this.col_menuItem7});
-            this.lv_kitchen_table7.GridLines = true;
-            this.lv_kitchen_table7.HideSelection = false;
-            this.lv_kitchen_table7.Location = new System.Drawing.Point(179, 254);
-            this.lv_kitchen_table7.Name = "lv_kitchen_table7";
-            this.lv_kitchen_table7.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table7.TabIndex = 60;
-            this.lv_kitchen_table7.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table7.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity7
-            // 
-            this.col_quantity7.Text = "Nr";
-            this.col_quantity7.Width = 32;
-            // 
-            // col_menuItem7
-            // 
-            this.col_menuItem7.Text = "Item";
-            this.col_menuItem7.Width = 140;
-            // 
-            // lv_kitchen_table6
-            // 
-            this.lv_kitchen_table6.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity6,
-            this.col_menuItem6});
-            this.lv_kitchen_table6.GridLines = true;
-            this.lv_kitchen_table6.HideSelection = false;
-            this.lv_kitchen_table6.Location = new System.Drawing.Point(6, 254);
-            this.lv_kitchen_table6.Name = "lv_kitchen_table6";
-            this.lv_kitchen_table6.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table6.TabIndex = 59;
-            this.lv_kitchen_table6.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table6.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity6
-            // 
-            this.col_quantity6.Text = "Nr";
-            this.col_quantity6.Width = 32;
-            // 
-            // col_menuItem6
-            // 
-            this.col_menuItem6.Text = "Item";
-            this.col_menuItem6.Width = 140;
-            // 
-            // lv_kitchen_table5
-            // 
-            this.lv_kitchen_table5.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity5,
-            this.col_menuItem5});
-            this.lv_kitchen_table5.GridLines = true;
-            this.lv_kitchen_table5.HideSelection = false;
-            this.lv_kitchen_table5.Location = new System.Drawing.Point(709, 55);
-            this.lv_kitchen_table5.Name = "lv_kitchen_table5";
-            this.lv_kitchen_table5.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table5.TabIndex = 58;
-            this.lv_kitchen_table5.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table5.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity5
-            // 
-            this.col_quantity5.Text = "Nr";
-            this.col_quantity5.Width = 32;
-            // 
-            // col_menuItem5
-            // 
-            this.col_menuItem5.Text = "Item";
-            this.col_menuItem5.Width = 140;
-            // 
-            // lv_kitchen_table4
-            // 
-            this.lv_kitchen_table4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity4,
-            this.col_menuItem4});
-            this.lv_kitchen_table4.GridLines = true;
-            this.lv_kitchen_table4.HideSelection = false;
-            this.lv_kitchen_table4.Location = new System.Drawing.Point(533, 55);
-            this.lv_kitchen_table4.Name = "lv_kitchen_table4";
-            this.lv_kitchen_table4.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table4.TabIndex = 57;
-            this.lv_kitchen_table4.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table4.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity4
-            // 
-            this.col_quantity4.Text = "Nr";
-            this.col_quantity4.Width = 32;
-            // 
-            // col_menuItem4
-            // 
-            this.col_menuItem4.Text = "Item";
-            this.col_menuItem4.Width = 140;
-            // 
-            // lv_kitchen_table3
-            // 
-            this.lv_kitchen_table3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.col_quantity3,
-            this.col_menuItem3});
-            this.lv_kitchen_table3.GridLines = true;
-            this.lv_kitchen_table3.HideSelection = false;
-            this.lv_kitchen_table3.Location = new System.Drawing.Point(356, 55);
-            this.lv_kitchen_table3.Name = "lv_kitchen_table3";
-            this.lv_kitchen_table3.Size = new System.Drawing.Size(177, 193);
-            this.lv_kitchen_table3.TabIndex = 56;
-            this.lv_kitchen_table3.UseCompatibleStateImageBehavior = false;
-            this.lv_kitchen_table3.View = System.Windows.Forms.View.Details;
-            // 
-            // col_quantity3
-            // 
-            this.col_quantity3.Text = "Nr";
-            this.col_quantity3.Width = 32;
-            // 
-            // col_menuItem3
-            // 
-            this.col_menuItem3.Text = "Item";
-            this.col_menuItem3.Width = 140;
+            // lbl_OrderView
+            // 
+            this.lbl_OrderView.AutoSize = true;
+            this.lbl_OrderView.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_OrderView.Location = new System.Drawing.Point(9, 12);
+            this.lbl_OrderView.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_OrderView.Name = "lbl_OrderView";
+            this.lbl_OrderView.Size = new System.Drawing.Size(169, 33);
+            this.lbl_OrderView.TabIndex = 32;
+            this.lbl_OrderView.Text = "Order View ";
+            // 
+            // btn_Item_Ready
+            // 
+            this.btn_Item_Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btn_Item_Ready.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Item_Ready.Location = new System.Drawing.Point(514, 341);
+            this.btn_Item_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Item_Ready.Name = "btn_Item_Ready";
+            this.btn_Item_Ready.Size = new System.Drawing.Size(313, 124);
+            this.btn_Item_Ready.TabIndex = 11;
+            this.btn_Item_Ready.Text = "Ready";
+            this.btn_Item_Ready.UseVisualStyleBackColor = false;
+            this.btn_Item_Ready.Click += new System.EventHandler(this.btn_Item_Ready_Click);
+            // 
+            // txtbox_notes
+            // 
+            this.txtbox_notes.Location = new System.Drawing.Point(514, 91);
+            this.txtbox_notes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbox_notes.Name = "txtbox_notes";
+            this.txtbox_notes.ReadOnly = true;
+            this.txtbox_notes.Size = new System.Drawing.Size(313, 144);
+            this.txtbox_notes.TabIndex = 10;
+            this.txtbox_notes.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(511, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Notes:";
+            // 
+            // lv_ViewOrders
+            // 
+            this.lv_ViewOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.col_table,
+            this.col_name,
+            this.col_quant,
+            this.col_time});
+            this.lv_ViewOrders.FullRowSelect = true;
+            this.lv_ViewOrders.HideSelection = false;
+            this.lv_ViewOrders.Location = new System.Drawing.Point(15, 56);
+            this.lv_ViewOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lv_ViewOrders.Name = "lv_ViewOrders";
+            this.lv_ViewOrders.Size = new System.Drawing.Size(445, 409);
+            this.lv_ViewOrders.TabIndex = 8;
+            this.lv_ViewOrders.UseCompatibleStateImageBehavior = false;
+            this.lv_ViewOrders.View = System.Windows.Forms.View.Details;
+            this.lv_ViewOrders.Click += new System.EventHandler(this.lv_ViewOrders_Item_Click);
+            // 
+            // col_table
+            // 
+            this.col_table.Text = "Table";
+            this.col_table.Width = 58;
+            // 
+            // col_name
+            // 
+            this.col_name.Text = "Name";
+            this.col_name.Width = 146;
+            // 
+            // col_quant
+            // 
+            this.col_quant.Text = "Quantity";
+            // 
+            // col_time
+            // 
+            this.col_time.Text = "Time";
+            this.col_time.Width = 72;
             // 
             // tab_Kitchen_Stock
             // 
-            this.tab_Kitchen_Stock.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tab_Kitchen_Stock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.tab_Kitchen_Stock.Controls.Add(this.cmb_Bar_Category);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Refresh);
             this.tab_Kitchen_Stock.Controls.Add(this.btn_Kitchen_Modify);
-            this.tab_Kitchen_Stock.Controls.Add(this.Lbl_Stock);
+            this.tab_Kitchen_Stock.Controls.Add(this.lbl_Stock);
             this.tab_Kitchen_Stock.Controls.Add(this.lbl_Kitchen_Catergory);
             this.tab_Kitchen_Stock.Controls.Add(this.lbl_Kitche_Menu);
             this.tab_Kitchen_Stock.Controls.Add(this.cbox_Kitchen_Category);
@@ -522,7 +183,7 @@
             this.tab_Kitchen_Stock.Location = new System.Drawing.Point(4, 25);
             this.tab_Kitchen_Stock.Name = "tab_Kitchen_Stock";
             this.tab_Kitchen_Stock.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(910, 455);
+            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(913, 498);
             this.tab_Kitchen_Stock.TabIndex = 1;
             this.tab_Kitchen_Stock.Text = "Stock";
             // 
@@ -542,8 +203,8 @@
             // 
             // btn_Refresh
             // 
-            this.btn_Refresh.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Refresh.Location = new System.Drawing.Point(720, 390);
+            this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btn_Refresh.Location = new System.Drawing.Point(228, 414);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(159, 45);
             this.btn_Refresh.TabIndex = 33;
@@ -553,8 +214,8 @@
             // 
             // btn_Kitchen_Modify
             // 
-            this.btn_Kitchen_Modify.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(457, 390);
+            this.btn_Kitchen_Modify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 414);
             this.btn_Kitchen_Modify.Name = "btn_Kitchen_Modify";
             this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_Modify.TabIndex = 32;
@@ -562,16 +223,16 @@
             this.btn_Kitchen_Modify.UseVisualStyleBackColor = false;
             this.btn_Kitchen_Modify.Click += new System.EventHandler(this.btn_Kitchen_Modify_Click);
             // 
-            // Lbl_Stock
+            // lbl_Stock
             // 
-            this.Lbl_Stock.AutoSize = true;
-            this.Lbl_Stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Stock.Location = new System.Drawing.Point(20, 14);
-            this.Lbl_Stock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lbl_Stock.Name = "Lbl_Stock";
-            this.Lbl_Stock.Size = new System.Drawing.Size(88, 33);
-            this.Lbl_Stock.TabIndex = 31;
-            this.Lbl_Stock.Text = "Stock";
+            this.lbl_Stock.AutoSize = true;
+            this.lbl_Stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Stock.Location = new System.Drawing.Point(9, 12);
+            this.lbl_Stock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Stock.Name = "lbl_Stock";
+            this.lbl_Stock.Size = new System.Drawing.Size(96, 33);
+            this.lbl_Stock.TabIndex = 31;
+            this.lbl_Stock.Text = "Stock ";
             // 
             // lbl_Kitchen_Catergory
             // 
@@ -628,7 +289,6 @@
             this.col_Stock});
             this.lv_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lv_stock.FullRowSelect = true;
-            this.lv_stock.GridLines = true;
             this.lv_stock.HideSelection = false;
             this.lv_stock.Location = new System.Drawing.Point(15, 60);
             this.lv_stock.Name = "lv_stock";
@@ -651,20 +311,10 @@
             this.col_Stock.Text = "Stock";
             this.col_Stock.Width = 100;
             // 
-            // btn_Kitchen_Logout
-            // 
-            this.btn_Kitchen_Logout.Location = new System.Drawing.Point(805, 16);
-            this.btn_Kitchen_Logout.Name = "btn_Kitchen_Logout";
-            this.btn_Kitchen_Logout.Size = new System.Drawing.Size(101, 42);
-            this.btn_Kitchen_Logout.TabIndex = 64;
-            this.btn_Kitchen_Logout.Text = "Logout";
-            this.btn_Kitchen_Logout.UseVisualStyleBackColor = true;
-            this.btn_Kitchen_Logout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
-            // 
             // lbl_current_user
             // 
             this.lbl_current_user.AutoSize = true;
-            this.lbl_current_user.Location = new System.Drawing.Point(137, 16);
+            this.lbl_current_user.Location = new System.Drawing.Point(159, 58);
             this.lbl_current_user.Name = "lbl_current_user";
             this.lbl_current_user.Size = new System.Drawing.Size(23, 17);
             this.lbl_current_user.TabIndex = 68;
@@ -673,28 +323,59 @@
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(23, 16);
+            this.lbl_user.Location = new System.Drawing.Point(45, 58);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(93, 17);
             this.lbl_user.TabIndex = 67;
             this.lbl_user.Text = "Current User:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(395, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(233, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnLogout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.BackgroundImage")));
+            this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Location = new System.Drawing.Point(898, 25);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(63, 50);
+            this.btnLogout.TabIndex = 70;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
+            // 
             // KitchenBarUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 549);
-            this.Controls.Add(this.btn_Kitchen_Logout);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1018, 650);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_current_user);
             this.Controls.Add(this.tabs_Kitchen);
             this.Controls.Add(this.lbl_user);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "KitchenBarUI";
-            this.Text = "Kitchen";
+            this.Text = "Order View";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KitchenBarUI_FormClosing);
             this.tabs_Kitchen.ResumeLayout(false);
             this.tab_Kitchen_Orders.ResumeLayout(false);
             this.tab_Kitchen_Orders.PerformLayout();
             this.tab_Kitchen_Stock.ResumeLayout(false);
             this.tab_Kitchen_Stock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -712,56 +393,23 @@
         private System.Windows.Forms.Label lbl_Kitchen_Catergory;
         private System.Windows.Forms.ColumnHeader col_ItemName;
         private System.Windows.Forms.ColumnHeader col_Stock;
-        private System.Windows.Forms.Label lbl_title;
-        private System.Windows.Forms.Label Lbl_Stock;
+        private System.Windows.Forms.Label lbl_Stock;
         private System.Windows.Forms.Button btn_Kitchen_Modify;
-        private System.Windows.Forms.ListView lv_kitchen_table1;
-        private System.Windows.Forms.Label lbl_yellow;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_kitchen_table9;
-        private System.Windows.Forms.Button btn_kitchen_table8;
-        private System.Windows.Forms.Button btn_kitchen_table7;
-        private System.Windows.Forms.Button btn_kitchen_table6;
-        private System.Windows.Forms.Button btn_kitchen_table5;
-        private System.Windows.Forms.Button btn_kitchen_table4;
-        private System.Windows.Forms.Button btn_kitchen_table10;
-        private System.Windows.Forms.Button btn_kitchen_table3;
-        private System.Windows.Forms.Button btn_kitchen_table2;
-        private System.Windows.Forms.Button btn_kitchen_table1;
-        private System.Windows.Forms.ColumnHeader col_quantity1;
-        private System.Windows.Forms.ColumnHeader col_menuItem1;
-        private System.Windows.Forms.ListView lv_kitchen_table2;
-        private System.Windows.Forms.ColumnHeader col_quantity2;
-        private System.Windows.Forms.ColumnHeader col_menuItem2;
-        private System.Windows.Forms.ListView lv_kitchen_table10;
-        private System.Windows.Forms.ColumnHeader col_quantity10;
-        private System.Windows.Forms.ColumnHeader col_menuItem10;
-        private System.Windows.Forms.ListView lv_kitchen_table9;
-        private System.Windows.Forms.ColumnHeader col_quantity9;
-        private System.Windows.Forms.ColumnHeader col_menuItem9;
-        private System.Windows.Forms.ListView lv_kitchen_table8;
-        private System.Windows.Forms.ColumnHeader col_quantity8;
-        private System.Windows.Forms.ColumnHeader col_menuItem8;
-        private System.Windows.Forms.ListView lv_kitchen_table7;
-        private System.Windows.Forms.ColumnHeader col_quantity7;
-        private System.Windows.Forms.ColumnHeader col_menuItem7;
-        private System.Windows.Forms.ListView lv_kitchen_table6;
-        private System.Windows.Forms.ColumnHeader col_quantity6;
-        private System.Windows.Forms.ColumnHeader col_menuItem6;
-        private System.Windows.Forms.ListView lv_kitchen_table5;
-        private System.Windows.Forms.ColumnHeader col_quantity5;
-        private System.Windows.Forms.ColumnHeader col_menuItem5;
-        private System.Windows.Forms.ListView lv_kitchen_table4;
-        private System.Windows.Forms.ColumnHeader col_quantity4;
-        private System.Windows.Forms.ColumnHeader col_menuItem4;
-        private System.Windows.Forms.ListView lv_kitchen_table3;
-        private System.Windows.Forms.ColumnHeader col_quantity3;
-        private System.Windows.Forms.ColumnHeader col_menuItem3;
-        private System.Windows.Forms.Button btn_Kitchen_Logout;
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.ColumnHeader col_ID;
         private System.Windows.Forms.ComboBox cmb_Bar_Category;
         private System.Windows.Forms.Label lbl_current_user;
         private System.Windows.Forms.Label lbl_user;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_OrderView;
+        private System.Windows.Forms.Button btn_Item_Ready;
+        private System.Windows.Forms.RichTextBox txtbox_notes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView lv_ViewOrders;
+        private System.Windows.Forms.ColumnHeader col_table;
+        private System.Windows.Forms.ColumnHeader col_name;
+        private System.Windows.Forms.ColumnHeader col_quant;
+        private System.Windows.Forms.ColumnHeader col_time;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

@@ -16,75 +16,63 @@ namespace ChapeauUI
     public partial class StockUI : Form
     {
         Employee employee;
-        Form previousForm;
-        
+        ManagerUI managerUi;
+        Form LogIn;
         MenuItemService Itemservices = new MenuItemService();
-        
-        public StockUI(Form managerUi, Employee employee)
+        List<ChapeauModel.MenuItem> menuItems;
+        public StockUI(ManagerUI managerUi, Employee employee, Form LogIn)
         {
             InitializeComponent();
-            
-            this.previousForm = managerUi;
+            this.LogIn = LogIn;
+            this.managerUi = managerUi;
             this.employee = employee;
-            
+            LoadMenuItems();
+        }
+        public void LoadMenuItems()
+        {
+            menuItems = Itemservices.GetMenuItems();
+            ItemList.Items.Clear();
+
+            foreach(ChapeauModel.MenuItem item in menuItems)
+            {
+                ListViewItem li = new ListViewItem(item.MenuItemID.ToString());
+                li.SubItems.Add(item.Name);
+                li.SubItems.Add(item.Stock.ToString());
+                li.Tag = item;
+                ItemList.Items.Add(li);
+            }
         }
         private void StockUI_Load_1(object sender, EventArgs e)
         {
-            pnlAddItem.Visible = false;
             lblCurrentUser.Text = employee.FirstName;
-            List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
-            LoadMenuItems(menuItems);
+            LoadMenuItems();
         }
-        public void LoadMenuItems(List<ChapeauModel.MenuItem> menuItems)
-        {
-            ItemList.Items.Clear();
-            if(menuItems != null)
-            {
-                foreach (ChapeauModel.MenuItem item in menuItems)
-                {
-                    ListViewItem li = new ListViewItem(item.MenuItemID.ToString());
-                    li.SubItems.Add(item.Name);
-                    li.SubItems.Add(item.Stock.ToString());
-                    li.Tag = item;
-                    ItemList.Items.Add(li);
-                }
-            }
-            else
-            {
-                MessageBox.Show("elis is noob");
-            }
-            
-        }
-        
 
         private void BtnModify_Click(object sender, EventArgs e)
         {
-            if (ItemList.SelectedItems.Count < 1)
+            
+            if (ItemList.SelectedItems.Count != 0)
             {
-                return;
+                ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag);
+                modUI.Show();
             }
-            int itemId = int.Parse(ItemList.SelectedItems[0].SubItems[0].Text);
-            string itemName = ItemList.SelectedItems[0].SubItems[1].Text;
-            int stock = int.Parse(ItemList.SelectedItems[0].SubItems[2].Text);
-            ModifyUI modUI = new ModifyUI(itemName, itemId, stock);
-            modUI.Show();
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             ItemList.Items.Clear();
-            BTNAllItems_Click(sender, e);
+            LoadMenuItems();
         }
 
         private void BtnHome_Click(object sender, EventArgs e)
         {
-            previousForm.Show();
             this.Close();
+            managerUi.Show();
         }
 
         private void BTNLowStock_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
+            menuItems = Itemservices.GetMenuItems();
             ItemList.Items.Clear();
 
             foreach (ChapeauModel.MenuItem item in menuItems)
@@ -94,7 +82,7 @@ namespace ChapeauUI
                     ListViewItem li = new ListViewItem(item.MenuItemID.ToString()); ;
                     li.SubItems.Add(item.Name);
                     li.SubItems.Add(item.Stock.ToString());
-                    li.Tag = item; // yay tag
+                    li.Tag = item;
                     ItemList.Items.Add(li);
                 }
             }
@@ -102,6 +90,8 @@ namespace ChapeauUI
 
         private void BTNAllItems_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+<<<<<<< HEAD
             List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
             LoadMenuItems(menuItems);
         }
@@ -164,6 +154,7 @@ namespace ChapeauUI
                 {
                     Itemservices.EditMenuItem(item);
                     MessageBox.Show("Item is edited!");
+                    pnlAddItem.Visible = false;
                     BTNAllItems_Click(sender, e);
                 }
                 
@@ -202,6 +193,12 @@ namespace ChapeauUI
         private void ItemList_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = true;
+=======
+            LoadMenuItems();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
+=======
+            LoadMenuItems();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
         }
     }
 }

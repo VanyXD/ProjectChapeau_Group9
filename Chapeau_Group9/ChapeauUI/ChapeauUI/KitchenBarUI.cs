@@ -19,25 +19,25 @@ namespace ChapeauUI
         Form loginForm;
         Employee user;
         List<Order> orders;
-        List<Button> buttons;
-        List<ListView> listViews;
+        Timer orderTimer;
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
-            buttons = MakeButtonsList();
-            listViews = MakeListviewList();
+            SetHeight(lv_stock, 35);
+            SetHeight(lv_ViewOrders, 35);
             this.loginForm = loginForm;
             this.user = user;
             GetOrders();
-            ColorButtons();
             DisplayOrderItems();
             DisplayStock();
             if (user.position == Position.cook)
             {
+                lbl_OrderView.Text += "Kitchen";
                 cmb_Bar_Category.Hide();
             }
             else
             {
+                lbl_OrderView.Text += "Bar";
                 cbox_Kitchen_Category.Hide();
                 cbox_Kitchen_Menu.Hide();
                 lbl_Kitche_Menu.Hide();
@@ -45,90 +45,73 @@ namespace ChapeauUI
             lbl_current_user.Text = $"{user.FirstName} {user.LastName}";
             InitTimer();
         }
-            private Timer timer1;
+        //Orders Part
         public void InitTimer()
         {
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 10000;
-            timer1.Start();
+            orderTimer = new Timer();
+            orderTimer.Tick += new EventHandler(Timer1_Tick);
+            orderTimer.Interval = 10000;
+            orderTimer.Start();
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             GetOrders();
-            ColorButtons();
             DisplayOrderItems();
         }
-        void ColorButtons()
+        void GetOrders()
         {
-            foreach (Button btn in buttons)
+            OrderService service = new OrderService();
+            if (user.position == Position.cook)
             {
-                btn.BackColor = Color.Gray;
+                orders = service.GetOrders(MenuItemType.dinner);
+                foreach (Order order in orders)
+                {
+                    order.OrderItems = service.GetOrderItems(order.OrderID, MenuItemType.dinner);
+                }
             }
-            foreach (Order order in orders)
+            else
             {
-                if(order.OrderStatus == OrderStatus.Pending)
-                buttons[order.Table.TableID - 1].BackColor = Color.FromArgb(255,255,51);
+                orders = service.GetOrders(MenuItemType.drink);
+                foreach (Order order in orders)
+                {
+                    order.OrderItems = service.GetOrderItems(order.OrderID, MenuItemType.drink);
+                }
             }
         }
         void DisplayOrderItems()
         {
-            foreach (ListView listV in listViews)
-            {
-                listV.Items.Clear();
-            }
+            lv_ViewOrders.Items.Clear();
             foreach (Order order in orders)
             {
                 foreach (OrderItem item in order.OrderItems)
                 {
-                    PrintOrderItem(item, listViews[order.Table.TableID - 1]);
+                    PrintOrderItem(order, item, lv_ViewOrders);
                 }
             }
         }
-        void PrintOrderItem(OrderItem item, ListView lv)
+        void PrintOrderItem(Order order, OrderItem item, ListView lv)
         {
-            var row = new string[] { item.Quantity.ToString(), item.MenuItem.Name };
-            var lvi = new ListViewItem(row);
+            var row = new string[] { order.Table.TableID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), order.Time.ToString("HH:mm") };
+            var lvi = new ListViewItem(row)
+            {
+                Tag = item
+            };
             lv.Items.Add(lvi);
         }
 
-        List<Button> MakeButtonsList()
+        //Stock Part
+        void GetStockItems()
         {
-            List<Button> buttons = new List<Button>();
-            buttons.Add(btn_kitchen_table1);
-            buttons.Add(btn_kitchen_table2);
-            buttons.Add(btn_kitchen_table3);
-            buttons.Add(btn_kitchen_table4);
-            buttons.Add(btn_kitchen_table5);
-            buttons.Add(btn_kitchen_table6);
-            buttons.Add(btn_kitchen_table7);
-            buttons.Add(btn_kitchen_table8);
-            buttons.Add(btn_kitchen_table9);
-            buttons.Add(btn_kitchen_table10);
-            return buttons;
+            MenuItemService service = new MenuItemService();
+            if (user.position == Position.cook)
+            {
+                menuItems = service.GetFoodItems();
+            }
+            else
+            {
+                menuItems = service.GetDrinkItems();
+            }
         }
-        List<ListView> MakeListviewList()
-        {
-            List<ListView> listViews = new List<ListView>();
-            listViews.Add(lv_kitchen_table1);
-            listViews.Add(lv_kitchen_table2);
-            listViews.Add(lv_kitchen_table3);
-            listViews.Add(lv_kitchen_table4);
-            listViews.Add(lv_kitchen_table5);
-            listViews.Add(lv_kitchen_table6);
-            listViews.Add(lv_kitchen_table7);
-            listViews.Add(lv_kitchen_table8);
-            listViews.Add(lv_kitchen_table9);
-            listViews.Add(lv_kitchen_table10);
-            return listViews;
-        }
-
-        private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
-        {
-            Logout();
-        }
-
-
         public void DisplayStock()
         {
             lv_stock.Items.Clear();
@@ -138,14 +121,7 @@ namespace ChapeauUI
                 PrintStockItem(item, lv_stock);
             }
         }
-        private void PrintStockItem(ChapeauModel.MenuItem item, ListView lv)
-        {
-            var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString() };
-            var lvi = new ListViewItem(row);
-            lv.Items.Add(lvi);
-        }
-
-        private void DisplayStock(Category category)
+        private void DisplayStock(CategoryID category)
         {
             lv_stock.Items.Clear();
             GetStockItems();
@@ -165,66 +141,30 @@ namespace ChapeauUI
                     PrintStockItem(item, lv_stock);
             }
         }
-        void GetStockItems()
+        private void PrintStockItem(ChapeauModel.MenuItem item, ListView lv)
         {
-            MenuItemService service = new MenuItemService();
-            if (user.position == Position.cook)
+            var row = new string[] { item.MenuItemID.ToString(), item.Name, item.Stock.ToString() };
+            var lvi = new ListViewItem(row)
             {
-                menuItems = service.GetFoodItems();
-            }
-            else
+                Tag = item
+            };
+            lv.Items.Add(lvi);
+        }
+        //Modify stock of selected menu item
+        private void btn_Kitchen_Modify_Click(object sender, EventArgs e)
+        {
+            if (lv_stock.SelectedItems.Count != 0)
             {
-                menuItems = service.GetDrinkItems();
+                ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)lv_stock.SelectedItems[0].Tag);
+                modUI.Show();
             }
         }
-
-        void GetOrders()
-        {
-            OrderService service = new OrderService();
-            orders = service.GetOrders();
-            if (user.position == Position.cook)
-            {
-                foreach (Order order in orders)
-                {
-                    order.OrderItems = service.GetKitchenOrderItems(order.OrderID);
-                }
-            }
-            else
-            {
-                foreach (Order order in orders)
-                {
-                    order.OrderItems = service.GetBarOrderItems(order.OrderID);
-                }
-            }
-        }
-
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             DisplayStock();
             cmb_Bar_Category.ResetText();
             cbox_Kitchen_Category.ResetText();
             cbox_Kitchen_Menu.ResetText();
-        }
-        private void Logout()
-        {
-            Close();
-            loginForm.Show();
-        }
-        private void btn_Kitchen_Logout2_Click(object sender, EventArgs e)
-        {
-            Logout();
-        }
-
-        private void btn_Kitchen_Modify_Click(object sender, EventArgs e)
-        {
-            if (lv_stock.SelectedItems.Count != 0)
-            {
-                int itemId = int.Parse(lv_stock.SelectedItems[0].SubItems[0].Text);
-                string itemName = lv_stock.SelectedItems[0].SubItems[1].Text;
-                int stock = int.Parse(lv_stock.SelectedItems[0].SubItems[2].Text);
-                ModifyUI modUI = new ModifyUI(itemName, itemId, stock);
-                modUI.Show();
-            }
         }
 
         private void cbox_Kitchen_Menu_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,22 +185,22 @@ namespace ChapeauUI
             switch (cbox_Kitchen_Category.SelectedItem.ToString())
             {
                 case "Lunch Main":
-                    DisplayStock(Category.LunchMain);
+                    DisplayStock(CategoryID.LunchMain);
                     break;
                 case "Specials":
-                    DisplayStock(Category.LunchSpecials);
+                    DisplayStock(CategoryID.LunchSpecials);
                     break;
                 case "Bites":
-                    DisplayStock(Category.LunchBites);
+                    DisplayStock(CategoryID.LunchBites);
                     break;
                 case "Starters":
-                    DisplayStock(Category.DinnerStarters);
+                    DisplayStock(CategoryID.DinnerStarters);
                     break;
                 case "Mains":
-                    DisplayStock(Category.DinnerMains);
+                    DisplayStock(CategoryID.DinnerMains);
                     break;
                 case "Desserts":
-                    DisplayStock(Category.DinnerDesserts);
+                    DisplayStock(CategoryID.DinnerDesserts);
                     break;
             }
         }
@@ -270,73 +210,64 @@ namespace ChapeauUI
             switch (cmb_Bar_Category.SelectedItem.ToString())
             {
                 case "Soft Drinks":
-                    DisplayStock(Category.SoftDrinks);
+                    DisplayStock(CategoryID.SoftDrinks);
                     break;
                 case "Hot Drinks":
-                    DisplayStock(Category.HotDrinks);
+                    DisplayStock(CategoryID.HotDrinks);
                     break;
                 case "Beer":
-                    DisplayStock(Category.Beers);
+                    DisplayStock(CategoryID.Beers);
                     break;
                 case "Wine":
-                    DisplayStock(Category.Wines);
+                    DisplayStock(CategoryID.Wines);
                     break;
             }
         }
-        void DisplayOrder(int tableId)
+        //Common Part
+        private void SetHeight(ListView listView, int height)
         {
-            KitchenViewItem display = new KitchenViewItem(tableId, user);
-            display.Show();
+            ImageList imgList = new ImageList
+            {
+                ImageSize = new Size(1, height)
+            };
+            listView.SmallImageList = imgList;
+        }
+        private void btn_Kitchen_Logout_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
-        private void btn_kitchen_table1_Click(object sender, EventArgs e)
+        private void btn_Item_Ready_Click(object sender, EventArgs e)
         {
-            DisplayOrder(1);
+            if (lv_ViewOrders.SelectedItems.Count > 0)
+            {
+                OrderService services = new OrderService();
+                foreach (ListViewItem item in lv_ViewOrders.SelectedItems)
+                {
+                    {
+                        OrderItem orderItem = (OrderItem)lv_ViewOrders.SelectedItems[0].Tag;
+                        services.OrderReady(orderItem.OrderItemID);
+                        if (services.CheckStatusReady(orderItem.OrderId))
+                        {
+                            services.OrderCompeteReady(orderItem.OrderId);
+                        }
+                        lv_ViewOrders.Items.Remove(item);
+                    }
+                }
+            }
         }
 
-        private void btn_kitchen_table2_Click(object sender, EventArgs e)
+        private void lv_ViewOrders_Item_Click(object sender, EventArgs e)
         {
-            DisplayOrder(2);
+            if (lv_ViewOrders.SelectedItems.Count > 0)
+            {
+                txtbox_notes.Text = ((OrderItem)(lv_ViewOrders.SelectedItems[0].Tag)).Comment;
+            }
         }
 
-        private void btn_kitchen_table3_Click(object sender, EventArgs e)
+        private void KitchenBarUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DisplayOrder(3);
-        }
-
-        private void btn_kitchen_table4_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(4);
-        }
-
-        private void btn_kitchen_table5_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(5);
-        }
-
-        private void btn_kitchen_table6_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(6);
-        }
-
-        private void btn_kitchen_table7_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(7);
-        }
-
-        private void btn_kitchen_table8_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(8);
-        }
-
-        private void btn_kitchen_table9_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(9);
-        }
-
-        private void btn_kitchen_table10_Click(object sender, EventArgs e)
-        {
-            DisplayOrder(10);
+            loginForm.Show();
         }
     }
 }
