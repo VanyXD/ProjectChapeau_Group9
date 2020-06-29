@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ChapeauDAL;
 using ChapeauModel;
 
@@ -12,7 +13,7 @@ namespace ChapeauLogic
     public class MenuItemService
     {
         MenuItemDAO menuItemDao = new MenuItemDAO();
-        public List<MenuItem> GetMenuItems()
+        public List<ChapeauModel.MenuItem> GetMenuItems()
         {
             try
             {
@@ -20,14 +21,14 @@ namespace ChapeauLogic
             }
             catch (Exception)
             {
-                return new List<MenuItem>();
+                return new List<ChapeauModel.MenuItem>();
             }
         }
-        public List<MenuItem> GetFoodItems()
+        public List<ChapeauModel.MenuItem> GetFoodItems()
         {
             try
             {
-                List<MenuItem> items = new List<MenuItem>();
+                List<ChapeauModel.MenuItem> items = new List<ChapeauModel.MenuItem>();
                 items = menuItemDao.GetFoodMenuItems();
                 return items;
             }
@@ -36,11 +37,11 @@ namespace ChapeauLogic
                 throw ex;
             }
         }
-        public List<MenuItem> GetDrinkItems()
+        public List<ChapeauModel.MenuItem> GetDrinkItems()
         {
             try
             {
-                List<MenuItem> items = new List<MenuItem>();
+                List<ChapeauModel.MenuItem> items = new List<ChapeauModel.MenuItem>();
                 items = menuItemDao.GetDrinkMenuItems();
                 return items;
             }
@@ -49,11 +50,11 @@ namespace ChapeauLogic
                 throw ex;
             }
         }
-        public List<MenuItem> GetForCategory(CategoryID categoryID)
+        public List<ChapeauModel.MenuItem> GetForCategory(CategoryID categoryID)
         {
             try
             {
-                List<MenuItem> items;
+                List<ChapeauModel.MenuItem> items;
                 if (categoryID == CategoryID.Beers || categoryID == CategoryID.Wines) //rename enum
                 {
                     items = menuItemDao.GetForCategory(CategoryID.Wines);
@@ -70,13 +71,13 @@ namespace ChapeauLogic
             catch (Exception)
             {
 
-                return new List<MenuItem>();
+                return new List<ChapeauModel.MenuItem>();
                 //return null;
             }
             
         }
         //add total price to table order
-        public int ChangeStockAmount(MenuItem item)
+        public int ChangeStockAmount(ChapeauModel.MenuItem item)
         {
             try
             {
@@ -102,7 +103,7 @@ namespace ChapeauLogic
             }
         }
 
-        public void EditMenuItems(MenuItem item)
+        public void EditMenuItems(ChapeauModel.MenuItem item)
         {
             try
             {
@@ -120,6 +121,34 @@ namespace ChapeauLogic
             {
                 throw (ex);
             }
+        }
+        public void RemoveMenuItem(ChapeauModel.MenuItem item)
+        {
+            try
+            {
+                menuItemDao.RemoveMenuItem(item);
+            }
+            catch(Exception ex)
+            {
+                throw (ex);
+            }
+        }
+        public void AddMenuItem(ChapeauModel.MenuItem item)
+        {
+                if (item.Category == CategoryID.Beers || item.Category == CategoryID.Wines)
+                {
+                    item.HighVAT = true;
+                }
+                else
+                {
+                    item.HighVAT = false;
+                }
+                menuItemDao.AddMenuItem(item);
+            
+            //catch(Exception)
+            //{
+            //    throw new Exception("Couldent connect to database!");
+            //}
         }
     }
 }
