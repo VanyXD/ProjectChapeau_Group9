@@ -76,7 +76,7 @@ namespace ChapeauLogic
 
 
         }
-        public bool OrderReady(int id)
+        public bool MarkOrderReady(int id)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace ChapeauLogic
                 throw new Exception("Couldn't connect to the database");
             }
         }
-        public bool OrderCompeteReady(int id)
+        public bool MarkOrderCompeteReady(int id)
         {
             try
             {
