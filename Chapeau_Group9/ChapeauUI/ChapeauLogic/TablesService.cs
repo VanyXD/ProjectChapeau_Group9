@@ -25,7 +25,6 @@ namespace ChapeauLogic
             }
             catch 
             {
-                //MessageBox.Show("Couldn't connect to the database"); // you will fail for this NOOB
                 return null;
             }
         }
@@ -44,18 +43,17 @@ namespace ChapeauLogic
         }
         public List<Order> GetAllRunningOrders()
         {
-            try
-            {
+            //try
+            //{
                 //orderservice = tabledao.GetAllRunningOrders();
-                //return orderservice; // when will you learn to do shit in one line?! UGH
                 return tabledao.GetAllRunningOrders();
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("Couldn't connect to the database"); // wtf elias?!!!
-                //return orderservice; // just return null NOOB
-                return null;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    //MessageBox.Show("Couldn't connect to the database"); // wtf elias?!!!
+            //    //return orderservice; // just return null NOOB
+            //    return null;
+            //}
         }
         // you dont have a method to get a specific table's status or details, so I created it cuz u need it NOOB
         // will also create it in dal

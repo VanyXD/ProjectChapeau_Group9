@@ -53,7 +53,7 @@ namespace ChapeauDAL
         public List<Order> GetAllRunningOrders()
         {         
             dbConnection.Open();
-            SqlCommand cmd = new SqlCommand($"SELECT table_id, min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);
+            SqlCommand cmd = new SqlCommand($"SELECT table_id,sum(total) AS total,min(order_id) AS order_id,min(order_time) AS order_time, min(order_status) AS [order_status] FROM [order] WHERE order_status !=4 GROUP BY table_id", dbConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Order> orders = new List<Order>();
             while (reader.Read())
@@ -72,8 +72,8 @@ namespace ChapeauDAL
                 OrderStatus = (OrderStatus)reader["order_status"],
                 Time = (DateTime)reader["order_time"],
                 Table = new Table((int)(reader["table_id"])),
-                Employee = (Employee)reader["employee_id"],
                 OrderID = (int)reader["order_id"],
+                TotalPrice = (decimal)reader["total"],
             };
             return order;
         }
