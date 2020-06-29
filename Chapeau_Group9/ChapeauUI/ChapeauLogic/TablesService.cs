@@ -13,8 +13,6 @@ namespace ChapeauLogic
     public class TablesService
     {
         TablesDAO tabledao = new TablesDAO();
-        
-        List<Order> orderservice = new List<Order>();
 
         public List<Table> GetALLTables()
         {
@@ -43,20 +41,17 @@ namespace ChapeauLogic
         }
         public List<Order> GetAllRunningOrders()
         {
-            //try
-            //{
-                //orderservice = tabledao.GetAllRunningOrders();
+            try
+            {
+                
                 return tabledao.GetAllRunningOrders();
-            //}
-            //catch (Exception)
-            //{
-            //    //MessageBox.Show("Couldn't connect to the database"); // wtf elias?!!!
-            //    //return orderservice; // just return null NOOB
-            //    return null;
-            //}
+            }
+            catch (Exception)
+            {  
+                return null;
+            }
         }
-        // you dont have a method to get a specific table's status or details, so I created it cuz u need it NOOB
-        // will also create it in dal
+ 
         public Table GetTableForID(int tableID)
         {
             try
