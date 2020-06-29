@@ -20,7 +20,7 @@ namespace ChapeauUI
         private TablesService tablesServices;
         private Employee employee;
  
-        public TablesOverview( Employee employee)
+        public TablesOverview(Form login, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;

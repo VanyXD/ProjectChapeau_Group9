@@ -48,7 +48,7 @@ namespace ChapeauUI
                     else if (user.position == Position.Server)
                     {
 
-                        TablesOverview WaiterOverview = new TablesOverview(user);
+                        TablesOverview WaiterOverview = new TablesOverview(this, user);
                         Hide();
                         WaiterOverview.Show();
                     }
