@@ -269,5 +269,15 @@ namespace ChapeauUI
         {
             loginForm.Show();
         }
+
+        private void tab_Kitchen_Orders_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KitchenBarUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
