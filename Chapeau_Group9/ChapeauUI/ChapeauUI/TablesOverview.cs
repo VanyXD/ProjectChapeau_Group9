@@ -92,7 +92,11 @@ namespace ChapeauUI
                         labels[orders[i].Table.TableID - 1].Text = "Ready";
                     }
                 }
-            }                     
+            }        
+             else
+            {
+                MessageBox.Show("database connection failed"); 
+            }
         }
         
 
