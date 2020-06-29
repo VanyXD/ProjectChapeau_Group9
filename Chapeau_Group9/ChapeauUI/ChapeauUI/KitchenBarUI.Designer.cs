@@ -40,6 +40,7 @@
             this.col_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_quant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.col_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.col_comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tab_Kitchen_Stock = new System.Windows.Forms.TabPage();
             this.cmb_Bar_Category = new System.Windows.Forms.ComboBox();
             this.btn_Refresh = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.lbl_user = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.col_comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -107,7 +107,7 @@
             this.btn_Item_Ready.Location = new System.Drawing.Point(645, 394);
             this.btn_Item_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Item_Ready.Name = "btn_Item_Ready";
-            this.btn_Item_Ready.Size = new System.Drawing.Size(239, 124);
+            this.btn_Item_Ready.Size = new System.Drawing.Size(239, 106);
             this.btn_Item_Ready.TabIndex = 11;
             this.btn_Item_Ready.Text = "Ready";
             this.btn_Item_Ready.UseVisualStyleBackColor = false;
@@ -134,6 +134,7 @@
             // 
             // lv_ViewOrders
             // 
+            this.lv_ViewOrders.BackColor = System.Drawing.Color.White;
             this.lv_ViewOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.col_table,
             this.col_name,
@@ -171,6 +172,11 @@
             // 
             this.col_time.Text = "Time";
             this.col_time.Width = 72;
+            // 
+            // col_comment
+            // 
+            this.col_comment.Text = "Comment";
+            this.col_comment.Width = 129;
             // 
             // tab_Kitchen_Stock
             // 
@@ -368,11 +374,6 @@
             this.btnLogout.TabIndex = 70;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
-            // 
-            // col_comment
-            // 
-            this.col_comment.Text = "Comment";
-            this.col_comment.Width = 129;
             // 
             // KitchenBarUI
             // 
