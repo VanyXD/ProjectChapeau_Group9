@@ -423,9 +423,9 @@
             this.label5.Location = new System.Drawing.Point(11, 334);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(4);
-            this.label5.Size = new System.Drawing.Size(70, 28);
+            this.label5.Size = new System.Drawing.Size(74, 28);
             this.label5.TabIndex = 23;
-            this.label5.Text = "delayed";
+            this.label5.Text = "Pending";
             // 
             // lbltable10time
             // 
@@ -556,7 +556,7 @@
             this.btnManagerUI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnManagerUI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManagerUI.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagerUI.Location = new System.Drawing.Point(370, 634);
+            this.btnManagerUI.Location = new System.Drawing.Point(455, 634);
             this.btnManagerUI.Name = "btnManagerUI";
             this.btnManagerUI.Size = new System.Drawing.Size(177, 44);
             this.btnManagerUI.TabIndex = 40;

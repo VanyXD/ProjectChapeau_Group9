@@ -82,6 +82,12 @@
     <Compile Include="StockUI.Designer.cs">
       <DependentUpon>StockUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Table Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table Options.Designer.cs">
+      <DependentUpon>Table Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="TablesOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <EmbeddedResource Include="StockUI.resx">
       <DependentUpon>StockUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Table Options.resx">
+      <DependentUpon>Table Options.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TablesOverview.resx">
       <DependentUpon>TablesOverview.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +138,7 @@
     <EmbeddedResource Include="TakeOrder.resx">
       <DependentUpon>TakeOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
