@@ -143,6 +143,10 @@ namespace ChapeauDAL
             cmd.ExecuteNonQuery();
             conn.Close();
 
+        }
+
+        public void RemoveMenuItem(MenuItem item)
+        {
 
         }
     }

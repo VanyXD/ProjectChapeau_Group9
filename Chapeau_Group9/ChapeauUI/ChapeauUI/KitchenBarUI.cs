@@ -30,7 +30,7 @@ namespace ChapeauUI
             GetOrders();
             DisplayOrderItems();
             DisplayStock();
-            if (user.position == Position.cook)
+            if (user.position == Position.Cook)
             {
                 lbl_OrderView.Text += "Kitchen";
                 cmb_Bar_Category.Hide();
@@ -61,7 +61,7 @@ namespace ChapeauUI
         void GetOrders()
         {
             OrderService service = new OrderService();
-            if (user.position == Position.cook)
+            if (user.position == Position.Cook)
             {
                 orders = service.GetOrders(MenuItemType.dinner);
                 foreach (Order order in orders)
@@ -103,7 +103,7 @@ namespace ChapeauUI
         void GetStockItems()
         {
             MenuItemService service = new MenuItemService();
-            if (user.position == Position.cook)
+            if (user.position == Position.Cook)
             {
                 menuItems = service.GetFoodItems();
             }

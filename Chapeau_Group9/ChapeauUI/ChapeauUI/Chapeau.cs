@@ -45,14 +45,14 @@ namespace ChapeauUI
                         Hide();
                         managerUI.Show();
                     }
-                    else if (user.position == Position.waiter)
+                    else if (user.position == Position.Server)
                     {
 
                         TablesOverview WaiterOverview = new TablesOverview(this, user);
                         Hide();
                         WaiterOverview.Show();
                     }
-                    else if (user.position == Position.cook)
+                    else if (user.position == Position.Cook)
                     {
                         KitchenBarUI kitchenUI = new KitchenBarUI(this, user);
                         Hide();
