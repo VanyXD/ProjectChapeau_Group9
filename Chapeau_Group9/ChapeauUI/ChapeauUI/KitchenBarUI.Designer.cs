@@ -138,12 +138,13 @@
             this.col_name,
             this.col_quant,
             this.col_time});
+            this.lv_ViewOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_ViewOrders.FullRowSelect = true;
             this.lv_ViewOrders.HideSelection = false;
             this.lv_ViewOrders.Location = new System.Drawing.Point(15, 56);
             this.lv_ViewOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lv_ViewOrders.Name = "lv_ViewOrders";
-            this.lv_ViewOrders.Size = new System.Drawing.Size(445, 462);
+            this.lv_ViewOrders.Size = new System.Drawing.Size(466, 462);
             this.lv_ViewOrders.TabIndex = 8;
             this.lv_ViewOrders.UseCompatibleStateImageBehavior = false;
             this.lv_ViewOrders.View = System.Windows.Forms.View.Details;
@@ -162,6 +163,7 @@
             // col_quant
             // 
             this.col_quant.Text = "Quantity";
+            this.col_quant.Width = 79;
             // 
             // col_time
             // 
@@ -189,21 +191,24 @@
             // 
             // cmb_Bar_Category
             // 
+            this.cmb_Bar_Category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Bar_Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Bar_Category.FormattingEnabled = true;
             this.cmb_Bar_Category.Items.AddRange(new object[] {
             "Soft Drinks",
             "Hot Drinks",
             "Beer",
             "Wine"});
-            this.cmb_Bar_Category.Location = new System.Drawing.Point(598, 24);
+            this.cmb_Bar_Category.Location = new System.Drawing.Point(574, 12);
             this.cmb_Bar_Category.Name = "cmb_Bar_Category";
-            this.cmb_Bar_Category.Size = new System.Drawing.Size(121, 24);
+            this.cmb_Bar_Category.Size = new System.Drawing.Size(164, 37);
             this.cmb_Bar_Category.TabIndex = 66;
             this.cmb_Bar_Category.SelectedIndexChanged += new System.EventHandler(this.cmb_Bar_Category_SelectedIndexChanged);
             // 
             // btn_Refresh
             // 
             this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btn_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Refresh.Location = new System.Drawing.Point(731, 492);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(159, 45);
@@ -215,6 +220,7 @@
             // btn_Kitchen_Modify
             // 
             this.btn_Kitchen_Modify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btn_Kitchen_Modify.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 492);
             this.btn_Kitchen_Modify.Name = "btn_Kitchen_Modify";
             this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 45);
@@ -237,23 +243,27 @@
             // lbl_Kitchen_Catergory
             // 
             this.lbl_Kitchen_Catergory.AutoSize = true;
-            this.lbl_Kitchen_Catergory.Location = new System.Drawing.Point(523, 27);
+            this.lbl_Kitchen_Catergory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Kitchen_Catergory.Location = new System.Drawing.Point(475, 20);
             this.lbl_Kitchen_Catergory.Name = "lbl_Kitchen_Catergory";
-            this.lbl_Kitchen_Catergory.Size = new System.Drawing.Size(69, 17);
+            this.lbl_Kitchen_Catergory.Size = new System.Drawing.Size(90, 24);
             this.lbl_Kitchen_Catergory.TabIndex = 4;
             this.lbl_Kitchen_Catergory.Text = "Category:";
             // 
             // lbl_Kitche_Menu
             // 
             this.lbl_Kitche_Menu.AutoSize = true;
-            this.lbl_Kitche_Menu.Location = new System.Drawing.Point(213, 25);
+            this.lbl_Kitche_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Kitche_Menu.Location = new System.Drawing.Point(176, 20);
             this.lbl_Kitche_Menu.Name = "lbl_Kitche_Menu";
-            this.lbl_Kitche_Menu.Size = new System.Drawing.Size(47, 17);
+            this.lbl_Kitche_Menu.Size = new System.Drawing.Size(64, 24);
             this.lbl_Kitche_Menu.TabIndex = 3;
             this.lbl_Kitche_Menu.Text = "Menu:";
             // 
             // cbox_Kitchen_Category
             // 
+            this.cbox_Kitchen_Category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_Kitchen_Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_Kitchen_Category.FormattingEnabled = true;
             this.cbox_Kitchen_Category.Items.AddRange(new object[] {
             "Lunch Main",
@@ -262,21 +272,23 @@
             "Starters",
             "Mains",
             "Desserts"});
-            this.cbox_Kitchen_Category.Location = new System.Drawing.Point(598, 23);
+            this.cbox_Kitchen_Category.Location = new System.Drawing.Point(574, 12);
             this.cbox_Kitchen_Category.Name = "cbox_Kitchen_Category";
-            this.cbox_Kitchen_Category.Size = new System.Drawing.Size(121, 24);
+            this.cbox_Kitchen_Category.Size = new System.Drawing.Size(164, 37);
             this.cbox_Kitchen_Category.TabIndex = 2;
             this.cbox_Kitchen_Category.SelectedIndexChanged += new System.EventHandler(this.cbox_Kitchen_Category_SelectedIndexChanged);
             // 
             // cbox_Kitchen_Menu
             // 
+            this.cbox_Kitchen_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbox_Kitchen_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbox_Kitchen_Menu.FormattingEnabled = true;
             this.cbox_Kitchen_Menu.Items.AddRange(new object[] {
             "Lunch",
             "Dinner"});
-            this.cbox_Kitchen_Menu.Location = new System.Drawing.Point(266, 24);
+            this.cbox_Kitchen_Menu.Location = new System.Drawing.Point(249, 12);
             this.cbox_Kitchen_Menu.Name = "cbox_Kitchen_Menu";
-            this.cbox_Kitchen_Menu.Size = new System.Drawing.Size(121, 24);
+            this.cbox_Kitchen_Menu.Size = new System.Drawing.Size(142, 37);
             this.cbox_Kitchen_Menu.TabIndex = 1;
             this.cbox_Kitchen_Menu.SelectedIndexChanged += new System.EventHandler(this.cbox_Kitchen_Menu_SelectedIndexChanged);
             // 
@@ -287,6 +299,7 @@
             this.col_ID,
             this.col_ItemName,
             this.col_Stock});
+            this.lv_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lv_stock.FullRowSelect = true;
             this.lv_stock.HideSelection = false;
