@@ -19,7 +19,6 @@ namespace ChapeauUI
     {
         Form logIN;
         private Employee employee;
-        EmployeeServices employeeServices = new EmployeeServices();
         public ManagerUI(Form LogIn, Employee employee)
         {
             this.logIN = LogIn;

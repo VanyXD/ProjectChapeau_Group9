@@ -36,7 +36,6 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.EditEmployee = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.AddEmployeePNL = new System.Windows.Forms.Panel();
             this.Close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BTNHomee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -148,19 +148,6 @@
             this.btnRemoveEmployee.Text = "Remove ";
             this.btnRemoveEmployee.UseVisualStyleBackColor = false;
             this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(924, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 61);
-            this.button1.TabIndex = 42;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // AddEmployeePNL
             // 
@@ -249,9 +236,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(565, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 18;
-            this.label2.Text = "2 = Waitor";
+            this.label2.Text = "2 = Server";
             // 
             // label1
             // 
@@ -441,14 +428,27 @@
             this.EmployeeID.Text = "EmployeeID";
             this.EmployeeID.Width = 200;
             // 
+            // BTNHomee
+            // 
+            this.BTNHomee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BTNHomee.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTNHomee.BackgroundImage")));
+            this.BTNHomee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BTNHomee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNHomee.Location = new System.Drawing.Point(935, 12);
+            this.BTNHomee.Name = "BTNHomee";
+            this.BTNHomee.Size = new System.Drawing.Size(61, 61);
+            this.BTNHomee.TabIndex = 46;
+            this.BTNHomee.UseVisualStyleBackColor = false;
+            this.BTNHomee.Click += new System.EventHandler(this.BTNHomee_Click);
+            // 
             // EmployeeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.BTNHomee);
             this.Controls.Add(this.AddEmployeePNL);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.EditEmployee);
@@ -476,7 +476,6 @@
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button EditEmployee;
         private System.Windows.Forms.Button btnRemoveEmployee;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel AddEmployeePNL;
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.Label label5;
@@ -505,5 +504,6 @@
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader Position;
         private System.Windows.Forms.ColumnHeader EmployeeID;
+        private System.Windows.Forms.Button BTNHomee;
     }
 }
