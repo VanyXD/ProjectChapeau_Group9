@@ -78,7 +78,7 @@ namespace ChapeauUI
             {
                 for (int i = 0; i < orders.Count; i++)
                 {
-                    if (orders[i].OrderStatus == OrderStatus.Pending  /*&&*((DateTime.Now.Minute - orders[i].Time.Minute) > 15)*/)
+                    if (orders[i].OrderStatus == OrderStatus.Pending && ((DateTime.Now.Minute - orders[i].Time.Minute) > 15))
                     {
                         labels[orders[i].Table.TableID - 1].BackColor = Color.FromArgb(192, 0, 192);
                         labels[orders[i].Table.TableID - 1].Text = "Pending";
@@ -114,8 +114,8 @@ namespace ChapeauUI
             Table table = tablesServices.GetTableForID(tableNum); // getting the status and the table ID for the order
             if (table != null)
             {
-                Table_Options status = new Table_Options(table);
-                DialogResult result = status.ShowDialog();
+                Table_Options Table_Options = new Table_Options(table);
+                DialogResult result = Table_Options.ShowDialog();
                 if (result == DialogResult.Abort) // to take order
                 {
                     TakeOrder orderUI = new TakeOrder(this, employee, table);

@@ -18,7 +18,6 @@ namespace ChapeauUI
     public partial class ManagerUI : Form
     {
         Form logIN;
-        Chapeau chapeau;
         private Employee employee;
         EmployeeServices employeeServices = new EmployeeServices();
         public ManagerUI(Form LogIn, Employee employee)
@@ -37,7 +36,7 @@ namespace ChapeauUI
        
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeUI employeeui = new EmployeeUI(this, employee, chapeau);
+            EmployeeUI employeeui = new EmployeeUI(this, employee);
             this.Hide();
             employeeui.Show();
         }
@@ -49,21 +48,11 @@ namespace ChapeauUI
             stockUi.Show();
         }
 
-        private void btnTable2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnTablesOverview_Click(object sender, EventArgs e)
         {
             TablesOverview tablesOverview = new TablesOverview(this, employee);
             tablesOverview.Show();
             this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
