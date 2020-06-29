@@ -68,6 +68,7 @@
             // 
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Orders);
             this.tabs_Kitchen.Controls.Add(this.tab_Kitchen_Stock);
+            this.tabs_Kitchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabs_Kitchen.Location = new System.Drawing.Point(48, 94);
             this.tabs_Kitchen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabs_Kitchen.Name = "tabs_Kitchen";
@@ -83,11 +84,11 @@
             this.tab_Kitchen_Orders.Controls.Add(this.txtbox_comments);
             this.tab_Kitchen_Orders.Controls.Add(this.label1);
             this.tab_Kitchen_Orders.Controls.Add(this.lv_ViewOrders);
-            this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 25);
+            this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 33);
             this.tab_Kitchen_Orders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_Kitchen_Orders.Name = "tab_Kitchen_Orders";
             this.tab_Kitchen_Orders.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(1239, 634);
+            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(1239, 626);
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
             // 
@@ -106,7 +107,7 @@
             // 
             this.btn_Item_Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btn_Item_Ready.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Item_Ready.Location = new System.Drawing.Point(890, 445);
+            this.btn_Item_Ready.Location = new System.Drawing.Point(876, 417);
             this.btn_Item_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Item_Ready.Name = "btn_Item_Ready";
             this.btn_Item_Ready.Size = new System.Drawing.Size(239, 106);
@@ -117,20 +118,22 @@
             // 
             // txtbox_comments
             // 
-            this.txtbox_comments.Location = new System.Drawing.Point(780, 91);
+            this.txtbox_comments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_comments.Location = new System.Drawing.Point(765, 83);
             this.txtbox_comments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtbox_comments.Name = "txtbox_comments";
             this.txtbox_comments.ReadOnly = true;
-            this.txtbox_comments.Size = new System.Drawing.Size(432, 165);
+            this.txtbox_comments.Size = new System.Drawing.Size(419, 165);
             this.txtbox_comments.TabIndex = 10;
             this.txtbox_comments.Text = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(776, 57);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(761, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(106, 24);
             this.label1.TabIndex = 9;
             this.label1.Text = "Comments:";
             // 
@@ -143,13 +146,13 @@
             this.col_quant,
             this.col_time,
             this.col_comment});
-            this.lv_ViewOrders.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_ViewOrders.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_ViewOrders.FullRowSelect = true;
             this.lv_ViewOrders.HideSelection = false;
             this.lv_ViewOrders.Location = new System.Drawing.Point(15, 57);
             this.lv_ViewOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lv_ViewOrders.Name = "lv_ViewOrders";
-            this.lv_ViewOrders.Size = new System.Drawing.Size(755, 554);
+            this.lv_ViewOrders.Size = new System.Drawing.Size(696, 554);
             this.lv_ViewOrders.TabIndex = 8;
             this.lv_ViewOrders.UseCompatibleStateImageBehavior = false;
             this.lv_ViewOrders.View = System.Windows.Forms.View.Details;
@@ -192,11 +195,11 @@
             this.tab_Kitchen_Stock.Controls.Add(this.cbox_Kitchen_Category);
             this.tab_Kitchen_Stock.Controls.Add(this.cbox_Kitchen_Menu);
             this.tab_Kitchen_Stock.Controls.Add(this.lv_stock);
-            this.tab_Kitchen_Stock.Location = new System.Drawing.Point(4, 25);
+            this.tab_Kitchen_Stock.Location = new System.Drawing.Point(4, 33);
             this.tab_Kitchen_Stock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tab_Kitchen_Stock.Name = "tab_Kitchen_Stock";
             this.tab_Kitchen_Stock.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(1239, 634);
+            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(1239, 626);
             this.tab_Kitchen_Stock.TabIndex = 1;
             this.tab_Kitchen_Stock.Text = "Stock";
             // 
@@ -221,10 +224,10 @@
             // 
             this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btn_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Refresh.Location = new System.Drawing.Point(938, 571);
+            this.btn_Refresh.Location = new System.Drawing.Point(938, 551);
             this.btn_Refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(159, 46);
+            this.btn_Refresh.Size = new System.Drawing.Size(159, 66);
             this.btn_Refresh.TabIndex = 33;
             this.btn_Refresh.Text = "Refresh";
             this.btn_Refresh.UseVisualStyleBackColor = false;
@@ -234,10 +237,10 @@
             // 
             this.btn_Kitchen_Modify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btn_Kitchen_Modify.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 571);
+            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 551);
             this.btn_Kitchen_Modify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Kitchen_Modify.Name = "btn_Kitchen_Modify";
-            this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 46);
+            this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 66);
             this.btn_Kitchen_Modify.TabIndex = 32;
             this.btn_Kitchen_Modify.Text = "Modify";
             this.btn_Kitchen_Modify.UseVisualStyleBackColor = false;
@@ -315,7 +318,7 @@
             this.col_ID,
             this.col_ItemName,
             this.col_Stock});
-            this.lv_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lv_stock.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_stock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lv_stock.FullRowSelect = true;
             this.lv_stock.HideSelection = false;
@@ -344,26 +347,28 @@
             // lbl_current_user
             // 
             this.lbl_current_user.AutoSize = true;
-            this.lbl_current_user.Location = new System.Drawing.Point(159, 58);
+            this.lbl_current_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_current_user.Location = new System.Drawing.Point(217, 58);
             this.lbl_current_user.Name = "lbl_current_user";
-            this.lbl_current_user.Size = new System.Drawing.Size(20, 16);
+            this.lbl_current_user.Size = new System.Drawing.Size(28, 24);
             this.lbl_current_user.TabIndex = 68;
             this.lbl_current_user.Text = "---";
             // 
             // lbl_user
             // 
             this.lbl_user.AutoSize = true;
-            this.lbl_user.Location = new System.Drawing.Point(45, 58);
+            this.lbl_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_user.Location = new System.Drawing.Point(48, 58);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(85, 16);
+            this.lbl_user.Size = new System.Drawing.Size(121, 24);
             this.lbl_user.TabIndex = 67;
             this.lbl_user.Text = "Current User:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(355, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(535, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -377,7 +382,7 @@
             this.btnLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Location = new System.Drawing.Point(1265, 15);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(63, 50);
             this.btnLogout.TabIndex = 70;
@@ -386,6 +391,7 @@
             // 
             // KitchenBarUI
             // 
+            this.AcceptButton = this.btn_Item_Ready;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
