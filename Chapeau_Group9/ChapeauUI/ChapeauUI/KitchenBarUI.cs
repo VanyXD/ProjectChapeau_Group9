@@ -246,10 +246,10 @@ namespace ChapeauUI
                 {
                     {
                         OrderItem orderItem = (OrderItem)lv_ViewOrders.SelectedItems[0].Tag;
-                        services.OrderReady(orderItem.OrderItemID);
+                        services.MarkOrderReady(orderItem.OrderItemID);
                         if (services.CheckStatusReady(orderItem.OrderId))
                         {
-                            services.OrderCompeteReady(orderItem.OrderId);
+                            services.MarkOrderCompeteReady(orderItem.OrderId);
                         }
                         lv_ViewOrders.Items.Remove(item);
                     }
@@ -268,16 +268,6 @@ namespace ChapeauUI
         private void KitchenBarUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             loginForm.Show();
-        }
-
-        private void tab_Kitchen_Orders_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void KitchenBarUI_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

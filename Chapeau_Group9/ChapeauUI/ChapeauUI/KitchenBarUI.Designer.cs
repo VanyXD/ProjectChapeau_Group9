@@ -90,7 +90,6 @@
             this.tab_Kitchen_Orders.Size = new System.Drawing.Size(927, 513);
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
-            this.tab_Kitchen_Orders.Click += new System.EventHandler(this.tab_Kitchen_Orders_Click);
             // 
             // lbl_OrderView
             // 
@@ -403,7 +402,6 @@
             this.Name = "KitchenBarUI";
             this.Text = "Order View";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KitchenBarUI_FormClosing);
-            this.Load += new System.EventHandler(this.KitchenBarUI_Load);
             this.tabs_Kitchen.ResumeLayout(false);
             this.tab_Kitchen_Orders.ResumeLayout(false);
             this.tab_Kitchen_Orders.PerformLayout();
