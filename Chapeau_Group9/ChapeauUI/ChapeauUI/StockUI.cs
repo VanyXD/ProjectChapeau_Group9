@@ -42,7 +42,7 @@ namespace ChapeauUI
             }
             else
             {
-                MessageBox.Show("No items to lead!");
+                MessageBox.Show("No items to load!");
             }
         }
         private void StockUI_Load_1(object sender, EventArgs e)
@@ -69,7 +69,6 @@ namespace ChapeauUI
             }
 
         }
-
 
         private void BTNLowStock_Click(object sender, EventArgs e)
         {
@@ -107,7 +106,6 @@ namespace ChapeauUI
             cmbType.SelectedItem = menuItem.Type;
             lblID.Text = menuItem.MenuItemID.ToString();
 
-
         }
         private ChapeauModel.MenuItem ReadItem()
         {
@@ -131,7 +129,6 @@ namespace ChapeauUI
             return true;
         }
 
-
         private void btnEditItem_Click_1(object sender, EventArgs e)
         {
             if (ItemList.SelectedItems.Count < 1)
@@ -139,10 +136,6 @@ namespace ChapeauUI
                 return;
             }
 
-            if (pnlAddItem.Visible)
-            {
-                pnlAddItem.Visible = false;
-            }
             else
             {
                 pnlAddItem.Visible = true;
@@ -161,6 +154,7 @@ namespace ChapeauUI
                 string header = "Edit Item";
                 MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
                 DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+
                 if (result == DialogResult.Yes)
                 {
                     Itemservices.EditMenuItems(item);
@@ -183,15 +177,8 @@ namespace ChapeauUI
             pnlAddItem.Visible = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            previousForm.Show();
-            this.Close();
-        }
-
         private void pnlAddItem_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void ItemList_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -223,6 +210,7 @@ namespace ChapeauUI
                 string header = "Add Menu Item";
                 MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
                 DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+
                 if (result == DialogResult.Yes)
                 {
                     Itemservices.AddMenuItem(item);
@@ -241,7 +229,7 @@ namespace ChapeauUI
             cmbType.DataSource = Enum.GetValues(typeof(MenuItemType));
             pnlAddItem.Visible = true;
 
-       }
+        }
 
         private void BTNRemove_Click(object sender, EventArgs e)
         {
@@ -255,11 +243,11 @@ namespace ChapeauUI
             string header = "Remove";
             MessageBoxButtons btns = MessageBoxButtons.YesNoCancel;
             DialogResult result = MessageBox.Show(message, header, btns, MessageBoxIcon.Information, MessageBoxDefaultButton.Button3);
+
             if (result == DialogResult.Yes)
             {
                 Itemservices.RemoveMenuItem(item);
                 MessageBox.Show("Item is removed!");
-
                 StockUI_Load_1(sender, e);
             }
         }
@@ -269,6 +257,12 @@ namespace ChapeauUI
             txtName.ResetText();
             txtPrice.ResetText();
             txtStock.ResetText();
+        }
+
+        private void BTNHome_Click(object sender, EventArgs e)
+        {
+            Hide();
+            previousForm.Show();
         }
     }
 }

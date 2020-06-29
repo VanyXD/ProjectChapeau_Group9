@@ -141,13 +141,6 @@ namespace ChapeauUI
             txtPhoneNumber.ResetText();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-            managerUI.Show();
-        }
-
-
         private void Close_Click_1(object sender, EventArgs e)
         {
             AddEmployeePNL.Visible = false;
@@ -216,6 +209,12 @@ namespace ChapeauUI
         private void employeeList_DrawItem_1(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = true;
+        }
+
+        private void BTNHomee_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            managerUI.Show();
         }
     }
 }

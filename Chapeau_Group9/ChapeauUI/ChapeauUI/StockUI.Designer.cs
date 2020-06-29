@@ -55,9 +55,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.btnEditItem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.BTNAddItem = new System.Windows.Forms.Button();
             this.BTNRemove = new System.Windows.Forms.Button();
+            this.BTNHome = new System.Windows.Forms.Button();
             this.pnlAddItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +125,7 @@
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Size = new System.Drawing.Size(155, 50);
             this.BtnModify.TabIndex = 19;
-            this.BtnModify.Text = "Modify";
+            this.BtnModify.Text = "Modify Stock";
             this.BtnModify.UseVisualStyleBackColor = false;
             this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
@@ -341,19 +341,6 @@
             this.btnEditItem.UseVisualStyleBackColor = false;
             this.btnEditItem.Click += new System.EventHandler(this.btnEditItem_Click_1);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(935, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 61);
-            this.button1.TabIndex = 27;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // BTNAddItem
             // 
             this.BTNAddItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
@@ -380,16 +367,29 @@
             this.BTNRemove.UseVisualStyleBackColor = false;
             this.BTNRemove.Click += new System.EventHandler(this.BTNRemove_Click);
             // 
+            // BTNHome
+            // 
+            this.BTNHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.BTNHome.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTNHome.BackgroundImage")));
+            this.BTNHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BTNHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNHome.Location = new System.Drawing.Point(935, 9);
+            this.BTNHome.Name = "BTNHome";
+            this.BTNHome.Size = new System.Drawing.Size(61, 61);
+            this.BTNHome.TabIndex = 30;
+            this.BTNHome.UseVisualStyleBackColor = false;
+            this.BTNHome.Click += new System.EventHandler(this.BTNHome_Click);
+            // 
             // StockUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.BTNHome);
             this.Controls.Add(this.pnlAddItem);
             this.Controls.Add(this.BTNRemove);
             this.Controls.Add(this.BTNAddItem);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.BtnModify);
             this.Controls.Add(this.lblCurrentUser);
@@ -434,9 +434,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnEditItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BTNAdd;
         private System.Windows.Forms.Button BTNAddItem;
         private System.Windows.Forms.Button BTNRemove;
+        private System.Windows.Forms.Button BTNHome;
     }
 }
