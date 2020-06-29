@@ -33,7 +33,7 @@
             this.tab_Kitchen_Orders = new System.Windows.Forms.TabPage();
             this.lbl_OrderView = new System.Windows.Forms.Label();
             this.btn_Item_Ready = new System.Windows.Forms.Button();
-            this.txtbox_notes = new System.Windows.Forms.RichTextBox();
+            this.txtbox_comments = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lv_ViewOrders = new System.Windows.Forms.ListView();
             this.col_table = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,6 +57,7 @@
             this.lbl_user = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.col_comment = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabs_Kitchen.SuspendLayout();
             this.tab_Kitchen_Orders.SuspendLayout();
             this.tab_Kitchen_Stock.SuspendLayout();
@@ -78,7 +79,7 @@
             this.tab_Kitchen_Orders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.tab_Kitchen_Orders.Controls.Add(this.lbl_OrderView);
             this.tab_Kitchen_Orders.Controls.Add(this.btn_Item_Ready);
-            this.tab_Kitchen_Orders.Controls.Add(this.txtbox_notes);
+            this.tab_Kitchen_Orders.Controls.Add(this.txtbox_comments);
             this.tab_Kitchen_Orders.Controls.Add(this.label1);
             this.tab_Kitchen_Orders.Controls.Add(this.lv_ViewOrders);
             this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 25);
@@ -103,33 +104,33 @@
             // 
             this.btn_Item_Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btn_Item_Ready.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Item_Ready.Location = new System.Drawing.Point(514, 394);
+            this.btn_Item_Ready.Location = new System.Drawing.Point(645, 394);
             this.btn_Item_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Item_Ready.Name = "btn_Item_Ready";
-            this.btn_Item_Ready.Size = new System.Drawing.Size(313, 124);
+            this.btn_Item_Ready.Size = new System.Drawing.Size(239, 124);
             this.btn_Item_Ready.TabIndex = 11;
             this.btn_Item_Ready.Text = "Ready";
             this.btn_Item_Ready.UseVisualStyleBackColor = false;
             this.btn_Item_Ready.Click += new System.EventHandler(this.btn_Item_Ready_Click);
             // 
-            // txtbox_notes
+            // txtbox_comments
             // 
-            this.txtbox_notes.Location = new System.Drawing.Point(514, 91);
-            this.txtbox_notes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtbox_notes.Name = "txtbox_notes";
-            this.txtbox_notes.ReadOnly = true;
-            this.txtbox_notes.Size = new System.Drawing.Size(313, 144);
-            this.txtbox_notes.TabIndex = 10;
-            this.txtbox_notes.Text = "";
+            this.txtbox_comments.Location = new System.Drawing.Point(645, 91);
+            this.txtbox_comments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbox_comments.Name = "txtbox_comments";
+            this.txtbox_comments.ReadOnly = true;
+            this.txtbox_comments.Size = new System.Drawing.Size(239, 106);
+            this.txtbox_comments.TabIndex = 10;
+            this.txtbox_comments.Text = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(511, 72);
+            this.label1.Location = new System.Drawing.Point(642, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Notes:";
+            this.label1.Text = "Comments:";
             // 
             // lv_ViewOrders
             // 
@@ -137,14 +138,15 @@
             this.col_table,
             this.col_name,
             this.col_quant,
-            this.col_time});
+            this.col_time,
+            this.col_comment});
             this.lv_ViewOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lv_ViewOrders.FullRowSelect = true;
             this.lv_ViewOrders.HideSelection = false;
             this.lv_ViewOrders.Location = new System.Drawing.Point(15, 56);
             this.lv_ViewOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lv_ViewOrders.Name = "lv_ViewOrders";
-            this.lv_ViewOrders.Size = new System.Drawing.Size(466, 462);
+            this.lv_ViewOrders.Size = new System.Drawing.Size(578, 462);
             this.lv_ViewOrders.TabIndex = 8;
             this.lv_ViewOrders.UseCompatibleStateImageBehavior = false;
             this.lv_ViewOrders.View = System.Windows.Forms.View.Details;
@@ -367,6 +369,11 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btn_Kitchen_Logout_Click);
             // 
+            // col_comment
+            // 
+            this.col_comment.Text = "Comment";
+            this.col_comment.Width = 129;
+            // 
             // KitchenBarUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,7 +423,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_OrderView;
         private System.Windows.Forms.Button btn_Item_Ready;
-        private System.Windows.Forms.RichTextBox txtbox_notes;
+        private System.Windows.Forms.RichTextBox txtbox_comments;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView lv_ViewOrders;
         private System.Windows.Forms.ColumnHeader col_table;
@@ -424,5 +431,6 @@
         private System.Windows.Forms.ColumnHeader col_quant;
         private System.Windows.Forms.ColumnHeader col_time;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.ColumnHeader col_comment;
     }
 }

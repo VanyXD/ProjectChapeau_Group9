@@ -23,8 +23,8 @@ namespace ChapeauUI
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
-            SetHeight(lv_stock, 45);
             SetHeight(lv_ViewOrders, 45);
+            SetHeight(lv_stock, 45);
             this.loginForm = loginForm;
             this.user = user;
             GetOrders();
@@ -91,7 +91,7 @@ namespace ChapeauUI
         }
         void PrintOrderItem(Order order, OrderItem item, ListView lv)
         {
-            var row = new string[] { order.Table.TableID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), order.Time.ToString("HH:mm") };
+            var row = new string[] { order.Table.TableID.ToString(), item.MenuItem.Name, "x" + item.Quantity.ToString(), order.Time.ToString("HH:mm"), (item.Comment == "none" || item.Comment == "" ? "No" : "Yes") };
             var lvi = new ListViewItem(row)
             {
                 Tag = item
@@ -261,7 +261,7 @@ namespace ChapeauUI
         {
             if (lv_ViewOrders.SelectedItems.Count > 0)
             {
-                txtbox_notes.Text = ((OrderItem)(lv_ViewOrders.SelectedItems[0].Tag)).Comment;
+                txtbox_comments.Text = ((OrderItem)(lv_ViewOrders.SelectedItems[0].Tag)).Comment;
             }
         }
 
