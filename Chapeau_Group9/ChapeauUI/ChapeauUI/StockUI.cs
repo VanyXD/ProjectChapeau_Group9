@@ -92,6 +92,7 @@ namespace ChapeauUI
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
             LoadMenuItems(menuItems);
         }
@@ -193,6 +194,9 @@ namespace ChapeauUI
         private void ItemList_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = true;
+=======
+            LoadMenuItems();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
 =======
             LoadMenuItems();
 >>>>>>> a012a252913db7e08818bef6dfe72e461a899127

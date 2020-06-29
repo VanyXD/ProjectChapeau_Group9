@@ -18,8 +18,12 @@ namespace ChapeauUI
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Chapeau logIn = new Chapeau();
         Form previousForm;
+=======
+        Form Login;
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
 =======
         Form Login;
 >>>>>>> a012a252913db7e08818bef6dfe72e461a899127
@@ -58,7 +62,11 @@ namespace ChapeauUI
             this.Close();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             logIn.Show();
+=======
+            Login.Show();
+>>>>>>> a012a252913db7e08818bef6dfe72e461a899127
 =======
             Login.Show();
 >>>>>>> a012a252913db7e08818bef6dfe72e461a899127
