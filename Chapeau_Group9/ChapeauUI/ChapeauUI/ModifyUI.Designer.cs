@@ -39,24 +39,26 @@
             // 
             // btn_plus
             // 
+            btn_plus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             btn_plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             btn_plus.Location = new System.Drawing.Point(350, 108);
             btn_plus.Name = "btn_plus";
             btn_plus.Size = new System.Drawing.Size(75, 75);
             btn_plus.TabIndex = 2;
             btn_plus.Text = "+";
-            btn_plus.UseVisualStyleBackColor = true;
+            btn_plus.UseVisualStyleBackColor = false;
             btn_plus.Click += new System.EventHandler(this.btn_plus_Click);
             // 
             // btn_minus
             // 
+            btn_minus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             btn_minus.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             btn_minus.Location = new System.Drawing.Point(38, 108);
             btn_minus.Name = "btn_minus";
             btn_minus.Size = new System.Drawing.Size(75, 75);
             btn_minus.TabIndex = 3;
             btn_minus.Text = "-";
-            btn_minus.UseVisualStyleBackColor = true;
+            btn_minus.UseVisualStyleBackColor = false;
             btn_minus.Click += new System.EventHandler(this.btn_minus_Click);
             // 
             // lbl_modify_Title
@@ -72,12 +74,13 @@
             // 
             // btn_Kitchen_Modify_Done
             // 
+            this.btn_Kitchen_Modify_Done.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.btn_Kitchen_Modify_Done.Location = new System.Drawing.Point(158, 215);
             this.btn_Kitchen_Modify_Done.Name = "btn_Kitchen_Modify_Done";
             this.btn_Kitchen_Modify_Done.Size = new System.Drawing.Size(150, 70);
             this.btn_Kitchen_Modify_Done.TabIndex = 6;
             this.btn_Kitchen_Modify_Done.Text = "Done";
-            this.btn_Kitchen_Modify_Done.UseVisualStyleBackColor = true;
+            this.btn_Kitchen_Modify_Done.UseVisualStyleBackColor = false;
             this.btn_Kitchen_Modify_Done.Click += new System.EventHandler(this.btn_Kitchen_Modify_Done_Click);
             // 
             // richTxtBox_Modify
@@ -94,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(468, 297);
             this.Controls.Add(this.richTxtBox_Modify);
             this.Controls.Add(this.btn_Kitchen_Modify_Done);

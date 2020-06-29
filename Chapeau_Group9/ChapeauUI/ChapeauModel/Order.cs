@@ -31,10 +31,8 @@ namespace ChapeauModel
             // if there is a need for this property to have a set later on, it must be added, now its read only
         }
         public List<OrderItem> OrderItems { get; set; } 
-
         public DateTime Time { get; set; }
         public Table Table { get; set; }
-
         public OrderStatus OrderStatus { get; set; }
 
     }

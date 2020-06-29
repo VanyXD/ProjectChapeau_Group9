@@ -70,12 +70,6 @@
     <Compile Include="ModifyUI.Designer.cs">
       <DependentUpon>ModifyUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="KitchenViewItem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KitchenViewItem.Designer.cs">
-      <DependentUpon>KitchenViewItem.cs</DependentUpon>
-    </Compile>
     <Compile Include="KitchenBarUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,9 +107,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUI.resx">
       <DependentUpon>ModifyUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KitchenViewItem.resx">
-      <DependentUpon>KitchenViewItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenBarUI.resx">
       <DependentUpon>KitchenBarUI.cs</DependentUpon>

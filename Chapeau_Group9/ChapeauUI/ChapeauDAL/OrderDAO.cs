@@ -73,7 +73,7 @@ namespace ChapeauDAL
         }
         public List<Order> GetAllOrders(MenuItemType type)
         {
-            string query = "SELECT [order].order_id, order_time, t.table_id, table_number, Tablestatus, item_type_id " +
+            string query = "SELECT DISTINCT [order].order_id, order_time, t.table_id, table_number, Tablestatus, item_type_id " +
                 "FROM [order] " +
                 "JOIN [tables] AS t ON [order].table_id = t.table_id " +
                 "JOIN OrderItems as oi ON [order].order_id = oi.order_id " +
@@ -111,21 +111,6 @@ namespace ChapeauDAL
                 "JOIN [order] AS o ON o.order_id = OrderItems.order_id " +
                 "WHERE status = 1 " +
                 "AND o.order_id = @id " +
-                $"AND item_type_id {((int)type == 3 ? " = " : " <> ")} 3";
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@id", id);
-            return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
-        }
-        public List<OrderItem> GetItemsForTable(int id, MenuItemType type)
-        {
-            string query = "SELECT m.article_id,m.price,m.name,m.category_id,m.item_type_id,m.stock,m.VAT , quantity, item_id, order_time, o.order_id, comment " +
-                "FROM OrderItems " +
-                "JOIN menu as m " +
-                "ON m.article_id = OrderItems.article_id " +
-                "JOIN [order] as o " +
-                "ON o.order_id = OrderItems.order_id " +
-                "WHERE status = 1  " +
-                "AND table_id = @id " +
                 $"AND item_type_id {((int)type == 3 ? " = " : " <> ")} 3";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", id);

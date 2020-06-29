@@ -77,18 +77,6 @@ namespace ChapeauLogic
 
 
         }
-        public List<OrderItem> GetKitchenBarTableItems(int id, MenuItemType type)
-        {
-            try
-            {
-                List<OrderItem> orders = orderdao.GetItemsForTable(id, type);
-                return orders;
-            }
-            catch (Exception)
-            {
-                throw new Exception("Couldn't connect to the database");
-            }
-        }
         public bool OrderReady(int id)
         {
             try
@@ -96,12 +84,11 @@ namespace ChapeauLogic
                 orderdao.UpdateReady(id);
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw new Exception("Couldn't connect to the database");
             }
         }
-
         public bool CheckStatusReady(int id)
         {
             try
@@ -110,7 +97,9 @@ namespace ChapeauLogic
                 foreach (int state in status)
                 {
                     if (state != 2)
+                    {
                         return false;
+                    }
                 }
                 return true;
             }
@@ -126,9 +115,9 @@ namespace ChapeauLogic
                 orderdao.OrderReady(id);
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw new Exception("Couldn't connect to the database");
             }
         }
     }
