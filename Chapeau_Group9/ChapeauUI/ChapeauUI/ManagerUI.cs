@@ -50,7 +50,7 @@ namespace ChapeauUI
 
         private void btnTablesOverview_Click(object sender, EventArgs e)
         {
-            TablesOverview tablesOverview = new TablesOverview(this, employee);
+            TablesOverview tablesOverview = new TablesOverview(employee);
             tablesOverview.Show();
             this.Close();
         }
