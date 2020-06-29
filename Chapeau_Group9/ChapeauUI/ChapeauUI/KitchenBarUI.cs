@@ -23,8 +23,8 @@ namespace ChapeauUI
         public KitchenBarUI(Form loginForm, Employee user)
         {
             InitializeComponent();
-            SetHeight(lv_stock, 35);
-            SetHeight(lv_ViewOrders, 35);
+            SetHeight(lv_stock, 45);
+            SetHeight(lv_ViewOrders, 45);
             this.loginForm = loginForm;
             this.user = user;
             GetOrders();

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ChapeauDAL;
 using ChapeauModel;
-using System.Windows.Forms;
 
 namespace ChapeauLogic
 {
