@@ -36,13 +36,6 @@
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.EditEmployee = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.employeeList = new System.Windows.Forms.ListView();
-            this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AddEmployeePNL = new System.Windows.Forms.Panel();
             this.Close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,6 +58,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.employeeList = new System.Windows.Forms.ListView();
+            this.Code = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EmployeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BTNHomee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddEmployeePNL.SuspendLayout();
             this.SuspendLayout();
@@ -149,63 +149,6 @@
             this.btnRemoveEmployee.UseVisualStyleBackColor = false;
             this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(924, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 61);
-            this.button1.TabIndex = 42;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // employeeList
-            // 
-            this.employeeList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Code,
-            this.FirstName,
-            this.LastName,
-            this.Position,
-            this.EmployeeID});
-            this.employeeList.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeeList.FullRowSelect = true;
-            this.employeeList.GridLines = true;
-            this.employeeList.HideSelection = false;
-            this.employeeList.Location = new System.Drawing.Point(73, 93);
-            this.employeeList.Name = "employeeList";
-            this.employeeList.Size = new System.Drawing.Size(841, 467);
-            this.employeeList.TabIndex = 43;
-            this.employeeList.UseCompatibleStateImageBehavior = false;
-            this.employeeList.View = System.Windows.Forms.View.Details;
-            // 
-            // Code
-            // 
-            this.Code.Text = "Code";
-            this.Code.Width = 95;
-            // 
-            // FirstName
-            // 
-            this.FirstName.Text = "First Name";
-            this.FirstName.Width = 181;
-            // 
-            // LastName
-            // 
-            this.LastName.Text = "Last Name";
-            this.LastName.Width = 197;
-            // 
-            // Position
-            // 
-            this.Position.Text = "Position";
-            this.Position.Width = 139;
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.Text = "EmployeeID";
-            this.EmployeeID.Width = 200;
-            // 
             // AddEmployeePNL
             // 
             this.AddEmployeePNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
@@ -230,7 +173,7 @@
             this.AddEmployeePNL.Controls.Add(this.label11);
             this.AddEmployeePNL.Controls.Add(this.label12);
             this.AddEmployeePNL.Controls.Add(this.label10);
-            this.AddEmployeePNL.Location = new System.Drawing.Point(73, 93);
+            this.AddEmployeePNL.Location = new System.Drawing.Point(69, 98);
             this.AddEmployeePNL.Name = "AddEmployeePNL";
             this.AddEmployeePNL.Size = new System.Drawing.Size(863, 530);
             this.AddEmployeePNL.TabIndex = 44;
@@ -293,9 +236,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(565, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 18;
-            this.label2.Text = "2 = Waitor";
+            this.label2.Text = "2 = Server";
             // 
             // label1
             // 
@@ -441,15 +384,71 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "Phone Number";
             // 
+            // employeeList
+            // 
+            this.employeeList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Code,
+            this.FirstName,
+            this.LastName,
+            this.Position,
+            this.EmployeeID});
+            this.employeeList.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeList.FullRowSelect = true;
+            this.employeeList.GridLines = true;
+            this.employeeList.HideSelection = false;
+            this.employeeList.Location = new System.Drawing.Point(91, 98);
+            this.employeeList.Name = "employeeList";
+            this.employeeList.Size = new System.Drawing.Size(841, 467);
+            this.employeeList.TabIndex = 45;
+            this.employeeList.UseCompatibleStateImageBehavior = false;
+            this.employeeList.View = System.Windows.Forms.View.Details;
+            // 
+            // Code
+            // 
+            this.Code.Text = "Code";
+            this.Code.Width = 95;
+            // 
+            // FirstName
+            // 
+            this.FirstName.Text = "First Name";
+            this.FirstName.Width = 181;
+            // 
+            // LastName
+            // 
+            this.LastName.Text = "Last Name";
+            this.LastName.Width = 197;
+            // 
+            // Position
+            // 
+            this.Position.Text = "Position";
+            this.Position.Width = 139;
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.Text = "EmployeeID";
+            this.EmployeeID.Width = 200;
+            // 
+            // BTNHomee
+            // 
+            this.BTNHomee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.BTNHomee.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTNHomee.BackgroundImage")));
+            this.BTNHomee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BTNHomee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNHomee.Location = new System.Drawing.Point(935, 12);
+            this.BTNHomee.Name = "BTNHomee";
+            this.BTNHomee.Size = new System.Drawing.Size(61, 61);
+            this.BTNHomee.TabIndex = 46;
+            this.BTNHomee.UseVisualStyleBackColor = false;
+            this.BTNHomee.Click += new System.EventHandler(this.BTNHomee_Click);
+            // 
             // EmployeeUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.BTNHomee);
             this.Controls.Add(this.AddEmployeePNL);
-            this.Controls.Add(this.employeeList);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.EditEmployee);
@@ -457,6 +456,7 @@
             this.Controls.Add(this.btnRemoveEmployee);
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.Currentuser);
+            this.Controls.Add(this.employeeList);
             this.Name = "EmployeeUI";
             this.Text = "EmployeeUI";
             this.Load += new System.EventHandler(this.EmployeeUI_Load);
@@ -476,13 +476,6 @@
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.Button EditEmployee;
         private System.Windows.Forms.Button btnRemoveEmployee;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView employeeList;
-        private System.Windows.Forms.ColumnHeader Code;
-        private System.Windows.Forms.ColumnHeader FirstName;
-        private System.Windows.Forms.ColumnHeader LastName;
-        private System.Windows.Forms.ColumnHeader Position;
-        private System.Windows.Forms.ColumnHeader EmployeeID;
         private System.Windows.Forms.Panel AddEmployeePNL;
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.Label label5;
@@ -505,5 +498,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListView employeeList;
+        private System.Windows.Forms.ColumnHeader Code;
+        private System.Windows.Forms.ColumnHeader FirstName;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader Position;
+        private System.Windows.Forms.ColumnHeader EmployeeID;
+        private System.Windows.Forms.Button BTNHomee;
     }
 }

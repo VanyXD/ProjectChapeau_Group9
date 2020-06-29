@@ -17,7 +17,6 @@ namespace ChapeauUI
     public partial class TablesOverview : Form
     {
         Chapeau logIn = new Chapeau();
-        Form Login;
         private TablesService tablesServices;
         private Employee employee;
  
@@ -25,7 +24,6 @@ namespace ChapeauUI
         {
             InitializeComponent();
             this.employee = employee;
-            this.Login = login;
             tablesServices = new TablesService();
         }
         private void TablesOverview_Load(object sender, EventArgs e)
