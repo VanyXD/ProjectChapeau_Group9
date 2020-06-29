@@ -64,6 +64,7 @@
             this.ItemID,
             this.name,
             this.Stock});
+            this.ItemList.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemList.FullRowSelect = true;
             this.ItemList.GridLines = true;
             this.ItemList.HideSelection = false;
@@ -77,7 +78,7 @@
             // ItemID
             // 
             this.ItemID.Text = "Item ID";
-            this.ItemID.Width = 194;
+            this.ItemID.Width = 218;
             // 
             // name
             // 
@@ -345,7 +346,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.pnlAddItem);
             this.Controls.Add(this.BTNAllItems);
             this.Controls.Add(this.btnEditItem);
             this.Controls.Add(this.BTNLowStock);
@@ -355,6 +355,7 @@
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.Currentuser);
             this.Controls.Add(this.ItemList);
+            this.Controls.Add(this.pnlAddItem);
             this.Name = "StockUI";
             this.Text = "Stock";
             this.Load += new System.EventHandler(this.StockUI_Load_1);
