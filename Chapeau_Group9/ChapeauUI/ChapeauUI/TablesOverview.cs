@@ -16,15 +16,15 @@ namespace ChapeauUI
 {
     public partial class TablesOverview : Form
     {
-        Chapeau logIn;
+        Form logIn;
         private TablesService tablesServices;
         private Employee employee;
  
-        public TablesOverview(Form login, Employee employee)
+        public TablesOverview(Form LogIn, Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
-            logIn = (Chapeau)login;
+            logIn = LogIn;
             tablesServices = new TablesService();
         }
         private void TablesOverview_Load(object sender, EventArgs e)

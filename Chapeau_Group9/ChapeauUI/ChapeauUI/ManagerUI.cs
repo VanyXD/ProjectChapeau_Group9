@@ -19,9 +19,9 @@ namespace ChapeauUI
     {
         Form logIn;
         private Employee employee;
-        public ManagerUI(Form LogIn, Employee employee)
+        public ManagerUI(Form login, Employee employee)
         {
-            this.logIn = LogIn;
+            this.logIn = login;
             InitializeComponent();
             this.employee = employee;
         }
