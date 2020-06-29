@@ -70,7 +70,7 @@
             this.tabs_Kitchen.Location = new System.Drawing.Point(48, 93);
             this.tabs_Kitchen.Name = "tabs_Kitchen";
             this.tabs_Kitchen.SelectedIndex = 0;
-            this.tabs_Kitchen.Size = new System.Drawing.Size(921, 527);
+            this.tabs_Kitchen.Size = new System.Drawing.Size(921, 596);
             this.tabs_Kitchen.TabIndex = 0;
             // 
             // tab_Kitchen_Orders
@@ -84,7 +84,7 @@
             this.tab_Kitchen_Orders.Location = new System.Drawing.Point(4, 25);
             this.tab_Kitchen_Orders.Name = "tab_Kitchen_Orders";
             this.tab_Kitchen_Orders.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(913, 498);
+            this.tab_Kitchen_Orders.Size = new System.Drawing.Size(913, 567);
             this.tab_Kitchen_Orders.TabIndex = 0;
             this.tab_Kitchen_Orders.Text = "Orders";
             // 
@@ -103,7 +103,7 @@
             // 
             this.btn_Item_Ready.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btn_Item_Ready.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Item_Ready.Location = new System.Drawing.Point(514, 341);
+            this.btn_Item_Ready.Location = new System.Drawing.Point(514, 394);
             this.btn_Item_Ready.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Item_Ready.Name = "btn_Item_Ready";
             this.btn_Item_Ready.Size = new System.Drawing.Size(313, 124);
@@ -143,7 +143,7 @@
             this.lv_ViewOrders.Location = new System.Drawing.Point(15, 56);
             this.lv_ViewOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lv_ViewOrders.Name = "lv_ViewOrders";
-            this.lv_ViewOrders.Size = new System.Drawing.Size(445, 409);
+            this.lv_ViewOrders.Size = new System.Drawing.Size(445, 462);
             this.lv_ViewOrders.TabIndex = 8;
             this.lv_ViewOrders.UseCompatibleStateImageBehavior = false;
             this.lv_ViewOrders.View = System.Windows.Forms.View.Details;
@@ -183,7 +183,7 @@
             this.tab_Kitchen_Stock.Location = new System.Drawing.Point(4, 25);
             this.tab_Kitchen_Stock.Name = "tab_Kitchen_Stock";
             this.tab_Kitchen_Stock.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(913, 498);
+            this.tab_Kitchen_Stock.Size = new System.Drawing.Size(913, 567);
             this.tab_Kitchen_Stock.TabIndex = 1;
             this.tab_Kitchen_Stock.Text = "Stock";
             // 
@@ -204,7 +204,7 @@
             // btn_Refresh
             // 
             this.btn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.btn_Refresh.Location = new System.Drawing.Point(228, 414);
+            this.btn_Refresh.Location = new System.Drawing.Point(731, 492);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(159, 45);
             this.btn_Refresh.TabIndex = 33;
@@ -215,7 +215,7 @@
             // btn_Kitchen_Modify
             // 
             this.btn_Kitchen_Modify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 414);
+            this.btn_Kitchen_Modify.Location = new System.Drawing.Point(15, 492);
             this.btn_Kitchen_Modify.Name = "btn_Kitchen_Modify";
             this.btn_Kitchen_Modify.Size = new System.Drawing.Size(159, 45);
             this.btn_Kitchen_Modify.TabIndex = 32;
@@ -292,7 +292,7 @@
             this.lv_stock.HideSelection = false;
             this.lv_stock.Location = new System.Drawing.Point(15, 60);
             this.lv_stock.Name = "lv_stock";
-            this.lv_stock.Size = new System.Drawing.Size(875, 309);
+            this.lv_stock.Size = new System.Drawing.Size(875, 411);
             this.lv_stock.TabIndex = 0;
             this.lv_stock.UseCompatibleStateImageBehavior = false;
             this.lv_stock.View = System.Windows.Forms.View.Details;
@@ -332,10 +332,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(395, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(354, 13);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(320, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 69;
             this.pictureBox1.TabStop = false;
@@ -359,7 +359,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1018, 650);
+            this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_current_user);
