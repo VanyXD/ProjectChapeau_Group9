@@ -146,21 +146,7 @@ namespace ChapeauDAL
             conn.Close();
 
         }
-        //public void AddMenuItem(MenuItem item)
-        //{
-        //    SqlCommand cmd = new SqlCommand($"insert into menu values [name] = @name , stock = @stock ,vat = {(item.HighVAT ? "1":"0")} , price = @price , category_id = @cat , item_type_id = @type where article_id = @id", conn);
-        //    cmd.Parameters.AddWithValue("@name", item.Name);
-        //    cmd.Parameters.AddWithValue("@stock", item.Stock);
-        //    //cmd.Parameters.AddWithValue("@vat", item.HighVAT);
-        //    cmd.Parameters.AddWithValue("@price", item.Price);
-        //    cmd.Parameters.AddWithValue("@cat", item.Category);
-        //    cmd.Parameters.AddWithValue("@type", item.Type);
-        //    cmd.Parameters.AddWithValue("@id", item.MenuItemID);
-        //    conn.Open();
-        //    cmd.ExecuteNonQuery();
-        //    conn.Close();
-        //}
-
+        
         public void RemoveMenuItem(MenuItem item)
         {
             string query = $"DELETE FROM Menu WHERE article_ID = {item.MenuItemID}";
