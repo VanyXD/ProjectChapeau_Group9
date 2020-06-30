@@ -399,15 +399,18 @@
             this.employeeList.HideSelection = false;
             this.employeeList.Location = new System.Drawing.Point(91, 98);
             this.employeeList.Name = "employeeList";
+            this.employeeList.OwnerDraw = true;
             this.employeeList.Size = new System.Drawing.Size(841, 467);
             this.employeeList.TabIndex = 45;
             this.employeeList.UseCompatibleStateImageBehavior = false;
             this.employeeList.View = System.Windows.Forms.View.Details;
+            this.employeeList.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.employeeList_DrawColumnHeader);
+            this.employeeList.DrawItem += new System.Windows.Forms.DrawListViewItemEventHandler(this.employeeList_DrawItem);
             // 
             // Code
             // 
             this.Code.Text = "Code";
-            this.Code.Width = 95;
+            this.Code.Width = 140;
             // 
             // FirstName
             // 
@@ -448,8 +451,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
-            this.Controls.Add(this.BTNHomee);
             this.Controls.Add(this.AddEmployeePNL);
+            this.Controls.Add(this.BTNHomee);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BtnHome);
             this.Controls.Add(this.EditEmployee);

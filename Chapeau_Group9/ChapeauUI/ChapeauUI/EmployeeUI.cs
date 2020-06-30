@@ -200,21 +200,21 @@ namespace ChapeauUI
             }
         }
 
-        private void employeeList_DrawColumnHeader_1(object sender, DrawListViewColumnHeaderEventArgs e)
+        private void BTNHomee_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            managerUI.Show();
+        }
+
+        private void employeeList_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             e.Graphics.FillRectangle(Brushes.Cyan, e.Bounds);
             e.DrawText();
         }
 
-        private void employeeList_DrawItem_1(object sender, DrawListViewItemEventArgs e)
+        private void employeeList_DrawItem(object sender, DrawListViewItemEventArgs e)
         {
             e.DrawDefault = true;
-        }
-
-        private void BTNHomee_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            managerUI.Show();
         }
     }
 }
