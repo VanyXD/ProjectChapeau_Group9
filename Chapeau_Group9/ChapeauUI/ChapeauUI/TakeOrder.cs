@@ -47,14 +47,14 @@ namespace ChapeauUI
             DisplayMenu(fullMenu);
             lblMenu.Text = "Full Menu";
 
-            btnPrevious.Visible = false;
+            btnShowPreviousItems.Visible = false;
             txtComment.Enabled = false;
             lblTable.Text = $"#{this.table.TableID}";
             this.Opacity = 1;
             numericUpDownQuantity.Controls[0].Hide();
             if (ExistingOrder())
             {
-                btnPrevious.Visible = true;
+                btnShowPreviousItems.Visible = true;
                 MessageBox.Show("there is a running order for this table, all of the items will be added to the previous order");
 
             }
