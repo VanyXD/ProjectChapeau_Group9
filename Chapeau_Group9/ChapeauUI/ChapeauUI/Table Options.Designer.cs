@@ -170,6 +170,7 @@
             this.ClientSize = new System.Drawing.Size(547, 244);
             this.Controls.Add(this.panel1);
             this.Name = "Table_Options";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table_Options";
             this.Load += new System.EventHandler(this.Table_Options_Load);
             this.panel1.ResumeLayout(false);

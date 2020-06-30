@@ -195,6 +195,80 @@ namespace ChapeauDAL
             sqlParameters[0] = new SqlParameter("@id", id);
             ExecuteEditQuery(query, sqlParameters);
         }
+        // fabio
+        public Order GetRunningOrderForTable(int tableNumber)
+        {
+            SqlCommand cmd = new SqlCommand("select order_id, employee_id, table_id, order_time, total, order_status from [order] where table_id = @id and order_status <> 4", conn);
+            cmd.Parameters.AddWithValue("@id", tableNumber);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            Order existingOrder;
+            if (reader.Read())
+            {
+                existingOrder = ReadOrder(reader);
+            }
+            else
+            {
+                existingOrder = null;
+            }
+            conn.Close();
+            return existingOrder;
+        }
+        private Order ReadOrder(SqlDataReader reader)
+        {
+            Order order = new Order
+            {
+                OrderID = (int)reader["order_id"],
+                OrderStatus = (OrderStatus)reader["order_status"],
+                TotalPrice = (decimal)reader["total"],
+                Time = (DateTime)reader["order_time"]
+            };
+            return order;
+        }
+        public List<OrderItem> GetOrderItemsForTable(int orderID)
+        {
+            List<OrderItem> items = new List<OrderItem>();
+            string query = $"SELECT m.article_id,m.price,m.name,m.category_id,m.item_type_id,m.stock,m.VAT ," +
+                $" quantity, item_id, order_time, o.order_id, comment  FROM OrderItems " +
+                $"JOIN menu as m  ON m.article_id = OrderItems.article_id " +
+                $"JOIN [order] AS o ON o.order_id = OrderItems.order_id  WHERE order_status <> 4 AND o.order_id = @id";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", orderID);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                OrderItem item = ReadOrderItems(reader);
+                items.Add(item);
+            }
+            conn.Close();
+            return items;
+            //SqlParameter[] sqlParameters = new SqlParameter[1];
+            //sqlParameters[0] = new SqlParameter("@id", orderID);
+            //return ReadOrderItems(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private OrderItem ReadOrderItems(SqlDataReader reader)
+        {
+            OrderItem order = new OrderItem()
+            {
+                OrderItemID = (int)reader["item_id"],
+                MenuItem = new MenuItem()
+                {
+                    MenuItemID = (int)reader["article_id"],
+                    Name = reader["name"].ToString(),
+                    Price = (decimal)reader["price"],
+                    Stock = (int)reader["stock"],
+                    HighVAT = (bool)reader["VAT"],
+                    Type = (MenuItemType)reader["item_type_id"],
+                    Category = (CategoryID)reader["category_id"]
+                },
+                Quantity = (int)reader["quantity"],
+                Time = (DateTime)reader["order_time"],
+                OrderId = (int)reader["order_id"],
+                Comment = reader["comment"].ToString()
+            };
+            return order;
+        }
     }
 
-    }
+}

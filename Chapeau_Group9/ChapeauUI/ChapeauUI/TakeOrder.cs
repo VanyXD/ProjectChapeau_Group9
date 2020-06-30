@@ -26,6 +26,7 @@ namespace ChapeauUI
         Employee employee;
         Table table;
         Order order; // this needs to be global for the buttons to be able to access it
+
         public TakeOrder(Form passedForm, Employee employee, Table table) // passing Form for future changes, if this form needs to be opened from any other form
         {
             InitializeComponent();
@@ -46,10 +47,29 @@ namespace ChapeauUI
             DisplayMenu(fullMenu);
             lblMenu.Text = "Full Menu";
 
+            btnPrevious.Visible = false;
             txtComment.Enabled = false;
             lblTable.Text = $"#{this.table.TableID}";
             this.Opacity = 1;
             numericUpDownQuantity.Controls[0].Hide();
+            if (ExistingOrder())
+            {
+                btnPrevious.Visible = true;
+                MessageBox.Show("there is a running order for this table, all of the items will be added to the previous order");
+
+            }
+            
+        }
+        private bool ExistingOrder()
+        {
+            Order existingOrder = orderService.GetRunningOrderForTable(this.table.TableID); // get the potential existing order from db
+            if(existingOrder == null) // if it does not have a running order it will return null and order will be new
+            {
+                return false;
+            }
+            //this.order = existingOrder; // else the order of the form will be set to the existing order and can be edited afterwards
+            return true;
+
         }
 
         private void InitializeOrder()
@@ -516,6 +536,15 @@ namespace ChapeauUI
                 numericUpDownQuantity.Value = item.Stock;
             }
 
+
+        }
+
+        private void btnShowPreviousItems_Click(object sender, EventArgs e)
+        {
+            Order existing = orderService.GetRunningOrderForTable(this.table.TableID);
+
+            ExistingOrderItems existingItems = new ExistingOrderItems(existing.OrderItems);
+            existingItems.ShowDialog();
 
         }
     }

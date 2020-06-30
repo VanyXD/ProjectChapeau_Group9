@@ -580,6 +580,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TablesOverview";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tables overview";
             this.Load += new System.EventHandler(this.TablesOverview_Load);
             this.panel4.ResumeLayout(false);

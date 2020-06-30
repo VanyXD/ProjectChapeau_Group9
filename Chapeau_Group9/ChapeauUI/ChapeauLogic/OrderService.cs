@@ -119,6 +119,17 @@ namespace ChapeauLogic
                 throw new Exception("Couldn't connect to the database");
             }
         }
+        public Order GetRunningOrderForTable(int tableNumber)
+        {
+            Order existingOrder = orderdao.GetRunningOrderForTable(tableNumber);
+            if(existingOrder == null)
+            {
+                return null;
+            }
+            existingOrder.OrderItems = orderdao.GetOrderItemsForTable(existingOrder.OrderID);
+
+            return existingOrder;
+        }
     }
 }
 

@@ -146,6 +146,7 @@
             this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.label5);
             this.Name = "ManagerUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManagerUI";
             this.Load += new System.EventHandler(this.ManagerUI_Load);
             this.panel1.ResumeLayout(false);

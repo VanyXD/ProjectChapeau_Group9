@@ -58,7 +58,7 @@
             this.txtComment = new System.Windows.Forms.TextBox();
             this.btnRemoveOrder = new System.Windows.Forms.Button();
             this.lblTable = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrevious = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,8 +76,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnShowPreviousItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.btnPrevious.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
@@ -158,7 +160,7 @@
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelect.ForeColor = System.Drawing.Color.Black;
-            this.btnSelect.Location = new System.Drawing.Point(219, 597);
+            this.btnSelect.Location = new System.Drawing.Point(263, 613);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(120, 45);
             this.btnSelect.TabIndex = 2;
@@ -386,7 +388,7 @@
             // numericUpDownQuantity
             // 
             this.numericUpDownQuantity.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownQuantity.Location = new System.Drawing.Point(219, 547);
+            this.numericUpDownQuantity.Location = new System.Drawing.Point(263, 562);
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
             this.numericUpDownQuantity.Size = new System.Drawing.Size(120, 29);
             this.numericUpDownQuantity.TabIndex = 19;
@@ -398,7 +400,7 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(215, 510);
+            this.label3.Location = new System.Drawing.Point(259, 529);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 19);
@@ -429,7 +431,7 @@
             this.checkBoxComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
             this.checkBoxComment.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxComment.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxComment.Location = new System.Drawing.Point(3, 510);
+            this.checkBoxComment.Location = new System.Drawing.Point(4, 525);
             this.checkBoxComment.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxComment.Name = "checkBoxComment";
             this.checkBoxComment.Size = new System.Drawing.Size(97, 23);
@@ -441,7 +443,7 @@
             // txtComment
             // 
             this.txtComment.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComment.Location = new System.Drawing.Point(3, 546);
+            this.txtComment.Location = new System.Drawing.Point(4, 562);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(207, 96);
@@ -478,20 +480,21 @@
             this.lblTable.MouseLeave += new System.EventHandler(this.lblTable_MouseLeave);
             this.lblTable.MouseHover += new System.EventHandler(this.lblTable_MouseHover);
             // 
-            // panel1
+            // btnPrevious
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
-            this.panel1.Controls.Add(this.lblTotal);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lstvSelected);
-            this.panel1.Controls.Add(this.btnRemoveOrder);
-            this.panel1.Controls.Add(this.btnSendOrder);
-            this.panel1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(579, 44);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(421, 661);
-            this.panel1.TabIndex = 26;
+            this.btnPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.btnPrevious.Controls.Add(this.label15);
+            this.btnPrevious.Controls.Add(this.lblTotal);
+            this.btnPrevious.Controls.Add(this.label4);
+            this.btnPrevious.Controls.Add(this.label2);
+            this.btnPrevious.Controls.Add(this.lstvSelected);
+            this.btnPrevious.Controls.Add(this.btnRemoveOrder);
+            this.btnPrevious.Controls.Add(this.btnSendOrder);
+            this.btnPrevious.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(579, 44);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(421, 661);
+            this.btnPrevious.TabIndex = 26;
             // 
             // lblTotal
             // 
@@ -546,7 +549,7 @@
             this.btnDownArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDownArrow.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDownArrow.ForeColor = System.Drawing.Color.Black;
-            this.btnDownArrow.Location = new System.Drawing.Point(314, 567);
+            this.btnDownArrow.Location = new System.Drawing.Point(358, 582);
             this.btnDownArrow.Name = "btnDownArrow";
             this.btnDownArrow.Size = new System.Drawing.Size(25, 27);
             this.btnDownArrow.TabIndex = 30;
@@ -562,7 +565,7 @@
             this.btnUpArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpArrow.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpArrow.ForeColor = System.Drawing.Color.Black;
-            this.btnUpArrow.Location = new System.Drawing.Point(314, 540);
+            this.btnUpArrow.Location = new System.Drawing.Point(358, 555);
             this.btnUpArrow.Name = "btnUpArrow";
             this.btnUpArrow.Size = new System.Drawing.Size(25, 27);
             this.btnUpArrow.TabIndex = 29;
@@ -710,12 +713,38 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "Deplated";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(20, 587);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(228, 17);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "*Final bill price may differ due to VAT.";
+            // 
+            // btnShowPreviousItems
+            // 
+            this.btnShowPreviousItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.btnShowPreviousItems.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.btnShowPreviousItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowPreviousItems.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowPreviousItems.ForeColor = System.Drawing.Color.Black;
+            this.btnShowPreviousItems.Location = new System.Drawing.Point(436, 692);
+            this.btnShowPreviousItems.Name = "btnShowPreviousItems";
+            this.btnShowPreviousItems.Size = new System.Drawing.Size(134, 29);
+            this.btnShowPreviousItems.TabIndex = 31;
+            this.btnShowPreviousItems.Text = "See Previous Items";
+            this.btnShowPreviousItems.UseVisualStyleBackColor = false;
+            this.btnShowPreviousItems.Click += new System.EventHandler(this.btnShowPreviousItems_Click);
+            // 
             // TakeOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btnShowPreviousItems);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBack);
@@ -723,7 +752,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.lblTable);
             this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
@@ -737,8 +766,8 @@
             this.ResizeBegin += new System.EventHandler(this.TakeOrder_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.TakeOrder_ResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.btnPrevious.ResumeLayout(false);
+            this.btnPrevious.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
@@ -779,7 +808,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.Button btnRemoveOrder;
         private System.Windows.Forms.Label lblTable;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel btnPrevious;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlButtons;
         private System.Windows.Forms.Label label1;
@@ -797,5 +826,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnDownArrow;
         private System.Windows.Forms.Button btnUpArrow;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnShowPreviousItems;
     }
 }

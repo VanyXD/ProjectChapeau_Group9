@@ -398,6 +398,7 @@
             this.Controls.Add(this.BTNAllItems);
             this.Controls.Add(this.BTNLowStock);
             this.Name = "StockUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock";
             this.Load += new System.EventHandler(this.StockUI_Load_1);
             this.pnlAddItem.ResumeLayout(false);
