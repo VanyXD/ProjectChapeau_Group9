@@ -37,9 +37,8 @@ namespace ChapeauDAL
         }
         public void UpdateEmployee(Employee employee)
         {
-            int posID = (int)employee.position;
             string query = $"update employees Set first_name = '{employee.FirstName}', last_name = '{employee.LastName}'," +
-                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.Password},position_id = {posID} WHERE employee_id = {employee.EmployeeID}";
+                $"email = '{employee.Email}', phone = {employee.PhoneNumber}, password = {employee.Password},position_id = {Convert.ToInt32(employee.position)} WHERE employee_id = {employee.EmployeeID}";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             ExecuteEditQuery(query, sqlParameters);
         }
