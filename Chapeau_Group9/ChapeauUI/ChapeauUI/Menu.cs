@@ -13,13 +13,13 @@ using ChapeauDAL;
 
 namespace ChapeauUI
 {
-    public partial class StockUI : Form
+    public partial class Menu : Form
     {
         Employee employee;
         Form previousForm;
         MenuItemService Itemservices = new MenuItemService();
 
-        public StockUI(ManagerUI managerUi, Employee employee)
+        public Menu(ManagerUI managerUi, Employee employee)
         {
             InitializeComponent();
             this.previousForm = managerUi;
@@ -94,7 +94,6 @@ namespace ChapeauUI
             LoadMenuItems(menuItems);
         }
         
-
         private void FillItemDetails(ChapeauModel.MenuItem menuItem)
         {
             cmbCategory.DataSource = Enum.GetValues(typeof(CategoryID));

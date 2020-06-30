@@ -33,10 +33,10 @@
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTablesOverview = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.BTNMenu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,8 +64,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(227)))), ((int)(((byte)(236)))));
+            this.panel1.Controls.Add(this.BTNMenu);
             this.panel1.Controls.Add(this.btnTablesOverview);
-            this.panel1.Controls.Add(this.btnStock);
             this.panel1.Controls.Add(this.btnEmployees);
             this.panel1.Location = new System.Drawing.Point(268, 157);
             this.panel1.Name = "panel1";
@@ -77,7 +77,7 @@
             this.btnTablesOverview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnTablesOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTablesOverview.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTablesOverview.Location = new System.Drawing.Point(133, 305);
+            this.btnTablesOverview.Location = new System.Drawing.Point(133, 304);
             this.btnTablesOverview.Name = "btnTablesOverview";
             this.btnTablesOverview.Size = new System.Drawing.Size(208, 78);
             this.btnTablesOverview.TabIndex = 37;
@@ -85,25 +85,12 @@
             this.btnTablesOverview.UseVisualStyleBackColor = false;
             this.btnTablesOverview.Click += new System.EventHandler(this.btnTablesOverview_Click);
             // 
-            // btnStock
-            // 
-            this.btnStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
-            this.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStock.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStock.Location = new System.Drawing.Point(133, 81);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(208, 78);
-            this.btnStock.TabIndex = 35;
-            this.btnStock.Text = "Stock";
-            this.btnStock.UseVisualStyleBackColor = false;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
-            // 
             // btnEmployees
             // 
             this.btnEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployees.Location = new System.Drawing.Point(133, 193);
+            this.btnEmployees.Location = new System.Drawing.Point(133, 184);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(208, 78);
             this.btnEmployees.TabIndex = 34;
@@ -134,6 +121,19 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // BTNMenu
+            // 
+            this.BTNMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(245)))), ((int)(((byte)(244)))));
+            this.BTNMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTNMenu.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNMenu.Location = new System.Drawing.Point(133, 64);
+            this.BTNMenu.Name = "BTNMenu";
+            this.BTNMenu.Size = new System.Drawing.Size(208, 78);
+            this.BTNMenu.TabIndex = 38;
+            this.BTNMenu.Text = "Menu";
+            this.BTNMenu.UseVisualStyleBackColor = false;
+            this.BTNMenu.Click += new System.EventHandler(this.BTNMenu_Click);
+            // 
             // ManagerUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,10 +160,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnTablesOverview;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button BTNMenu;
     }
 }

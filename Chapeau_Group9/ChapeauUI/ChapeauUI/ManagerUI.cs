@@ -29,22 +29,13 @@ namespace ChapeauUI
         private void ManagerUI_Load(object sender, EventArgs e)
         {
             lblCurrentUser.Text = employee.FirstName;
-
         }
-
        
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             EmployeeUI employeeui = new EmployeeUI(this, employee);
             this.Hide();
             employeeui.Show();
-        }
-
-        private void btnStock_Click(object sender, EventArgs e)
-        {
-            StockUI stockUi = new StockUI(this, employee);
-            this.Hide();
-            stockUi.Show();
         }
 
         private void btnTablesOverview_Click(object sender, EventArgs e)
@@ -60,5 +51,11 @@ namespace ChapeauUI
             logIn.Show();
         }
 
+        private void BTNMenu_Click(object sender, EventArgs e)
+        {
+            Menu menuUI = new Menu(this, employee);
+            this.Hide();
+            menuUI.Show();
+        }
     }
 }

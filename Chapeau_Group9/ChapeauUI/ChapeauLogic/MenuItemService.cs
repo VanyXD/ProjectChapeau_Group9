@@ -117,9 +117,9 @@ namespace ChapeauLogic
                 }
                 menuItemDao.EditMenuItem(item);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw (ex);
+                MessageBox.Show("Couldent connect to database!");
             }
         }
         public void RemoveMenuItem(ChapeauModel.MenuItem item)
@@ -128,13 +128,15 @@ namespace ChapeauLogic
             {
                 menuItemDao.RemoveMenuItem(item);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw (ex);
+                MessageBox.Show("Couldent connect to database!");
             }
         }
         public void AddMenuItem(ChapeauModel.MenuItem item)
         {
+            try
+            {
                 if (item.Category == CategoryID.Beers || item.Category == CategoryID.Wines)
                 {
                     item.HighVAT = true;
@@ -144,11 +146,12 @@ namespace ChapeauLogic
                     item.HighVAT = false;
                 }
                 menuItemDao.AddMenuItem(item);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Couldent connect to database!");
+            }
             
-            //catch(Exception)
-            //{
-            //    throw new Exception("Couldent connect to database!");
-            //}
         }
     }
 }
