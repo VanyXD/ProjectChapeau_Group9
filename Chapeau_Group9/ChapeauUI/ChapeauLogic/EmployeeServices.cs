@@ -22,9 +22,9 @@ namespace ChapeauLogic
                 employees = employee_db.GetAllEmployees();
                 return employees;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Couldn't connect to the database");
+                throw(ex);
                 return employees;
 
             }
@@ -35,9 +35,9 @@ namespace ChapeauLogic
             {
                 employee_db.InsertEmployee(employee);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Couldn't connect to the database");
+                throw(ex);
             }
            
         }
@@ -47,9 +47,9 @@ namespace ChapeauLogic
             {
                 employee_db.DeleteEmployee(employee);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Couldn't connect to the database");
+                throw(ex);
             }
         }
         public void EditEmployee(Employee employee)
@@ -58,9 +58,9 @@ namespace ChapeauLogic
             {
                 employee_db.UpdateEmployee(employee);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Couldn't connect to the database");
+                throw(ex);
             }
 
         }

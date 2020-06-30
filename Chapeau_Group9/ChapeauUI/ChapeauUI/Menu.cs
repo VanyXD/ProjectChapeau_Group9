@@ -25,9 +25,9 @@ namespace ChapeauUI
             this.previousForm = managerUi;
             this.employee = employee;
         }
-        public void LoadMenuItems(List<ChapeauModel.MenuItem> menuItems)
+        public void LoadMenuItems()
         {
-            menuItems = Itemservices.GetMenuItems();
+            List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
             ItemList.Items.Clear();
             if (menuItems != null)
             {
@@ -47,10 +47,9 @@ namespace ChapeauUI
         }
         private void StockUI_Load_1(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
             pnlAddItem.Visible = false;
             lblCurrentUser.Text = employee.FirstName;
-            LoadMenuItems(menuItems);
+            LoadMenuItems();
 
         }
 
@@ -60,6 +59,7 @@ namespace ChapeauUI
             {
                 return;
             }
+
             ModifyUI modUI = new ModifyUI((ChapeauModel.MenuItem)ItemList.SelectedItems[0].Tag);
             DialogResult result = modUI.ShowDialog();
             if (result == DialogResult.Yes)
@@ -90,8 +90,7 @@ namespace ChapeauUI
 
         private void BTNAllItems_Click(object sender, EventArgs e)
         {
-            List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
-            LoadMenuItems(menuItems);
+            LoadMenuItems();
         }
         
         private void FillItemDetails(ChapeauModel.MenuItem menuItem)
@@ -216,8 +215,7 @@ namespace ChapeauUI
                     MessageBox.Show("Item is added!");
                     pnlAddItem.Visible = false;
                 }
-                List<ChapeauModel.MenuItem> menuItems = Itemservices.GetMenuItems();
-                LoadMenuItems(menuItems);
+                LoadMenuItems();
                 ResetFields();
             }
         }
@@ -260,7 +258,7 @@ namespace ChapeauUI
 
         private void BTNHome_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
             previousForm.Show();
         }
     }

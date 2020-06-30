@@ -117,9 +117,9 @@ namespace ChapeauLogic
                 }
                 menuItemDao.EditMenuItem(item);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Couldent connect to database!");
+                throw(ex);
             }
         }
         public void RemoveMenuItem(ChapeauModel.MenuItem item)
@@ -128,9 +128,9 @@ namespace ChapeauLogic
             {
                 menuItemDao.RemoveMenuItem(item);
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("Couldent connect to database!");
+                throw(ex);
             }
         }
         public void AddMenuItem(ChapeauModel.MenuItem item)
@@ -147,9 +147,9 @@ namespace ChapeauLogic
                 }
                 menuItemDao.AddMenuItem(item);
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("Couldent connect to database!");
+                throw(ex);
             }
             
         }
